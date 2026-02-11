@@ -1,8 +1,13 @@
-/* PTC Notes Vault — localStorage notes + premium UI + Word export (.doc)
-   No login. No password bar. GitHub Pages safe. */
+/* PTC Notes Vault — FIXED:
+   - Save button + clear autosave status
+   - New notes always appear (forces Filter=All, clears Search)
+   - Empty state when filters/search hide notes
+   - Grammarly-friendly Text Mode (textarea) + Rich Mode toggle
+   - Fix Pin/Star toast logic
+*/
 
-const STORE_KEY = "ptc_notes_vault_v1";
-const UI_KEY = "ptc_notes_vault_ui_v1";
+const STORE_KEY = "ptc_notes_vault_v2";
+const UI_KEY = "ptc_notes_vault_ui_v2";
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
@@ -10,6 +15,52 @@ const nowISO = () => new Date().toISOString();
 
 function uid() {
   return Math.random().toString(16).slice(2) + "-" + Date.now().toString(16);
+}
+
+function escapeHtml(s) {
+  return String(s ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function debounce(fn, ms = 250) {
+  let t;
+  return (...args) => {
+    clearTimeout(t);
+    t = setTimeout(() => fn(...args), ms);
+  };
+}
+
+/* ---- Storage availability (helps when iOS/private blocks storage) ---- */
+function storageOK() {
+  try {
+    const k = "__ptc_test__";
+    localStorage.setItem(k, "1");
+    localStorage.removeItem(k);
+    return true;
+  } catch {
+    return false;
+  }
+}
+const HAS_STORAGE = storageOK();
+
+/* ---------- Converters (Text <-> HTML) ---------- */
+
+function htmlToText(html) {
+  const div = document.createElement("div");
+  div.innerHTML = html || "";
+  // innerText keeps line breaks better than textContent in many browsers
+  return (div.innerText || "").replace(/\n{3,}/g, "\n\n").trim();
+}
+
+function textToHtml(text) {
+  const t = String(text ?? "").replace(/\r\n/g, "\n");
+  const esc = escapeHtml(t);
+  const paras = esc.split(/\n{2,}/).map(p => p.replace(/\n/g, "<br>"));
+  return paras.map(p => `<p>${p || "<br>"}</p>`).join("");
 }
 
 function stripHtmlToText(html) {
@@ -39,23 +90,6 @@ function toast(type, title, msg) {
   setTimeout(() => el.remove(), 2600);
 }
 
-function escapeHtml(s) {
-  return String(s ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
-function debounce(fn, ms = 250) {
-  let t;
-  return (...args) => {
-    clearTimeout(t);
-    t = setTimeout(() => fn(...args), ms);
-  };
-}
-
 /* ---------- Data ---------- */
 
 function defaultNote() {
@@ -66,25 +100,10 @@ function defaultNote() {
     pinned: false,
     starred: false,
     bodyHtml: "",
+    bodyText: "",
     createdAt: nowISO(),
     updatedAt: nowISO(),
   };
-}
-
-function loadState() {
-  try {
-    const raw = localStorage.getItem(STORE_KEY);
-    if (!raw) return { notes: [welcomeNote()], selectedId: null };
-    const parsed = JSON.parse(raw);
-    if (!parsed?.notes?.length) return { notes: [welcomeNote()], selectedId: null };
-    return parsed;
-  } catch {
-    return { notes: [welcomeNote()], selectedId: null };
-  }
-}
-
-function saveState(state) {
-  localStorage.setItem(STORE_KEY, JSON.stringify(state));
 }
 
 function welcomeNote() {
@@ -92,53 +111,90 @@ function welcomeNote() {
   n.title = "Welcome to PTC Notes Vault";
   n.tags = ["ptc", "notes"];
   n.pinned = true;
-  n.bodyHtml = `
-    <p><b>Local-only notes</b> — everything saves in your browser automatically.</p>
-    <ul>
-      <li><b>New</b> note: Ctrl/⌘ + N</li>
-      <li><b>Command palette</b>: Ctrl/⌘ + K</li>
-      <li><b>Export</b> selected note to Word (.doc)</li>
-      <li><b>Backup</b> / <b>Import</b> JSON for moving to a new computer</li>
-    </ul>
-    <p>Tip: Use tags to group notes (comma separated).</p>
-  `.trim();
+  n.bodyText =
+`This saves locally in your browser automatically.
+
+Key tips:
+- Text Mode = best for Grammarly
+- Rich Mode = formatting buttons
+- Ctrl/⌘ + N = New note
+- Ctrl/⌘ + S = Save now
+- Ctrl/⌘ + K = Command palette`;
+
+  n.bodyHtml = textToHtml(n.bodyText);
   return n;
+}
+
+function loadState() {
+  try {
+    if (!HAS_STORAGE) return { notes: [welcomeNote()], selectedId: null };
+
+    // migrate old keys if needed
+    const old = localStorage.getItem("ptc_notes_vault_v1");
+    const raw = localStorage.getItem(STORE_KEY) || old;
+
+    if (!raw) return { notes: [welcomeNote()], selectedId: null };
+
+    const parsed = JSON.parse(raw);
+    if (!parsed?.notes?.length) return { notes: [welcomeNote()], selectedId: null };
+
+    // ensure bodyText exists
+    parsed.notes = parsed.notes.map(n => ({
+      ...n,
+      bodyText: n.bodyText ?? htmlToText(n.bodyHtml || "")
+    }));
+
+    return parsed;
+  } catch {
+    return { notes: [welcomeNote()], selectedId: null };
+  }
+}
+
+function saveState(state) {
+  if (!HAS_STORAGE) return;
+  localStorage.setItem(STORE_KEY, JSON.stringify(state));
 }
 
 /* ---------- UI State ---------- */
 
-let state = loadState();
-let ui = loadUI();
-let selectedId = state.selectedId || (state.notes[0]?.id ?? null);
-
 function loadUI() {
   try {
+    if (!HAS_STORAGE) return { filter: "all", search: "", editorMode: "text" };
     const raw = localStorage.getItem(UI_KEY);
-    return raw ? JSON.parse(raw) : { filter: "all", search: "" };
+    return raw ? JSON.parse(raw) : { filter: "all", search: "", editorMode: "text" };
   } catch {
-    return { filter: "all", search: "" };
+    return { filter: "all", search: "", editorMode: "text" };
   }
 }
 
 function saveUI() {
+  if (!HAS_STORAGE) return;
   localStorage.setItem(UI_KEY, JSON.stringify(ui));
 }
+
+let state = loadState();
+let ui = loadUI();
+let selectedId = state.selectedId || (state.notes[0]?.id ?? null);
 
 /* ---------- Elements ---------- */
 
 const elList = $("#noteList");
 const elSearch = $("#search");
 const elClearSearch = $("#btnClearSearch");
+
 const elTitle = $("#noteTitle");
 const elTags = $("#noteTags");
 const elTagChips = $("#tagChips");
-const elBody = $("#noteBody");
+
+const elBodyRTE = $("#noteBodyRTE");
+const elBodyText = $("#noteBodyText");
 
 const elMetaCount = $("#metaCount");
 const elStatusLeft = $("#statusLeft");
 const elStatusRight = $("#statusRight");
 
 const btnNew = $("#btnNew");
+const btnSave = $("#btnSave");
 const btnExportWord = $("#btnExportWord");
 const btnExportAllWord = $("#btnExportAllWord");
 const btnExportBackup = $("#btnExportBackup");
@@ -152,15 +208,30 @@ const btnDup = $("#btnDup");
 const btnDel = $("#btnDel");
 const btnClean = $("#btnClean");
 
+const modeText = $("#modeText");
+const modeRich = $("#modeRich");
+const rteBtns = $$(".rteBtn[data-cmd]");
+
 /* Command palette */
 const cmdOverlay = $("#cmdOverlay");
 const cmdInput = $("#cmdInput");
 const cmdList = $("#cmdList");
 const cmdClose = $("#cmdClose");
-
 let cmdIndex = 0;
 
 /* ---------- Helpers ---------- */
+
+function persistNow(showToast = false) {
+  state.selectedId = selectedId;
+  saveState(state);
+  setStatus("Saved");
+  if (showToast) toast("ok", "Saved", "Notes are stored in this browser");
+}
+
+function setStatus(text) {
+  elStatusLeft.textContent = text;
+  elStatusRight.textContent = HAS_STORAGE ? "Autosave on" : "Storage blocked";
+}
 
 function getSelected() {
   return state.notes.find(n => n.id === selectedId) || null;
@@ -169,58 +240,77 @@ function getSelected() {
 function setSelected(id) {
   selectedId = id;
   state.selectedId = id;
-  persist();
+  persistNow(false);
   renderAll();
-  focusEditorSoft();
 }
 
-function persist() {
-  saveState(state);
+function parseTags(raw) {
+  return (raw || "")
+    .split(",")
+    .map(s => s.trim())
+    .filter(Boolean)
+    .slice(0, 18);
 }
 
-const persistDebounced = debounce(() => {
-  state.selectedId = selectedId;
-  persist();
-  setStatus("Saved", true);
-}, 350);
-
-function setStatus(text, ok = true) {
-  elStatusLeft.textContent = text;
-  elStatusRight.textContent = ok ? "Autosave on" : "Check";
-}
-
-function focusEditorSoft() {
-  // Keep UX smooth: focus title if empty, else body
-  const n = getSelected();
-  if (!n) return;
-  if (!n.title || n.title.trim() === "" || n.title === "Untitled note") {
-    elTitle.focus();
-    elTitle.select();
+function renderChips(tags) {
+  elTagChips.innerHTML = "";
+  for (const t of tags) {
+    const chip = document.createElement("div");
+    chip.className = "chip";
+    chip.textContent = t;
+    elTagChips.appendChild(chip);
   }
 }
 
-/* ---------- Rendering ---------- */
+function setEditorMode(mode) {
+  ui.editorMode = mode === "rich" ? "rich" : "text";
+  saveUI();
+
+  modeText.classList.toggle("active", ui.editorMode === "text");
+  modeRich.classList.toggle("active", ui.editorMode === "rich");
+
+  // show/hide editors
+  if (ui.editorMode === "text") {
+    elBodyText.style.display = "block";
+    elBodyRTE.style.display = "none";
+    rteBtns.forEach(b => b.disabled = true);
+    btnClean.disabled = true;
+  } else {
+    elBodyText.style.display = "none";
+    elBodyRTE.style.display = "block";
+    rteBtns.forEach(b => b.disabled = false);
+    btnClean.disabled = false;
+  }
+
+  // sync content for current note
+  const n = getSelected();
+  if (!n) return;
+
+  n.bodyText = n.bodyText ?? htmlToText(n.bodyHtml || "");
+  n.bodyHtml = n.bodyHtml ?? textToHtml(n.bodyText || "");
+
+  elBodyText.value = n.bodyText || "";
+  elBodyRTE.innerHTML = n.bodyHtml || "";
+}
+
+/* ---------- Filtering / Rendering ---------- */
 
 function filteredNotes() {
   const q = (ui.search || "").trim().toLowerCase();
-
   let notes = [...state.notes];
 
-  // Filter tabs
   if (ui.filter === "pinned") notes = notes.filter(n => n.pinned);
   if (ui.filter === "starred") notes = notes.filter(n => n.starred);
 
-  // Search
   if (q) {
     notes = notes.filter(n => {
       const t = (n.title || "").toLowerCase();
       const tags = (n.tags || []).join(",").toLowerCase();
-      const body = stripHtmlToText(n.bodyHtml).toLowerCase();
+      const body = (n.bodyText || stripHtmlToText(n.bodyHtml || "")).toLowerCase();
       return t.includes(q) || tags.includes(q) || body.includes(q);
     });
   }
 
-  // Sort: pinned first, then updated
   notes.sort((a, b) => {
     if (a.pinned !== b.pinned) return a.pinned ? -1 : 1;
     return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
@@ -229,18 +319,47 @@ function filteredNotes() {
   return notes;
 }
 
+function renderSeg() {
+  $$(".segBtn").forEach(b => b.classList.toggle("active", b.dataset.filter === ui.filter));
+}
+
 function renderList() {
   const notes = filteredNotes();
   elList.innerHTML = "";
+
+  if (!notes.length) {
+    elList.innerHTML = `
+      <div class="emptyState">
+        <b>No notes shown.</b><br/>
+        Your filter or search might be hiding them.
+        <div class="emptyActions">
+          <button class="emptyBtn" id="btnShowAll">Show All</button>
+          <button class="emptyBtn" id="btnClearSearch2">Clear Search</button>
+        </div>
+      </div>
+    `;
+    $("#btnShowAll")?.addEventListener("click", () => {
+      ui.filter = "all";
+      saveUI();
+      renderSeg();
+      renderAll();
+    });
+    $("#btnClearSearch2")?.addEventListener("click", () => {
+      ui.search = "";
+      elSearch.value = "";
+      saveUI();
+      renderAll();
+    });
+  }
 
   for (const n of notes) {
     const div = document.createElement("div");
     div.className = `card ${n.id === selectedId ? "active" : ""}`.trim();
 
-    const snippet = stripHtmlToText(n.bodyHtml).slice(0, 110);
+    const snippet = (n.bodyText || stripHtmlToText(n.bodyHtml || "")).slice(0, 110);
     const badges = `
-      ${n.pinned ? `<span class="badge pin">📌</span>` : ""}
-      ${n.starred ? `<span class="badge star">✦</span>` : ""}
+      ${n.pinned ? `<span class="badge">📌</span>` : ""}
+      ${n.starred ? `<span class="badge">✦</span>` : ""}
     `;
 
     div.innerHTML = `
@@ -268,50 +387,36 @@ function renderEditor() {
 
   elTitle.value = n.title || "";
   elTags.value = (n.tags || []).join(", ");
+  renderChips(n.tags || []);
 
-  // Update buttons
   btnPin.textContent = n.pinned ? "📌 Pinned" : "📌 Pin";
   btnStar.textContent = n.starred ? "✦ Starred" : "✦ Star";
 
-  // Body (avoid resetting caret while typing)
-  const current = elBody.innerHTML;
-  if (current !== (n.bodyHtml || "")) {
-    elBody.innerHTML = n.bodyHtml || "";
-  }
+  // ensure both representations exist
+  n.bodyText = n.bodyText ?? htmlToText(n.bodyHtml || "");
+  n.bodyHtml = n.bodyHtml ?? textToHtml(n.bodyText || "");
 
-  renderChips(n.tags || []);
-}
-
-function renderChips(tags) {
-  elTagChips.innerHTML = "";
-  for (const t of tags) {
-    const chip = document.createElement("div");
-    chip.className = "chip";
-    chip.textContent = t;
-    elTagChips.appendChild(chip);
-  }
-}
-
-function renderSeg() {
-  $$(".segBtn").forEach(b => {
-    b.classList.toggle("active", b.dataset.filter === ui.filter);
-  });
+  // fill both, then mode toggle decides which is visible
+  elBodyText.value = n.bodyText || "";
+  elBodyRTE.innerHTML = n.bodyHtml || "";
 }
 
 function renderAll() {
-  // Ensure selected exists
   if (!state.notes.some(n => n.id === selectedId)) {
     selectedId = state.notes[0]?.id ?? null;
     state.selectedId = selectedId;
-    persist();
   }
-
   renderSeg();
   renderList();
   renderEditor();
+  setEditorMode(ui.editorMode || "text");
 }
 
 /* ---------- Mutations ---------- */
+
+const persistDebounced = debounce(() => {
+  persistNow(false);
+}, 350);
 
 function updateSelected(patch) {
   const n = getSelected();
@@ -320,14 +425,22 @@ function updateSelected(patch) {
   Object.assign(n, patch);
   n.updatedAt = nowISO();
   persistDebounced();
-  renderList(); // keep list fresh
+  renderList();
 }
 
 function createNote() {
+  // Force visibility: if user is on Pinned/Starred or has search, new note can “disappear”
+  ui.filter = "all";
+  ui.search = "";
+  saveUI();
+  elSearch.value = "";
+
   const n = defaultNote();
   state.notes.unshift(n);
   setSelected(n.id);
-  toast("ok", "New note", "Created");
+
+  toast("ok", "New note", "Created (Filter reset to All)");
+  setTimeout(() => elList.scrollTo({ top: 0, behavior: "smooth" }), 0);
 }
 
 function deleteSelected() {
@@ -340,7 +453,7 @@ function deleteSelected() {
   state.notes = state.notes.filter(x => x.id !== n.id);
   selectedId = state.notes[0]?.id ?? null;
   state.selectedId = selectedId;
-  persist();
+  persistNow(false);
   renderAll();
   toast("bad", "Deleted", "Note removed");
 }
@@ -349,24 +462,38 @@ function duplicateSelected() {
   const n = getSelected();
   if (!n) return;
 
-  const copy = {
-    ...structuredClone(n),
-    id: uid(),
-    title: `${n.title || "Untitled"} (Copy)`,
-    createdAt: nowISO(),
-    updatedAt: nowISO(),
-  };
+  const copy = JSON.parse(JSON.stringify(n));
+  copy.id = uid();
+  copy.title = `${n.title || "Untitled"} (Copy)`;
+  copy.createdAt = nowISO();
+  copy.updatedAt = nowISO();
+
   state.notes.unshift(copy);
   setSelected(copy.id);
   toast("ok", "Duplicated", "Copy created");
 }
 
-function parseTags(raw) {
-  return (raw || "")
-    .split(",")
-    .map(s => s.trim())
-    .filter(Boolean)
-    .slice(0, 18);
+/* ---------- Rich text actions ---------- */
+
+function execCmd(cmd) {
+  document.execCommand(cmd, false, null);
+  elBodyRTE.focus();
+}
+
+function cleanFormatting() {
+  const html = elBodyRTE.innerHTML || "";
+  const div = document.createElement("div");
+  div.innerHTML = html;
+  div.querySelectorAll("*").forEach(node => {
+    node.removeAttribute("style");
+    node.removeAttribute("class");
+    node.removeAttribute("id");
+  });
+  elBodyRTE.innerHTML = div.innerHTML;
+
+  const text = htmlToText(elBodyRTE.innerHTML);
+  updateSelected({ bodyHtml: elBodyRTE.innerHTML, bodyText: text });
+  toast("ok", "Cleaned", "Formatting normalized");
 }
 
 /* ---------- Export / Import ---------- */
@@ -376,6 +503,7 @@ function buildWordDocHtml(title, notes) {
   const bodyBlocks = notes.map(n => {
     const tags = (n.tags || []).map(t => `<span style="display:inline-block;border:1px solid rgba(0,0,0,.15);padding:3px 8px;border-radius:999px;margin-right:6px;font-size:12px;color:#111;">${escapeHtml(t)}</span>`).join("");
     const when = escapeHtml(formatWhen(n.updatedAt));
+    const html = n.bodyHtml || textToHtml(n.bodyText || "");
     return `
       <div style="margin: 0 0 18px 0; padding: 14px; border: 1px solid rgba(0,0,0,.10); border-radius: 14px;">
         <div style="font-size:18px;font-weight:700;margin-bottom:6px;">${escapeHtml(n.title || "Untitled note")}</div>
@@ -385,12 +513,11 @@ function buildWordDocHtml(title, notes) {
           ${n.starred ? "<span>✦ Starred</span>" : ""}
         </div>
         <div style="margin-bottom:10px;">${tags || ""}</div>
-        <div style="font-size:14px;line-height:1.55;color:#111;">${n.bodyHtml || "<i>(empty)</i>"}</div>
+        <div style="font-size:14px;line-height:1.55;color:#111;">${html || "<i>(empty)</i>"}</div>
       </div>
     `;
   }).join("");
 
-  // MS Word-compatible HTML wrapper (.doc)
   return `
     <html xmlns:o="urn:schemas-microsoft-com:office:office"
           xmlns:w="urn:schemas-microsoft-com:office:word"
@@ -459,15 +586,19 @@ async function importBackupJson(file) {
   try {
     const text = await file.text();
     const parsed = JSON.parse(text);
-
     if (!parsed?.notes || !Array.isArray(parsed.notes)) {
       toast("bad", "Import failed", "Invalid backup format");
       return;
     }
 
-    const mode = confirm("Import mode:\n\nOK = Merge with existing notes\nCancel = Replace everything");
-    if (mode) {
-      // Merge by id, prefer imported values
+    // ensure bodyText exists
+    parsed.notes = parsed.notes.map(n => ({
+      ...n,
+      bodyText: n.bodyText ?? htmlToText(n.bodyHtml || "")
+    }));
+
+    const merge = confirm("Import mode:\n\nOK = Merge with existing notes\nCancel = Replace everything");
+    if (merge) {
       const map = new Map(state.notes.map(n => [n.id, n]));
       for (const n of parsed.notes) map.set(n.id, n);
       state.notes = Array.from(map.values());
@@ -477,11 +608,10 @@ async function importBackupJson(file) {
       toast("ok", "Imported", "Replaced vault from backup");
     }
 
-    // Ensure selection exists
     selectedId = state.selectedId || state.notes[0]?.id || null;
     state.selectedId = selectedId;
 
-    persist();
+    persistNow(false);
     renderAll();
   } catch {
     toast("bad", "Import failed", "Could not read that JSON file");
@@ -494,6 +624,7 @@ async function importBackupJson(file) {
 
 const commands = [
   { key: "new", title: "New note", desc: "Create a new note", run: createNote },
+  { key: "save", title: "Save now", desc: "Force save immediately", run: () => persistNow(true) },
   { key: "export", title: "Export selected to Word", desc: "Download .doc for the selected note", run: exportSelectedToWord },
   { key: "export all", title: "Export all to Word", desc: "Download .doc for all notes", run: exportAllToWord },
   { key: "backup", title: "Export JSON backup", desc: "Download a JSON backup file", run: exportBackupJson },
@@ -502,6 +633,8 @@ const commands = [
   { key: "star", title: "Toggle star", desc: "Star/unstar selected note", run: () => btnStar.click() },
   { key: "duplicate", title: "Duplicate note", desc: "Create a copy of the selected note", run: duplicateSelected },
   { key: "delete", title: "Delete note", desc: "Remove the selected note (danger)", run: deleteSelected },
+  { key: "mode text", title: "Switch to Text Mode", desc: "Best for Grammarly", run: () => setEditorMode("text") },
+  { key: "mode rich", title: "Switch to Rich Mode", desc: "Formatting buttons", run: () => setEditorMode("rich") },
 ];
 
 function openCmd() {
@@ -525,8 +658,8 @@ function renderCmdList() {
   );
 
   cmdIndex = Math.max(0, Math.min(cmdIndex, items.length - 1));
-
   cmdList.innerHTML = "";
+
   items.forEach((c, i) => {
     const div = document.createElement("div");
     div.className = `cmdItem ${i === cmdIndex ? "active" : ""}`.trim();
@@ -541,41 +674,23 @@ function renderCmdList() {
   if (!items.length) {
     const div = document.createElement("div");
     div.className = "cmdItem active";
-    div.innerHTML = `<div class="cmdItemTitle">No matches</div><div class="cmdItemDesc">Try: new, export, backup, reset</div>`;
+    div.innerHTML = `<div class="cmdItemTitle">No matches</div><div class="cmdItemDesc">Try: new, save, export, backup, reset</div>`;
     cmdList.appendChild(div);
   }
 
-  // stash current filtered list for enter handling
   cmdList._items = items;
-}
-
-/* ---------- RTE (Rich Text) ---------- */
-
-function execCmd(cmd) {
-  document.execCommand(cmd, false, null);
-  elBody.focus();
-}
-
-function cleanFormatting() {
-  // Simple, safe cleanup: remove style attributes, keep basic HTML structure
-  const html = elBody.innerHTML || "";
-  const div = document.createElement("div");
-  div.innerHTML = html;
-
-  div.querySelectorAll("*").forEach(node => {
-    node.removeAttribute("style");
-    node.removeAttribute("class");
-    node.removeAttribute("id");
-  });
-
-  elBody.innerHTML = div.innerHTML;
-  updateSelected({ bodyHtml: elBody.innerHTML });
-  toast("ok", "Cleaned", "Formatting normalized");
 }
 
 /* ---------- Events ---------- */
 
 function wire() {
+  if (!HAS_STORAGE) {
+    toast("warn", "Storage blocked", "Open in Safari (not Private) so notes can save.");
+    setStatus("Storage blocked");
+  } else {
+    setStatus("Ready");
+  }
+
   // restore UI
   elSearch.value = ui.search || "";
   renderAll();
@@ -605,8 +720,9 @@ function wire() {
     elSearch.focus();
   });
 
-  // new
+  // new / save
   btnNew.addEventListener("click", createNote);
+  btnSave.addEventListener("click", () => persistNow(true));
 
   // export
   btnExportWord.addEventListener("click", exportSelectedToWord);
@@ -620,16 +736,45 @@ function wire() {
   btnReset.addEventListener("click", () => {
     const ok = confirm("Reset vault?\n\nThis clears ALL notes stored in THIS browser.");
     if (!ok) return;
-    localStorage.removeItem(STORE_KEY);
-    state = loadState();
-    selectedId = state.notes[0]?.id ?? null;
+
+    try {
+      localStorage.removeItem(STORE_KEY);
+      localStorage.removeItem("ptc_notes_vault_v1");
+    } catch {}
+
+    state = { notes: [welcomeNote()], selectedId: null };
+    selectedId = state.notes[0].id;
     state.selectedId = selectedId;
-    persist();
+    persistNow(false);
     renderAll();
     toast("bad", "Reset", "Local vault cleared");
   });
 
-  // editor fields
+  // pin/star/dup/del
+  btnPin.addEventListener("click", () => {
+    const n = getSelected(); if (!n) return;
+    const next = !n.pinned;
+    updateSelected({ pinned: next });
+    renderEditor();
+    toast("ok", "Pin", next ? "Pinned" : "Unpinned");
+  });
+
+  btnStar.addEventListener("click", () => {
+    const n = getSelected(); if (!n) return;
+    const next = !n.starred;
+    updateSelected({ starred: next });
+    renderEditor();
+    toast("ok", "Star", next ? "Starred" : "Unstarred");
+  });
+
+  btnDup.addEventListener("click", duplicateSelected);
+  btnDel.addEventListener("click", deleteSelected);
+
+  // editor mode toggles
+  modeText.addEventListener("click", () => setEditorMode("text"));
+  modeRich.addEventListener("click", () => setEditorMode("rich"));
+
+  // title/tags
   elTitle.addEventListener("input", () => {
     updateSelected({ title: elTitle.value.trim() || "Untitled note" });
   });
@@ -640,35 +785,23 @@ function wire() {
     renderChips(tags);
   });
 
-  elBody.addEventListener("input", () => {
-    updateSelected({ bodyHtml: elBody.innerHTML });
+  // body (TEXT mode input)
+  elBodyText.addEventListener("input", () => {
+    const txt = elBodyText.value || "";
+    updateSelected({ bodyText: txt, bodyHtml: textToHtml(txt) });
   });
 
-  // Pin / Star / Duplicate / Delete
-  btnPin.addEventListener("click", () => {
-    const n = getSelected(); if (!n) return;
-    updateSelected({ pinned: !n.pinned });
-    renderEditor();
-    toast("ok", "Pin", n.pinned ? "Unpinned" : "Pinned");
+  // body (RICH mode input)
+  elBodyRTE.addEventListener("input", () => {
+    const html = elBodyRTE.innerHTML || "";
+    updateSelected({ bodyHtml: html, bodyText: htmlToText(html) });
   });
 
-  btnStar.addEventListener("click", () => {
-    const n = getSelected(); if (!n) return;
-    updateSelected({ starred: !n.starred });
-    renderEditor();
-    toast("ok", "Star", n.starred ? "Unstarred" : "Starred");
-  });
-
-  btnDup.addEventListener("click", duplicateSelected);
-  btnDel.addEventListener("click", deleteSelected);
-
-  // Rich text toolbar
-  $$(".rteBtn[data-cmd]").forEach(b => {
-    b.addEventListener("click", () => execCmd(b.dataset.cmd));
-  });
+  // rich toolbar
+  $$(".rteBtn[data-cmd]").forEach(b => b.addEventListener("click", () => execCmd(b.dataset.cmd)));
   btnClean.addEventListener("click", cleanFormatting);
 
-  // Command palette
+  // command palette
   btnCmd.addEventListener("click", openCmd);
   cmdClose.addEventListener("click", closeCmd);
   cmdOverlay.addEventListener("click", (e) => { if (e.target === cmdOverlay) closeCmd(); });
@@ -686,18 +819,16 @@ function wire() {
     }
   });
 
-  // Keyboard shortcuts
+  // keyboard shortcuts
   window.addEventListener("keydown", (e) => {
     const isMac = navigator.platform.toLowerCase().includes("mac");
     const mod = isMac ? e.metaKey : e.ctrlKey;
 
     if (mod && e.key.toLowerCase() === "k") { e.preventDefault(); openCmd(); return; }
     if (mod && e.key.toLowerCase() === "n") { e.preventDefault(); createNote(); return; }
-    if (mod && e.key.toLowerCase() === "s") { e.preventDefault(); persist(); toast("ok", "Saved", "Vault saved"); return; }
+    if (mod && e.key.toLowerCase() === "s") { e.preventDefault(); persistNow(true); return; }
     if (e.key === "Escape" && cmdOverlay.classList.contains("open")) { e.preventDefault(); closeCmd(); return; }
   });
-
-  setStatus("Ready", true);
 }
 
 /* ---------- Boot ---------- */
