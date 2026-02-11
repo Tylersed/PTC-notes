@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <title>PTC Notes Vault</title>
-
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -26,13 +25,17 @@
       </div>
       <div class="brandText">
         <div class="brandTitle">PTC Notes Vault</div>
-        <div class="brandSub">Local-only • autosave • export-ready</div>
+        <div class="brandSub">Local-only • autosave • Grammarly-friendly Text Mode</div>
       </div>
     </div>
 
     <div class="actions">
       <button class="btn" id="btnNew" title="New note (Ctrl/⌘ + N)">
         <span class="btnIcon">＋</span><span>New</span>
+      </button>
+
+      <button class="btn ghost" id="btnSave" title="Save now (Ctrl/⌘ + S)">
+        <span class="btnIcon">✓</span><span>Save</span>
       </button>
 
       <button class="btn" id="btnExportWord" title="Export selected note to Word (.doc)">
@@ -107,6 +110,13 @@
       <div class="editorBody">
         <div class="rteWrap">
           <div class="rteBar">
+            <div class="modeToggle" role="tablist" aria-label="Editor mode">
+              <button class="modeBtn" id="modeText" type="button" title="Text Mode (best for Grammarly)">Text</button>
+              <button class="modeBtn" id="modeRich" type="button" title="Rich Mode (formatting buttons)">Rich</button>
+            </div>
+
+            <span class="rteSep"></span>
+
             <button class="rteBtn" data-cmd="bold" title="Bold"><b>B</b></button>
             <button class="rteBtn" data-cmd="italic" title="Italic"><i>I</i></button>
             <button class="rteBtn" data-cmd="underline" title="Underline"><u>U</u></button>
@@ -117,8 +127,13 @@
             <button class="rteBtn" id="btnClean" title="Clean formatting">Clean</button>
           </div>
 
-          <div id="noteBody" class="rte" contenteditable="true" spellcheck="true"
-               aria-label="Note editor"></div>
+          <!-- Rich editor (contenteditable) -->
+          <div id="noteBodyRTE" class="rte" contenteditable="true" spellcheck="true"
+               aria-label="Rich note editor"></div>
+
+          <!-- Text editor (textarea) -->
+          <textarea id="noteBodyText" class="rteText" spellcheck="true"
+                    aria-label="Text note editor"></textarea>
         </div>
       </div>
 
@@ -129,10 +144,8 @@
     </section>
   </main>
 
-  <!-- Toasts -->
   <div class="toasts" id="toasts" aria-live="polite" aria-atomic="true"></div>
 
-  <!-- Command Palette -->
   <div class="cmdOverlay" id="cmdOverlay" aria-hidden="true">
     <div class="cmd">
       <div class="cmdTop">
