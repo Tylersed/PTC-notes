@@ -14,6 +14,26 @@
    - Export: Word (.doc), PDF, Read-only HTML
    - Export Redaction mode
    ========================================================== */
+// 🔓 Login/Password bar DISABLED (always open)
+document.addEventListener("DOMContentLoaded", () => {
+  // Remove any lock/login UI if it exists
+  [
+    "#lockBar", "#loginBar", "#authBar",
+    ".lockbar", ".loginbar", ".authbar",
+    ".lock-bar", ".login-bar", ".auth-bar"
+  ].forEach(sel => document.querySelectorAll(sel).forEach(el => el.remove()));
+
+  // Clear any "locked" state
+  document.documentElement.classList.remove("locked");
+  document.body.classList.remove("locked");
+
+  // Force any localStorage unlock flags to true (covers different names)
+  try {
+    localStorage.setItem("ptcUnlocked", "1");
+    localStorage.setItem("ptc_notes_unlocked", "1");
+    localStorage.setItem("PTC_NOTES_UNLOCKED", "1");
+  } catch (e) {}
+});
 
 (() => {
   "use strict";
