@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>PTC Notes Vault</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- PDF Export (client-side) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+  <div class="bg">
+    <div class="bg__layer bg__layer--0"></div>
+    <div class="bg__layer bg__layer--1"></div>
+    <div class="bg__glow"></div>
+    <div class="bg__noise" aria-hidden="true"></div>
+  </div>
+
+  <!-- LOCK SCREEN (Vault Mode) -->
+  <div class="lock" id="lock" hidden>
+    <div class="lock__card glass">
+      <div class="lock__badge">PTC</div>
+      <div class="lock__title">Notes Vault</div>
+      <div class="lock__sub">Vault is locked. Enter your password to unlock.</div>
+
+      <div class="lock__row">
+        <input id="unlockPass" type="password" placeholder="Vault password…" autocomplete="current-password" />
+        <button class="btn btn--primary" id="btnUnlock">Unlock</button>
+      </div>
+
+      <div class="lock__meta">
+        <button class="btn btn--ghost" id="btnVaultWipe" title="Wipes encrypted vault data from this browser">Wipe Vault Data</button>
+        <span class="muted">Local-only • No server • Uses AES-GCM</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="app" id="app" hidden>
+    <!-- TOP BAR -->
+    <header class="topbar glass">
+      <div class="brand">
+        <div class="brand__mark" aria-hidden="true"><span>PTC</span></div>
+        <div class="brand__text">
+          <div class="brand__title">Notes Vault</div>
+          <div class="brand__sub" id="subline">Saved locally in this browser • Backup recommended</div>
+        </div>
+      </div>
+
+      <div class="topbar__center">
+        <div class="search">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16Zm11 3-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <input id="searchInput" type="text" placeholder="Search notes… (title, tags, content)" autocomplete="off" />
+          <kbd class="kbd">⌘K</kbd>
+        </div>
+      </div>
+
+      <div class="topbar__actions">
+        <button class="btn btn--ghost" id="btnSpotlight" title="Spotlight (Ctrl/Cmd+K)">
+          <span class="dot"></span> Spotlight
+        </button>
+
+        <button class="btn btn--primary" id="btnNew" title="New note (Ctrl/Cmd+N)">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          New
+        </button>
+
+        <button class="btn" id="btnTemplate" title="New from template">
+          Template
+        </button>
+
+        <button class="btn" id="btnExport" title="Export (Word/PDF/HTML)">
+          Export
+        </button>
+
+        <button class="btn" id="btnBackup" title="Backup / Restore JSON">
+          Backup
+        </button>
+
+        <button class="btn" id="btnSplit" title="Toggle split view">
+          Split
+        </button>
+
+        <button class="btn" id="btnVault" title="Vault settings / lock">
+          Vault
+        </button>
+
+        <button class="btn" id="btnSettings" title="Settings">
+          Settings
+        </button>
+      </div>
+    </header>
+
+    <main class="shell">
+      <!-- LEFT NAV + LIST -->
+      <aside class="sidebar glass">
+        <div class="nav">
+          <button class="navbtn is-active" id="navNotes">Notes</button>
+          <button class="navbtn" id="navDashboard">Dashboard</button>
+          <button class="navbtn" id="navTasks">Tasks</button>
+          <button class="navbtn" id="navTimeline">Timeline</button>
+        </div>
+
+        <div class="sidebar__head">
+          <div class="sidebar__title">Your Notes</div>
+          <div class="sidebar__meta" id="noteCount">—</div>
+        </div>
+
+        <div class="sidebar__filters">
+          <button class="chip is-active" id="chipAll">All</button>
+          <button class="chip" id="chipPinned">Pinned</button>
+          <button class="chip" id="chipRecent">Recent</button>
+        </div>
+
+        <div class="list" id="noteList" role="list"></div>
+
+        <div class="sidebar__foot">
+          <div class="hint">
+            Tip: Bookmark this page in your browser bar for 1-click access.
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN STAGE -->
+      <section class="stage">
+        <!-- VIEW: NOTES (tabs + editor panes) -->
+        <section class="view view--notes" id="viewNotes">
+          <div class="tabs glass" id="tabsBar">
+            <div class="tabs__group" id="tabsLeft"></div>
+            <div class="tabs__divider" id="tabsDivider" hidden></div>
+            <div class="tabs__group" id="tabsRight" hidden></div>
+          </div>
+
+          <div class="panes" id="panes">
+            <!-- Pane Left -->
+            <section class="pane glass" id="paneLeft">
+              <div class="pane__top">
+                <input id="titleInputL" class="title" type="text" placeholder="Untitled note…" maxlength="120" />
+                <div class="meta">
+                  <span class="meta__pill" id="metaStatusL">Ready</span>
+                  <span class="meta__pill" id="metaUpdatedL">—</span>
+                </div>
+              </div>
+
+              <div class="toolbar" data-pane="L" role="toolbar" aria-label="Formatting toolbar">
+                <button class="iconbtn" data-cmd="bold" title="Bold (Ctrl/Cmd+B)"><strong>B</strong></button>
+                <button class="iconbtn" data-cmd="italic" title="Italic (Ctrl/Cmd+I)"><em>I</em></button>
+                <button class="iconbtn" data-cmd="underline" title="Underline (Ctrl/Cmd+U)"><u>U</u></button>
+
+                <div class="toolbar__sep"></div>
+
+                <button class="iconbtn" data-action="bullets" title="Bullets">• List</button>
+                <button class="iconbtn" data-action="numbers" title="Numbered">1. List</button>
+                <button class="iconbtn" data-action="checklist" title="Checklist">☑</button>
+                <button class="iconbtn" data-action="h2" title="Heading">H2</button>
+                <button class="iconbtn" data-action="code" title="Code block">{"{}"}</button>
+                <button class="iconbtn" data-action="table" title="Insert table">Table</button>
+                <button class="iconbtn" data-action="callout" title="Callout">Callout</button>
+
+                <div class="toolbar__sep"></div>
+
+                <button class="iconbtn" data-action="link" title="Insert link">Link</button>
+                <button class="iconbtn" data-action="clear" title="Clear formatting">Clear</button>
+
+                <div class="toolbar__spacer"></div>
+
+                <button class="iconbtn" data-action="gallery" title="Open image gallery">Gallery</button>
+                <button class="iconbtn" data-action="history" title="Version history">History</button>
+                <button class="iconbtn" data-action="pin" title="Pin/unpin">Pin</button>
+                <button class="iconbtn danger" data-action="delete" title="Delete">Delete</button>
+              </div>
+
+              <div class="tags">
+                <div class="tags__label">Tags</div>
+                <div class="tags__row" id="tagRowL"></div>
+                <div class="tags__add">
+                  <input id="tagInputL" type="text" placeholder="Add a tag and press Enter…" maxlength="24" />
+                </div>
+                <div class="tags__suggest" id="tagSuggestL"></div>
+              </div>
+
+              <div class="paper" id="paperL">
+                <div id="editorBodyL" class="body" contenteditable="true" spellcheck="true" aria-label="Note content"></div>
+                <div class="body__placeholder" id="bodyPlaceholderL">Start typing… paste images, text, bullets — everything autosaves locally.</div>
+              </div>
+            </section>
+
+            <!-- Pane Right (split view) -->
+            <section class="pane glass" id="paneRight" hidden>
+              <div class="pane__top">
+                <input id="titleInputR" class="title" type="text" placeholder="Untitled note…" maxlength="120" />
+                <div class="meta">
+                  <span class="meta__pill" id="metaStatusR">Ready</span>
+                  <span class="meta__pill" id="metaUpdatedR">—</span>
+                </div>
+              </div>
+
+              <div class="toolbar" data-pane="R" role="toolbar" aria-label="Formatting toolbar">
+                <button class="iconbtn" data-cmd="bold" title="Bold (Ctrl/Cmd+B)"><strong>B</strong></button>
+                <button class="iconbtn" data-cmd="italic" title="Italic (Ctrl/Cmd+I)"><em>I</em></button>
+                <button class="iconbtn" data-cmd="underline" title="Underline (Ctrl/Cmd+U)"><u>U</u></button>
+
+                <div class="toolbar__sep"></div>
+
+                <button class="iconbtn" data-action="bullets">• List</button>
+                <button class="iconbtn" data-action="numbers">1. List</button>
+                <button class="iconbtn" data-action="checklist">☑</button>
+                <button class="iconbtn" data-action="h2">H2</button>
+                <button class="iconbtn" data-action="code">{"{}"}</button>
+                <button class="iconbtn" data-action="table">Table</button>
+                <button class="iconbtn" data-action="callout">Callout</button>
+
+                <div class="toolbar__sep"></div>
+
+                <button class="iconbtn" data-action="link">Link</button>
+                <button class="iconbtn" data-action="clear">Clear</button>
+
+                <div class="toolbar__spacer"></div>
+
+                <button class="iconbtn" data-action="gallery">Gallery</button>
+                <button class="iconbtn" data-action="history">History</button>
+                <button class="iconbtn" data-action="pin">Pin</button>
+                <button class="iconbtn danger" data-action="delete">Delete</button>
+              </div>
+
+              <div class="tags">
+                <div class="tags__label">Tags</div>
+                <div class="tags__row" id="tagRowR"></div>
+                <div class="tags__add">
+                  <input id="tagInputR" type="text" placeholder="Add a tag and press Enter…" maxlength="24" />
+                </div>
+                <div class="tags__suggest" id="tagSuggestR"></div>
+              </div>
+
+              <div class="paper" id="paperR">
+                <div id="editorBodyR" class="body" contenteditable="true" spellcheck="true" aria-label="Note content"></div>
+                <div class="body__placeholder" id="bodyPlaceholderR">Split view — keep two notes open side-by-side.</div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <!-- VIEW: DASHBOARD -->
+        <section class="view" id="viewDashboard" hidden>
+          <div class="panel glass">
+            <div class="panel__title">Dashboard</div>
+            <div class="panel__grid">
+              <div class="card glass">
+                <div class="card__t">Pinned</div>
+                <div class="card__list" id="dashPinned"></div>
+              </div>
+              <div class="card glass">
+                <div class="card__t">Recent</div>
+                <div class="card__list" id="dashRecent"></div>
+              </div>
+              <div class="card glass">
+                <div class="card__t">Top Tags</div>
+                <div class="card__list" id="dashTags"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW: TASKS -->
+        <section class="view" id="viewTasks" hidden>
+          <div class="panel glass">
+            <div class="panel__title">Action Items</div>
+            <div class="tasks__controls">
+              <input id="taskSearch" type="text" placeholder="Search tasks…" />
+              <select id="taskFilter">
+                <option value="open">Open</option>
+                <option value="all">All</option>
+                <option value="done">Done</option>
+                <option value="due">Due soon</option>
+              </select>
+              <button class="btn" id="btnTaskRefresh">Refresh</button>
+            </div>
+            <div class="tasks__list" id="taskList"></div>
+          </div>
+        </section>
+
+        <!-- VIEW: TIMELINE -->
+        <section class="view" id="viewTimeline" hidden>
+          <div class="panel glass">
+            <div class="panel__title">Timeline</div>
+            <div class="timeline" id="timeline"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="toasts" id="toasts" aria-live="polite" aria-atomic="true"></div>
+  </div>
+
+  <!-- SPOTLIGHT -->
+  <div class="overlay" id="overlay" hidden>
+    <div class="palette glass" role="dialog" aria-modal="true" aria-label="Spotlight">
+      <div class="palette__top">
+        <input id="palInput" type="text" placeholder="Type to search notes or run commands… (new, export, split, vault, template)" autocomplete="off" />
+        <kbd class="kbd">ESC</kbd>
+      </div>
+      <div class="palette__tabs">
+        <button class="chip is-active" id="palTabAll">All</button>
+        <button class="chip" id="palTabNotes">Notes</button>
+        <button class="chip" id="palTabCmds">Commands</button>
+      </div>
+      <div class="palette__list" id="palList"></div>
+    </div>
+  </div>
+
+  <!-- MODALS -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__card glass" id="modalCard"></div>
+  </div>
+
+  <!-- Hidden file input -->
+  <input type="file" id="importFile" accept="application/json" hidden />
+
+  <script src="app.js"></script>
+</body>
+</html>
