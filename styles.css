@@ -711,3 +711,9 @@ body{
 @media (prefers-reduced-motion: reduce){
   *{animation: none !important; transition: none !important}
 }
+/* 🔓 Login/Password bar DISABLED */
+#lockBar, #loginBar, #authBar,
+.lockbar, .loginbar, .authbar,
+.lock-bar, .login-bar, .auth-bar {
+  display: none !important;
+}
