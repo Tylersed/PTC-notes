@@ -1,6 +1,3 @@
-Index · HTML
-Copy
-
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
@@ -11,12 +8,12 @@ Copy
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
- 
+
 /* ═══════════════════════════════════════════
    TOKENS
 ═══════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
 :root {
   --black:    #000000;
   --iron-ore: #222422;
@@ -25,7 +22,7 @@ Copy
   --ease:     cubic-bezier(0.22, 1, 0.36, 1);
   --spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
 }
- 
+
 /* ── LIGHT (magazine default) ── */
 [data-theme="light"] {
   --bg:              var(--ivory);
@@ -54,7 +51,7 @@ Copy
   --dot-active:      var(--iron-ore);
   --footer-border:   rgba(34,36,34,0.08);
 }
- 
+
 /* ── DARK ── */
 [data-theme="dark"] {
   --bg:              #141614;
@@ -83,12 +80,12 @@ Copy
   --dot-active:      var(--ivory);
   --footer-border:   rgba(245,244,239,0.07);
 }
- 
+
 /* ═══════════════════════════════════════════
    BASE
 ═══════════════════════════════════════════ */
 html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
- 
+
 body {
   font-family: 'Geist', system-ui, sans-serif;
   background: var(--bg);
@@ -97,7 +94,7 @@ body {
   overflow-x: hidden;
   transition: background 0.5s var(--ease), color 0.5s var(--ease);
 }
- 
+
 /* ═══════════════════════════════════════════
    NAV
 ═══════════════════════════════════════════ */
@@ -115,7 +112,7 @@ nav {
   -webkit-backdrop-filter: saturate(180%) blur(24px);
   transition: background 0.5s var(--ease), border-color 0.5s var(--ease);
 }
- 
+
 .nav-inner {
   width: 100%;
   max-width: 1500px;
@@ -124,7 +121,7 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
- 
+
 .wordmark { line-height: 1; cursor: default; }
 .wordmark-name {
   font-family: 'Cormorant Garamond', serif;
@@ -143,7 +140,7 @@ nav {
   margin-top: 2px;
   transition: color 0.5s;
 }
- 
+
 .nav-label {
   font-size: 10px;
   font-weight: 700;
@@ -152,7 +149,7 @@ nav {
   color: var(--text-3);
   transition: color 0.5s;
 }
- 
+
 /* theme toggle */
 .theme-pill {
   display: flex;
@@ -179,7 +176,7 @@ nav {
   color: var(--text);
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
- 
+
 /* ═══════════════════════════════════════════
    HERO
 ═══════════════════════════════════════════ */
@@ -188,7 +185,7 @@ nav {
   margin: 0 auto;
   padding: 72px 48px 56px;
 }
- 
+
 .hero-eyebrow {
   font-size: 9px;
   font-weight: 700;
@@ -200,7 +197,7 @@ nav {
   animation: up 0.7s var(--ease) 0.05s both;
   transition: color 0.5s;
 }
- 
+
 .hero-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(48px, 5.5vw, 88px);
@@ -218,7 +215,7 @@ nav {
   color: var(--text-2);
   transition: color 0.5s;
 }
- 
+
 .hero-rule {
   width: 48px;
   height: 1px;
@@ -228,7 +225,7 @@ nav {
   animation: up 0.7s var(--ease) 0.19s both;
   transition: background 0.5s;
 }
- 
+
 .hero-desc {
   font-size: 15px;
   color: var(--text-2);
@@ -238,12 +235,12 @@ nav {
   animation: up 0.7s var(--ease) 0.25s both;
   transition: color 0.5s;
 }
- 
+
 @keyframes up {
   from { opacity:0; transform:translateY(20px); }
   to   { opacity:1; transform:translateY(0); }
 }
- 
+
 /* ═══════════════════════════════════════════
    SHELF SECTION LABEL
 ═══════════════════════════════════════════ */
@@ -252,7 +249,7 @@ nav {
   margin: 0 auto;
   padding: 0 48px 100px;
 }
- 
+
 .shelf-label {
   font-size: 9px;
   font-weight: 700;
@@ -264,7 +261,7 @@ nav {
   margin-bottom: 32px;
   transition: color 0.5s, border-color 0.5s;
 }
- 
+
 /* ═══════════════════════════════════════════
    MAGAZINE SHELF — horizontal rows
 ═══════════════════════════════════════════ */
@@ -273,7 +270,7 @@ nav {
   flex-direction: column;
   gap: 20px;
 }
- 
+
 /* Each row is a magazine cover card */
 .mag-card {
   display: flex;
@@ -294,7 +291,7 @@ nav {
     border-color 0.5s var(--ease);
   min-height: 110px;
 }
- 
+
 /* Stagger */
 .mag-card:nth-child(1)  { animation-delay: 0.10s; }
 .mag-card:nth-child(2)  { animation-delay: 0.15s; }
@@ -306,13 +303,13 @@ nav {
 .mag-card:nth-child(8)  { animation-delay: 0.45s; }
 .mag-card:nth-child(9)  { animation-delay: 0.50s; }
 .mag-card:nth-child(10) { animation-delay: 0.55s; }
- 
+
 .mag-card:hover {
   box-shadow: var(--card-shadow-hov);
   transform: translateY(-5px) translateX(3px);
 }
 .mag-card:active { transform: translateY(-2px) scale(0.995); }
- 
+
 /* Spine — left colored bar like a book spine */
 .mag-spine {
   width: 52px;
@@ -325,7 +322,7 @@ nav {
   position: relative;
   transition: background 0.5s var(--ease);
 }
- 
+
 .mag-spine-num {
   font-family: 'Cormorant Garamond', serif;
   font-size: 13px;
@@ -338,7 +335,7 @@ nav {
   opacity: 0.55;
   transition: color 0.5s;
 }
- 
+
 /* Spine icon circle */
 .spine-icon {
   position: absolute;
@@ -346,7 +343,7 @@ nav {
   font-size: 18px;
   line-height: 1;
 }
- 
+
 /* Main card body */
 .mag-body {
   flex: 1;
@@ -356,9 +353,9 @@ nav {
   gap: 24px;
   min-width: 0;
 }
- 
+
 .mag-info { flex: 1; min-width: 0; }
- 
+
 .mag-type {
   font-size: 9px;
   font-weight: 700;
@@ -368,7 +365,7 @@ nav {
   margin-bottom: 7px;
   transition: color 0.5s;
 }
- 
+
 .mag-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 26px;
@@ -379,14 +376,14 @@ nav {
   margin-bottom: 7px;
   transition: color 0.5s;
 }
- 
+
 .mag-desc {
   font-size: 13px;
   color: var(--text-2);
   line-height: 1.6;
   transition: color 0.5s;
 }
- 
+
 /* Right section */
 .mag-right {
   display: flex;
@@ -396,7 +393,7 @@ nav {
   gap: 16px;
   flex-shrink: 0;
 }
- 
+
 .mag-badge {
   font-size: 9px;
   font-weight: 700;
@@ -408,7 +405,7 @@ nav {
   border-radius: 6px;
   transition: background 0.5s, color 0.5s;
 }
- 
+
 .mag-arrow {
   width: 36px; height: 36px;
   border-radius: 50%;
@@ -431,7 +428,7 @@ nav {
 .mag-arrow-icon { transition: stroke 0.3s; stroke: var(--text-3); }
 .mag-card:hover .mag-arrow-icon { stroke: var(--ivory); }
 [data-theme="dark"] .mag-card:hover .mag-arrow-icon { stroke: var(--iron-ore); }
- 
+
 /* Page turn effect line */
 .mag-card::before {
   content: '';
@@ -447,7 +444,7 @@ nav {
 [data-theme="dark"] .mag-card::before {
   background: linear-gradient(to right, transparent, rgba(245,244,239,0.03));
 }
- 
+
 /* ═══════════════════════════════════════════
    VIEWER OVERLAY
 ═══════════════════════════════════════════ */
@@ -462,7 +459,7 @@ nav {
   flex-direction: column;
 }
 .overlay.open { opacity: 1; pointer-events: all; }
- 
+
 .overlay-scrim {
   position: absolute;
   inset: 0;
@@ -470,7 +467,7 @@ nav {
   backdrop-filter: blur(18px) saturate(120%);
   -webkit-backdrop-filter: blur(18px) saturate(120%);
 }
- 
+
 .viewer-sheet {
   position: relative;
   z-index: 1;
@@ -489,7 +486,7 @@ nav {
   transition: transform 0.45s var(--ease), background 0.5s, border-color 0.5s;
 }
 .overlay.open .viewer-sheet { transform: scale(1) translateY(0); }
- 
+
 /* Sheet bar */
 .sheet-bar {
   height: 56px;
@@ -502,9 +499,9 @@ nav {
   gap: 10px;
   transition: background 0.5s, border-color 0.5s;
 }
- 
+
 .bar-left { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
- 
+
 .bar-badge {
   font-size: 9px;
   font-weight: 700;
@@ -517,7 +514,7 @@ nav {
   flex-shrink: 0;
   transition: background 0.5s, color 0.5s;
 }
- 
+
 .bar-title {
   font-size: 14px;
   font-weight: 500;
@@ -527,9 +524,9 @@ nav {
   text-overflow: ellipsis;
   transition: color 0.5s;
 }
- 
+
 .bar-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
- 
+
 .bar-btn {
   width: 34px; height: 34px;
   border-radius: 50%;
@@ -550,7 +547,7 @@ nav {
 .bar-btn:disabled { opacity: 0.25; cursor: not-allowed; }
 .bar-btn:disabled:hover { background: transparent; border-color: var(--border-mid); }
 .bar-btn:disabled:hover svg { stroke: var(--text-2); }
- 
+
 .bar-counter {
   font-size: 11px;
   font-weight: 500;
@@ -559,7 +556,7 @@ nav {
   text-align: center;
   transition: color 0.5s;
 }
- 
+
 .bar-open {
   display: flex;
   align-items: center;
@@ -593,7 +590,7 @@ nav {
   background: var(--white);
   box-shadow: 0 6px 20px rgba(0,0,0,0.50);
 }
- 
+
 .bar-close {
   width: 34px; height: 34px;
   border-radius: 50%;
@@ -610,7 +607,7 @@ nav {
   flex-shrink: 0;
 }
 .bar-close:hover { background: #ff3b30; border-color: #ff3b30; color: white; }
- 
+
 /* Stage */
 .sheet-stage {
   flex: 1;
@@ -619,7 +616,7 @@ nav {
   background: var(--bg-deep);
   transition: background 0.5s;
 }
- 
+
 .sheet-frame {
   position: absolute;
   inset: 0;
@@ -631,7 +628,7 @@ nav {
 .sheet-frame.show { opacity: 1; transform: none !important; }
 .sheet-frame.from-right { transform: translateX(60px); }
 .sheet-frame.from-left  { transform: translateX(-60px); }
- 
+
 /* Loader */
 .sheet-loader {
   position: absolute;
@@ -656,7 +653,7 @@ nav {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 .spin-txt { font-size: 12px; color: var(--text-3); letter-spacing: 0.06em; transition: color 0.5s; }
- 
+
 /* Dots */
 .sheet-dots {
   display: flex;
@@ -683,7 +680,7 @@ nav {
   border-radius: 3px;
 }
 .sdot:hover:not(.on) { transform: scale(1.35); opacity: 0.7; }
- 
+
 /* ═══════════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════════ */
@@ -710,7 +707,7 @@ footer {
   transition: color 0.5s;
 }
 .footer-copy { font-size: 11px; color: var(--text-3); transition: color 0.5s; }
- 
+
 /* ═══════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════ */
@@ -728,14 +725,142 @@ footer {
   .viewer-sheet { width: calc(100% - 16px); height: calc(100vh - 16px); margin: 8px auto; border-radius: 14px; }
   footer { padding: 20px; }
 }
- 
+
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   footer { padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
 }
+
+/* ═══════════════════════════════════════════
+   SUB-MENU PICKER (shown inside viewer sheet)
+═══════════════════════════════════════════ */
+.sub-picker {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 48px;
+  gap: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s var(--ease);
+  overflow-y: auto;
+}
+.sub-picker.show { opacity: 1; pointer-events: all; }
+
+.sub-picker-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.01em;
+  margin-bottom: 8px;
+  text-align: center;
+  transition: color 0.5s;
+}
+.sub-picker-sub {
+  font-size: 13px;
+  color: var(--text-2);
+  margin-bottom: 20px;
+  text-align: center;
+  transition: color 0.5s;
+}
+
+.sub-item {
+  width: 100%;
+  max-width: 560px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: var(--card-shadow);
+  transition:
+    transform 0.28s var(--ease),
+    box-shadow 0.28s var(--ease),
+    background 0.5s,
+    border-color 0.5s;
+}
+.sub-item:hover {
+  transform: translateY(-3px) translateX(2px);
+  box-shadow: var(--card-shadow-hov);
+}
+.sub-item:active { transform: scale(0.98); }
+
+.sub-item-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: var(--iron-ore);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  transition: background 0.5s;
+}
+[data-theme="dark"] .sub-item-icon {
+  background: rgba(245,244,239,0.10);
+  border: 1px solid var(--border);
+}
+
+.sub-item-info { flex: 1; min-width: 0; }
+.sub-item-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.01em;
+  transition: color 0.5s;
+}
+.sub-item-desc {
+  font-size: 12px;
+  color: var(--text-2);
+  margin-top: 3px;
+  transition: color 0.5s;
+}
+
+.sub-item-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  padding: 4px 10px;
+  border-radius: 5px;
+  flex-shrink: 0;
+  transition: background 0.5s, color 0.5s;
+}
+
+/* back button in bar */
+.bar-back {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  border: 1px solid var(--border-mid);
+  padding: 7px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s var(--ease);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.bar-back.show { display: flex; }
+.bar-back:hover { background: var(--bg-deep); color: var(--text); }
 </style>
 </head>
 <body>
- 
+
 <!-- ════════ NAV ════════ -->
 <nav>
   <div class="nav-inner">
@@ -743,16 +868,16 @@ footer {
       <div class="wordmark-name">Peachtree</div>
       <div class="wordmark-sub">Town &amp; Country</div>
     </div>
- 
+
     <div class="nav-label">Advisor Resource Center</div>
- 
+
     <div class="theme-pill" onclick="toggleTheme()">
       <div class="tp-opt on" id="tpLight">☀︎ &nbsp;Day</div>
       <div class="tp-opt" id="tpDark">◗ &nbsp;Night</div>
     </div>
   </div>
 </nav>
- 
+
 <!-- ════════ HERO ════════ -->
 <div class="hero">
   <div class="hero-eyebrow">Peachtree Town &amp; Country — Internal</div>
@@ -760,7 +885,7 @@ footer {
   <div class="hero-rule"></div>
   <p class="hero-desc">Every tool, guide, and asset you need — all in one place. Select any resource below to open it full screen.</p>
 </div>
- 
+
 <!-- ════════ SHELF ════════ -->
 <div class="shelf-wrap">
   <div class="shelf-label">All Resources</div>
@@ -768,7 +893,7 @@ footer {
     <!-- cards injected by JS -->
   </div>
 </div>
- 
+
 <!-- ════════ FOOTER ════════ -->
 <footer>
   <div class="footer-inner">
@@ -776,18 +901,24 @@ footer {
     <div class="footer-copy">Internal Use Only &nbsp;·&nbsp; &copy; 2026</div>
   </div>
 </footer>
- 
+
 <!-- ════════ VIEWER OVERLAY ════════ -->
 <div class="overlay" id="overlay">
   <div class="overlay-scrim" onclick="closeViewer()"></div>
   <div class="viewer-sheet">
- 
+
     <div class="sheet-bar">
       <div class="bar-left">
         <div class="bar-badge" id="barBadge">Guide</div>
         <div class="bar-title" id="barTitle">Resource</div>
       </div>
       <div class="bar-right">
+        <button class="bar-back" id="barBack" onclick="goBackToSubMenu()">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+            <path d="M7 2L3 5.5 7 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back
+        </button>
         <button class="bar-btn" id="btnPrev" onclick="step(-1)" title="Previous">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
             <path d="M8.5 2L4 6.5l4.5 4.5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
@@ -808,20 +939,25 @@ footer {
         <button class="bar-close" onclick="closeViewer()" title="Close">×</button>
       </div>
     </div>
- 
+
     <div class="sheet-stage" id="sheetStage">
       <div class="sheet-loader" id="sheetLoader">
         <div class="spin"></div>
         <div class="spin-txt">Loading resource…</div>
       </div>
       <iframe class="sheet-frame" id="sheetFrame" allowfullscreen></iframe>
+      <div class="sub-picker" id="subPicker">
+        <div class="sub-picker-title" id="subPickerTitle">Brand Collateral</div>
+        <div class="sub-picker-sub" id="subPickerSub">Select a resource to view</div>
+        <!-- sub items injected by JS -->
+      </div>
     </div>
- 
+
     <div class="sheet-dots" id="sheetDots"></div>
- 
+
   </div>
 </div>
- 
+
 <script>
 /* ═══════════════════════════════════════════════════════
    ▶▶  RESOURCE CONFIGURATION
@@ -830,34 +966,80 @@ footer {
    share link. Make sure sharing is set to:
    "Anyone with the link can view"
 ═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════
+   ▶▶  RESOURCE CONFIGURATION
+   ───────────────────────────────────────────────────────
+   url:      top-level Google Drive folder/file link
+   children: sub-resources inside this category.
+             Each child can have its own children array
+             for a second level (e.g. Buyers Guide → 2 files)
+═══════════════════════════════════════════════════════ */
 const RESOURCES = [
   {
     label: "Brand Collateral",
     desc:  "Logos, approved files, and branded collateral assets",
     icon:  "🎨",
-    type:  "Assets",
-    url:   "https://drive.google.com/drive/folders/1RI0gxifMwDRnykzTXQ5zzMwOq8nSGV8n?usp=drive_link"
+    type:  "Folder",
+    url:   "https://drive.google.com/drive/folders/1RI0gxifMwDRnykzTXQ5zzMwOq8nSGV8n?usp=drive_link",
+    children: [
+      {
+        label: "Buyers Guide",
+        desc:  "Buyer presentation guides for client meetings",
+        icon:  "📘",
+        type:  "Guide",
+        children: [
+          {
+            label: "Buyers Guide — Version 1",
+            desc:  "",
+            icon:  "📄",
+            type:  "PDF",
+            url:   "https://drive.google.com/file/d/1zdIYSU2F79WhXbkRr-cQUhr1ZFJnDcDU/view?usp=sharing"
+          },
+          {
+            label: "Buyers Guide — Version 2",
+            desc:  "",
+            icon:  "📄",
+            type:  "PDF",
+            url:   "https://drive.google.com/file/d/1aWjPfY6_KDKMBYCDtz99GscFn7C0aVHD/view?usp=drive_link"
+          }
+        ]
+      },
+      {
+        label: "Listing Presentation",
+        desc:  "Seller listing presentation deck",
+        icon:  "🏡",
+        type:  "Slides",
+        url:   "https://drive.google.com/drive/folders/1OcJxnTbe1lmDa5HVHWYcouvFcj4ZUSPw?usp=drive_link"
+      },
+      {
+        label: "Sellers Guide",
+        desc:  "Seller guide for client presentations",
+        icon:  "📗",
+        type:  "Guide",
+        url:   "PASTE_LINK_HERE"
+      }
+    ]
   },
   {
     label: "Branding Compliance Library",
     desc:  "Brand standards, usage rules, and compliance guidelines",
     icon:  "📋",
     type:  "Guide",
-    url:   "https://drive.google.com/drive/folders/1ew-DaMcrKL8cXoZlsNONKIUGbeo43c_V?usp=drive_link"
+    url:   "PASTE_LINK_HERE"
   },
   {
     label: "Desktop Wallpaper",
     desc:  "Official branded desktop and device wallpapers",
     icon:  "🖥️",
     type:  "Assets",
-    url:   "https://drive.google.com/drive/folders/17bgkBB2GRieceseFYUFEaA_J8gS1ckQ-?usp=drive_link"
+    url:   "PASTE_LINK_HERE"
   },
   {
     label: "Disclaimers",
     desc:  "Legal disclaimers, disclosures, and required language",
     icon:  "⚖️",
     type:  "Doc",
-    url:   "https://drive.google.com/drive/folders/1gzjJIUy4FksS13yWiE3vgGTQdm6e7qMV?usp=drive_link"
+    url:   "PASTE_LINK_HERE"
   },
   {
     label: "FMLS & OneHome",
@@ -902,7 +1084,7 @@ const RESOURCES = [
     url:   "PASTE_LINK_HERE"
   }
 ];
- 
+
 /* ═══════════════════════════════════════════
    EMBED URL
 ═══════════════════════════════════════════ */
@@ -919,7 +1101,7 @@ function toEmbed(url) {
   if (m) return `https://drive.google.com/file/d/${m[1]}/preview`;
   return url;
 }
- 
+
 /* ═══════════════════════════════════════════
    THEME
 ═══════════════════════════════════════════ */
@@ -928,28 +1110,40 @@ function initTheme() {
     || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   applyTheme(saved);
 }
- 
+
 function toggleTheme() {
   const cur = document.documentElement.getAttribute('data-theme');
   applyTheme(cur === 'light' ? 'dark' : 'light');
 }
- 
+
 function applyTheme(t) {
   document.documentElement.setAttribute('data-theme', t);
   localStorage.setItem('ptc_mag_theme', t);
   document.getElementById('tpLight').classList.toggle('on', t === 'light');
   document.getElementById('tpDark').classList.toggle('on', t === 'dark');
 }
- 
+
+/* ═══════════════════════════════════════════
+   HELPERS
+═══════════════════════════════════════════ */
+function hasContent(r) {
+  return (r.url && r.url !== 'PASTE_LINK_HERE') || (r.children && r.children.length > 0);
+}
+
+function isFolder(r) {
+  return !!(r.children && r.children.length > 0);
+}
+
 /* ═══════════════════════════════════════════
    BUILD SHELF
 ═══════════════════════════════════════════ */
 function buildShelf() {
   const shelf = document.getElementById('shelf');
   RESOURCES.forEach((r, i) => {
-    const hasLink = r.url && r.url !== 'PASTE_LINK_HERE';
+    const active = hasContent(r);
     const card = document.createElement('div');
     card.className = 'mag-card';
+    const folderHint = isFolder(r) ? `<span style="font-size:10px;opacity:0.5;margin-left:6px;">${r.children.length} items</span>` : '';
     card.innerHTML = `
       <div class="mag-spine">
         <div class="spine-icon">${r.icon}</div>
@@ -958,21 +1152,21 @@ function buildShelf() {
       <div class="mag-body">
         <div class="mag-info">
           <div class="mag-type">${r.type}</div>
-          <div class="mag-title">${r.label}</div>
+          <div class="mag-title">${r.label}${folderHint}</div>
           <div class="mag-desc">${r.desc}</div>
         </div>
         <div class="mag-right">
-          <div class="mag-badge">${r.type}</div>
+          <div class="mag-badge">${isFolder(r) ? 'Folder' : r.type}</div>
           <div class="mag-arrow">
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-              <path class="mag-arrow-icon" d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path class="mag-arrow-icon" d="${isFolder(r) ? 'M2 6.5h9M7 2l4.5 4.5L7 11' : 'M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5'}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
         </div>
       </div>
     `;
-    if (hasLink) {
-      card.onclick = () => openViewer(i);
+    if (active) {
+      card.onclick = () => openResource(r);
       card.style.cursor = 'pointer';
     } else {
       card.style.opacity = '0.40';
@@ -982,83 +1176,112 @@ function buildShelf() {
     shelf.appendChild(card);
   });
 }
- 
+
 /* ═══════════════════════════════════════════
-   VIEWER
+   VIEWER STATE
 ═══════════════════════════════════════════ */
-const validIdx = () => RESOURCES
-  .map((r, i) => (r.url && r.url !== 'PASTE_LINK_HERE') ? i : null)
-  .filter(n => n !== null);
- 
-let current = -1;
- 
-function buildDots() {
-  const el = document.getElementById('sheetDots');
-  el.innerHTML = '';
-  validIdx().forEach((ri, pos) => {
-    const d = document.createElement('div');
-    d.className = 'sdot';
-    d.onclick = () => goTo(ri);
-    d.title = RESOURCES[ri].label;
-    el.appendChild(d);
-  });
-}
- 
-function syncDots() {
-  const vi = validIdx();
-  document.querySelectorAll('.sdot').forEach((d, i) => {
-    d.classList.toggle('on', vi[i] === current);
-  });
-}
- 
-function openViewer(index) {
-  current = -1;
+let current      = -1;           // flat index into viewerList
+let viewerList   = [];           // flat array of leaf resources currently loaded
+let subMenuStack = [];           // navigation stack [{resource, parentLabel}]
+
+function openResource(r) {
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
-  buildDots();
-  goTo(index, true);
+  subMenuStack = [];
+
+  if (isFolder(r)) {
+    showSubMenu(r);
+  } else {
+    // Flat single resource
+    viewerList = [r];
+    current = 0;
+    showFrame(r, true);
+    updateBar(r, false);
+    hidePicker();
+    buildDots();
+    syncDots();
+  }
 }
- 
-function closeViewer() {
-  document.getElementById('overlay').classList.remove('open');
-  document.body.style.overflow = '';
-  setTimeout(() => {
-    const f = document.getElementById('sheetFrame');
-    f.src = '';
-    f.classList.remove('show', 'from-right', 'from-left');
-    current = -1;
-  }, 440);
-}
- 
-function goTo(index, first) {
-  const r = RESOURCES[index];
-  const dir = first ? 'right' : (index >= current ? 'right' : 'left');
-  const prev = current;
-  current = index;
- 
-  // Update bar
-  document.getElementById('barBadge').textContent = r.type;
-  document.getElementById('barTitle').textContent = r.label;
-  document.getElementById('barOpen').href = r.url;
- 
-  // Counter
-  const vi = validIdx();
-  const pos = vi.indexOf(index);
-  document.getElementById('barCounter').textContent = `${pos + 1} / ${vi.length}`;
-  document.getElementById('btnPrev').disabled = pos === 0;
-  document.getElementById('btnNext').disabled = pos === vi.length - 1;
- 
-  // Loader
-  const loader = document.getElementById('sheetLoader');
-  loader.classList.add('on');
- 
-  // Frame
+
+function showSubMenu(r, isChild) {
+  subMenuStack.push(r);
+  const picker = document.getElementById('subPicker');
+  document.getElementById('subPickerTitle').textContent = r.label;
+  document.getElementById('subPickerSub').textContent   = 'Select a resource to view';
+
+  // Clear old sub-items
+  picker.querySelectorAll('.sub-item').forEach(el => el.remove());
+
+  r.children.forEach(child => {
+    const item = document.createElement('div');
+    item.className = 'sub-item';
+    item.innerHTML = `
+      <div class="sub-item-icon">${child.icon}</div>
+      <div class="sub-item-info">
+        <div class="sub-item-label">${child.label}</div>
+        ${child.desc ? `<div class="sub-item-desc">${child.desc}</div>` : ''}
+      </div>
+      <div class="sub-item-badge">${isFolder(child) ? child.children.length + ' items' : child.type}</div>
+    `;
+    if (isFolder(child)) {
+      item.onclick = () => showSubMenu(child, true);
+    } else if (child.url && child.url !== 'PASTE_LINK_HERE') {
+      item.onclick = () => openLeaf(child, r.children.filter(c => !isFolder(c) && c.url && c.url !== 'PASTE_LINK_HERE'));
+    } else {
+      item.style.opacity = '0.4';
+      item.style.cursor  = 'default';
+      item.style.pointerEvents = 'none';
+    }
+    picker.appendChild(item);
+  });
+
+  // Hide frame, show picker
   const frame = document.getElementById('sheetFrame');
+  frame.classList.remove('show');
+  frame.src = '';
+  picker.classList.add('show');
+  document.getElementById('sheetLoader').classList.remove('on');
+
+  // Bar state: show back if deep, hide nav arrows and dots
+  updateBarForSubMenu(r);
+  document.getElementById('sheetDots').style.display = 'none';
+}
+
+function openLeaf(child, siblings) {
+  viewerList = siblings;
+  current    = siblings.indexOf(child);
+  if (current < 0) current = 0;
+
+  hidePicker();
+  showFrame(child, true);
+  updateBar(child, true);
+  document.getElementById('sheetDots').style.display = '';
+  buildDots();
+  syncDots();
+}
+
+function goBackToSubMenu() {
+  subMenuStack.pop();
+  const parent = subMenuStack[subMenuStack.length - 1];
+  if (parent) {
+    showSubMenu(parent, subMenuStack.length > 1);
+  } else {
+    closeViewer();
+  }
+}
+
+function hidePicker() {
+  const picker = document.getElementById('subPicker');
+  picker.classList.remove('show');
+}
+
+function showFrame(r, first) {
+  const loader = document.getElementById('sheetLoader');
+  const frame  = document.getElementById('sheetFrame');
+  loader.classList.add('on');
   frame.classList.remove('show', 'from-right', 'from-left');
- 
-  const delay = prev >= 0 ? 220 : 0;
   setTimeout(() => {
-    frame.classList.add(dir === 'right' ? 'from-right' : 'from-left');
+    frame.classList.add('from-right');
     frame.src = toEmbed(r.url);
     frame.onload = () => {
       loader.classList.remove('on');
@@ -1066,18 +1289,130 @@ function goTo(index, first) {
       frame.classList.remove('from-right', 'from-left');
       frame.classList.add('show');
     };
-  }, delay);
- 
+  }, first ? 0 : 200);
+}
+
+function updateBar(r, showBack) {
+  document.getElementById('barBadge').textContent  = r.type;
+  document.getElementById('barTitle').textContent  = r.label;
+  document.getElementById('barOpen').href          = r.url;
+  document.getElementById('barOpen').style.display = '';
+  document.getElementById('btnPrev').style.display = '';
+  document.getElementById('btnNext').style.display = '';
+  document.getElementById('barCounter').style.display = '';
+
+  const backBtn = document.getElementById('barBack');
+  if (showBack) backBtn.classList.add('show');
+  else          backBtn.classList.remove('show');
+
+  // Update prev/next
+  document.getElementById('btnPrev').disabled = current === 0;
+  document.getElementById('btnNext').disabled = current === viewerList.length - 1;
+  document.getElementById('barCounter').textContent = `${current + 1} / ${viewerList.length}`;
+}
+
+function updateBarForSubMenu(r) {
+  document.getElementById('barBadge').textContent  = 'Folder';
+  document.getElementById('barTitle').textContent  = r.label;
+  document.getElementById('barOpen').href          = r.url || '#';
+  document.getElementById('barOpen').style.display = (r.url && r.url !== 'PASTE_LINK_HERE') ? '' : 'none';
+  document.getElementById('btnPrev').style.display = 'none';
+  document.getElementById('btnNext').style.display = 'none';
+  document.getElementById('barCounter').style.display = 'none';
+
+  const backBtn = document.getElementById('barBack');
+  if (subMenuStack.length > 1) backBtn.classList.add('show');
+  else backBtn.classList.remove('show');
+}
+
+function closeViewer() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => {
+    const f = document.getElementById('sheetFrame');
+    f.src = '';
+    f.classList.remove('show', 'from-right', 'from-left');
+    document.getElementById('subPicker').classList.remove('show');
+    document.getElementById('sheetDots').style.display = '';
+    document.getElementById('barBack').classList.remove('show');
+    subMenuStack = [];
+    viewerList   = [];
+    current      = -1;
+  }, 440);
+}
+
+function step(dir) {
+  const next = current + dir;
+  if (next < 0 || next >= viewerList.length) return;
+  const prev = current;
+  current = next;
+  const r = viewerList[current];
+
+  const loader = document.getElementById('sheetLoader');
+  const frame  = document.getElementById('sheetFrame');
+  loader.classList.add('on');
+  frame.classList.remove('show', 'from-right', 'from-left');
+
+  setTimeout(() => {
+    frame.classList.add(dir > 0 ? 'from-right' : 'from-left');
+    frame.src = toEmbed(r.url);
+    frame.onload = () => {
+      loader.classList.remove('on');
+      void frame.offsetWidth;
+      frame.classList.remove('from-right', 'from-left');
+      frame.classList.add('show');
+    };
+  }, 200);
+
+  updateBar(r, subMenuStack.length > 0);
   syncDots();
 }
- 
-function step(dir) {
-  const vi = validIdx();
-  const pos = vi.indexOf(current);
-  const next = pos + dir;
-  if (next >= 0 && next < vi.length) goTo(vi[next]);
+
+/* ═══════════════════════════════════════════
+   DOTS
+═══════════════════════════════════════════ */
+function buildDots() {
+  const el = document.getElementById('sheetDots');
+  el.innerHTML = '';
+  viewerList.forEach((r, i) => {
+    const d = document.createElement('div');
+    d.className = 'sdot';
+    d.onclick = () => {
+      const dir = i > current ? 1 : -1;
+      const prev = current;
+      current = i;
+      const res = viewerList[current];
+      const loader = document.getElementById('sheetLoader');
+      const frame  = document.getElementById('sheetFrame');
+      loader.classList.add('on');
+      frame.classList.remove('show', 'from-right', 'from-left');
+      setTimeout(() => {
+        frame.classList.add(dir > 0 ? 'from-right' : 'from-left');
+        frame.src = toEmbed(res.url);
+        frame.onload = () => {
+          loader.classList.remove('on');
+          void frame.offsetWidth;
+          frame.classList.remove('from-right', 'from-left');
+          frame.classList.add('show');
+        };
+      }, 200);
+      updateBar(res, subMenuStack.length > 0);
+      syncDots();
+    };
+    d.title = r.label;
+    el.appendChild(d);
+  });
 }
- 
+
+function syncDots() {
+  document.querySelectorAll('.sdot').forEach((d, i) => {
+    d.classList.toggle('on', i === current);
+  });
+}
+
+/* ═══════════════════════════════════════════
+   KEYBOARD & TOUCH
+═══════════════════════════════════════════ */
 /* ═══════════════════════════════════════════
    KEYBOARD & TOUCH
 ═══════════════════════════════════════════ */
@@ -1087,7 +1422,7 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') step(1);
   if (e.key === 'ArrowLeft')  step(-1);
 });
- 
+
 let tx = 0;
 document.getElementById('sheetStage').addEventListener('touchstart', e => {
   tx = e.touches[0].clientX;
@@ -1096,7 +1431,7 @@ document.getElementById('sheetStage').addEventListener('touchend', e => {
   const dx = e.changedTouches[0].clientX - tx;
   if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
 }, { passive: true });
- 
+
 /* ═══════════════════════════════════════════
    INIT
 ═══════════════════════════════════════════ */
@@ -1105,4 +1440,3 @@ buildShelf();
 </script>
 </body>
 </html>
- 
