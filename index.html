@@ -8,12 +8,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-
+ 
 /* ═══════════════════════════════════════════
    TOKENS
 ═══════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
 :root {
   --black:    #000000;
   --iron-ore: #222422;
@@ -22,7 +22,7 @@
   --ease:     cubic-bezier(0.22, 1, 0.36, 1);
   --spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-
+ 
 [data-theme="light"] {
   --bg:              var(--ivory);
   --bg-raised:       var(--white);
@@ -50,7 +50,7 @@
   --dot-active:      var(--iron-ore);
   --footer-border:   rgba(34,36,34,0.08);
 }
-
+ 
 [data-theme="dark"] {
   --bg:              #141614;
   --bg-raised:       #1C1E1C;
@@ -78,9 +78,9 @@
   --dot-active:      var(--ivory);
   --footer-border:   rgba(245,244,239,0.07);
 }
-
+ 
 html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
-
+ 
 body {
   font-family: 'Geist', system-ui, sans-serif;
   background: var(--bg);
@@ -89,7 +89,7 @@ body {
   overflow-x: hidden;
   transition: background 0.5s var(--ease), color 0.5s var(--ease);
 }
-
+ 
 /* ═══════════════════════════════════════════
    NAV
 ═══════════════════════════════════════════ */
@@ -107,7 +107,7 @@ nav {
   -webkit-backdrop-filter: saturate(180%) blur(24px);
   transition: background 0.5s var(--ease), border-color 0.5s var(--ease);
 }
-
+ 
 .nav-inner {
   width: 100%;
   max-width: 1500px;
@@ -116,7 +116,7 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
-
+ 
 .wordmark { line-height: 1; cursor: default; }
 .wordmark-name {
   font-family: 'Cormorant Garamond', serif;
@@ -135,7 +135,7 @@ nav {
   margin-top: 2px;
   transition: color 0.5s;
 }
-
+ 
 .nav-label {
   font-size: 10px;
   font-weight: 700;
@@ -144,9 +144,9 @@ nav {
   color: var(--text-3);
   transition: color 0.5s;
 }
-
+ 
 .nav-right { display: flex; align-items: center; gap: 12px; }
-
+ 
 .theme-pill {
   display: flex;
   background: var(--bg-deep);
@@ -172,7 +172,7 @@ nav {
   color: var(--text);
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
-
+ 
 /* Admin trigger button — subtle */
 .admin-trigger {
   font-size: 10px;
@@ -188,7 +188,7 @@ nav {
   transition: all 0.2s var(--ease);
 }
 .admin-trigger:hover { border-color: var(--border-mid); color: var(--text-2); background: var(--bg-deep); }
-
+ 
 /* ═══════════════════════════════════════════
    HERO
 ═══════════════════════════════════════════ */
@@ -197,7 +197,7 @@ nav {
   margin: 0 auto;
   padding: 72px 48px 56px;
 }
-
+ 
 .hero-eyebrow {
   font-size: 9px;
   font-weight: 700;
@@ -209,7 +209,7 @@ nav {
   animation: up 0.7s var(--ease) 0.05s both;
   transition: color 0.5s;
 }
-
+ 
 .hero-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(48px, 5.5vw, 88px);
@@ -227,7 +227,7 @@ nav {
   color: var(--text-2);
   transition: color 0.5s;
 }
-
+ 
 .hero-rule {
   width: 48px;
   height: 1px;
@@ -237,7 +237,7 @@ nav {
   animation: up 0.7s var(--ease) 0.19s both;
   transition: background 0.5s;
 }
-
+ 
 .hero-desc {
   font-size: 15px;
   color: var(--text-2);
@@ -247,12 +247,12 @@ nav {
   animation: up 0.7s var(--ease) 0.25s both;
   transition: color 0.5s;
 }
-
+ 
 @keyframes up {
   from { opacity:0; transform:translateY(20px); }
   to   { opacity:1; transform:translateY(0); }
 }
-
+ 
 /* ═══════════════════════════════════════════
    SHELF
 ═══════════════════════════════════════════ */
@@ -261,7 +261,7 @@ nav {
   margin: 0 auto;
   padding: 0 48px 100px;
 }
-
+ 
 .shelf-label {
   font-size: 9px;
   font-weight: 700;
@@ -273,13 +273,13 @@ nav {
   margin-bottom: 32px;
   transition: color 0.5s, border-color 0.5s;
 }
-
+ 
 .shelf {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
+ 
 .mag-card {
   display: flex;
   align-items: stretch;
@@ -299,7 +299,7 @@ nav {
     border-color 0.5s var(--ease);
   min-height: 110px;
 }
-
+ 
 .mag-card:nth-child(1)  { animation-delay: 0.10s; }
 .mag-card:nth-child(2)  { animation-delay: 0.15s; }
 .mag-card:nth-child(3)  { animation-delay: 0.20s; }
@@ -312,13 +312,13 @@ nav {
 .mag-card:nth-child(10) { animation-delay: 0.55s; }
 .mag-card:nth-child(11) { animation-delay: 0.60s; }
 .mag-card:nth-child(12) { animation-delay: 0.65s; }
-
+ 
 .mag-card:hover {
   box-shadow: var(--card-shadow-hov);
   transform: translateY(-5px) translateX(3px);
 }
 .mag-card:active { transform: translateY(-2px) scale(0.995); }
-
+ 
 .mag-spine {
   width: 52px;
   flex-shrink: 0;
@@ -330,7 +330,7 @@ nav {
   position: relative;
   transition: background 0.5s var(--ease);
 }
-
+ 
 .mag-spine-num {
   font-family: 'Cormorant Garamond', serif;
   font-size: 13px;
@@ -343,14 +343,14 @@ nav {
   opacity: 0.55;
   transition: color 0.5s;
 }
-
+ 
 .spine-icon {
   position: absolute;
   top: 16px;
   font-size: 18px;
   line-height: 1;
 }
-
+ 
 .mag-body {
   flex: 1;
   padding: 22px 28px;
@@ -359,9 +359,9 @@ nav {
   gap: 24px;
   min-width: 0;
 }
-
+ 
 .mag-info { flex: 1; min-width: 0; }
-
+ 
 .mag-type {
   font-size: 9px;
   font-weight: 700;
@@ -371,7 +371,7 @@ nav {
   margin-bottom: 7px;
   transition: color 0.5s;
 }
-
+ 
 .mag-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 26px;
@@ -382,14 +382,14 @@ nav {
   margin-bottom: 7px;
   transition: color 0.5s;
 }
-
+ 
 .mag-desc {
   font-size: 13px;
   color: var(--text-2);
   line-height: 1.6;
   transition: color 0.5s;
 }
-
+ 
 .mag-right {
   display: flex;
   flex-direction: column;
@@ -398,7 +398,7 @@ nav {
   gap: 16px;
   flex-shrink: 0;
 }
-
+ 
 .mag-badge {
   font-size: 9px;
   font-weight: 700;
@@ -410,7 +410,7 @@ nav {
   border-radius: 6px;
   transition: background 0.5s, color 0.5s;
 }
-
+ 
 .mag-arrow {
   width: 36px; height: 36px;
   border-radius: 50%;
@@ -433,7 +433,7 @@ nav {
 .mag-arrow-icon { transition: stroke 0.3s; stroke: var(--text-3); }
 .mag-card:hover .mag-arrow-icon { stroke: var(--ivory); }
 [data-theme="dark"] .mag-card:hover .mag-arrow-icon { stroke: var(--iron-ore); }
-
+ 
 .mag-card::before {
   content: '';
   position: absolute;
@@ -448,7 +448,7 @@ nav {
 [data-theme="dark"] .mag-card::before {
   background: linear-gradient(to right, transparent, rgba(245,244,239,0.03));
 }
-
+ 
 /* ═══════════════════════════════════════════
    VIEWER OVERLAY
 ═══════════════════════════════════════════ */
@@ -463,7 +463,7 @@ nav {
   flex-direction: column;
 }
 .overlay.open { opacity: 1; pointer-events: all; }
-
+ 
 .overlay-scrim {
   position: absolute;
   inset: 0;
@@ -471,7 +471,7 @@ nav {
   backdrop-filter: blur(18px) saturate(120%);
   -webkit-backdrop-filter: blur(18px) saturate(120%);
 }
-
+ 
 .viewer-sheet {
   position: relative;
   z-index: 1;
@@ -490,7 +490,7 @@ nav {
   transition: transform 0.45s var(--ease), background 0.5s, border-color 0.5s;
 }
 .overlay.open .viewer-sheet { transform: scale(1) translateY(0); }
-
+ 
 .sheet-bar {
   height: 56px;
   display: flex;
@@ -502,9 +502,9 @@ nav {
   gap: 10px;
   transition: background 0.5s, border-color 0.5s;
 }
-
+ 
 .bar-left { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
-
+ 
 .bar-badge {
   font-size: 9px;
   font-weight: 700;
@@ -517,7 +517,7 @@ nav {
   flex-shrink: 0;
   transition: background 0.5s, color 0.5s;
 }
-
+ 
 .bar-title {
   font-size: 14px;
   font-weight: 500;
@@ -527,9 +527,9 @@ nav {
   text-overflow: ellipsis;
   transition: color 0.5s;
 }
-
+ 
 .bar-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-
+ 
 .bar-btn {
   width: 34px; height: 34px;
   border-radius: 50%;
@@ -550,7 +550,7 @@ nav {
 .bar-btn:disabled { opacity: 0.25; cursor: not-allowed; }
 .bar-btn:disabled:hover { background: transparent; border-color: var(--border-mid); }
 .bar-btn:disabled:hover svg { stroke: var(--text-2); }
-
+ 
 .bar-counter {
   font-size: 11px;
   font-weight: 500;
@@ -559,7 +559,7 @@ nav {
   text-align: center;
   transition: color 0.5s;
 }
-
+ 
 .bar-open {
   display: flex;
   align-items: center;
@@ -593,7 +593,7 @@ nav {
   background: var(--white);
   box-shadow: 0 6px 20px rgba(0,0,0,0.50);
 }
-
+ 
 .bar-close {
   width: 34px; height: 34px;
   border-radius: 50%;
@@ -610,7 +610,7 @@ nav {
   flex-shrink: 0;
 }
 .bar-close:hover { background: #ff3b30; border-color: #ff3b30; color: white; }
-
+ 
 .sheet-stage {
   flex: 1;
   position: relative;
@@ -618,7 +618,7 @@ nav {
   background: var(--bg-deep);
   transition: background 0.5s;
 }
-
+ 
 .sheet-frame {
   position: absolute;
   inset: 0;
@@ -630,7 +630,7 @@ nav {
 .sheet-frame.show { opacity: 1; transform: none !important; }
 .sheet-frame.from-right { transform: translateX(60px); }
 .sheet-frame.from-left  { transform: translateX(-60px); }
-
+ 
 .sheet-loader {
   position: absolute;
   inset: 0;
@@ -654,7 +654,7 @@ nav {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 .spin-txt { font-size: 12px; color: var(--text-3); letter-spacing: 0.06em; transition: color 0.5s; }
-
+ 
 .sheet-dots {
   display: flex;
   align-items: center;
@@ -680,7 +680,7 @@ nav {
   border-radius: 3px;
 }
 .sdot:hover:not(.on) { transform: scale(1.35); opacity: 0.7; }
-
+ 
 .sub-picker {
   position: absolute;
   inset: 0;
@@ -696,7 +696,7 @@ nav {
   overflow-y: auto;
 }
 .sub-picker.show { opacity: 1; pointer-events: all; }
-
+ 
 .sub-picker-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 32px;
@@ -714,7 +714,7 @@ nav {
   text-align: center;
   transition: color 0.5s;
 }
-
+ 
 .sub-item {
   width: 100%;
   max-width: 560px;
@@ -738,7 +738,7 @@ nav {
   box-shadow: var(--card-shadow-hov);
 }
 .sub-item:active { transform: scale(0.98); }
-
+ 
 .sub-item-icon {
   width: 44px; height: 44px;
   border-radius: 10px;
@@ -754,7 +754,7 @@ nav {
   background: rgba(245,244,239,0.10);
   border: 1px solid var(--border);
 }
-
+ 
 .sub-item-info { flex: 1; min-width: 0; }
 .sub-item-label {
   font-family: 'Cormorant Garamond', serif;
@@ -770,7 +770,7 @@ nav {
   margin-top: 3px;
   transition: color 0.5s;
 }
-
+ 
 .sub-item-badge {
   font-size: 9px;
   font-weight: 700;
@@ -783,7 +783,7 @@ nav {
   flex-shrink: 0;
   transition: background 0.5s, color 0.5s;
 }
-
+ 
 .bar-back {
   display: none;
   align-items: center;
@@ -804,7 +804,7 @@ nav {
 }
 .bar-back.show { display: flex; }
 .bar-back:hover { background: var(--bg-deep); color: var(--text); }
-
+ 
 /* ═══════════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════════ */
@@ -831,7 +831,7 @@ footer {
   transition: color 0.5s;
 }
 .footer-copy { font-size: 11px; color: var(--text-3); transition: color 0.5s; }
-
+ 
 /* ═══════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════ */
@@ -850,365 +850,391 @@ footer {
   footer { padding: 20px; }
   .admin-trigger { display: none; }
 }
-
+ 
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   footer { padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
 }
-
+ 
 /* ═══════════════════════════════════════════
-   ADMIN PANEL
+   ADMIN PANEL — FULL SCREEN
 ═══════════════════════════════════════════ */
 .admin-overlay {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  display: flex;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.35s var(--ease);
 }
 .admin-overlay.open { opacity: 1; pointer-events: all; }
-
-.admin-scrim {
+ 
+/* Full-screen panel — no scrim, takes the whole window */
+.admin-panel {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.admin-panel {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 780px;
-  height: 100%;
-  margin-left: auto;
-  background: var(--panel-bg);
-  border-left: 1px solid var(--panel-border);
-  transform: translateX(60px);
-  transition: transform 0.4s var(--ease), background 0.5s, border-color 0.5s;
+  display: grid;
+  grid-template-rows: 64px 1fr 72px;
+  grid-template-columns: 300px 1fr;
+  background: var(--bg);
+  transform: translateY(30px) scale(0.98);
+  transition: transform 0.4s var(--ease), background 0.5s;
   overflow: hidden;
 }
-.admin-overlay.open .admin-panel { transform: translateX(0); }
-
-/* Admin header */
-.admin-header {
-  padding: 24px 28px 20px;
-  border-bottom: 1px solid var(--panel-border);
-  background: var(--panel-bar);
-  flex-shrink: 0;
+.admin-overlay.open .admin-panel { transform: translateY(0) scale(1); }
+ 
+/* ── Top bar spanning full width ── */
+.admin-topbar {
+  grid-column: 1 / -1;
+  grid-row: 1;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  padding: 0 28px;
+  background: var(--panel-bar);
+  border-bottom: 1px solid var(--panel-border);
+  gap: 20px;
   transition: background 0.5s, border-color 0.5s;
 }
-.admin-header-left {}
-.admin-header-eyebrow {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--text-3);
-  margin-bottom: 4px;
-  transition: color 0.5s;
-}
-.admin-header-title {
+.admin-topbar-left { display: flex; align-items: center; gap: 16px; }
+.admin-topbar-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 500;
   color: var(--text);
   letter-spacing: 0.01em;
   transition: color 0.5s;
 }
-.admin-header-desc {
-  font-size: 12px;
-  color: var(--text-2);
-  margin-top: 4px;
-  line-height: 1.5;
+.admin-topbar-sub {
+  font-size: 11px;
+  color: var(--text-3);
   transition: color 0.5s;
 }
-.admin-close {
-  width: 34px; height: 34px;
-  border-radius: 50%;
-  border: 1px solid var(--border-mid);
-  background: transparent;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  font-size: 18px;
-  color: var(--text-2);
-  transition: all 0.2s var(--ease);
-  flex-shrink: 0;
-}
-.admin-close:hover { background: #ff3b30; border-color: #ff3b30; color: white; }
-
-/* Admin body */
-.admin-body {
-  flex: 1;
+.admin-topbar-right { display: flex; align-items: center; gap: 10px; }
+ 
+/* ── Sidebar: tile list ── */
+.admin-sidebar {
+  grid-column: 1;
+  grid-row: 2;
+  border-right: 1px solid var(--panel-border);
   overflow-y: auto;
-  padding: 24px 28px;
+  background: var(--panel-bar);
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
-
-/* Tile row in admin */
-.admin-tile {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
   transition: background 0.5s, border-color 0.5s;
 }
-
-.admin-tile-header {
+.admin-sidebar-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  padding: 18px 20px 10px;
+  transition: color 0.5s;
+}
+.admin-sidebar-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 18px;
+  gap: 10px;
+  padding: 12px 20px;
   cursor: pointer;
-  transition: background 0.2s;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.18s;
+  position: relative;
 }
-.admin-tile-header:hover { background: var(--bg-deep); }
-
-.admin-tile-icon {
-  font-size: 20px;
-  width: 36px;
-  text-align: center;
-  flex-shrink: 0;
+.admin-sidebar-item:hover { background: var(--bg-deep); }
+.admin-sidebar-item.active {
+  background: var(--bg-raised);
+  border-right: 2px solid var(--iron-ore);
 }
-.admin-tile-name {
-  flex: 1;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
+[data-theme="dark"] .admin-sidebar-item.active { border-right-color: var(--ivory); }
+.asi-icon { font-size: 18px; flex-shrink: 0; width: 28px; text-align: center; }
+.asi-info { flex: 1; min-width: 0; }
+.asi-name {
+  font-size: 13px;
   font-weight: 500;
   color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: color 0.5s;
 }
-.admin-tile-status {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 3px 9px;
-  border-radius: 5px;
-  flex-shrink: 0;
-}
-.admin-tile-status.live { background: #d4edda; color: #155724; }
-.admin-tile-status.empty { background: var(--bg-deep); color: var(--text-3); border: 1px solid var(--border); }
-.admin-tile-expand {
+.asi-type {
   font-size: 10px;
   color: var(--text-3);
-  transition: transform 0.25s var(--ease), color 0.5s;
+  transition: color 0.5s;
+}
+.asi-status {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 4px;
   flex-shrink: 0;
 }
-.admin-tile.expanded .admin-tile-expand { transform: rotate(180deg); }
-
-/* Tile controls (expanded) */
-.admin-tile-body {
-  display: none;
-  padding: 0 18px 18px;
-  flex-direction: column;
-  gap: 12px;
-}
-.admin-tile.expanded .admin-tile-body { display: flex; }
-
-/* Form fields */
-.admin-field { display: flex; flex-direction: column; gap: 5px; }
-.admin-label {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--text-3);
-  transition: color 0.5s;
-}
-.admin-input, .admin-select {
-  font-family: 'Geist', system-ui, sans-serif;
-  font-size: 13px;
-  color: var(--text);
-  background: var(--bg);
-  border: 1px solid var(--border-mid);
-  border-radius: 8px;
-  padding: 9px 12px;
-  outline: none;
-  transition: border-color 0.2s, background 0.5s, color 0.5s;
-  width: 100%;
-}
-.admin-input:focus, .admin-select:focus { border-color: var(--iron-ore); }
-[data-theme="dark"] .admin-input:focus, [data-theme="dark"] .admin-select:focus { border-color: var(--ivory); }
-.admin-input::placeholder { color: var(--text-3); }
-
-.admin-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.admin-row-3 { display: grid; grid-template-columns: 80px 1fr 1fr; gap: 10px; }
-
-/* Children section */
-.admin-children-label {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--text-3);
-  padding-top: 6px;
-  border-top: 1px solid var(--border);
-  margin-top: 4px;
-  transition: color 0.5s, border-color 0.5s;
-}
-
-.admin-child {
-  background: var(--bg-deep);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 14px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  position: relative;
-  transition: background 0.5s, border-color 0.5s;
-}
-.admin-child-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-.admin-child-title {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-2);
-  transition: color 0.5s;
-}
-.admin-grandchild {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 4px;
-  transition: background 0.5s, border-color 0.5s;
-}
-.admin-grandchild-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.admin-grandchild-title {
+.asi-status.live { background: #d4edda; color: #155724; }
+.asi-status.empty { background: var(--bg-deep); color: var(--text-3); border: 1px solid var(--border); }
+ 
+.admin-sidebar-add {
+  margin: 12px 16px;
   font-size: 11px;
   font-weight: 600;
-  color: var(--text-3);
-  transition: color 0.5s;
-}
-
-/* Buttons */
-.btn-add {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
   color: var(--text-2);
   background: transparent;
   border: 1px dashed var(--border-mid);
   border-radius: 8px;
-  padding: 9px 14px;
+  padding: 10px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
   transition: all 0.2s var(--ease);
+}
+.admin-sidebar-add:hover { border-color: var(--iron-ore); color: var(--text); background: var(--bg-raised); }
+[data-theme="dark"] .admin-sidebar-add:hover { border-color: var(--ivory); }
+ 
+/* ── Main editor area ── */
+.admin-editor {
+  grid-column: 2;
+  grid-row: 2;
+  overflow-y: auto;
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+ 
+/* Empty state */
+.admin-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 12px;
+  color: var(--text-3);
+  text-align: center;
+}
+.admin-empty-icon { font-size: 48px; opacity: 0.4; }
+.admin-empty-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--text-2);
+}
+.admin-empty-sub { font-size: 13px; color: var(--text-3); }
+ 
+/* ── Section headers inside editor ── */
+.editor-section-title {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+  margin-top: 32px;
+  transition: color 0.5s, border-color 0.5s;
+}
+.editor-section-title:first-child { margin-top: 0; }
+ 
+/* ── Field groups ── */
+.admin-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.admin-field:last-child { margin-bottom: 0; }
+.admin-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  transition: color 0.5s;
+}
+.admin-input {
+  font-family: 'Geist', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg-raised);
+  border: 1px solid var(--border-mid);
+  border-radius: 10px;
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color 0.2s, background 0.5s, color 0.5s, box-shadow 0.2s;
   width: 100%;
 }
-.btn-add:hover { border-color: var(--iron-ore); color: var(--text); background: var(--bg-deep); }
-[data-theme="dark"] .btn-add:hover { border-color: var(--ivory); }
-
-.btn-remove {
-  font-size: 11px;
-  font-weight: 700;
-  color: #cc3333;
-  background: transparent;
-  border: 1px solid rgba(204,51,51,0.25);
-  border-radius: 6px;
-  padding: 4px 10px;
-  cursor: pointer;
-  transition: all 0.2s var(--ease);
-  flex-shrink: 0;
-  white-space: nowrap;
+.admin-input:focus {
+  border-color: var(--iron-ore);
+  box-shadow: 0 0 0 3px rgba(34,36,34,0.07);
 }
-.btn-remove:hover { background: #cc3333; color: white; border-color: #cc3333; }
-
-.btn-add-gc {
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--text-3);
-  background: transparent;
-  border: 1px dashed var(--border);
-  border-radius: 6px;
-  padding: 6px 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: all 0.2s;
+[data-theme="dark"] .admin-input:focus {
+  border-color: var(--ivory);
+  box-shadow: 0 0 0 3px rgba(245,244,239,0.07);
 }
-.btn-add-gc:hover { border-color: var(--border-mid); color: var(--text-2); }
-
-/* Tile add/delete at top level */
-.admin-tile-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+.admin-input::placeholder { color: var(--text-3); }
+.admin-input.url-input { font-size: 12px; font-family: monospace; }
+ 
+.admin-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.admin-row-icon-name { display: grid; grid-template-columns: 80px 1fr; gap: 16px; }
+ 
+/* ── Sub-folder cards ── */
+.subfolder-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  transition: background 0.5s, border-color 0.5s;
+  box-shadow: var(--card-shadow);
 }
-.btn-delete-tile {
-  font-size: 11px;
-  font-weight: 600;
-  color: #cc3333;
-  background: transparent;
-  border: 1px solid rgba(204,51,51,0.25);
-  border-radius: 7px;
-  padding: 7px 14px;
-  cursor: pointer;
-  transition: all 0.2s var(--ease);
-}
-.btn-delete-tile:hover { background: #cc3333; color: white; border-color: #cc3333; }
-
-/* Admin footer */
-.admin-footer {
-  padding: 16px 28px;
-  border-top: 1px solid var(--panel-border);
-  background: var(--panel-bar);
-  flex-shrink: 0;
+.subfolder-header {
   display: flex;
   align-items: center;
   gap: 12px;
-  flex-wrap: wrap;
+  padding: 16px 20px;
+  background: var(--panel-bar);
+  border-bottom: 1px solid var(--border);
   transition: background 0.5s, border-color 0.5s;
 }
-
-.btn-add-tile {
-  display: flex;
-  align-items: center;
-  gap: 7px;
+.subfolder-drag { color: var(--text-3); font-size: 14px; cursor: grab; flex-shrink: 0; }
+.subfolder-icon-badge {
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-deep);
+  border-radius: 8px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+.subfolder-name {
+  flex: 1;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text);
+  transition: color 0.5s;
+}
+.subfolder-name-empty { color: var(--text-3); font-style: italic; }
+.subfolder-body { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+ 
+/* ── File rows inside a subfolder ── */
+.file-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 1fr 34px;
+  gap: 10px;
+  align-items: end;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  transition: background 0.5s, border-color 0.5s;
+}
+.file-row-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 4px;
+  transition: color 0.5s;
+}
+.file-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--text-3);
+  text-align: center;
+  padding-top: 20px;
+  transition: color 0.5s;
+}
+.file-row-full { grid-column: 1 / -1; }
+.file-url-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 34px;
+  gap: 10px;
+  align-items: end;
+}
+ 
+/* ── Buttons ── */
+.btn-add-sub, .btn-add-file {
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.05em;
   color: var(--text-2);
-  background: var(--bg-deep);
-  border: 1px solid var(--border-mid);
-  padding: 10px 18px;
+  background: transparent;
+  border: 1px dashed var(--border-mid);
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s var(--ease);
+  width: 100%;
+}
+.btn-add-sub:hover { border-color: var(--iron-ore); color: var(--text); background: var(--bg-raised); }
+.btn-add-file:hover { border-color: var(--iron-ore); color: var(--text); background: var(--bg); }
+[data-theme="dark"] .btn-add-sub:hover,
+[data-theme="dark"] .btn-add-file:hover { border-color: var(--ivory); }
+ 
+.btn-icon-remove {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  border: 1px solid rgba(204,51,51,0.25);
+  background: transparent;
+  color: #cc3333;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.18s var(--ease);
+  flex-shrink: 0;
+}
+.btn-icon-remove:hover { background: #cc3333; color: white; border-color: #cc3333; }
+ 
+.btn-delete-tile-big {
+  font-size: 12px;
+  font-weight: 600;
+  color: #cc3333;
+  background: transparent;
+  border: 1px solid rgba(204,51,51,0.25);
   border-radius: 9px;
+  padding: 9px 18px;
   cursor: pointer;
   transition: all 0.2s var(--ease);
-  flex: 1;
-  justify-content: center;
 }
-.btn-add-tile:hover { border-color: var(--iron-ore); color: var(--text); }
-[data-theme="dark"] .btn-add-tile:hover { border-color: var(--ivory); }
-
+.btn-delete-tile-big:hover { background: #cc3333; color: white; border-color: #cc3333; }
+ 
+.editor-bottom-row {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 24px;
+  margin-top: 8px;
+  border-top: 1px solid var(--border);
+}
+ 
+/* ── Bottom bar ── */
+.admin-bottombar {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  background: var(--panel-bar);
+  border-top: 1px solid var(--panel-border);
+  gap: 16px;
+  transition: background 0.5s, border-color 0.5s;
+}
+.admin-bottombar-hint {
+  font-size: 12px;
+  color: var(--text-3);
+  flex: 1;
+  transition: color 0.5s;
+}
+.admin-bottombar-hint strong { color: var(--text-2); font-weight: 600; }
+ 
 .btn-export {
   display: flex;
   align-items: center;
@@ -1220,34 +1246,38 @@ footer {
   color: var(--ivory);
   background: var(--iron-ore);
   border: 1px solid transparent;
-  padding: 10px 22px;
-  border-radius: 9px;
+  padding: 11px 26px;
+  border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 2px 10px rgba(34,36,34,0.25);
   transition: all 0.25s var(--ease);
-  flex: 1;
-  justify-content: center;
+  white-space: nowrap;
 }
 .btn-export:hover {
   background: var(--black);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(34,36,34,0.35);
 }
-[data-theme="dark"] .btn-export {
-  color: var(--iron-ore);
-  background: var(--ivory);
-}
+[data-theme="dark"] .btn-export { color: var(--iron-ore); background: var(--ivory); }
 [data-theme="dark"] .btn-export:hover { background: var(--white); }
-
-.admin-hint {
-  font-size: 11px;
-  color: var(--text-3);
-  width: 100%;
-  text-align: center;
-  transition: color 0.5s;
-  line-height: 1.5;
+ 
+.btn-admin-close-big {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-2);
+  background: transparent;
+  border: 1px solid var(--border-mid);
+  padding: 11px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  white-space: nowrap;
 }
-
+.btn-admin-close-big:hover { background: var(--bg-deep); color: var(--text); }
+ 
 /* Toast */
 .toast {
   position: fixed;
@@ -1269,11 +1299,11 @@ footer {
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 [data-theme="dark"] .toast { background: var(--ivory); color: var(--iron-ore); }
-
+ 
 </style>
 </head>
 <body>
-
+ 
 <!-- ════════ NAV ════════ -->
 <nav>
   <div class="nav-inner">
@@ -1281,9 +1311,9 @@ footer {
       <div class="wordmark-name">Peachtree</div>
       <div class="wordmark-sub">Town &amp; Country</div>
     </div>
-
+ 
     <div class="nav-label">Advisor Resource Center</div>
-
+ 
     <div class="nav-right">
       <button class="admin-trigger" onclick="openAdmin()">⚙ Admin</button>
       <div class="theme-pill" onclick="toggleTheme()">
@@ -1293,7 +1323,7 @@ footer {
     </div>
   </div>
 </nav>
-
+ 
 <!-- ════════ HERO ════════ -->
 <div class="hero">
   <div class="hero-eyebrow">Peachtree Town &amp; Country — Internal</div>
@@ -1301,13 +1331,13 @@ footer {
   <div class="hero-rule"></div>
   <p class="hero-desc">Every tool, guide, and asset you need — all in one place. Select any resource below to open it full screen.</p>
 </div>
-
+ 
 <!-- ════════ SHELF ════════ -->
 <div class="shelf-wrap">
   <div class="shelf-label">All Resources</div>
   <div class="shelf" id="shelf"></div>
 </div>
-
+ 
 <!-- ════════ FOOTER ════════ -->
 <footer>
   <div class="footer-inner">
@@ -1315,7 +1345,7 @@ footer {
     <div class="footer-copy">Internal Use Only &nbsp;·&nbsp; &copy; 2026</div>
   </div>
 </footer>
-
+ 
 <!-- ════════ VIEWER OVERLAY ════════ -->
 <div class="overlay" id="overlay">
   <div class="overlay-scrim" onclick="closeViewer()"></div>
@@ -1366,180 +1396,55 @@ footer {
     <div class="sheet-dots" id="sheetDots"></div>
   </div>
 </div>
-
+ 
 <!-- ════════ ADMIN PANEL ════════ -->
 <div class="admin-overlay" id="adminOverlay">
-  <div class="admin-scrim" onclick="closeAdmin()"></div>
   <div class="admin-panel">
-    <div class="admin-header">
-      <div class="admin-header-left">
-        <div class="admin-header-eyebrow">Resource Center</div>
-        <div class="admin-header-title">Admin Panel</div>
-        <div class="admin-header-desc">Add, edit, or remove tiles. Click Export when done — upload the downloaded file to GitHub to publish changes for everyone.</div>
+ 
+    <!-- Top bar -->
+    <div class="admin-topbar">
+      <div class="admin-topbar-left">
+        <div class="admin-topbar-title">⚙ Resource Center Editor</div>
+        <div class="admin-topbar-sub">Select a tile on the left to edit it</div>
       </div>
-      <button class="admin-close" onclick="closeAdmin()">×</button>
+      <div class="admin-topbar-right">
+        <button class="btn-admin-close-big" onclick="closeAdmin()">← Back to Site</button>
+      </div>
     </div>
-    <div class="admin-body" id="adminBody"></div>
-    <div class="admin-footer">
-      <button class="btn-add-tile" onclick="addTopLevelTile()">+ Add New Tile</button>
-      <button class="btn-export" onclick="exportFile()">
-        ⬇ Export &amp; Download
-      </button>
-      <div class="admin-hint">After downloading, replace the file on GitHub Pages to publish for all advisors.</div>
+ 
+    <!-- Sidebar: tile list -->
+    <div class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar-label">All Tiles</div>
+      <!-- items injected by JS -->
+      <button class="admin-sidebar-add" onclick="addTopLevelTile()">+ Add New Tile</button>
     </div>
+ 
+    <!-- Main editor -->
+    <div class="admin-editor" id="adminEditor">
+      <div class="admin-empty">
+        <div class="admin-empty-icon">👈</div>
+        <div class="admin-empty-title">Select a tile to edit</div>
+        <div class="admin-empty-sub">Choose any tile from the list on the left to begin editing its details, links, and sub-folders.</div>
+      </div>
+    </div>
+ 
+    <!-- Bottom bar -->
+    <div class="admin-bottombar">
+      <div class="admin-bottombar-hint">When done, click <strong>Export &amp; Download</strong> — then upload the file to GitHub to publish for everyone.</div>
+      <button class="btn-export" onclick="exportFile()">⬇ Export &amp; Download</button>
+    </div>
+ 
   </div>
 </div>
-
+ 
 <!-- Toast -->
 <div class="toast" id="toast"></div>
-
+ 
+ 
+<!-- Resources data — loaded from resources.js (the only file admins ever upload) -->
+<script src="resources.js"></script>
+ 
 <script>
-/* ═══════════════════════════════════════════════════════
-   RESOURCE DATA — edit via Admin Panel or directly here
-═══════════════════════════════════════════════════════ */
-let RESOURCES = [
-  {
-    label: "Brand Collateral",
-    desc:  "Logos, approved files, and branded collateral assets",
-    icon:  "🎨",
-    type:  "Folder",
-    url:   "https://drive.google.com/drive/folders/1RI0gxifMwDRnykzTXQ5zzMwOq8nSGV8n?usp=drive_link",
-    children: [
-      {
-        label: "Buyers Guide",
-        desc:  "Buyer presentation guides for client meetings",
-        icon:  "📘",
-        type:  "Guide",
-        children: [
-          {
-            label: "Buyers Guide — Version 1",
-            desc:  "",
-            icon:  "📄",
-            type:  "PDF",
-            url:   "https://drive.google.com/file/d/1zdIYSU2F79WhXbkRr-cQUhr1ZFJnDcDU/view?usp=sharing"
-          },
-          {
-            label: "Buyers Guide — Version 2",
-            desc:  "",
-            icon:  "📄",
-            type:  "PDF",
-            url:   "https://drive.google.com/file/d/1aWjPfY6_KDKMBYCDtz99GscFn7C0aVHD/view?usp=drive_link"
-          }
-        ]
-      },
-      {
-        label: "Listing Presentation",
-        desc:  "Seller listing presentation deck",
-        icon:  "🏡",
-        type:  "Folder",
-        url:   "https://drive.google.com/drive/folders/11awYcq7b84-F6sbeWuL0F9s9OO6BbXLG?usp=drive_link",
-        children: [
-          {
-            label: "Listing Presentation — Version 1",
-            desc:  "",
-            icon:  "📄",
-            type:  "PDF",
-            url:   "https://drive.google.com/file/d/1Ccj7w__LksTiUxRJRwrkdEpaOvcMAPJM/view?usp=drive_link"
-          },
-          {
-            label: "Listing Presentation — Version 2",
-            desc:  "",
-            icon:  "📄",
-            type:  "PDF",
-            url:   "https://drive.google.com/file/d/1pznWuxPgLkEyHuAgPpq4WNIgTYcrXxtE/view?usp=drive_link"
-          }
-        ]
-      },
-      {
-        label: "Sellers Guide",
-        desc:  "Seller guide for client presentations",
-        icon:  "📗",
-        type:  "Folder",
-        url:   "https://drive.google.com/drive/folders/1l16ruESyBbrLBSo_mFAJT574eFT8Y36e?usp=drive_link",
-        children: [
-          {
-            label: "Sellers Guide — Version 1",
-            desc:  "",
-            icon:  "📄",
-            type:  "PDF",
-            url:   "https://drive.google.com/file/d/1FQKxuxBMTSy-gixd6vXSE3qtN-SFSvik/view?usp=drive_link"
-          },
-          {
-            label: "Sellers Guide — Version 2",
-            desc:  "",
-            icon:  "📄",
-            type:  "PDF",
-            url:   "https://drive.google.com/file/d/1oPkFlHCz8QhgfF_WJUi1DicmOM_uQe0e/view?usp=drive_link"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    label: "Branding Compliance Library",
-    desc:  "Brand standards, usage rules, and compliance guidelines",
-    icon:  "📋",
-    type:  "Guide",
-    url:   "PASTE_LINK_HERE"
-  },
-  {
-    label: "Desktop Wallpaper",
-    desc:  "Official branded desktop and device wallpapers",
-    icon:  "🖥️",
-    type:  "Assets",
-    url:   "PASTE_LINK_HERE"
-  },
-  {
-    label: "Disclaimers",
-    desc:  "Legal disclaimers, disclosures, and required language",
-    icon:  "⚖️",
-    type:  "Doc",
-    url:   "PASTE_LINK_HERE"
-  },
-  {
-    label: "FMLS & OneHome",
-    desc:  "MLS resources, OneHome portal guides, and listing tools",
-    icon:  "🏠",
-    type:  "Guide",
-    url:   "PASTE_LINK_HERE"
-  },
-  {
-    label: "Photography & Video",
-    desc:  "Standards, vendor contacts, and submission guidelines",
-    icon:  "📸",
-    type:  "Guide",
-    url:   "PASTE_LINK_HERE"
-  },
-  {
-    label: "Social Media Assets",
-    desc:  "Templates, graphics, and approved social content",
-    icon:  "📱",
-    type:  "Assets",
-    url:   "PASTE_LINK_HERE"
-  },
-  {
-    label: "Training & How-To Videos",
-    desc:  "Step-by-step training videos and onboarding resources",
-    icon:  "🎓",
-    type:  "Video",
-    url:   "PASTE_LINK_HERE"
-  },
-  {
-    label: "Virtual Staging",
-    desc:  "Vendors, examples, and the submission process",
-    icon:  "🛋️",
-    type:  "Guide",
-    url:   "PASTE_LINK_HERE"
-  },
-  {
-    label: "Best Practices",
-    desc:  "Company-wide best practices and advisor playbooks",
-    icon:  "⭐",
-    type:  "Guide",
-    url:   "PASTE_LINK_HERE"
-  }
-];
-
 /* ═══════════════════════════════════════════
    EMBED URL
 ═══════════════════════════════════════════ */
@@ -1556,7 +1461,7 @@ function toEmbed(url) {
   if (m) return `https://drive.google.com/file/d/${m[1]}/preview`;
   return url;
 }
-
+ 
 /* ═══════════════════════════════════════════
    THEME
 ═══════════════════════════════════════════ */
@@ -1565,19 +1470,19 @@ function initTheme() {
     || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   applyTheme(saved);
 }
-
+ 
 function toggleTheme() {
   const cur = document.documentElement.getAttribute('data-theme');
   applyTheme(cur === 'light' ? 'dark' : 'light');
 }
-
+ 
 function applyTheme(t) {
   document.documentElement.setAttribute('data-theme', t);
   localStorage.setItem('ptc_mag_theme', t);
   document.getElementById('tpLight').classList.toggle('on', t === 'light');
   document.getElementById('tpDark').classList.toggle('on', t === 'dark');
 }
-
+ 
 /* ═══════════════════════════════════════════
    HELPERS
 ═══════════════════════════════════════════ */
@@ -1587,7 +1492,7 @@ function hasContent(r) {
 function isFolder(r) {
   return !!(r.children && r.children.length > 0);
 }
-
+ 
 /* ═══════════════════════════════════════════
    BUILD SHELF
 ═══════════════════════════════════════════ */
@@ -1631,19 +1536,19 @@ function buildShelf() {
     shelf.appendChild(card);
   });
 }
-
+ 
 /* ═══════════════════════════════════════════
    VIEWER STATE
 ═══════════════════════════════════════════ */
 let current      = -1;
 let viewerList   = [];
 let subMenuStack = [];
-
+ 
 function openResource(r) {
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
   subMenuStack = [];
-
+ 
   if (isFolder(r)) {
     showSubMenu(r);
   } else {
@@ -1656,15 +1561,15 @@ function openResource(r) {
     syncDots();
   }
 }
-
+ 
 function showSubMenu(r) {
   subMenuStack.push(r);
   const picker = document.getElementById('subPicker');
   document.getElementById('subPickerTitle').textContent = r.label;
   document.getElementById('subPickerSub').textContent   = 'Select a resource to view';
-
+ 
   picker.querySelectorAll('.sub-item').forEach(el => el.remove());
-
+ 
   r.children.forEach(child => {
     const item = document.createElement('div');
     item.className = 'sub-item';
@@ -1687,7 +1592,7 @@ function showSubMenu(r) {
     }
     picker.appendChild(item);
   });
-
+ 
   const frame = document.getElementById('sheetFrame');
   frame.classList.remove('show');
   frame.src = '';
@@ -1696,7 +1601,7 @@ function showSubMenu(r) {
   updateBarForSubMenu(r);
   document.getElementById('sheetDots').style.display = 'none';
 }
-
+ 
 function openLeaf(child, siblings) {
   viewerList = siblings;
   current    = siblings.indexOf(child);
@@ -1708,7 +1613,7 @@ function openLeaf(child, siblings) {
   buildDots();
   syncDots();
 }
-
+ 
 function goBackToSubMenu() {
   subMenuStack.pop();
   const parent = subMenuStack[subMenuStack.length - 1];
@@ -1719,11 +1624,11 @@ function goBackToSubMenu() {
     closeViewer();
   }
 }
-
+ 
 function hidePicker() {
   document.getElementById('subPicker').classList.remove('show');
 }
-
+ 
 function showFrame(r, first) {
   const loader = document.getElementById('sheetLoader');
   const frame  = document.getElementById('sheetFrame');
@@ -1740,7 +1645,7 @@ function showFrame(r, first) {
     };
   }, first ? 0 : 200);
 }
-
+ 
 function updateBar(r, showBack) {
   document.getElementById('barBadge').textContent  = r.type;
   document.getElementById('barTitle').textContent  = r.label;
@@ -1756,7 +1661,7 @@ function updateBar(r, showBack) {
   document.getElementById('btnNext').disabled = current === viewerList.length - 1;
   document.getElementById('barCounter').textContent = `${current + 1} / ${viewerList.length}`;
 }
-
+ 
 function updateBarForSubMenu(r) {
   document.getElementById('barBadge').textContent  = 'Folder';
   document.getElementById('barTitle').textContent  = r.label;
@@ -1769,7 +1674,7 @@ function updateBarForSubMenu(r) {
   if (subMenuStack.length > 1) backBtn.classList.add('show');
   else backBtn.classList.remove('show');
 }
-
+ 
 function closeViewer() {
   document.getElementById('overlay').classList.remove('open');
   document.body.style.overflow = '';
@@ -1785,7 +1690,7 @@ function closeViewer() {
     current      = -1;
   }, 440);
 }
-
+ 
 function step(dir) {
   const next = current + dir;
   if (next < 0 || next >= viewerList.length) return;
@@ -1808,7 +1713,7 @@ function step(dir) {
   updateBar(r, subMenuStack.length > 0);
   syncDots();
 }
-
+ 
 /* ═══════════════════════════════════════════
    DOTS
 ═══════════════════════════════════════════ */
@@ -1843,13 +1748,13 @@ function buildDots() {
     el.appendChild(d);
   });
 }
-
+ 
 function syncDots() {
   document.querySelectorAll('.sdot').forEach((d, i) => {
     d.classList.toggle('on', i === current);
   });
 }
-
+ 
 /* ═══════════════════════════════════════════
    KEYBOARD & TOUCH
 ═══════════════════════════════════════════ */
@@ -1859,7 +1764,7 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') step(1);
   if (e.key === 'ArrowLeft')  step(-1);
 });
-
+ 
 let tx = 0;
 document.getElementById('sheetStage').addEventListener('touchstart', e => {
   tx = e.touches[0].clientX;
@@ -1868,327 +1773,410 @@ document.getElementById('sheetStage').addEventListener('touchend', e => {
   const dx = e.changedTouches[0].clientX - tx;
   if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
 }, { passive: true });
-
+ 
+/* ═══════════════════════════════════════════
+   ADMIN — STATE
+═══════════════════════════════════════════ */
+let adminSelectedIdx = -1; // which tile is selected in sidebar
+ 
 /* ═══════════════════════════════════════════
    ADMIN — OPEN / CLOSE
 ═══════════════════════════════════════════ */
 function openAdmin() {
-  renderAdminPanel();
+  adminSelectedIdx = -1;
+  renderAdminSidebar();
+  document.getElementById('adminEditor').innerHTML = `
+    <div class="admin-empty">
+      <div class="admin-empty-icon">👈</div>
+      <div class="admin-empty-title">Select a tile to edit</div>
+      <div class="admin-empty-sub">Choose any tile from the list on the left to edit its details, links, and sub-folders.</div>
+    </div>`;
   document.getElementById('adminOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-
+ 
 function closeAdmin() {
+  // Commit any in-progress edits before closing
+  if (adminSelectedIdx >= 0) commitEditorToResources();
   document.getElementById('adminOverlay').classList.remove('open');
   document.body.style.overflow = '';
+  buildShelf();
 }
-
+ 
 /* ═══════════════════════════════════════════
-   ADMIN — READ CURRENT VALUES FROM DOM
+   ADMIN — SIDEBAR
 ═══════════════════════════════════════════ */
-function readResourcesFromDom() {
-  const tiles = document.querySelectorAll('.admin-tile');
-  const result = [];
-  tiles.forEach(tile => {
-    const r = {
-      icon:  tile.querySelector('.ai-icon').value.trim() || '📄',
-      label: tile.querySelector('.ai-label').value.trim(),
-      desc:  tile.querySelector('.ai-desc').value.trim(),
-      type:  tile.querySelector('.ai-type').value.trim(),
-      url:   tile.querySelector('.ai-url').value.trim() || 'PASTE_LINK_HERE',
-    };
-    // Read children
-    const childEls = tile.querySelectorAll(':scope .admin-child');
-    if (childEls.length > 0) {
-      r.children = [];
-      childEls.forEach(cel => {
-        const child = {
-          icon:  cel.querySelector('.ci-icon').value.trim() || '📄',
-          label: cel.querySelector('.ci-label').value.trim(),
-          desc:  cel.querySelector('.ci-desc').value.trim(),
-          type:  cel.querySelector('.ci-type').value.trim(),
-          url:   cel.querySelector('.ci-url') ? cel.querySelector('.ci-url').value.trim() || 'PASTE_LINK_HERE' : 'PASTE_LINK_HERE',
-        };
-        // Read grandchildren
-        const gcEls = cel.querySelectorAll(':scope .admin-grandchild');
-        if (gcEls.length > 0) {
-          child.children = [];
-          gcEls.forEach(gcel => {
-            child.children.push({
-              icon:  gcel.querySelector('.gi-icon').value.trim() || '📄',
-              label: gcel.querySelector('.gi-label').value.trim(),
-              desc:  gcel.querySelector('.gi-desc').value.trim(),
-              type:  gcel.querySelector('.gi-type').value.trim(),
-              url:   gcel.querySelector('.gi-url').value.trim() || 'PASTE_LINK_HERE',
-            });
-          });
-          delete child.url;
-        }
-        r.children.push(child);
-      });
-      delete r.url;
-    }
-    result.push(r);
+function renderAdminSidebar() {
+  const sidebar = document.getElementById('adminSidebar');
+  // Remove old items but keep the label and add-button
+  sidebar.querySelectorAll('.admin-sidebar-item').forEach(el => el.remove());
+  const addBtn = sidebar.querySelector('.admin-sidebar-add');
+ 
+  RESOURCES.forEach((r, i) => {
+    const item = document.createElement('div');
+    item.className = 'admin-sidebar-item' + (i === adminSelectedIdx ? ' active' : '');
+    item.dataset.idx = i;
+    item.innerHTML = `
+      <div class="asi-icon">${r.icon}</div>
+      <div class="asi-info">
+        <div class="asi-name">${r.label || 'New Tile'}</div>
+        <div class="asi-type">${r.type || ''}</div>
+      </div>
+      <div class="asi-status ${hasContent(r) ? 'live' : 'empty'}">${hasContent(r) ? 'Live' : 'Empty'}</div>
+    `;
+    item.onclick = () => selectTile(i);
+    sidebar.insertBefore(item, addBtn);
   });
-  return result;
 }
-
+ 
+function selectTile(idx) {
+  // Save current editor state before switching
+  if (adminSelectedIdx >= 0 && adminSelectedIdx !== idx) {
+    commitEditorToResources();
+  }
+  adminSelectedIdx = idx;
+  renderAdminSidebar();
+  renderEditor(RESOURCES[idx], idx);
+}
+ 
 /* ═══════════════════════════════════════════
-   ADMIN — RENDER PANEL
+   ADMIN — COMMIT EDITOR → RESOURCES
+   Reads all inputs from editor DOM and saves
+   back into the RESOURCES array
 ═══════════════════════════════════════════ */
-function renderAdminPanel() {
-  const body = document.getElementById('adminBody');
-  body.innerHTML = '';
-  RESOURCES.forEach((r, i) => renderAdminTile(body, r, i));
+function commitEditorToResources() {
+  const editor = document.getElementById('adminEditor');
+  if (!editor || adminSelectedIdx < 0) return;
+ 
+  const r = {
+    icon:  (editor.querySelector('.ai-icon')  || {}).value?.trim() || '📄',
+    label: (editor.querySelector('.ai-label') || {}).value?.trim() || '',
+    desc:  (editor.querySelector('.ai-desc')  || {}).value?.trim() || '',
+    type:  (editor.querySelector('.ai-type')  || {}).value?.trim() || 'Guide',
+  };
+ 
+  // Read sub-folders
+  const subfolderEls = editor.querySelectorAll('.subfolder-card');
+  if (subfolderEls.length > 0) {
+    r.children = [];
+    subfolderEls.forEach(sf => {
+      const child = {
+        icon:  (sf.querySelector('.ci-icon')  || {}).value?.trim() || '📄',
+        label: (sf.querySelector('.ci-label') || {}).value?.trim() || '',
+        desc:  (sf.querySelector('.ci-desc')  || {}).value?.trim() || '',
+        type:  (sf.querySelector('.ci-type')  || {}).value?.trim() || 'Guide',
+      };
+      // Does it have file rows?
+      const fileRows = sf.querySelectorAll('.file-row');
+      if (fileRows.length > 0) {
+        child.children = [];
+        fileRows.forEach(fr => {
+          child.children.push({
+            icon:  (fr.querySelector('.gi-icon')  || {}).value?.trim() || '📄',
+            label: (fr.querySelector('.gi-label') || {}).value?.trim() || '',
+            desc:  (fr.querySelector('.gi-desc')  || {}).value?.trim() || '',
+            type:  (fr.querySelector('.gi-type')  || {}).value?.trim() || 'PDF',
+            url:   (fr.querySelector('.gi-url')   || {}).value?.trim() || 'PASTE_LINK_HERE',
+          });
+        });
+      } else {
+        // Direct link subfolder
+        child.url = (sf.querySelector('.ci-url') || {}).value?.trim() || 'PASTE_LINK_HERE';
+      }
+      r.children.push(child);
+    });
+  } else {
+    // Direct link tile
+    r.url = (editor.querySelector('.ai-url') || {}).value?.trim() || 'PASTE_LINK_HERE';
+  }
+ 
+  RESOURCES[adminSelectedIdx] = r;
 }
-
-function renderAdminTile(container, r, idx) {
-  const isLive = hasContent(r);
-  const tile = document.createElement('div');
-  tile.className = 'admin-tile';
-  tile.dataset.idx = idx;
-
-  const childrenHtml = buildChildrenHtml(r);
-
-  tile.innerHTML = `
-    <div class="admin-tile-header" onclick="toggleTile(this)">
-      <div class="admin-tile-icon">${r.icon}</div>
-      <div class="admin-tile-name">${r.label || 'New Tile'}</div>
-      <div class="admin-tile-status ${isLive ? 'live' : 'empty'}">${isLive ? 'Live' : 'No Link'}</div>
-      <div class="admin-tile-expand">▼</div>
+ 
+/* ═══════════════════════════════════════════
+   ADMIN — RENDER EDITOR (right panel)
+═══════════════════════════════════════════ */
+function escapeAttr(str) {
+  return String(str || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+ 
+function renderEditor(r, idx) {
+  const editor = document.getElementById('adminEditor');
+  const hasChildren = r.children && r.children.length > 0;
+ 
+  let subFoldersHtml = '';
+  if (hasChildren) {
+    subFoldersHtml = r.children.map((child, ci) => buildSubfolderHtml(child, ci)).join('');
+  }
+ 
+  // Direct link field (only shown if no sub-folders)
+  const directLinkHtml = !hasChildren ? `
+    <div class="admin-field">
+      <div class="admin-label">Google Drive Link</div>
+      <input class="admin-input url-input ai-url" type="text"
+        value="${escapeAttr(r.url !== 'PASTE_LINK_HERE' ? r.url : '')}"
+        placeholder="https://drive.google.com/file/d/... or /drive/folders/...">
     </div>
-    <div class="admin-tile-body">
-      <div class="admin-row-3">
-        <div class="admin-field">
-          <div class="admin-label">Icon</div>
-          <input class="admin-input ai-icon" type="text" value="${r.icon || ''}" placeholder="🎨" maxlength="4">
-        </div>
-        <div class="admin-field">
-          <div class="admin-label">Tile Name</div>
-          <input class="admin-input ai-label" type="text" value="${escapeAttr(r.label || '')}" placeholder="Brand Collateral">
-        </div>
-        <div class="admin-field">
-          <div class="admin-label">Type Label</div>
-          <input class="admin-input ai-type" type="text" value="${escapeAttr(r.type || '')}" placeholder="Guide">
-        </div>
+  ` : '';
+ 
+  editor.innerHTML = `
+    <div class="editor-section-title">Tile Basics</div>
+ 
+    <div class="admin-row-icon-name">
+      <div class="admin-field">
+        <div class="admin-label">Icon (emoji)</div>
+        <input class="admin-input ai-icon" type="text" value="${escapeAttr(r.icon)}" placeholder="🎨" maxlength="4">
+      </div>
+      <div class="admin-field">
+        <div class="admin-label">Tile Name</div>
+        <input class="admin-input ai-label" type="text" value="${escapeAttr(r.label)}" placeholder="e.g. Brand Collateral">
+      </div>
+    </div>
+ 
+    <div class="admin-row-2">
+      <div class="admin-field">
+        <div class="admin-label">Type Badge</div>
+        <input class="admin-input ai-type" type="text" value="${escapeAttr(r.type)}" placeholder="e.g. Guide, Folder, PDF">
       </div>
       <div class="admin-field">
         <div class="admin-label">Description</div>
-        <input class="admin-input ai-desc" type="text" value="${escapeAttr(r.desc || '')}" placeholder="Short description shown on the tile">
+        <input class="admin-input ai-desc" type="text" value="${escapeAttr(r.desc)}" placeholder="Short description on the tile">
       </div>
-      ${!isFolder(r) ? `
-      <div class="admin-field">
-        <div class="admin-label">Google Drive Link</div>
-        <input class="admin-input ai-url" type="text" value="${escapeAttr(r.url === 'PASTE_LINK_HERE' ? '' : (r.url || ''))}" placeholder="https://drive.google.com/...">
-      </div>
-      ` : `<input type="hidden" class="admin-input ai-url" value="">`}
-
-      <div class="admin-children-label">Sub-items / Children</div>
-      <div class="children-list">
-        ${childrenHtml}
-      </div>
-      <button class="btn-add" onclick="addChild(this)">+ Add Sub-item</button>
-
-      <div class="admin-tile-actions">
-        <button class="btn-delete-tile" onclick="deleteTile(this)">Remove This Tile</button>
-      </div>
+    </div>
+ 
+    ${directLinkHtml}
+ 
+    <div class="editor-section-title" style="margin-top:36px;">
+      Sub-Folders &amp; Files
+      <span style="font-weight:400;font-size:10px;letter-spacing:0;text-transform:none;margin-left:8px;color:var(--text-3);">
+        — Each sub-folder can hold multiple file links
+      </span>
+    </div>
+ 
+    <div id="subfolderList">
+      ${subFoldersHtml}
+    </div>
+ 
+    <button class="btn-add-sub" onclick="addSubfolder()">
+      + Add Sub-Folder
+    </button>
+ 
+    <div class="editor-bottom-row">
+      <button class="btn-delete-tile-big" onclick="deleteSelectedTile()">🗑 Remove This Tile</button>
     </div>
   `;
-  container.appendChild(tile);
 }
-
-function buildChildrenHtml(r) {
-  if (!r.children || r.children.length === 0) return '';
-  return r.children.map((child, ci) => buildChildHtml(child, ci)).join('');
-}
-
-function buildChildHtml(child, ci) {
-  const hasGrandchildren = !!(child.children && child.children.length > 0);
-  const gcHtml = hasGrandchildren
-    ? child.children.map((gc, gi) => buildGrandchildHtml(gc, gi)).join('')
+ 
+function buildSubfolderHtml(child, ci) {
+  const hasFiles = child.children && child.children.length > 0;
+  const filesHtml = hasFiles
+    ? child.children.map((gc, gi) => buildFileRowHtml(gc, gi)).join('')
     : '';
-
+ 
+  const directLinkHtml = !hasFiles ? `
+    <div class="admin-field">
+      <div class="admin-label">Google Drive Link (direct — no files inside)</div>
+      <input class="admin-input url-input ci-url" type="text"
+        value="${escapeAttr(child.url && child.url !== 'PASTE_LINK_HERE' ? child.url : '')}"
+        placeholder="https://drive.google.com/...">
+    </div>
+  ` : '';
+ 
   return `
-  <div class="admin-child">
-    <div class="admin-child-header">
-      <div class="admin-child-title">Sub-item ${ci + 1}</div>
-      <button class="btn-remove" onclick="removeChild(this)">Remove</button>
+  <div class="subfolder-card" data-ci="${ci}">
+    <div class="subfolder-header">
+      <div class="subfolder-drag" title="Drag to reorder">⠿</div>
+      <div class="subfolder-icon-badge">${child.icon || '📁'}</div>
+      <div class="subfolder-name ${child.label ? '' : 'subfolder-name-empty'}">${child.label || 'Untitled Sub-Folder'}</div>
+      <button class="btn-icon-remove" title="Remove sub-folder" onclick="removeSubfolder(this)">✕</button>
     </div>
-    <div class="admin-row-3">
-      <div class="admin-field">
-        <div class="admin-label">Icon</div>
-        <input class="admin-input ci-icon" type="text" value="${child.icon || ''}" placeholder="📄" maxlength="4">
+    <div class="subfolder-body">
+      <div class="admin-row-icon-name">
+        <div class="admin-field">
+          <div class="admin-label">Icon</div>
+          <input class="admin-input ci-icon" type="text" value="${escapeAttr(child.icon || '📁')}" placeholder="📁" maxlength="4"
+            oninput="this.closest('.subfolder-card').querySelector('.subfolder-icon-badge').textContent=this.value||'📁'">
+        </div>
+        <div class="admin-field">
+          <div class="admin-label">Sub-Folder Name</div>
+          <input class="admin-input ci-label" type="text" value="${escapeAttr(child.label || '')}" placeholder="e.g. Buyers Guide"
+            oninput="const n=this.closest('.subfolder-card').querySelector('.subfolder-name');n.textContent=this.value||'Untitled Sub-Folder';n.classList.toggle('subfolder-name-empty',!this.value)">
+        </div>
       </div>
-      <div class="admin-field">
-        <div class="admin-label">Name</div>
-        <input class="admin-input ci-label" type="text" value="${escapeAttr(child.label || '')}" placeholder="Buyers Guide">
+      <div class="admin-row-2">
+        <div class="admin-field">
+          <div class="admin-label">Type Badge</div>
+          <input class="admin-input ci-type" type="text" value="${escapeAttr(child.type || 'Guide')}" placeholder="Guide">
+        </div>
+        <div class="admin-field">
+          <div class="admin-label">Description</div>
+          <input class="admin-input ci-desc" type="text" value="${escapeAttr(child.desc || '')}" placeholder="Optional description">
+        </div>
       </div>
-      <div class="admin-field">
-        <div class="admin-label">Type</div>
-        <input class="admin-input ci-type" type="text" value="${escapeAttr(child.type || '')}" placeholder="Guide">
+ 
+      ${directLinkHtml}
+ 
+      <div style="font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3);margin-top:4px;margin-bottom:8px;">Files Inside This Folder</div>
+      <div class="file-list">
+        ${filesHtml}
       </div>
-    </div>
-    <div class="admin-field">
-      <div class="admin-label">Description</div>
-      <input class="admin-input ci-desc" type="text" value="${escapeAttr(child.desc || '')}" placeholder="Optional description">
-    </div>
-    ${!hasGrandchildren ? `
-    <div class="admin-field">
-      <div class="admin-label">Google Drive Link</div>
-      <input class="admin-input ci-url" type="text" value="${escapeAttr(child.url && child.url !== 'PASTE_LINK_HERE' ? child.url : '')}" placeholder="https://drive.google.com/...">
-    </div>
-    ` : `<input type="hidden" class="ci-url" value="">`}
-    <div class="grandchildren-list">
-      ${gcHtml}
-    </div>
-    <button class="btn-add-gc" onclick="addGrandchild(this)">+ Add File Version</button>
-  </div>`;
-}
-
-function buildGrandchildHtml(gc, gi) {
-  return `
-  <div class="admin-grandchild">
-    <div class="admin-grandchild-header">
-      <div class="admin-grandchild-title">File ${gi + 1}</div>
-      <button class="btn-remove" style="font-size:10px;padding:3px 8px;" onclick="removeGrandchild(this)">Remove</button>
-    </div>
-    <div class="admin-row-3">
-      <div class="admin-field">
-        <div class="admin-label">Icon</div>
-        <input class="admin-input gi-icon" type="text" value="${gc.icon || '📄'}" placeholder="📄" maxlength="4">
-      </div>
-      <div class="admin-field">
-        <div class="admin-label">Name</div>
-        <input class="admin-input gi-label" type="text" value="${escapeAttr(gc.label || '')}" placeholder="Version 1">
-      </div>
-      <div class="admin-field">
-        <div class="admin-label">Type</div>
-        <input class="admin-input gi-type" type="text" value="${escapeAttr(gc.type || 'PDF')}" placeholder="PDF">
-      </div>
-    </div>
-    <div class="admin-field">
-      <div class="admin-label">Google Drive Link</div>
-      <input class="admin-input gi-url" type="text" value="${escapeAttr(gc.url && gc.url !== 'PASTE_LINK_HERE' ? gc.url : '')}" placeholder="https://drive.google.com/...">
-    </div>
-    <div class="admin-field">
-      <div class="admin-label">Description (optional)</div>
-      <input class="admin-input gi-desc" type="text" value="${escapeAttr(gc.desc || '')}" placeholder="">
+      <button class="btn-add-file" onclick="addFileRow(this)">+ Add File Link</button>
     </div>
   </div>`;
 }
-
-function escapeAttr(str) {
-  return String(str).replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+ 
+function buildFileRowHtml(gc, gi) {
+  return `
+  <div class="file-row">
+    <div>
+      <div class="file-row-label">Icon</div>
+      <input class="admin-input gi-icon" type="text" value="${escapeAttr(gc.icon || '📄')}" placeholder="📄" maxlength="4" style="text-align:center;">
+    </div>
+    <div>
+      <div class="file-row-label">File Name</div>
+      <input class="admin-input gi-label" type="text" value="${escapeAttr(gc.label || '')}" placeholder="e.g. Buyers Guide — Version 1">
+    </div>
+    <div>
+      <div class="file-row-label">Type (PDF, Doc…)</div>
+      <input class="admin-input gi-type" type="text" value="${escapeAttr(gc.type || 'PDF')}" placeholder="PDF">
+    </div>
+    <button class="btn-icon-remove" title="Remove file" onclick="removeFileRow(this)">✕</button>
+    <div class="file-url-row">
+      <div>
+        <div class="file-row-label">Google Drive Link</div>
+        <input class="admin-input url-input gi-url" type="text"
+          value="${escapeAttr(gc.url && gc.url !== 'PASTE_LINK_HERE' ? gc.url : '')}"
+          placeholder="https://drive.google.com/file/d/...">
+      </div>
+      <div style="padding-top:22px;">
+        <div class="file-row-label">Desc</div>
+        <input class="admin-input gi-desc" type="text" value="${escapeAttr(gc.desc || '')}" placeholder="Optional">
+      </div>
+    </div>
+  </div>`;
 }
-
+ 
 /* ═══════════════════════════════════════════
-   ADMIN — INTERACTIONS
+   ADMIN — TILE ACTIONS
 ═══════════════════════════════════════════ */
-function toggleTile(headerEl) {
-  const tile = headerEl.closest('.admin-tile');
-  tile.classList.toggle('expanded');
-}
-
-function deleteTile(btn) {
-  if (!confirm('Remove this tile from the resource center?')) return;
-  btn.closest('.admin-tile').remove();
-  showToast('Tile removed — click Export to save changes.');
-}
-
 function addTopLevelTile() {
-  const newResource = {
-    icon: '📄', label: 'New Tile', desc: '', type: 'Guide', url: 'PASTE_LINK_HERE'
-  };
-  const body = document.getElementById('adminBody');
-  const idx = body.querySelectorAll('.admin-tile').length;
-  renderAdminTile(body, newResource, idx);
-  // Auto-expand new tile
-  const tiles = body.querySelectorAll('.admin-tile');
-  const newTile = tiles[tiles.length - 1];
-  newTile.classList.add('expanded');
-  newTile.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  showToast('New tile added below.');
+  // Commit current editor first
+  if (adminSelectedIdx >= 0) commitEditorToResources();
+  const newR = { icon: '📄', label: 'New Tile', desc: '', type: 'Guide', url: 'PASTE_LINK_HERE' };
+  RESOURCES.push(newR);
+  adminSelectedIdx = RESOURCES.length - 1;
+  renderAdminSidebar();
+  renderEditor(newR, adminSelectedIdx);
+  showToast('New tile created — fill in the details on the right.');
 }
-
-function addChild(btn) {
-  const list = btn.closest('.admin-tile-body').querySelector('.children-list');
-  const count = list.querySelectorAll(':scope > .admin-child').length;
-  const newChild = {
-    icon: '📄', label: '', desc: '', type: 'PDF', url: ''
-  };
+ 
+function deleteSelectedTile() {
+  if (adminSelectedIdx < 0) return;
+  if (!confirm(`Remove "${RESOURCES[adminSelectedIdx].label || 'this tile'}" from the resource center?`)) return;
+  RESOURCES.splice(adminSelectedIdx, 1);
+  adminSelectedIdx = -1;
+  renderAdminSidebar();
+  document.getElementById('adminEditor').innerHTML = `
+    <div class="admin-empty">
+      <div class="admin-empty-icon">✓</div>
+      <div class="admin-empty-title">Tile removed</div>
+      <div class="admin-empty-sub">Select another tile to edit, or add a new one.</div>
+    </div>`;
+  showToast('Tile removed.');
+}
+ 
+/* ═══════════════════════════════════════════
+   ADMIN — SUBFOLDER ACTIONS
+═══════════════════════════════════════════ */
+function addSubfolder() {
+  const list = document.getElementById('subfolderList');
+  // Hide direct link field if it exists (tile now has children)
+  const directField = document.getElementById('adminEditor').querySelector('.ai-url')?.closest('.admin-field');
+  if (directField) directField.style.display = 'none';
+ 
+  const ci = list.querySelectorAll('.subfolder-card').length;
+  const newChild = { icon: '📁', label: '', desc: '', type: 'Guide' };
   const div = document.createElement('div');
-  div.innerHTML = buildChildHtml(newChild, count);
+  div.innerHTML = buildSubfolderHtml(newChild, ci);
   list.appendChild(div.firstElementChild);
+  list.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
-
-function removeChild(btn) {
-  btn.closest('.admin-child').remove();
-}
-
-function addGrandchild(btn) {
-  const list = btn.previousElementSibling;
-  const count = list.querySelectorAll('.admin-grandchild').length;
-  const newGc = { icon: '📄', label: '', desc: '', type: 'PDF', url: '' };
-  const div = document.createElement('div');
-  div.innerHTML = buildGrandchildHtml(newGc, count);
-  list.appendChild(div.firstElementChild);
-  // Hide ci-url if it exists and show hidden
-  const child = btn.closest('.admin-child');
-  const ciUrl = child.querySelector('.ci-url:not([type="hidden"])');
-  if (ciUrl) {
-    const fieldWrap = ciUrl.closest('.admin-field');
-    if (fieldWrap) fieldWrap.style.display = 'none';
+ 
+function removeSubfolder(btn) {
+  const card = btn.closest('.subfolder-card');
+  const list = card.parentElement;
+  card.remove();
+  // If no subfolders left, show direct link field again
+  if (list.querySelectorAll('.subfolder-card').length === 0) {
+    const directField = document.getElementById('adminEditor').querySelector('.ai-url')?.closest('.admin-field');
+    if (directField) directField.style.display = '';
   }
 }
-
-function removeGrandchild(btn) {
-  const gc = btn.closest('.admin-grandchild');
-  const list = gc.parentElement;
-  gc.remove();
-  // If no grandchildren remain, show ci-url field
-  if (list.querySelectorAll('.admin-grandchild').length === 0) {
-    const child = list.closest('.admin-child');
-    const ciUrl = child.querySelector('.ci-url');
-    if (ciUrl) {
-      const fieldWrap = ciUrl.closest('.admin-field');
-      if (fieldWrap) fieldWrap.style.display = '';
-    }
+ 
+/* ═══════════════════════════════════════════
+   ADMIN — FILE ROW ACTIONS
+═══════════════════════════════════════════ */
+function addFileRow(btn) {
+  const sfBody = btn.closest('.subfolder-body');
+  const fileList = sfBody.querySelector('.file-list');
+  // Hide the direct link field for this subfolder
+  const ciUrlField = sfBody.querySelector('.ci-url')?.closest('.admin-field');
+  if (ciUrlField) ciUrlField.style.display = 'none';
+ 
+  const gi = fileList.querySelectorAll('.file-row').length;
+  const gc = { icon: '📄', label: '', desc: '', type: 'PDF', url: '' };
+  const div = document.createElement('div');
+  div.innerHTML = buildFileRowHtml(gc, gi);
+  fileList.appendChild(div.firstElementChild);
+  fileList.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+ 
+function removeFileRow(btn) {
+  const row = btn.closest('.file-row');
+  const fileList = row.parentElement;
+  row.remove();
+  if (fileList.querySelectorAll('.file-row').length === 0) {
+    // Show direct ci-url field again
+    const sfBody = fileList.closest('.subfolder-body');
+    const ciUrlField = sfBody.querySelector('.ci-url')?.closest('.admin-field');
+    if (ciUrlField) ciUrlField.style.display = '';
   }
 }
-
+ 
 /* ═══════════════════════════════════════════
    ADMIN — EXPORT
 ═══════════════════════════════════════════ */
 function exportFile() {
-  // Read current state from DOM
-  RESOURCES = readResourcesFromDom();
+  if (adminSelectedIdx >= 0) commitEditorToResources();
   buildShelf();
-
-  // Serialize RESOURCES as JSON
+ 
+  // Build the resources.js file content
   const json = JSON.stringify(RESOURCES, null, 2);
-
-  // Get the current page HTML
-  const html = document.documentElement.outerHTML;
-
-  // Replace the RESOURCES array in the exported file
-  const marker_start = '// ═══════════════════════════════════════════════════════\n   RESOURCE DATA — edit via Admin Panel or directly here\n═══════════════════════════════════════════════════════ */\nlet RESOURCES = ';
-  // More reliable: use a regex to find and replace the RESOURCES array
-  const newHtml = html.replace(
-    /let RESOURCES = \[[\s\S]*?\];\n\n\/\* ═/,
-    `let RESOURCES = ${json};\n\n/* ═`
-  );
-
-  const blob = new Blob([newHtml], { type: 'text/html' });
+  const fileContent = `/* ═══════════════════════════════════════════════════════════════
+   Peachtree Town & Country — Advisor Resource Center
+   RESOURCES DATA FILE
+   ───────────────────────────────────────────────────────────────
+   This is the ONLY file that needs to be updated when adding,
+   editing, or removing tiles from the Resource Center.
+ 
+   After exporting from the Admin Panel, upload ONLY this file
+   to GitHub — index.html never needs to change.
+═══════════════════════════════════════════════════════════════ */
+ 
+const RESOURCES = ${json};
+`;
+ 
+  const blob = new Blob([fileContent], { type: 'application/javascript' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'advisor-resource-center.html';
+  a.download = 'resources.js';
   a.click();
   URL.revokeObjectURL(a.href);
-
-  showToast('✓ File downloaded! Upload to GitHub to publish changes.');
+ 
+  showToast('✓ resources.js downloaded! Upload ONLY this file to GitHub.');
   closeAdmin();
 }
-
+ 
 /* ═══════════════════════════════════════════
    TOAST
 ═══════════════════════════════════════════ */
@@ -2200,7 +2188,7 @@ function showToast(msg) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => t.classList.remove('show'), 3500);
 }
-
+ 
 /* ═══════════════════════════════════════════
    INIT
 ═══════════════════════════════════════════ */
@@ -2209,3 +2197,4 @@ buildShelf();
 </script>
 </body>
 </html>
+ 
