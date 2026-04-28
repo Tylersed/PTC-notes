@@ -1,3 +1,4 @@
+
 /* ═══════════════════════════════════════════════════════════════
    Peachtree Town & Country — Advisor Resource Center
    RESOURCES DATA FILE
@@ -13,7 +14,7 @@ const RESOURCES = [
   {
     "icon": "🎨",
     "label": "Brand Collateral",
-    "desc": "Logos, approved files, and branded collateral assets",
+    "desc": "Logos",
     "type": "Folder",
     "children": [
       {
