@@ -149,5 +149,12 @@ const RESOURCES = [
     "icon": "⭐",
     "type": "Guide",
     "url": "PASTE_LINK_HERE"
+  },
+  {
+    "icon": "📄",
+    "label": "Compliance Presentation",
+    "desc": "04282026",
+    "type": "presentation",
+    "url": "https://docs.google.com/presentation/d/13uMvhKYwOSwiqFbrc9WtMqNcoRIR-G65/edit?usp=sharing&ouid=107565005755644236164&rtpof=true&sd=true"
   }
 ];
