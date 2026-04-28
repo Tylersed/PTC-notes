@@ -11,75 +11,72 @@
  
 const RESOURCES = [
   {
+    "icon": "🎨",
     "label": "Brand Collateral",
     "desc": "Logos, approved files, and branded collateral assets",
-    "icon": "🎨",
     "type": "Folder",
-    "url": "https://drive.google.com/drive/folders/1RI0gxifMwDRnykzTXQ5zzMwOq8nSGV8n?usp=drive_link",
     "children": [
       {
+        "icon": "📘",
         "label": "Buyers Guide",
         "desc": "Buyer presentation guides for client meetings",
-        "icon": "📘",
         "type": "Guide",
         "children": [
           {
+            "icon": "📄",
             "label": "Buyers Guide — Version 1",
             "desc": "",
-            "icon": "📄",
             "type": "PDF",
             "url": "https://drive.google.com/file/d/1zdIYSU2F79WhXbkRr-cQUhr1ZFJnDcDU/view?usp=sharing"
           },
           {
+            "icon": "📄",
             "label": "Buyers Guide — Version 2",
             "desc": "",
-            "icon": "📄",
             "type": "PDF",
             "url": "https://drive.google.com/file/d/1aWjPfY6_KDKMBYCDtz99GscFn7C0aVHD/view?usp=drive_link"
           }
         ]
       },
       {
+        "icon": "🏡",
         "label": "Listing Presentation",
         "desc": "Seller listing presentation deck",
-        "icon": "🏡",
         "type": "Folder",
-        "url": "https://drive.google.com/drive/folders/11awYcq7b84-F6sbeWuL0F9s9OO6BbXLG?usp=drive_link",
         "children": [
           {
+            "icon": "📄",
             "label": "Listing Presentation — Version 1",
             "desc": "",
-            "icon": "📄",
             "type": "PDF",
             "url": "https://drive.google.com/file/d/1Ccj7w__LksTiUxRJRwrkdEpaOvcMAPJM/view?usp=drive_link"
           },
           {
+            "icon": "📄",
             "label": "Listing Presentation — Version 2",
             "desc": "",
-            "icon": "📄",
             "type": "PDF",
             "url": "https://drive.google.com/file/d/1pznWuxPgLkEyHuAgPpq4WNIgTYcrXxtE/view?usp=drive_link"
           }
         ]
       },
       {
+        "icon": "📗",
         "label": "Sellers Guide",
         "desc": "Seller guide for client presentations",
-        "icon": "📗",
         "type": "Folder",
-        "url": "https://drive.google.com/drive/folders/1l16ruESyBbrLBSo_mFAJT574eFT8Y36e?usp=drive_link",
         "children": [
           {
+            "icon": "📄",
             "label": "Sellers Guide — Version 1",
             "desc": "",
-            "icon": "📄",
             "type": "PDF",
             "url": "https://drive.google.com/file/d/1FQKxuxBMTSy-gixd6vXSE3qtN-SFSvik/view?usp=drive_link"
           },
           {
+            "icon": "📄",
             "label": "Sellers Guide — Version 2",
             "desc": "",
-            "icon": "📄",
             "type": "PDF",
             "url": "https://drive.google.com/file/d/1oPkFlHCz8QhgfF_WJUi1DicmOM_uQe0e/view?usp=drive_link"
           }
@@ -160,6 +157,13 @@ const RESOURCES = [
   {
     "icon": "📄",
     "label": "test",
+    "desc": "",
+    "type": "test",
+    "url": "https://www.youtube.com/"
+  },
+  {
+    "icon": "📄",
+    "label": "test2",
     "desc": "",
     "type": "test",
     "url": "https://www.youtube.com/"
