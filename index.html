@@ -1168,7 +1168,6 @@ function buildSearchResultCard(hit, index) {
     document.getElementById('overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
     subMenuStack = [];
-    const list = siblings && siblings.length ? siblings : [resource];
     viewerList = list;
     current = Math.max(0, list.findIndex(f => f.url === resource.url));
     currentRawUrl = resource.url;
