@@ -517,6 +517,55 @@ body.site-entered .shelf-wrap { transition-delay: 0.26s; }
     visibility 1.2s cubic-bezier(0.22,1,0.36,1);
 }
 [data-theme="dark"] .splash { background: var(--black); }
+.splash { --cascade-logo:url('ptc-logo-light.jpg'); }
+[data-theme="dark"] .splash { --cascade-logo:url('ptc-logo-dark.jpg'); }
+.splash-cascade {
+  position:absolute;
+  inset:-18vh 0 -12vh;
+  z-index:1;
+  overflow:hidden;
+  pointer-events:none;
+  opacity:0;
+  transform:scale(1);
+  filter:blur(0);
+  transition:opacity 0.75s cubic-bezier(0.22,1,0.36,1),transform 1.1s cubic-bezier(0.22,1,0.36,1),filter 1.1s cubic-bezier(0.22,1,0.36,1);
+}
+.splash.ready .splash-cascade { opacity:1; }
+.splash.exit .splash-cascade {
+  opacity:0;
+  transform:scale(1.025);
+  filter:blur(8px);
+}
+.cascade-lion {
+  position:absolute;
+  top:-20vh;
+  left:var(--x);
+  width:var(--size);
+  height:var(--size);
+  background-image:var(--cascade-logo);
+  background-size:contain;
+  background-position:center;
+  background-repeat:no-repeat;
+  border-radius:8px;
+  opacity:0;
+  transform:translate3d(0,-22vh,0) rotate(var(--rot));
+  filter:blur(var(--blur)) drop-shadow(0 18px 44px rgba(34,36,34,0.05));
+  will-change:transform,opacity;
+  animation:lionCascadeFall var(--dur) cubic-bezier(0.18,0.82,0.28,1) var(--delay) forwards;
+}
+[data-theme="dark"] .cascade-lion {
+  filter:blur(var(--blur)) drop-shadow(0 18px 48px rgba(0,0,0,0.38));
+}
+@keyframes lionCascadeFall {
+  0%   { opacity:0; transform:translate3d(0,-24vh,0) rotate(var(--rot)) scale(0.86); }
+  12%  { opacity:var(--opacity); }
+  74%  { opacity:calc(var(--opacity) * 0.92); }
+  100% { opacity:0; transform:translate3d(var(--drift),132vh,0) rotate(calc(var(--rot) + var(--turn))) scale(1.02); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .splash-cascade { display:none; }
+  .splash.ready .splash-logo { animation:splashLogoReveal 0.7s var(--ease) both; }
+}
 .splash.hidden { display: none; }
 .splash.exit {
   opacity: 0;
@@ -547,10 +596,11 @@ body.site-entered .shelf-wrap { transition-delay: 0.26s; }
 .splash-stage {
   position: absolute;
   inset: 0;
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--ivory);
+  background: transparent;
   transform: scale(1);
   filter: blur(0);
   opacity: 1;
@@ -559,7 +609,7 @@ body.site-entered .shelf-wrap { transition-delay: 0.26s; }
     transform 1.25s cubic-bezier(0.22,1,0.36,1),
     filter 1.25s cubic-bezier(0.22,1,0.36,1);
 }
-[data-theme="dark"] .splash-stage { background: var(--black); }
+[data-theme="dark"] .splash-stage { background: transparent; }
 .splash.exit .splash-stage {
   opacity: 0;
   transform: scale(1.055);
@@ -568,6 +618,7 @@ body.site-entered .shelf-wrap { transition-delay: 0.26s; }
 
 .splash-logo {
   position: absolute;
+  z-index: 2;
   width: min(76vw, 620px);
   height: min(76vw, 620px);
   max-height: 76vh;
@@ -611,7 +662,7 @@ body.site-entered .shelf-wrap { transition-delay: 0.26s; }
   height: min(68vw, 620px);
   max-height: 68vh;
   border-radius: 999px;
-  z-index: -1;
+  z-index: 1;
   background: radial-gradient(circle, rgba(34,36,34,0.08), transparent 62%);
   opacity: 0;
   transform: scale(0.85);
@@ -642,7 +693,7 @@ body.site-entered .shelf-wrap { transition-delay: 0.26s; }
   background: rgba(34,36,34,0.14);
   overflow: hidden;
   border-radius: 999px;
-  z-index: 3;
+  z-index: 5;
   opacity: 0;
 }
 [data-theme="dark"] .splash-progress-track { background: rgba(245,244,239,0.18); }
@@ -664,7 +715,7 @@ body.site-entered .shelf-wrap { transition-delay: 0.26s; }
   left: 50%;
   bottom: max(52px, calc(env(safe-area-inset-bottom) + 18px));
   transform: translateX(-50%);
-  z-index: 3;
+  z-index: 5;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.22em;
@@ -691,6 +742,7 @@ body.site-entered .shelf-wrap { transition-delay: 0.26s; }
  
 <!-- SPLASH SCREEN -->
 <div class="splash" id="splash" onclick="dismissSplash()" aria-label="Peachtree Town &amp; Country loading screen">
+  <div class="splash-cascade" id="splashCascade" aria-hidden="true"></div>
   <div class="splash-stage">
     <div class="splash-orb"></div>
     <img class="splash-logo splash-logo-light" src="ptc-logo-light.jpg" alt="Peachtree Town &amp; Country">
@@ -1794,32 +1846,61 @@ function showToast(msg) {
 /* ─────────────────────────────────────────
    SPLASH SCREEN
 ───────────────────────────────────────── */
-const SPLASH_DURATION = 3200;
-const SPLASH_EXIT_MS  = 1250;
+const SPLASH_DURATION = 3400;
+const SPLASH_EXIT_MS  = 1350;
 let splashTimer;
 let splashClosing = false;
+
+function buildLionCascade() {
+  const layer = document.getElementById('splashCascade');
+  if (!layer) return;
+  layer.innerHTML = '';
+
+  const isMobile = window.innerWidth <= 768;
+  const count = isMobile ? 54 : 118;
+
+  for (let i = 0; i < count; i++) {
+    const lion = document.createElement('span');
+    lion.className = 'cascade-lion';
+
+    const size = isMobile ? rand(28, 76) : rand(32, 118);
+    const x = rand(-8, 104);
+    const drift = rand(-90, 90);
+    const delay = rand(0, 1.15);
+    const dur = rand(2.1, 4.2);
+    const opacity = rand(0.10, 0.34);
+    const blur = Math.random() > 0.76 ? rand(0.5, 1.6) : rand(0, 0.45);
+    const rot = rand(-18, 18);
+    const turn = rand(-26, 26);
+
+    lion.style.setProperty('--size', `${size}px`);
+    lion.style.setProperty('--x', `${x}vw`);
+    lion.style.setProperty('--drift', `${drift}px`);
+    lion.style.setProperty('--delay', `${delay}s`);
+    lion.style.setProperty('--dur', `${dur}s`);
+    lion.style.setProperty('--opacity', opacity.toFixed(2));
+    lion.style.setProperty('--blur', `${blur.toFixed(2)}px`);
+    lion.style.setProperty('--rot', `${rot.toFixed(1)}deg`);
+    lion.style.setProperty('--turn', `${turn.toFixed(1)}deg`);
+    layer.appendChild(lion);
+  }
+}
+
+function rand(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
 function initSplash() {
   const splash = document.getElementById('splash');
   const progress = document.getElementById('splashProgress');
   if (!splash) return;
 
-  const revealSiteInstantly = () => {
-    document.body.classList.remove('splash-active');
-    document.body.classList.add('site-entered');
-    splash.classList.add('hidden');
-  };
-
-  // Only show once per browser session so advisors are not slowed down on refresh.
-  if (sessionStorage.getItem('ptc_splash_seen')) {
-    revealSiteInstantly();
-    return;
-  }
-
   const activeLogo = () => {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     return splash.querySelector(isDark ? '.splash-logo-dark' : '.splash-logo-light');
   };
+
+  buildLionCascade();
 
   const waitForLogo = new Promise(resolve => {
     const img = activeLogo();
@@ -1843,9 +1924,8 @@ function dismissSplash() {
   if (!splash || splashClosing || splash.classList.contains('hidden')) return;
   splashClosing = true;
   clearTimeout(splashTimer);
-  sessionStorage.setItem('ptc_splash_seen', '1');
 
-  // Start the page reveal while the logo/photo layer fades away.
+  // Start the page reveal while the branded refresh layer fades away.
   document.body.classList.remove('splash-active');
   document.body.classList.add('site-entered');
   splash.classList.add('exit');
@@ -1854,7 +1934,7 @@ function dismissSplash() {
     splash.classList.add('hidden');
   }, SPLASH_EXIT_MS);
 }
- 
+
 /* ─────────────────────────────────────────
    INIT
 
