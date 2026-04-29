@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-
+ 
 /* ═══ TOKENS ═══ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -46,7 +46,7 @@
   --dot-bg:rgba(245,244,239,0.18); --dot-active:var(--ivory);
   --footer-border:rgba(245,244,239,0.07); --fav-color:#f59e0b;
 }
-
+ 
 html { -webkit-font-smoothing:antialiased; scroll-behavior:smooth; }
 body {
   font-family:'Geist',system-ui,sans-serif;
@@ -54,7 +54,7 @@ body {
   min-height:100svh; overflow-x:hidden;
   transition:background 0.5s var(--ease),color 0.5s var(--ease);
 }
-
+ 
 /* ═══ NAV ═══ */
 nav {
   position:sticky; top:0; z-index:200; height:64px;
@@ -76,7 +76,7 @@ nav {
 .tp-opt.on { background:var(--bg-raised); color:var(--text); box-shadow:0 1px 4px rgba(0,0,0,0.08); }
 .admin-trigger { font-size:10px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-2); border:1px solid var(--border-mid); background:transparent; padding:6px 13px; border-radius:8px; cursor:pointer; transition:all 0.2s var(--ease); }
 .admin-trigger:hover { border-color:var(--border-mid); color:var(--text); background:var(--bg-deep); }
-
+ 
 /* ═══ SEARCH BAR ═══ */
 .search-wrap {
   max-width:1500px; margin:0 auto; padding:0 48px 32px;
@@ -98,7 +98,84 @@ nav {
 .search-clear.show { display:block; }
 .search-clear:hover { background:var(--bg-deep); color:var(--text); }
 .search-count { font-size:11px; color:var(--text-3); white-space:nowrap; transition:color 0.5s; }
-
+ 
+/* ═══ ANNOUNCEMENT BANNER ═══ */
+.announce-bar {
+  background: var(--iron-ore);
+  color: var(--ivory);
+  padding: 11px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  transition: background 0.5s;
+}
+[data-theme="dark"] .announce-bar { background: #2a2e2a; border-bottom: 1px solid var(--border); }
+.announce-bar.hidden { display: none; }
+.announce-msg { flex: 1; }
+.announce-dismiss {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: rgba(245,244,239,0.6);
+  background: transparent; border: 1px solid rgba(245,244,239,0.25);
+  border-radius: 6px; padding: 4px 11px; cursor: pointer;
+  transition: all 0.2s; flex-shrink: 0; white-space: nowrap;
+}
+.announce-dismiss:hover { background: rgba(245,244,239,0.12); color: var(--ivory); }
+ 
+/* ═══ CATEGORY FILTERS ═══ */
+.filter-wrap {
+  max-width: 1500px; margin: 0 auto; padding: 0 48px 24px;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.filter-pill {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 7px 16px; border-radius: 30px;
+  border: 1px solid var(--border-mid); background: transparent;
+  color: var(--text-2); cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+.filter-pill:hover { border-color: var(--iron-ore); color: var(--text); background: var(--bg-deep); }
+[data-theme="dark"] .filter-pill:hover { border-color: var(--ivory); }
+.filter-pill.active {
+  background: var(--iron-ore); color: var(--ivory);
+  border-color: var(--iron-ore);
+}
+[data-theme="dark"] .filter-pill.active { background: var(--ivory); color: var(--iron-ore); border-color: var(--ivory); }
+ 
+/* ═══ SECTION DIVIDER ═══ */
+.shelf-divider {
+  font-size: 9px; font-weight: 800; letter-spacing: 0.26em;
+  text-transform: uppercase; color: var(--text-2);
+  padding: 28px 0 14px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+  transition: color 0.5s, border-color 0.5s;
+}
+.shelf-divider::before {
+  content: '';
+  width: 20px; height: 2px;
+  background: var(--iron-ore);
+  border-radius: 2px;
+  flex-shrink: 0;
+  transition: background 0.5s;
+}
+[data-theme="dark"] .shelf-divider::before { background: var(--ivory); }
+ 
+/* Admin section divider field */
+.admin-divider-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px; background: var(--bg-deep);
+  border: 1px solid var(--border); border-radius: 10px; margin-bottom: 16px;
+}
+.admin-divider-icon { font-size: 16px; flex-shrink: 0; }
+.admin-divider-info { flex: 1; }
+.admin-divider-label { font-size: 13px; font-weight: 500; color: var(--text); transition: color 0.5s; }
+.admin-divider-sub { font-size: 11px; color: var(--text-3); transition: color 0.5s; }
+ 
 /* ═══ HERO ═══ */
 .hero { max-width:1500px; margin:0 auto; padding:72px 48px 40px; }
 .hero-eyebrow { font-size:9px; font-weight:700; letter-spacing:0.26em; text-transform:uppercase; color:var(--text); margin-bottom:16px; opacity:0; animation:up 0.7s var(--ease) 0.05s both; transition:color 0.5s; }
@@ -107,18 +184,18 @@ nav {
 .hero-rule { width:48px; height:1px; background:var(--border-mid); margin:28px 0; opacity:0; animation:up 0.7s var(--ease) 0.19s both; transition:background 0.5s; }
 .hero-desc { font-size:15px; color:var(--text); line-height:1.75; max-width:460px; opacity:0; animation:up 0.7s var(--ease) 0.25s both; transition:color 0.5s; }
 @keyframes up { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-
+ 
 /* ═══ SHELF ═══ */
 .shelf-wrap { max-width:1500px; margin:0 auto; padding:0 48px 100px; }
 .shelf-label { font-size:9px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--text-2); padding-bottom:16px; border-bottom:1px solid var(--border); margin-bottom:32px; transition:color 0.5s,border-color 0.5s; }
 .shelf-section { margin-bottom:48px; }
 .shelf { display:flex; flex-direction:column; gap:20px; }
-
+ 
 /* No results */
 .no-results { text-align:center; padding:60px 20px; color:var(--text-3); }
 .no-results-icon { font-size:40px; margin-bottom:12px; opacity:0.5; }
 .no-results-text { font-family:'Cormorant Garamond',serif; font-size:22px; color:var(--text-2); }
-
+ 
 /* ═══ MAG CARD ═══ */
 .mag-card {
   display:flex; align-items:stretch; background:var(--card-bg);
@@ -140,7 +217,7 @@ nav {
 .mag-card::before { content:''; position:absolute; right:0; top:8px; bottom:8px; width:0; background:linear-gradient(to right,transparent,rgba(34,36,34,0.04)); border-radius:0 16px 16px 0; transition:width 0.4s var(--ease); pointer-events:none; }
 .mag-card:hover::before { width:40px; }
 [data-theme="dark"] .mag-card::before { background:linear-gradient(to right,transparent,rgba(245,244,239,0.03)); }
-
+ 
 .mag-spine { width:52px; flex-shrink:0; background:var(--spine-bg); display:flex; align-items:center; justify-content:center; padding:12px 0; position:relative; transition:background 0.5s var(--ease); }
 .mag-spine-num { font-family:'Cormorant Garamond',serif; font-size:13px; font-weight:400; color:var(--spine-text); writing-mode:vertical-rl; text-orientation:mixed; transform:rotate(180deg); letter-spacing:0.08em; opacity:0.55; transition:color 0.5s; }
 .spine-icon { position:absolute; top:16px; font-size:18px; line-height:1; }
@@ -154,7 +231,7 @@ nav {
 .mag-right { display:flex; flex-direction:column; align-items:flex-end; justify-content:space-between; gap:16px; flex-shrink:0; }
 .mag-badge { font-size:9px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; background:var(--badge-bg); color:var(--badge-text); padding:5px 11px; border-radius:6px; transition:background 0.5s,color 0.5s; }
 .mag-actions { display:flex; align-items:center; gap:8px; }
-
+ 
 /* Favorite star */
 .fav-btn {
   width:32px; height:32px; border-radius:50%; border:1px solid var(--border-mid);
@@ -167,14 +244,14 @@ nav {
 .fav-star { transition:transform 0.25s var(--spring); }
 .fav-btn:hover .fav-star { transform:scale(1.25); }
 .fav-btn.active .fav-star { filter:none; }
-
+ 
 .mag-arrow { width:36px; height:36px; border-radius:50%; border:1px solid var(--border-mid); display:flex; align-items:center; justify-content:center; transition:all 0.3s var(--ease); flex-shrink:0; }
 .mag-card:hover .mag-arrow { background:var(--iron-ore); border-color:var(--iron-ore); transform:translate(2px,-2px); }
 [data-theme="dark"] .mag-card:hover .mag-arrow { background:var(--ivory); border-color:var(--ivory); }
 .mag-arrow-icon { transition:stroke 0.3s; stroke:var(--text-3); }
 .mag-card:hover .mag-arrow-icon { stroke:var(--ivory); }
 [data-theme="dark"] .mag-card:hover .mag-arrow-icon { stroke:var(--iron-ore); }
-
+ 
 /* ═══ RECENTLY OPENED ═══ */
 .recent-section { margin-bottom:40px; }
 .recent-row { display:flex; gap:12px; flex-wrap:wrap; }
@@ -192,7 +269,7 @@ nav {
 .recent-chip-label { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .recent-chip-x { margin-left:4px; opacity:0.4; flex-shrink:0; font-size:11px; }
 .recent-chip:hover .recent-chip-x { opacity:0.7; }
-
+ 
 /* ═══ VIEWER OVERLAY ═══ */
 .overlay { position:fixed; inset:0; z-index:900; opacity:0; pointer-events:none; transition:opacity 0.4s var(--ease); display:flex; flex-direction:column; }
 .overlay.open { opacity:1; pointer-events:all; }
@@ -218,12 +295,12 @@ nav {
 .bar-open:hover { background:var(--black); transform:translateY(-2px); box-shadow:0 6px 20px rgba(34,36,34,0.35); }
 [data-theme="dark"] .bar-open { color:var(--iron-ore); background:var(--ivory); }
 [data-theme="dark"] .bar-open:hover { background:var(--white); }
-
+ 
 /* Copy link button */
 .bar-copy { display:flex; align-items:center; gap:6px; font-size:11px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-2); background:transparent; border:1px solid var(--border-mid); padding:8px 14px; border-radius:8px; cursor:pointer; transition:all 0.2s var(--ease); white-space:nowrap; }
 .bar-copy:hover { border-color:var(--border-mid); background:var(--bg-deep); color:var(--text); }
 .bar-copy.copied { border-color:#16a34a; color:#16a34a; background:rgba(22,163,74,0.08); }
-
+ 
 .bar-close { width:34px; height:34px; border-radius:50%; border:1px solid var(--border-mid); background:transparent; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:18px; line-height:1; color:var(--text-2); transition:all 0.2s var(--ease); flex-shrink:0; }
 .bar-close:hover { background:#ff3b30; border-color:#ff3b30; color:white; }
 .bar-back { display:none; align-items:center; gap:6px; font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-2); border:1px solid var(--border-mid); padding:7px 14px; border-radius:8px; cursor:pointer; background:transparent; transition:all 0.2s var(--ease); white-space:nowrap; flex-shrink:0; }
@@ -255,13 +332,13 @@ nav {
 .sub-item-label { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:var(--text); letter-spacing:0.01em; transition:color 0.5s; }
 .sub-item-desc { font-size:12px; color:var(--text-2); margin-top:3px; transition:color 0.5s; }
 .sub-item-badge { font-size:9px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; background:var(--badge-bg); color:var(--badge-text); padding:4px 10px; border-radius:5px; flex-shrink:0; transition:background 0.5s,color 0.5s; }
-
+ 
 /* ═══ FOOTER ═══ */
 footer { border-top:1px solid var(--footer-border); padding:24px 48px; transition:border-color 0.5s; }
 .footer-inner { max-width:1500px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
 .footer-brand { font-family:'Cormorant Garamond',serif; font-size:14px; font-weight:500; letter-spacing:0.05em; color:var(--text-3); transition:color 0.5s; }
 .footer-copy { font-size:11px; color:var(--text-3); transition:color 0.5s; }
-
+ 
 /* ═══ RESPONSIVE ═══ */
 @media (max-width:768px) {
   nav { padding:0 20px; }
@@ -280,13 +357,13 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
 @supports (padding-bottom:env(safe-area-inset-bottom)) {
   footer { padding-bottom:calc(24px + env(safe-area-inset-bottom)); }
 }
-
+ 
 /* ═══ ADMIN PANEL ═══ */
 .admin-overlay { position:fixed; inset:0; z-index:1000; opacity:0; pointer-events:none; transition:opacity 0.35s var(--ease); }
 .admin-overlay.open { opacity:1; pointer-events:all; }
 .admin-panel { position:absolute; inset:0; display:grid; grid-template-rows:64px 1fr 72px; grid-template-columns:300px 1fr; background:var(--bg); transform:translateY(30px) scale(0.98); transition:transform 0.4s var(--ease),background 0.5s; overflow:hidden; }
 .admin-overlay.open .admin-panel { transform:translateY(0) scale(1); }
-
+ 
 /* Password gate */
 .admin-gate { position:absolute; inset:0; z-index:10; display:flex; align-items:center; justify-content:center; background:var(--bg); flex-direction:column; gap:20px; }
 .admin-gate.hidden { display:none; }
@@ -301,7 +378,7 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
 .admin-gate-err { font-size:12px; color:#dc2626; display:none; }
 .admin-gate-err.show { display:block; }
 .admin-gate-cancel { font-size:12px; color:var(--text-3); cursor:pointer; background:none; border:none; text-decoration:underline; }
-
+ 
 .admin-topbar { grid-column:1/-1; grid-row:1; display:flex; align-items:center; justify-content:space-between; padding:0 28px; background:var(--panel-bar); border-bottom:1px solid var(--panel-border); gap:20px; transition:background 0.5s,border-color 0.5s; }
 .admin-topbar-left { display:flex; align-items:center; gap:16px; }
 .admin-topbar-title { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:500; color:var(--text); letter-spacing:0.01em; transition:color 0.5s; }
@@ -320,7 +397,7 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
 .asi-status { font-size:8px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; padding:2px 7px; border-radius:4px; flex-shrink:0; }
 .asi-status.live { background:#d4edda; color:#155724; }
 .asi-status.empty { background:var(--bg-deep); color:var(--text-3); border:1px solid var(--border); }
-
+ 
 .admin-sidebar-add { margin:12px 16px; font-size:11px; font-weight:600; color:var(--text-2); background:transparent; border:1px dashed var(--border-mid); border-radius:8px; padding:10px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:6px; transition:all 0.2s var(--ease); }
 .admin-sidebar-add:hover { border-color:var(--iron-ore); color:var(--text); background:var(--bg-raised); }
 [data-theme="dark"] .admin-sidebar-add:hover { border-color:var(--ivory); }
@@ -341,7 +418,7 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
 .admin-input.url-input { font-size:12px; font-family:monospace; }
 .admin-row-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 .admin-row-icon-name { display:grid; grid-template-columns:80px 1fr; gap:16px; }
-
+ 
 /* New badge toggle */
 .new-toggle-row { display:flex; align-items:center; gap:12px; padding:12px 14px; background:var(--bg-deep); border:1px solid var(--border); border-radius:10px; margin-bottom:16px; }
 .new-toggle-label { font-size:13px; font-weight:500; color:var(--text); flex:1; transition:color 0.5s; }
@@ -352,7 +429,7 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
 .toggle-slider::after { content:''; position:absolute; width:16px; height:16px; border-radius:50%; background:var(--text-3); top:2px; left:2px; transition:all 0.25s var(--spring); }
 .toggle-switch input:checked + .toggle-slider { background:#dc2626; border-color:#dc2626; }
 .toggle-switch input:checked + .toggle-slider::after { transform:translateX(18px); background:white; }
-
+ 
 .subfolder-card { background:var(--bg-raised); border:1px solid var(--border); border-radius:14px; overflow:hidden; margin-bottom:16px; transition:background 0.5s,border-color 0.5s; box-shadow:var(--card-shadow); }
 .subfolder-header { display:flex; align-items:center; gap:12px; padding:16px 20px; background:var(--panel-bar); border-bottom:1px solid var(--border); transition:background 0.5s,border-color 0.5s; }
 .subfolder-icon-badge { font-size:20px; width:36px; height:36px; display:flex; align-items:center; justify-content:center; background:var(--bg-deep); border-radius:8px; flex-shrink:0; border:1px solid var(--border); }
@@ -379,17 +456,17 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
 [data-theme="dark"] .btn-export:hover { background:var(--white); }
 .btn-admin-close-big { display:flex; align-items:center; gap:6px; font-size:12px; font-weight:600; color:var(--text-2); background:transparent; border:1px solid var(--border-mid); padding:11px 20px; border-radius:10px; cursor:pointer; transition:all 0.2s var(--ease); white-space:nowrap; }
 .btn-admin-close-big:hover { background:var(--bg-deep); color:var(--text); }
-
-
+ 
+ 
 /* Toast */
 .toast { position:fixed; bottom:32px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--iron-ore); color:var(--ivory); font-size:13px; font-weight:500; padding:12px 22px; border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,0.25); z-index:9999; opacity:0; transition:opacity 0.3s var(--ease),transform 0.3s var(--ease); pointer-events:none; white-space:nowrap; }
 .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
 [data-theme="dark"] .toast { background:var(--ivory); color:var(--iron-ore); }
-
+ 
 </style>
 </head>
 <body>
-
+ 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
@@ -407,7 +484,13 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
     </div>
   </div>
 </nav>
-
+ 
+<!-- ANNOUNCEMENT BANNER -->
+<div class="announce-bar hidden" id="announceBanner">
+  <span class="announce-msg" id="announceMsg"></span>
+  <button class="announce-dismiss" onclick="dismissBanner()">Dismiss</button>
+</div>
+ 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-eyebrow">Peachtree Town &amp; Country — Internal</div>
@@ -415,7 +498,7 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
   <div class="hero-rule"></div>
   <p class="hero-desc">Every tool, guide, and asset you need — all in one place. Select any resource below to open it full screen.</p>
 </div>
-
+ 
 <!-- SEARCH -->
 <div class="search-wrap">
   <div class="search-bar">
@@ -425,7 +508,12 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
     <button class="search-clear" id="searchClear" onclick="clearSearch()" title="Clear">✕ Clear</button>
   </div>
 </div>
-
+ 
+<!-- CATEGORY FILTERS -->
+<div class="filter-wrap" id="filterWrap">
+  <!-- pills injected by JS -->
+</div>
+ 
 <!-- SHELF -->
 <div class="shelf-wrap">
   <!-- Recently opened -->
@@ -448,7 +536,7 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
     </div>
   </div>
 </div>
-
+ 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -456,7 +544,7 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
     <div class="footer-copy">Internal Use Only &nbsp;·&nbsp; &copy; 2026</div>
   </div>
 </footer>
-
+ 
 <!-- VIEWER OVERLAY -->
 <div class="overlay" id="overlay">
   <div class="overlay-scrim" onclick="closeViewer()"></div>
@@ -499,7 +587,7 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
     <div class="sheet-dots" id="sheetDots"></div>
   </div>
 </div>
-
+ 
 <!-- ADMIN PANEL -->
 <div class="admin-overlay" id="adminOverlay">
   <div class="admin-panel">
@@ -528,6 +616,16 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
     <!-- Sidebar -->
     <div class="admin-sidebar" id="adminSidebar">
       <div class="admin-sidebar-label">All Tiles</div>
+      <div style="padding:0 16px 12px;border-bottom:1px solid var(--border);margin-bottom:4px;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:8px;margin-top:6px;">📣 Announcement Banner</div>
+        <textarea id="adminAnnounceText" rows="2" placeholder="Type a message for all advisors…" style="width:100%;font-family:'Geist',sans-serif;font-size:12px;color:var(--text);background:var(--bg);border:1px solid var(--border-mid);border-radius:8px;padding:8px 10px;outline:none;resize:none;transition:border-color 0.2s,background 0.5s,color 0.5s;"></textarea>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;gap:8px;">
+          <label style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-2);cursor:pointer;">
+            <input type="checkbox" id="adminAnnounceActive" style="accent-color:var(--iron-ore)"> Show banner
+          </label>
+          <button onclick="previewBanner()" style="font-size:10px;font-weight:600;color:var(--text-2);background:transparent;border:1px solid var(--border-mid);border-radius:6px;padding:4px 10px;cursor:pointer;">Preview</button>
+        </div>
+      </div>
       <button class="admin-sidebar-add" onclick="addTopLevelTile()">+ Add New Tile</button>
     </div>
     <!-- Editor -->
@@ -545,19 +643,19 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
     </div>
   </div>
 </div>
-
+ 
 <!-- Toast -->
 <div class="toast" id="toast"></div>
-
+ 
 <!-- Data file -->
 <script src="resources.js"></script>
-
+ 
 <script>
 /* ─────────────────────────────────────────
    CONFIG — change the admin password here
 ───────────────────────────────────────── */
 const ADMIN_PASSWORD = '';
-
+ 
 /* ─────────────────────────────────────────
    LOCAL STORAGE KEYS
 ───────────────────────────────────────── */
@@ -565,7 +663,7 @@ const LS_THEME    = 'ptc_theme';
 const LS_FAVS     = 'ptc_favs';
 const LS_RECENT   = 'ptc_recent';
 const MAX_RECENT  = 5;
-
+ 
 /* ─────────────────────────────────────────
    THEME
 ───────────────────────────────────────── */
@@ -580,7 +678,7 @@ function applyTheme(t) {
   document.getElementById('tpLight').classList.toggle('on', t === 'light');
   document.getElementById('tpDark').classList.toggle('on', t === 'dark');
 }
-
+ 
 /* ─────────────────────────────────────────
    HELPERS
 ───────────────────────────────────────── */
@@ -596,7 +694,7 @@ function toEmbed(url) {
   if (m) return `https://drive.google.com/file/d/${m[1]}/preview`;
   return url;
 }
-
+ 
 /* ─────────────────────────────────────────
    FAVORITES
 ───────────────────────────────────────── */
@@ -612,31 +710,89 @@ function toggleFav(label, e) {
   buildShelf();
   showToast(idx >= 0 ? 'Removed from favorites' : '⭐ Added to favorites');
 }
-
+ 
 /* ─────────────────────────────────────────
    RECENTLY OPENED
 ───────────────────────────────────────── */
 function getRecent() { try { return JSON.parse(localStorage.getItem(LS_RECENT)) || []; } catch { return []; } }
-function addRecent(r) {
-  let recent = getRecent().filter(x => x.label !== r.label);
-  recent.unshift({ label: r.label, icon: r.icon, url: r.url || '' });
+function addRecent(r, siblings, context) {
+  // Store everything needed to reopen this exact resource directly
+  const entry = {
+    label:    r.label,
+    icon:     r.icon,
+    url:      r.url || '',
+    type:     r.type || '',
+    context:  context || '',   // breadcrumb e.g. "Brand Collateral › Sellers Guide"
+    siblings: (siblings || [r]).map(s => ({ label:s.label, icon:s.icon, url:s.url, type:s.type, desc:s.desc||'' }))
+  };
+  let recent = getRecent().filter(x => x.url ? x.url !== entry.url : x.label !== entry.label);
+  recent.unshift(entry);
   if (recent.length > MAX_RECENT) recent = recent.slice(0, MAX_RECENT);
   localStorage.setItem(LS_RECENT, JSON.stringify(recent));
 }
-function removeRecent(label) {
-  localStorage.setItem(LS_RECENT, JSON.stringify(getRecent().filter(x => x.label !== label)));
+function removeRecent(url, label) {
+  localStorage.setItem(LS_RECENT, JSON.stringify(
+    getRecent().filter(x => (url ? x.url !== url : x.label !== label))
+  ));
   buildShelf();
 }
-
+ 
 /* ─────────────────────────────────────────
    BUILD SHELF
 ───────────────────────────────────────── */
 function buildShelf() {
+  buildBanner();
+  buildFilterPills();
   buildRecentRow();
   buildFavShelf();
   buildMainShelf();
 }
-
+ 
+function buildRecentRow() {
+  const recent = getRecent();
+  const section = document.getElementById('recentSection');
+  const row = document.getElementById('recentRow');
+  if (!recent.length) { section.style.display = 'none'; return; }
+  section.style.display = '';
+  row.innerHTML = '';
+  recent.forEach(item => {
+    const chip = document.createElement('div');
+    chip.className = 'recent-chip';
+    const sublabel = item.context ? `<span style="font-size:10px;opacity:0.55;margin-left:4px;">· ${item.context}</span>` : '';
+    chip.innerHTML = `<span class="recent-chip-icon">${item.icon}</span><span class="recent-chip-label">${item.label}${sublabel}</span><span class="recent-chip-x" title="Remove">✕</span>`;
+    chip.onclick = (e) => {
+      if (e.target.classList.contains('recent-chip-x')) { removeRecent(item.url, item.label); return; }
+      // Reopen directly using stored context — no RESOURCES lookup needed
+      const resource = { label:item.label, icon:item.icon, url:item.url, type:item.type };
+      const siblings = item.siblings && item.siblings.length ? item.siblings : [resource];
+      const idx = Math.max(0, siblings.findIndex(s => s.url === item.url));
+      document.getElementById('overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      subMenuStack = [];
+      viewerList = siblings;
+      current = idx;
+      currentRawUrl = item.url;
+      hidePicker();
+      showFrame(resource, true);
+      updateBar(resource, false);
+      document.getElementById('sheetDots').style.display = siblings.length > 1 ? '' : 'none';
+      if (siblings.length > 1) { buildDots(); syncDots(); }
+    };
+    row.appendChild(chip);
+  });
+}
+ 
+/* ─────────────────────────────────────────
+   BUILD SHELF
+───────────────────────────────────────── */
+function buildShelf() {
+  buildBanner();
+  buildFilterPills();
+  buildRecentRow();
+  buildFavShelf();
+  buildMainShelf();
+}
+ 
 function buildRecentRow() {
   const recent = getRecent();
   const section = document.getElementById('recentSection');
@@ -656,7 +812,7 @@ function buildRecentRow() {
     row.appendChild(chip);
   });
 }
-
+ 
 function buildFavShelf() {
   const favs = getFavs();
   const section = document.getElementById('favSection');
@@ -667,13 +823,28 @@ function buildFavShelf() {
   shelf.innerHTML = '';
   favResources.forEach((r, i) => shelf.appendChild(buildCard(r, i)));
 }
-
+ 
 function buildMainShelf() {
   const shelf = document.getElementById('shelf');
   shelf.innerHTML = '';
-  RESOURCES.forEach((r, i) => shelf.appendChild(buildCard(r, i)));
+  let lastSection = null;
+  RESOURCES.forEach((r, i) => {
+    // Section divider
+    if (r.section && r.section !== lastSection) {
+      const div = document.createElement('div');
+      div.className = 'shelf-divider';
+      div.textContent = r.section;
+      shelf.appendChild(div);
+      lastSection = r.section;
+    }
+    const card = buildCard(r, i);
+    // Tag with type for filter
+    card.dataset.type = (r.type || '').toLowerCase();
+    shelf.appendChild(card);
+  });
+  applyActiveFilter();
 }
-
+ 
 function buildCard(r, i) {
   const active = hasContent(r);
   const fav = isFav(r.label);
@@ -711,7 +882,75 @@ function buildCard(r, i) {
   else { card.style.opacity='0.40'; card.style.cursor='default'; card.style.pointerEvents='none'; }
   return card;
 }
-
+ 
+/* ─────────────────────────────────────────
+   ANNOUNCEMENT BANNER
+───────────────────────────────────────── */
+const LS_BANNER_DISMISSED = 'ptc_banner_dismissed';
+ 
+function buildBanner() {
+  const cfg = (typeof SITE_CONFIG !== 'undefined') ? SITE_CONFIG : {};
+  const bar = document.getElementById('announceBanner');
+  const msg = document.getElementById('announceMsg');
+  if (!cfg.announcementActive || !cfg.announcementText) { bar.classList.add('hidden'); return; }
+  const dismissedText = localStorage.getItem(LS_BANNER_DISMISSED);
+  if (dismissedText === cfg.announcementText) { bar.classList.add('hidden'); return; }
+  msg.textContent = cfg.announcementText;
+  bar.classList.remove('hidden');
+}
+ 
+function dismissBanner() {
+  const cfg = (typeof SITE_CONFIG !== 'undefined') ? SITE_CONFIG : {};
+  if (cfg.announcementText) localStorage.setItem(LS_BANNER_DISMISSED, cfg.announcementText);
+  document.getElementById('announceBanner').classList.add('hidden');
+}
+ 
+/* ─────────────────────────────────────────
+   CATEGORY FILTERS
+───────────────────────────────────────── */
+let activeFilter = 'all';
+ 
+function buildFilterPills() {
+  const wrap = document.getElementById('filterWrap');
+  wrap.innerHTML = '';
+  // Collect unique types from RESOURCES
+  const types = ['All', ...new Set(RESOURCES.map(r => r.type).filter(Boolean))];
+  types.forEach(t => {
+    const pill = document.createElement('button');
+    pill.className = 'filter-pill' + (t.toLowerCase() === activeFilter ? ' active' : '');
+    pill.textContent = t;
+    pill.onclick = () => setFilter(t.toLowerCase());
+    wrap.appendChild(pill);
+  });
+}
+ 
+function setFilter(type) {
+  activeFilter = type;
+  buildFilterPills();
+  applyActiveFilter();
+}
+ 
+function applyActiveFilter() {
+  const cards = document.querySelectorAll('#shelf .mag-card');
+  cards.forEach(card => {
+    if (activeFilter === 'all') { card.style.display = ''; return; }
+    card.style.display = card.dataset.type === activeFilter ? '' : 'none';
+  });
+  // Hide/show dividers based on whether any visible cards follow them
+  const shelf = document.getElementById('shelf');
+  const children = Array.from(shelf.children);
+  children.forEach((el, idx) => {
+    if (!el.classList.contains('shelf-divider')) return;
+    // Check if any visible mag-card follows before next divider
+    let hasVisible = false;
+    for (let j = idx + 1; j < children.length; j++) {
+      if (children[j].classList.contains('shelf-divider')) break;
+      if (children[j].classList.contains('mag-card') && children[j].style.display !== 'none') { hasVisible = true; break; }
+    }
+    el.style.display = hasVisible ? '' : 'none';
+  });
+}
+ 
 /* ─────────────────────────────────────────
    SEARCH
 ───────────────────────────────────────── */
@@ -722,7 +961,7 @@ function resourceMatchesQuery(r, q) {
   if (r.type && r.type.toLowerCase().includes(q)) return true;
   return false;
 }
-
+ 
 /* Returns a flat list of every "openable" leaf that matches q,
    plus the tile it belongs to (for context label) */
 function deepSearch(q) {
@@ -731,16 +970,16 @@ function deepSearch(q) {
     if (!hasContent(tile)) return;
     // Does the tile itself match?
     const tileMatch = resourceMatchesQuery(tile, q);
-
+ 
     if (!isFolder(tile)) {
       if (tileMatch) results.push({ tile, resource: tile, context: null });
       return;
     }
-
+ 
     // Walk children (sub-folders)
     tile.children.forEach(child => {
       const childMatch = resourceMatchesQuery(child, q);
-
+ 
       if (!isFolder(child)) {
         // Direct-link sub-folder (no grandchildren)
         if (tileMatch || childMatch) {
@@ -748,7 +987,7 @@ function deepSearch(q) {
         }
         return;
       }
-
+ 
       // Sub-folder has files inside
       child.children.forEach(file => {
         const fileMatch = resourceMatchesQuery(file, q);
@@ -758,7 +997,7 @@ function deepSearch(q) {
       });
     });
   });
-
+ 
   // De-duplicate by url
   const seen = new Set();
   return results.filter(r => {
@@ -767,7 +1006,7 @@ function deepSearch(q) {
     seen.add(key); return true;
   });
 }
-
+ 
 function buildSearchResultCard(hit, index) {
   const { tile, resource, context, siblings } = hit;
   const card = document.createElement('div');
@@ -795,7 +1034,8 @@ function buildSearchResultCard(hit, index) {
     </div>
   `;
   card.onclick = () => {
-    addRecent(resource);
+    const list = siblings && siblings.length ? siblings : [resource];
+    addRecent(resource, list, context);
     buildRecentRow();
     document.getElementById('overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -812,7 +1052,7 @@ function buildSearchResultCard(hit, index) {
   };
   return card;
 }
-
+ 
 function handleSearch(q) {
   q = q.trim().toLowerCase();
   const shelf = document.getElementById('shelf');
@@ -822,7 +1062,7 @@ function handleSearch(q) {
   const favSection = document.getElementById('favSection');
   const recentSection = document.getElementById('recentSection');
   clearBtn.classList.toggle('show', q.length > 0);
-
+ 
   if (!q) {
     // Restore normal shelf
     buildMainShelf();
@@ -833,42 +1073,47 @@ function handleSearch(q) {
     document.getElementById('allShelfLabel').textContent = 'All Resources';
     return;
   }
-
+ 
   // Hide contextual sections while searching
   favSection.style.display = 'none';
   recentSection.style.display = 'none';
   document.getElementById('allShelfLabel').textContent = 'Search Results';
-
+ 
   const hits = deepSearch(q);
   shelf.innerHTML = '';
   hits.forEach((hit, i) => shelf.appendChild(buildSearchResultCard(hit, i)));
-
+ 
   const visible = hits.length;
   countEl.textContent = visible === 1 ? '1 result' : `${visible} results`;
   noResults.style.display = visible === 0 ? '' : 'none';
   document.getElementById('noResultsQuery').textContent = q;
 }
-
+ 
 function clearSearch() {
   document.getElementById('searchInput').value = '';
   handleSearch('');
 }
-
+ 
 /* ─────────────────────────────────────────
    VIEWER
 ───────────────────────────────────────── */
 let current = -1, viewerList = [], subMenuStack = [], currentRawUrl = '';
-
+ 
 function openResource(r) {
-  addRecent(r);
-  buildRecentRow();
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
   subMenuStack = [];
-  if (isFolder(r)) { showSubMenu(r); }
-  else { viewerList=[r]; current=0; currentRawUrl=r.url; showFrame(r,true); updateBar(r,false); hidePicker(); buildDots(); syncDots(); }
+  if (isFolder(r)) {
+    showSubMenu(r);
+  } else {
+    // Direct single-resource tile — track it now
+    addRecent(r, [r], '');
+    buildRecentRow();
+    viewerList=[r]; current=0; currentRawUrl=r.url;
+    showFrame(r,true); updateBar(r,false); hidePicker(); buildDots(); syncDots();
+  }
 }
-
+ 
 function showSubMenu(r) {
   subMenuStack.push(r);
   const picker = document.getElementById('subPicker');
@@ -890,22 +1135,26 @@ function showSubMenu(r) {
   updateBarForSubMenu(r);
   document.getElementById('sheetDots').style.display='none';
 }
-
+ 
 function openLeaf(child, siblings) {
   viewerList=siblings; current=Math.max(0,siblings.indexOf(child));
   currentRawUrl=siblings[current].url;
+  // Build breadcrumb from the current subMenuStack
+  const breadcrumb = subMenuStack.map(s => s.label).join(' › ');
+  addRecent(child, siblings, breadcrumb);
+  buildRecentRow();
   hidePicker(); showFrame(siblings[current],true); updateBar(siblings[current],true);
   document.getElementById('sheetDots').style.display=''; buildDots(); syncDots();
 }
-
+ 
 function goBackToSubMenu() {
   subMenuStack.pop();
   const parent = subMenuStack[subMenuStack.length-1];
   if (parent) { subMenuStack.pop(); showSubMenu(parent); } else { closeViewer(); }
 }
-
+ 
 function hidePicker() { document.getElementById('subPicker').classList.remove('show'); }
-
+ 
 function showFrame(r, first) {
   const loader=document.getElementById('sheetLoader'), frame=document.getElementById('sheetFrame');
   loader.classList.add('on'); frame.classList.remove('show','from-right','from-left');
@@ -914,7 +1163,7 @@ function showFrame(r, first) {
     frame.onload=()=>{ loader.classList.remove('on'); void frame.offsetWidth; frame.classList.remove('from-right','from-left'); frame.classList.add('show'); };
   }, first?0:200);
 }
-
+ 
 function updateBar(r, showBack) {
   document.getElementById('barBadge').textContent=r.type;
   document.getElementById('barTitle').textContent=r.label;
@@ -931,7 +1180,7 @@ function updateBar(r, showBack) {
   document.getElementById('barCounter').textContent=`${current+1} / ${viewerList.length}`;
   const copyBtn=document.getElementById('barCopy'); copyBtn.textContent='📋 Copy Link'; copyBtn.classList.remove('copied');
 }
-
+ 
 function updateBarForSubMenu(r) {
   document.getElementById('barBadge').textContent='Folder';
   document.getElementById('barTitle').textContent=r.label;
@@ -943,7 +1192,7 @@ function updateBarForSubMenu(r) {
   document.getElementById('barCopy').style.display='none';
   document.getElementById('barBack').classList.toggle('show',subMenuStack.length>1);
 }
-
+ 
 function closeViewer() {
   document.getElementById('overlay').classList.remove('open');
   document.body.style.overflow='';
@@ -955,7 +1204,7 @@ function closeViewer() {
     subMenuStack=[]; viewerList=[]; current=-1;
   },440);
 }
-
+ 
 function step(dir) {
   const next=current+dir; if(next<0||next>=viewerList.length) return;
   current=next; const r=viewerList[current]; currentRawUrl=r.url;
@@ -967,7 +1216,7 @@ function step(dir) {
   },200);
   updateBar(r, subMenuStack.length>0); syncDots();
 }
-
+ 
 /* Copy link */
 function copyCurrentLink() {
   if (!currentRawUrl || currentRawUrl==='PASTE_LINK_HERE') { showToast('No link available'); return; }
@@ -978,7 +1227,7 @@ function copyCurrentLink() {
     setTimeout(()=>{ btn.textContent='📋 Copy Link'; btn.classList.remove('copied'); },2500);
   }).catch(()=>showToast('Copy failed — try opening in Drive'));
 }
-
+ 
 /* Dots */
 function buildDots() {
   const el=document.getElementById('sheetDots'); el.innerHTML='';
@@ -994,19 +1243,25 @@ function buildDots() {
   });
 }
 function syncDots() { document.querySelectorAll('.sdot').forEach((d,i)=>d.classList.toggle('on',i===current)); }
-
+ 
 /* Keyboard & touch */
 document.addEventListener('keydown',e=>{
   const overlayOpen=document.getElementById('overlay').classList.contains('open');
+  const adminOpen=document.getElementById('adminOverlay').classList.contains('open');
   if(overlayOpen&&e.key==='Escape') { closeViewer(); return; }
   if(overlayOpen&&e.key==='ArrowRight') { step(1); return; }
   if(overlayOpen&&e.key==='ArrowLeft') { step(-1); return; }
-  if(e.key==='Escape'&&document.getElementById('adminOverlay').classList.contains('open')) { closeAdmin(); }
+  if(e.key==='Escape'&&adminOpen) { closeAdmin(); return; }
+  if(e.key==='/'&&!overlayOpen&&!adminOpen&&document.activeElement.tagName!=='INPUT') {
+    e.preventDefault();
+    const input=document.getElementById('searchInput');
+    input.focus(); input.select();
+  }
 });
 let tx=0;
 document.getElementById('sheetStage').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
 document.getElementById('sheetStage').addEventListener('touchend',e=>{ const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>50) step(dx<0?1:-1); },{passive:true});
-
+ 
 /* ─────────────────────────────────────────
    ADMIN — PASSWORD
 ───────────────────────────────────────── */
@@ -1018,7 +1273,7 @@ function openAdmin() {
   document.getElementById('adminPasswordInput').value='';
   setTimeout(()=>document.getElementById('adminPasswordInput').focus(),300);
 }
-
+ 
 function checkAdminPassword() {
   const val=document.getElementById('adminPasswordInput').value;
   if(val===ADMIN_PASSWORD) {
@@ -1026,25 +1281,41 @@ function checkAdminPassword() {
     adminSelectedIdx=-1;
     renderAdminSidebar();
     document.getElementById('adminEditor').innerHTML=`<div class="admin-empty"><div class="admin-empty-icon">👈</div><div class="admin-empty-title">Select a tile to edit</div><div class="admin-empty-sub">Choose any tile from the list on the left to edit its details, links, and sub-folders.</div></div>`;
+    // Populate announcement fields
+    const cfg = (typeof SITE_CONFIG !== 'undefined') ? SITE_CONFIG : {};
+    const ta = document.getElementById('adminAnnounceText');
+    const cb = document.getElementById('adminAnnounceActive');
+    if(ta) ta.value = cfg.announcementText || '';
+    if(cb) cb.checked = !!cfg.announcementActive;
   } else {
     document.getElementById('adminGateErr').classList.add('show');
     document.getElementById('adminPasswordInput').value='';
     document.getElementById('adminPasswordInput').focus();
   }
 }
-
+ 
+function previewBanner() {
+  const text = document.getElementById('adminAnnounceText').value.trim();
+  if(!text) { showToast('Enter a message first'); return; }
+  const bar = document.getElementById('announceBanner');
+  document.getElementById('announceMsg').textContent = text;
+  bar.classList.remove('hidden');
+  localStorage.removeItem(LS_BANNER_DISMISSED);
+  showToast('Banner preview — visible to you now');
+}
+ 
 function closeAdmin() {
   if(adminSelectedIdx>=0) commitEditorToResources();
   document.getElementById('adminOverlay').classList.remove('open');
   document.body.style.overflow='';
   buildShelf();
 }
-
+ 
 /* ─────────────────────────────────────────
    ADMIN — STATE & SIDEBAR
 ───────────────────────────────────────── */
 let adminSelectedIdx=-1;
-
+ 
 function renderAdminSidebar() {
   const sidebar=document.getElementById('adminSidebar');
   sidebar.querySelectorAll('.admin-sidebar-item').forEach(el=>el.remove());
@@ -1058,12 +1329,12 @@ function renderAdminSidebar() {
     sidebar.insertBefore(item,addBtn);
   });
 }
-
+ 
 function selectTile(idx) {
   if(adminSelectedIdx>=0&&adminSelectedIdx!==idx) commitEditorToResources();
   adminSelectedIdx=idx; renderAdminSidebar(); renderEditor(RESOURCES[idx],idx);
 }
-
+ 
 /* ─────────────────────────────────────────
    ADMIN — COMMIT EDITOR → RESOURCES
 ───────────────────────────────────────── */
@@ -1077,6 +1348,7 @@ function commitEditorToResources() {
     desc: get('.ai-desc'),
     type: get('.ai-type')||'Guide',
     isNew: editor.querySelector('.ai-new-toggle')?.checked||false,
+    section: get('.ai-section')||'',
   };
   const subfolderEls=editor.querySelectorAll('.subfolder-card');
   if(subfolderEls.length>0) {
@@ -1093,12 +1365,12 @@ function commitEditorToResources() {
   } else { r.url=get('.ai-url')||'PASTE_LINK_HERE'; }
   RESOURCES[adminSelectedIdx]=r;
 }
-
+ 
 /* ─────────────────────────────────────────
    ADMIN — RENDER EDITOR
 ───────────────────────────────────────── */
 function escAttr(s){ return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-
+ 
 function renderEditor(r,idx) {
   const editor=document.getElementById('adminEditor');
   const hasChildren=r.children&&r.children.length>0;
@@ -1106,6 +1378,14 @@ function renderEditor(r,idx) {
   const directLinkHtml=!hasChildren?`<div class="admin-field"><div class="admin-label">Google Drive Link</div><input class="admin-input url-input ai-url" type="text" value="${escAttr(r.url!=='PASTE_LINK_HERE'?r.url:'')}" placeholder="https://drive.google.com/file/d/... or /drive/folders/..."></div>`:'';
   editor.innerHTML=`
     <div class="editor-section-title">Tile Basics</div>
+    <div class="admin-divider-row">
+      <div class="admin-divider-icon">🗂️</div>
+      <div class="admin-divider-info">
+        <div class="admin-divider-label">Section Header <span style="font-weight:400;color:var(--text-3);font-size:12px;">(optional)</span></div>
+        <div class="admin-divider-sub">If filled in, a bold divider label appears above this tile on the live site — e.g. "Client Facing" or "Internal Only"</div>
+      </div>
+      <input class="admin-input ai-section" type="text" value="${escAttr(r.section||'')}" placeholder="e.g. Client Facing" style="max-width:180px">
+    </div>
     <div class="admin-row-icon-name">
       <div class="admin-field"><div class="admin-label">Icon (emoji)</div><input class="admin-input ai-icon" type="text" value="${escAttr(r.icon)}" placeholder="🎨" maxlength="4"></div>
       <div class="admin-field"><div class="admin-label">Tile Name</div><input class="admin-input ai-label" type="text" value="${escAttr(r.label)}" placeholder="e.g. Brand Collateral"></div>
@@ -1125,7 +1405,7 @@ function renderEditor(r,idx) {
     <div class="editor-bottom-row"><button class="btn-delete-tile-big" onclick="deleteSelectedTile()">🗑 Remove This Tile</button></div>
   `;
 }
-
+ 
 function buildSubfolderHtml(child,ci) {
   const hasFiles=child.children&&child.children.length>0;
   const filesHtml=hasFiles?child.children.map((gc,gi)=>buildFileRowHtml(gc,gi)).join(''):'';
@@ -1152,7 +1432,7 @@ function buildSubfolderHtml(child,ci) {
     </div>
   </div>`;
 }
-
+ 
 function buildFileRowHtml(gc,gi) {
   return `<div class="file-row">
     <div><div class="file-row-label">Icon</div><input class="admin-input gi-icon" type="text" value="${escAttr(gc.icon||'📄')}" placeholder="📄" maxlength="4" style="text-align:center"></div>
@@ -1165,7 +1445,7 @@ function buildFileRowHtml(gc,gi) {
     </div>
   </div>`;
 }
-
+ 
 /* ─────────────────────────────────────────
    ADMIN — ACTIONS
 ───────────────────────────────────────── */
@@ -1176,7 +1456,7 @@ function addTopLevelTile() {
   renderAdminSidebar(); renderEditor(newR,adminSelectedIdx);
   showToast('New tile created — fill in the details on the right.');
 }
-
+ 
 function deleteSelectedTile() {
   if(adminSelectedIdx<0) return;
   if(!confirm(`Remove "${RESOURCES[adminSelectedIdx].label||'this tile'}"?`)) return;
@@ -1185,7 +1465,7 @@ function deleteSelectedTile() {
   document.getElementById('adminEditor').innerHTML=`<div class="admin-empty"><div class="admin-empty-icon">✓</div><div class="admin-empty-title">Tile removed</div><div class="admin-empty-sub">Select another tile to edit, or add a new one.</div></div>`;
   showToast('Tile removed.');
 }
-
+ 
 function addSubfolder() {
   const list=document.getElementById('subfolderList');
   const directField=document.getElementById('adminEditor').querySelector('.ai-url')?.closest('.admin-field');
@@ -1196,7 +1476,7 @@ function addSubfolder() {
   list.appendChild(div.firstElementChild);
   list.lastElementChild.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
-
+ 
 function removeSubfolder(btn) {
   btn.closest('.subfolder-card').remove();
   if(!document.getElementById('subfolderList').querySelectorAll('.subfolder-card').length) {
@@ -1204,7 +1484,7 @@ function removeSubfolder(btn) {
     if(df) df.style.display='';
   }
 }
-
+ 
 function addFileRow(btn) {
   const sfBody=btn.closest('.subfolder-body');
   const fileList=sfBody.querySelector('.file-list');
@@ -1215,7 +1495,7 @@ function addFileRow(btn) {
   fileList.appendChild(div.firstElementChild);
   fileList.lastElementChild.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
-
+ 
 function removeFileRow(btn) {
   const row=btn.closest('.file-row'); const list=row.parentElement; row.remove();
   if(!list.querySelectorAll('.file-row').length) {
@@ -1223,7 +1503,7 @@ function removeFileRow(btn) {
     if(ciUrlField) ciUrlField.style.display='';
   }
 }
-
+ 
 /* ─────────────────────────────────────────
    ADMIN — EXPORT resources.js
 ───────────────────────────────────────── */
@@ -1231,25 +1511,33 @@ function exportFile() {
   if(adminSelectedIdx>=0) commitEditorToResources();
   buildShelf();
   const json=JSON.stringify(RESOURCES,null,2);
+  // Read announcement settings from admin UI
+  const announceText = (document.getElementById('adminAnnounceText')?.value||'').trim();
+  const announceActive = document.getElementById('adminAnnounceActive')?.checked||false;
+  const cfg = { announcementActive: announceActive, announcementText: announceText };
+  const cfgJson = JSON.stringify(cfg, null, 2);
   const content=`/* ═══════════════════════════════════════════════════════════════
    Peachtree Town & Country — Advisor Resource Center
    RESOURCES DATA FILE
    ───────────────────────────────────────────────────────────────
    This is the ONLY file that needs to be updated when adding,
    editing, or removing tiles from the Resource Center.
-
+ 
    After exporting from the Admin Panel, upload ONLY this file
    to GitHub — index.html never needs to change.
-
+ 
    Structure guide:
    ─────────────────
-   Top-level tile (direct link):  { label, desc, icon, type, url, isNew }
-   Top-level tile (with folders): { label, desc, icon, type, isNew, children: [...] }
+   Top-level tile (direct link):  { label, desc, icon, type, url, isNew, section }
+   Top-level tile (with folders): { label, desc, icon, type, isNew, section, children: [...] }
    Sub-folder with files:         { label, desc, icon, type, children: [...] }
    Sub-folder direct link:        { label, desc, icon, type, url }
    Individual file:               { label, desc, icon, type, url }
 ═══════════════════════════════════════════════════════════════ */
-
+ 
+/* Site-wide config (announcement banner etc.) */
+const SITE_CONFIG = ${cfgJson};
+ 
 const RESOURCES = ${json};
 `;
   const blob=new Blob([content],{type:'application/javascript'});
@@ -1258,7 +1546,7 @@ const RESOURCES = ${json};
   showToast('✓ resources.js downloaded! Upload ONLY this file to GitHub.');
   closeAdmin();
 }
-
+ 
 /* ─────────────────────────────────────────
    TOAST
 ───────────────────────────────────────── */
@@ -1267,7 +1555,7 @@ function showToast(msg) {
   const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
   clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),3500);
 }
-
+ 
 /* ─────────────────────────────────────────
    INIT
 ───────────────────────────────────────── */
