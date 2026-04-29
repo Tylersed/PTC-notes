@@ -65,9 +65,12 @@ nav {
   transition:background 0.5s var(--ease),border-color 0.5s var(--ease);
 }
 .nav-inner { width:100%; max-width:1500px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
-.wordmark { line-height:1; cursor:default; }
-.wordmark-name { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; letter-spacing:0.06em; color:var(--text); transition:color 0.5s; }
-.wordmark-sub { font-size:8.5px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--text-2); margin-top:2px; transition:color 0.5s; }
+.wordmark { line-height:1; cursor:default; display:flex; align-items:center; }
+.nav-logo { width:46px; height:46px; object-fit:contain; display:block; border-radius:8px; transition:opacity 0.5s var(--ease), transform 0.3s var(--ease); }
+.nav-logo-dark { display:none; }
+[data-theme="dark"] .nav-logo-light { display:none; }
+[data-theme="dark"] .nav-logo-dark { display:block; }
+.wordmark:hover .nav-logo { transform:scale(1.03); }
 .nav-label { font-size:10px; font-weight:700; letter-spacing:0.20em; text-transform:uppercase; color:var(--text); transition:color 0.5s; }
 .nav-right { display:flex; align-items:center; gap:12px; }
 .theme-pill { display:flex; background:var(--bg-deep); border:1px solid var(--border); border-radius:40px; padding:3px; cursor:pointer; transition:background 0.4s,border-color 0.4s; }
@@ -296,11 +299,10 @@ nav {
 [data-theme="dark"] .bar-open { color:var(--iron-ore); background:var(--ivory); }
 [data-theme="dark"] .bar-open:hover { background:var(--white); }
  
-/* Copy link / report issue buttons */
+/* Copy link button */
 .bar-copy { display:flex; align-items:center; gap:6px; font-size:11px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-2); background:transparent; border:1px solid var(--border-mid); padding:8px 14px; border-radius:8px; cursor:pointer; transition:all 0.2s var(--ease); white-space:nowrap; }
 .bar-copy:hover { border-color:var(--border-mid); background:var(--bg-deep); color:var(--text); }
 .bar-copy.copied { border-color:#16a34a; color:#16a34a; background:rgba(22,163,74,0.08); }
-.bar-report:hover { border-color:#dc2626; color:#dc2626; background:rgba(220,38,38,0.08); }
  
 .bar-close { width:34px; height:34px; border-radius:50%; border:1px solid var(--border-mid); background:transparent; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:18px; line-height:1; color:var(--text-2); transition:all 0.2s var(--ease); flex-shrink:0; }
 .bar-close:hover { background:#ff3b30; border-color:#ff3b30; color:white; }
@@ -599,9 +601,9 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <div class="wordmark">
-      <div class="wordmark-name">Peachtree</div>
-      <div class="wordmark-sub">Town &amp; Country</div>
+    <div class="wordmark" aria-label="Peachtree Town &amp; Country">
+      <img class="nav-logo nav-logo-light" src="ptc-logo-light.jpg" alt="Peachtree Town &amp; Country">
+      <img class="nav-logo nav-logo-dark" src="ptc-logo-dark.jpg" alt="Peachtree Town &amp; Country">
     </div>
     <div class="nav-label">Advisor Resource Center</div>
     <div class="nav-right">
@@ -697,9 +699,6 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
         </button>
         <button class="bar-copy" id="barCopy" onclick="copyCurrentLink()" title="Copy link">
           📋 Copy Link
-        </button>
-        <button class="bar-copy bar-report" id="barReport" onclick="reportIssue()" title="Report an issue">
-          ⚠ Report Issue
         </button>
         <a href="#" id="barOpen" class="bar-open" target="_blank" rel="noopener">
           Open in Drive
@@ -1304,14 +1303,12 @@ function updateBar(r, showBack) {
   document.getElementById('btnNext').style.display='';
   document.getElementById('barCounter').style.display='';
   document.getElementById('barCopy').style.display='';
-  document.getElementById('barReport').style.display='';
   currentRawUrl=r.url;
   document.getElementById('barBack').classList.toggle('show',showBack);
   document.getElementById('btnPrev').disabled=current===0;
   document.getElementById('btnNext').disabled=current===viewerList.length-1;
   document.getElementById('barCounter').textContent=`${current+1} / ${viewerList.length}`;
   const copyBtn=document.getElementById('barCopy'); copyBtn.textContent='📋 Copy Link'; copyBtn.classList.remove('copied');
-  const reportBtn=document.getElementById('barReport'); reportBtn.textContent='⚠ Report Issue';
 }
  
 function updateBarForSubMenu(r) {
@@ -1323,7 +1320,6 @@ function updateBarForSubMenu(r) {
   document.getElementById('btnNext').style.display='none';
   document.getElementById('barCounter').style.display='none';
   document.getElementById('barCopy').style.display='none';
-  document.getElementById('barReport').style.display='none';
   currentRawUrl=(r.url&&r.url!=='PASTE_LINK_HERE')?r.url:'';
   document.getElementById('barBack').classList.toggle('show',subMenuStack.length>1);
 }
@@ -1363,39 +1359,6 @@ function copyCurrentLink() {
   }).catch(()=>showToast('Copy failed — try opening in Drive'));
 }
 
-/* Report issue */
-function reportIssue() {
-  const resourceTitle = document.getElementById('barTitle')?.textContent?.trim() || 'Unknown Resource';
-  const resourceType = document.getElementById('barBadge')?.textContent?.trim() || 'Resource';
-  const resourceLink = currentRawUrl && currentRawUrl !== 'PASTE_LINK_HERE' ? currentRawUrl : 'No resource link available';
-  const pageUrl = window.location.href.split('#')[0];
-
-  const subject = `Resource Center Issue — ${resourceTitle}`;
-  const body = [
-    'Hi Tyler,',
-    '',
-    'I found an issue in the Advisor Resource Center.',
-    '',
-    `Resource: ${resourceTitle}`,
-    `Type: ${resourceType}`,
-    `Resource Link: ${resourceLink}`,
-    `Page: ${pageUrl}`,
-    '',
-    'Issue:',
-    '[Please describe what is wrong here]',
-    '',
-    'Thank you.'
-  ].join('\\n');
-
-  const outlookUrl =
-    'https://outlook.office.com/mail/deeplink/compose' +
-    `?to=${encodeURIComponent('tyler@peachtreetc.com')}` +
-    `&subject=${encodeURIComponent(subject)}` +
-    `&body=${encodeURIComponent(body)}`;
-
-  const opened = window.open(outlookUrl, '_blank', 'noopener,noreferrer');
-  if (!opened) window.location.href = outlookUrl;
-}
  
 /* Dots */
 function buildDots() {
