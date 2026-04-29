@@ -27,12 +27,12 @@
 ═══════════════════════════════════════════════════════════════ */
 
 /* Site-wide config — managed via Admin Panel */
-const SITE_CONFIG = {
+let SITE_CONFIG = {
   announcementActive: false,
   announcementText: ''
 };
 
-const RESOURCES = [
+let RESOURCES = [
   {
     label: "Brand Collateral",
     desc:  "Logos, approved files, and branded collateral assets",
