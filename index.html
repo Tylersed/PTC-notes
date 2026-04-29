@@ -296,10 +296,11 @@ nav {
 [data-theme="dark"] .bar-open { color:var(--iron-ore); background:var(--ivory); }
 [data-theme="dark"] .bar-open:hover { background:var(--white); }
  
-/* Copy link button */
+/* Copy link / report issue buttons */
 .bar-copy { display:flex; align-items:center; gap:6px; font-size:11px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-2); background:transparent; border:1px solid var(--border-mid); padding:8px 14px; border-radius:8px; cursor:pointer; transition:all 0.2s var(--ease); white-space:nowrap; }
 .bar-copy:hover { border-color:var(--border-mid); background:var(--bg-deep); color:var(--text); }
 .bar-copy.copied { border-color:#16a34a; color:#16a34a; background:rgba(22,163,74,0.08); }
+.bar-report:hover { border-color:#dc2626; color:#dc2626; background:rgba(220,38,38,0.08); }
  
 .bar-close { width:34px; height:34px; border-radius:50%; border:1px solid var(--border-mid); background:transparent; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:18px; line-height:1; color:var(--text-2); transition:all 0.2s var(--ease); flex-shrink:0; }
 .bar-close:hover { background:#ff3b30; border-color:#ff3b30; color:white; }
@@ -696,6 +697,9 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
         </button>
         <button class="bar-copy" id="barCopy" onclick="copyCurrentLink()" title="Copy link">
           📋 Copy Link
+        </button>
+        <button class="bar-copy bar-report" id="barReport" onclick="reportIssue()" title="Report an issue">
+          ⚠ Report Issue
         </button>
         <a href="#" id="barOpen" class="bar-open" target="_blank" rel="noopener">
           Open in Drive
@@ -1300,12 +1304,14 @@ function updateBar(r, showBack) {
   document.getElementById('btnNext').style.display='';
   document.getElementById('barCounter').style.display='';
   document.getElementById('barCopy').style.display='';
+  document.getElementById('barReport').style.display='';
   currentRawUrl=r.url;
   document.getElementById('barBack').classList.toggle('show',showBack);
   document.getElementById('btnPrev').disabled=current===0;
   document.getElementById('btnNext').disabled=current===viewerList.length-1;
   document.getElementById('barCounter').textContent=`${current+1} / ${viewerList.length}`;
   const copyBtn=document.getElementById('barCopy'); copyBtn.textContent='📋 Copy Link'; copyBtn.classList.remove('copied');
+  const reportBtn=document.getElementById('barReport'); reportBtn.textContent='⚠ Report Issue';
 }
  
 function updateBarForSubMenu(r) {
@@ -1317,6 +1323,8 @@ function updateBarForSubMenu(r) {
   document.getElementById('btnNext').style.display='none';
   document.getElementById('barCounter').style.display='none';
   document.getElementById('barCopy').style.display='none';
+  document.getElementById('barReport').style.display='none';
+  currentRawUrl=(r.url&&r.url!=='PASTE_LINK_HERE')?r.url:'';
   document.getElementById('barBack').classList.toggle('show',subMenuStack.length>1);
 }
  
@@ -1353,6 +1361,34 @@ function copyCurrentLink() {
     showToast('✓ Link copied to clipboard');
     setTimeout(()=>{ btn.textContent='📋 Copy Link'; btn.classList.remove('copied'); },2500);
   }).catch(()=>showToast('Copy failed — try opening in Drive'));
+}
+
+/* Report issue */
+function reportIssue() {
+  const resourceTitle = document.getElementById('barTitle')?.textContent?.trim() || 'Unknown Resource';
+  const resourceType = document.getElementById('barBadge')?.textContent?.trim() || 'Resource';
+  const resourceLink = currentRawUrl && currentRawUrl !== 'PASTE_LINK_HERE' ? currentRawUrl : 'No resource link available';
+  const pageUrl = window.location.href.split('#')[0];
+
+  const subject = `Resource Center Issue — ${resourceTitle}`;
+  const body = [
+    'Hi Tyler,',
+    '',
+    'I found an issue in the Advisor Resource Center.',
+    '',
+    `Resource: ${resourceTitle}`,
+    `Type: ${resourceType}`,
+    `Resource Link: ${resourceLink}`,
+    `Page: ${pageUrl}`,
+    '',
+    'Issue:',
+    '[Please describe what is wrong here]',
+    '',
+    'Thank you.'
+  ].join('\\n');
+
+  const mailto = `mailto:tyler@peachtreetc.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = mailto;
 }
  
 /* Dots */
