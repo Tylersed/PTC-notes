@@ -1387,8 +1387,14 @@ function reportIssue() {
     'Thank you.'
   ].join('\\n');
 
-  const mailto = `mailto:tyler@peachtreetc.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.location.href = mailto;
+  const outlookUrl =
+    'https://outlook.office.com/mail/deeplink/compose' +
+    `?to=${encodeURIComponent('tyler@peachtreetc.com')}` +
+    `&subject=${encodeURIComponent(subject)}` +
+    `&body=${encodeURIComponent(body)}`;
+
+  const opened = window.open(outlookUrl, '_blank', 'noopener,noreferrer');
+  if (!opened) window.location.href = outlookUrl;
 }
  
 /* Dots */
