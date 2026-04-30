@@ -481,6 +481,95 @@ footer { border-top:1px solid var(--footer-border); padding:24px 48px; transitio
 .btn-admin-close-big { display:flex; align-items:center; gap:6px; font-size:12px; font-weight:600; color:var(--text-2); background:transparent; border:1px solid var(--border-mid); padding:11px 20px; border-radius:10px; cursor:pointer; transition:all 0.2s var(--ease); white-space:nowrap; }
 .btn-admin-close-big:hover { background:var(--bg-deep); color:var(--text); }
  
+
+/* ═══ ADMIN EXECUTIVE EXPERIENCE UPGRADES ═══ */
+.admin-panel.admin-mode-simple .advanced-only { display:none !important; }
+.admin-panel.admin-mode-advanced .simple-helper { display:none !important; }
+.admin-topbar-actions { display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+.admin-mode-toggle { display:flex; align-items:center; gap:3px; background:var(--bg-deep); border:1px solid var(--border); border-radius:999px; padding:3px; }
+.admin-mode-btn { font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-3); background:transparent; border:none; border-radius:999px; padding:6px 10px; cursor:pointer; transition:all 0.2s var(--ease); }
+.admin-mode-btn.active { color:var(--text); background:var(--bg-raised); box-shadow:0 1px 4px rgba(0,0,0,0.08); }
+.btn-admin-primary,.btn-admin-secondary { display:flex; align-items:center; justify-content:center; gap:7px; font-size:11px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; border-radius:10px; padding:10px 16px; cursor:pointer; transition:all 0.22s var(--ease); white-space:nowrap; }
+.btn-admin-primary { color:var(--ivory); background:var(--iron-ore); border:1px solid var(--iron-ore); box-shadow:0 2px 10px rgba(34,36,34,0.20); }
+.btn-admin-primary:hover { background:var(--black); transform:translateY(-1px); }
+.btn-admin-secondary { color:var(--text-2); background:transparent; border:1px solid var(--border-mid); }
+.btn-admin-secondary:hover { color:var(--text); background:var(--bg-deep); }
+[data-theme="dark"] .btn-admin-primary { color:var(--iron-ore); background:var(--ivory); border-color:var(--ivory); }
+[data-theme="dark"] .btn-admin-primary:hover { background:var(--white); }
+.admin-dashboard { max-width:1120px; margin:0 auto; width:100%; }
+.admin-welcome { display:grid; grid-template-columns:1fr auto; gap:24px; align-items:end; margin-bottom:28px; padding-bottom:22px; border-bottom:1px solid var(--border); }
+.admin-welcome-kicker { font-size:10px; font-weight:800; letter-spacing:0.22em; text-transform:uppercase; color:var(--text-3); margin-bottom:10px; }
+.admin-welcome-title { font-family:'Cormorant Garamond',serif; font-size:clamp(34px,4vw,54px); font-weight:400; color:var(--text); line-height:1; }
+.admin-welcome-copy { margin-top:12px; font-size:14px; line-height:1.7; color:var(--text-2); max-width:620px; }
+.admin-stat-row { display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+.admin-stat { min-width:116px; background:var(--card-bg); border:1px solid var(--border); border-radius:14px; padding:12px 14px; box-shadow:var(--card-shadow); }
+.admin-stat-num { font-family:'Cormorant Garamond',serif; font-size:26px; color:var(--text); line-height:1; }
+.admin-stat-label { font-size:9px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-3); margin-top:5px; }
+.admin-action-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.admin-action-card { background:var(--card-bg); border:1px solid var(--border); border-radius:18px; padding:22px; cursor:pointer; box-shadow:var(--card-shadow); transition:all 0.25s var(--ease); min-height:168px; display:flex; flex-direction:column; justify-content:space-between; }
+.admin-action-card:hover { transform:translateY(-3px); box-shadow:var(--card-shadow-hov); border-color:var(--border-mid); }
+.admin-action-icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; background:var(--bg-deep); border:1px solid var(--border); font-size:22px; margin-bottom:18px; }
+.admin-action-title { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:500; color:var(--text); line-height:1.1; }
+.admin-action-copy { font-size:13px; color:var(--text-2); line-height:1.6; margin-top:8px; }
+.admin-action-note { font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-3); margin-top:16px; }
+.admin-editor-shell { display:grid; grid-template-columns:minmax(0,1fr) 310px; gap:28px; align-items:start; }
+.admin-form-card,.admin-preview-card,.admin-help-card { background:var(--card-bg); border:1px solid var(--border); border-radius:18px; box-shadow:var(--card-shadow); }
+.admin-form-card { padding:28px; }
+.admin-preview-card { position:sticky; top:18px; padding:18px; }
+.admin-preview-label { font-size:9px; font-weight:800; letter-spacing:0.20em; text-transform:uppercase; color:var(--text-3); margin-bottom:12px; }
+.admin-live-card { background:var(--bg-raised); border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:var(--card-shadow); }
+.admin-live-card-top { height:46px; background:var(--spine-bg); color:var(--spine-text); display:flex; align-items:center; justify-content:space-between; padding:0 14px; }
+.admin-live-icon { font-size:22px; }
+.admin-live-type { font-size:9px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; opacity:.72; }
+.admin-live-body { padding:18px; }
+.admin-live-title { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:500; color:var(--text); line-height:1.15; }
+.admin-live-desc { font-size:12px; color:var(--text-2); line-height:1.6; margin-top:8px; }
+.admin-live-meta { display:flex; gap:6px; flex-wrap:wrap; margin-top:14px; }
+.admin-live-pill { font-size:9px; font-weight:800; letter-spacing:0.10em; text-transform:uppercase; padding:4px 8px; border-radius:6px; background:var(--badge-bg); color:var(--badge-text); }
+.admin-live-pill.new { background:#dc2626; color:#fff; }
+.admin-help-card { margin-top:14px; padding:16px; }
+.admin-help-title { font-size:12px; font-weight:700; color:var(--text); margin-bottom:6px; }
+.admin-help-copy { font-size:12px; color:var(--text-2); line-height:1.55; }
+.admin-url-tools { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:8px; align-items:end; }
+.btn-test-link { height:41px; border-radius:10px; border:1px solid var(--border-mid); background:transparent; color:var(--text-2); font-size:10px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; padding:0 13px; cursor:pointer; white-space:nowrap; transition:all 0.2s var(--ease); }
+.btn-test-link:hover { background:var(--bg-deep); color:var(--text); }
+.admin-wizard { max-width:1120px; margin:0 auto; width:100%; }
+.admin-wizard-head { margin-bottom:24px; }
+.admin-wizard-title { font-family:'Cormorant Garamond',serif; font-size:44px; font-weight:400; color:var(--text); line-height:1; }
+.admin-wizard-copy { margin-top:10px; font-size:14px; line-height:1.7; color:var(--text-2); max-width:660px; }
+.admin-wizard-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.admin-wizard-card { background:var(--card-bg); border:1px solid var(--border); border-radius:18px; padding:24px; cursor:pointer; box-shadow:var(--card-shadow); transition:all .25s var(--ease); min-height:260px; display:flex; flex-direction:column; }
+.admin-wizard-card:hover { transform:translateY(-4px); border-color:var(--border-mid); box-shadow:var(--card-shadow-hov); }
+.admin-wizard-icon { font-size:34px; margin-bottom:16px; }
+.admin-wizard-name { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:500; color:var(--text); line-height:1.05; }
+.admin-wizard-desc { font-size:13px; color:var(--text-2); line-height:1.6; margin:12px 0 16px; }
+.admin-wizard-example { margin-top:auto; border-top:1px solid var(--border); padding-top:14px; font-size:11px; line-height:1.55; color:var(--text-3); }
+.admin-note-box { background:var(--bg-deep); border:1px solid var(--border); border-radius:14px; padding:14px 16px; font-size:12px; line-height:1.6; color:var(--text-2); margin-bottom:18px; }
+.admin-mode-simple .admin-note-box.simple-helper { display:block !important; }
+.admin-checklist-modal { position:fixed; inset:0; z-index:1100; display:flex; align-items:center; justify-content:center; padding:24px; background:rgba(0,0,0,0.52); backdrop-filter:blur(14px); }
+.admin-checklist-panel { width:min(720px,100%); max-height:calc(100vh - 48px); overflow:auto; background:var(--panel-bg); border:1px solid var(--panel-border); border-radius:22px; box-shadow:0 40px 100px rgba(0,0,0,.32); padding:30px; }
+.admin-checklist-title { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:500; color:var(--text); line-height:1; }
+.admin-checklist-copy { margin-top:10px; font-size:13px; color:var(--text-2); line-height:1.7; }
+.admin-checklist-list { margin-top:22px; display:flex; flex-direction:column; gap:10px; }
+.admin-check-item { display:flex; gap:10px; align-items:flex-start; padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:var(--bg-raised); color:var(--text-2); font-size:13px; line-height:1.45; }
+.admin-check-item.ok { color:#15803d; background:rgba(22,163,74,.08); border-color:rgba(22,163,74,.20); }
+.admin-check-item.warn { color:#b45309; background:rgba(245,158,11,.08); border-color:rgba(245,158,11,.25); }
+.admin-check-item.error { color:#b91c1c; background:rgba(220,38,38,.08); border-color:rgba(220,38,38,.22); }
+.admin-check-actions { display:flex; justify-content:flex-end; gap:10px; flex-wrap:wrap; margin-top:24px; padding-top:20px; border-top:1px solid var(--border); }
+.admin-card-preview-note { font-size:11px; color:var(--text-3); line-height:1.55; margin-top:12px; }
+.admin-add-file-panel { background:var(--bg-deep); border:1px dashed var(--border-mid); border-radius:12px; padding:14px; }
+.admin-bottombar .btn-admin-secondary { padding:9px 14px; }
+@media (max-width:980px){
+  .admin-panel { grid-template-columns:1fr; grid-template-rows:auto auto 1fr auto; }
+  .admin-topbar { grid-row:1; flex-direction:column; align-items:flex-start; padding:14px 18px; }
+  .admin-sidebar { grid-column:1; grid-row:2; max-height:240px; border-right:none; border-bottom:1px solid var(--panel-border); }
+  .admin-editor { grid-column:1; grid-row:3; padding:22px 18px; }
+  .admin-bottombar { grid-row:4; padding:14px 18px; flex-direction:column; align-items:stretch; }
+  .admin-editor-shell,.admin-welcome,.admin-action-grid,.admin-wizard-grid { grid-template-columns:1fr; }
+  .admin-preview-card { position:relative; top:0; }
+  .admin-topbar-actions { width:100%; justify-content:flex-start; }
+}
+
  
 /* Toast */
 .toast { position:fixed; bottom:32px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--iron-ore); color:var(--ivory); font-size:13px; font-weight:500; padding:12px 22px; border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,0.25); z-index:9999; opacity:0; transition:opacity 0.3s var(--ease),transform 0.3s var(--ease); pointer-events:none; white-space:nowrap; }
@@ -791,10 +880,19 @@ body.site-entered .shelf-wrap { transition-delay: 0.26s; }
     <!-- Top bar -->
     <div class="admin-topbar">
       <div class="admin-topbar-left">
-        <div class="admin-topbar-title">⚙ Resource Center Editor</div>
-        <div class="admin-topbar-sub">Select a tile to edit</div>
+        <div>
+          <div class="admin-topbar-title">Resource Center Admin</div>
+          <div class="admin-topbar-sub" id="adminTopbarSub">Guided editing for advisors, resources, and announcements</div>
+        </div>
       </div>
-      <div class="admin-topbar-right">
+      <div class="admin-topbar-actions">
+        <div class="admin-mode-toggle" title="Choose how much detail to show while editing">
+          <button class="admin-mode-btn active" id="adminModeSimple" onclick="setAdminMode('simple')">Simple</button>
+          <button class="admin-mode-btn" id="adminModeAdvanced" onclick="setAdminMode('advanced')">Advanced</button>
+        </div>
+        <button class="btn-admin-primary" onclick="renderAddResourceWizard()">+ Add Resource</button>
+        <button class="btn-admin-secondary" onclick="previewAsAdvisor()">Preview as Advisor</button>
+        <button class="btn-admin-secondary" onclick="renderAdminDashboard()">Dashboard</button>
         <button class="btn-admin-close-big" onclick="closeAdmin()">← Back to Site</button>
       </div>
     </div>
@@ -811,7 +909,7 @@ body.site-entered .shelf-wrap { transition-delay: 0.26s; }
           <button onclick="previewBanner()" style="font-size:10px;font-weight:600;color:var(--text-2);background:transparent;border:1px solid var(--border-mid);border-radius:6px;padding:4px 10px;cursor:pointer;">Preview</button>
         </div>
       </div>
-      <button class="admin-sidebar-add" onclick="addTopLevelTile()">+ Add New Tile</button>
+      <button class="admin-sidebar-add" onclick="renderAddResourceWizard()">+ Add New Resource</button>
     </div>
     <!-- Editor -->
     <div class="admin-editor" id="adminEditor">
@@ -823,8 +921,9 @@ body.site-entered .shelf-wrap { transition-delay: 0.26s; }
     </div>
     <!-- Bottom bar -->
     <div class="admin-bottombar">
-      <div class="admin-bottombar-hint">When done, click <strong>Export resources.js</strong> — upload ONLY that file to GitHub to publish changes for everyone.</div>
-      <button class="btn-export" onclick="exportFile()">⬇ Export resources.js</button>
+      <div class="admin-bottombar-hint">Review your changes, run the export checklist, then upload <strong>resources.js</strong> to GitHub.</div>
+      <button class="btn-admin-secondary" onclick="showExportChecklist()">Review Checklist</button>
+      <button class="btn-export" onclick="showExportChecklist()">⬇ Export resources.js</button>
     </div>
   </div>
 </div>
@@ -1439,38 +1538,69 @@ let tx=0;
 document.getElementById('sheetStage').addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
 document.getElementById('sheetStage').addEventListener('touchend',e=>{ const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>50) step(dx<0?1:-1); },{passive:true});
  
+
 /* ─────────────────────────────────────────
-   ADMIN — PASSWORD
+   ADMIN — EXECUTIVE EDITING EXPERIENCE
 ───────────────────────────────────────── */
+let adminSelectedIdx = -1;
+let adminMode = 'simple';
+
 function openAdmin() {
   document.getElementById('adminOverlay').classList.add('open');
   document.body.style.overflow='hidden';
   document.getElementById('adminGate').classList.remove('hidden');
   document.getElementById('adminGateErr').classList.remove('show');
   document.getElementById('adminPasswordInput').value='';
+  setAdminMode(adminMode || 'simple');
   setTimeout(()=>document.getElementById('adminPasswordInput').focus(),300);
 }
- 
+
 function checkAdminPassword() {
   const val=document.getElementById('adminPasswordInput').value;
   if(val===ADMIN_PASSWORD) {
     document.getElementById('adminGate').classList.add('hidden');
     adminSelectedIdx=-1;
+    populateAnnouncementFields();
     renderAdminSidebar();
-    document.getElementById('adminEditor').innerHTML=`<div class="admin-empty"><div class="admin-empty-icon">👈</div><div class="admin-empty-title">Select a tile to edit</div><div class="admin-empty-sub">Choose any tile from the list on the left to edit its details, links, and sub-folders.</div></div>`;
-    // Populate announcement fields
-    const cfg = (typeof SITE_CONFIG !== 'undefined') ? SITE_CONFIG : {};
-    const ta = document.getElementById('adminAnnounceText');
-    const cb = document.getElementById('adminAnnounceActive');
-    if(ta) ta.value = cfg.announcementText || '';
-    if(cb) cb.checked = !!cfg.announcementActive;
+    renderAdminDashboard();
   } else {
     document.getElementById('adminGateErr').classList.add('show');
     document.getElementById('adminPasswordInput').value='';
     document.getElementById('adminPasswordInput').focus();
   }
 }
- 
+
+function closeAdmin() {
+  if(adminSelectedIdx>=0) commitEditorToResources();
+  document.getElementById('adminOverlay').classList.remove('open');
+  document.body.style.overflow='';
+  buildShelf();
+}
+
+function setAdminMode(mode) {
+  adminMode = mode === 'advanced' ? 'advanced' : 'simple';
+  const panel = document.querySelector('.admin-panel');
+  if(panel) {
+    panel.classList.toggle('admin-mode-simple', adminMode==='simple');
+    panel.classList.toggle('admin-mode-advanced', adminMode==='advanced');
+  }
+  document.getElementById('adminModeSimple')?.classList.toggle('active', adminMode==='simple');
+  document.getElementById('adminModeAdvanced')?.classList.toggle('active', adminMode==='advanced');
+}
+
+function setAdminSubtitle(text) {
+  const sub=document.getElementById('adminTopbarSub');
+  if(sub) sub.textContent=text;
+}
+
+function populateAnnouncementFields() {
+  const cfg = (typeof SITE_CONFIG !== 'undefined') ? SITE_CONFIG : {};
+  const ta = document.getElementById('adminAnnounceText');
+  const cb = document.getElementById('adminAnnounceActive');
+  if(ta) ta.value = cfg.announcementText || '';
+  if(cb) cb.checked = !!cfg.announcementActive;
+}
+
 function previewBanner() {
   const text = document.getElementById('adminAnnounceText').value.trim();
   if(!text) { showToast('Enter a message first'); return; }
@@ -1480,19 +1610,81 @@ function previewBanner() {
   localStorage.removeItem(LS_BANNER_DISMISSED);
   showToast('Banner preview — visible to you now');
 }
- 
-function closeAdmin() {
-  if(adminSelectedIdx>=0) commitEditorToResources();
-  document.getElementById('adminOverlay').classList.remove('open');
-  document.body.style.overflow='';
-  buildShelf();
+
+function getAdminCounts() {
+  const total = RESOURCES.length;
+  const folders = RESOURCES.filter(r=>r.children&&r.children.length).length;
+  let files = 0, placeholders = 0;
+  function walk(item) {
+    if(item.url) {
+      files++;
+      if(!item.url || item.url === 'PASTE_LINK_HERE') placeholders++;
+    }
+    (item.children||[]).forEach(walk);
+  }
+  RESOURCES.forEach(walk);
+  return { total, folders, files, placeholders };
 }
- 
+
+function renderAdminDashboard() {
+  if(adminSelectedIdx>=0) { commitEditorToResources(); adminSelectedIdx=-1; }
+  renderAdminSidebar();
+  setAdminSubtitle('Dashboard — add resources, review announcements, and export safely');
+  const c=getAdminCounts();
+  document.getElementById('adminEditor').innerHTML = `
+    <div class="admin-dashboard">
+      <div class="admin-welcome">
+        <div>
+          <div class="admin-welcome-kicker">Peachtree Town & Country</div>
+          <div class="admin-welcome-title">Resource Center Admin</div>
+          <div class="admin-welcome-copy">Use this guided workspace to add resources, edit existing cards, update the announcement banner, and export the one file that publishes changes for everyone.</div>
+        </div>
+        <div class="admin-stat-row">
+          <div class="admin-stat"><div class="admin-stat-num">${c.total}</div><div class="admin-stat-label">Main Cards</div></div>
+          <div class="admin-stat"><div class="admin-stat-num">${c.folders}</div><div class="admin-stat-label">Folders</div></div>
+          <div class="admin-stat"><div class="admin-stat-num">${c.placeholders}</div><div class="admin-stat-label">Needs Links</div></div>
+        </div>
+      </div>
+      <div class="admin-action-grid">
+        <div class="admin-action-card" onclick="renderAddResourceWizard()">
+          <div><div class="admin-action-icon">＋</div><div class="admin-action-title">Add New Resource</div><div class="admin-action-copy">Start with a guided choice: single link, folder with files, or a larger category with subfolders.</div></div>
+          <div class="admin-action-note">Best for Erica adding something new</div>
+        </div>
+        <div class="admin-action-card" onclick="focusAdminList()">
+          <div><div class="admin-action-icon">✎</div><div class="admin-action-title">Edit Existing Resource</div><div class="admin-action-copy">Choose any card from the left list and update the name, description, files, folders, or Google Drive links.</div></div>
+          <div class="admin-action-note">Uses auto-save between cards</div>
+        </div>
+        <div class="admin-action-card" onclick="focusAnnouncementEditor()">
+          <div><div class="admin-action-icon">📣</div><div class="admin-action-title">Update Announcement</div><div class="admin-action-copy">Create a polished banner message for advisors and preview it before exporting.</div></div>
+          <div class="admin-action-note">Optional site-wide notice</div>
+        </div>
+        <div class="admin-action-card" onclick="showExportChecklist()">
+          <div><div class="admin-action-icon">✓</div><div class="admin-action-title">Export Changes</div><div class="admin-action-copy">Run a final checklist before downloading resources.js for GitHub.</div></div>
+          <div class="admin-action-note">Prevents broken uploads</div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function focusAdminList() {
+  showToast('Select a resource from the left list to edit it.');
+  document.getElementById('adminSidebar')?.scrollTo({top:0,behavior:'smooth'});
+}
+
+function focusAnnouncementEditor() {
+  document.getElementById('adminAnnounceText')?.focus();
+  showToast('Announcement editor is in the left sidebar.');
+}
+
+function previewAsAdvisor() {
+  if(adminSelectedIdx>=0) commitEditorToResources();
+  closeAdmin();
+  showToast('Previewing the Resource Center as an advisor.');
+}
+
 /* ─────────────────────────────────────────
-   ADMIN — STATE & SIDEBAR
+   ADMIN — SIDEBAR
 ───────────────────────────────────────── */
-let adminSelectedIdx=-1;
- 
 function renderAdminSidebar() {
   const sidebar=document.getElementById('adminSidebar');
   sidebar.querySelectorAll('.admin-sidebar-item').forEach(el=>el.remove());
@@ -1501,23 +1693,77 @@ function renderAdminSidebar() {
     const item=document.createElement('div');
     item.className='admin-sidebar-item'+(i===adminSelectedIdx?' active':'');
     item.dataset.idx=i;
-    item.innerHTML=`<div class="asi-icon">${r.icon}</div><div class="asi-info"><div class="asi-name">${r.label||'New Tile'}</div><div class="asi-type">${r.type||''}</div></div><div class="asi-status ${hasContent(r)?'live':'empty'}">${hasContent(r)?'Live':'Empty'}</div>`;
-    item.onclick=()=>{ selectTile(i); };
+    item.innerHTML=`<div class="asi-icon">${escHtml(r.icon||'📄')}</div><div class="asi-info"><div class="asi-name">${escHtml(r.label||'New Resource')}</div><div class="asi-type">${escHtml(r.type||'')}</div></div><div class="asi-status ${hasContent(r)?'live':'empty'}">${hasContent(r)?'Live':'Needs Link'}</div>`;
+    item.onclick=()=>selectTile(i);
     sidebar.insertBefore(item,addBtn);
   });
 }
- 
+
 function selectTile(idx) {
   if(adminSelectedIdx>=0&&adminSelectedIdx!==idx) commitEditorToResources();
-  adminSelectedIdx=idx; renderAdminSidebar(); renderEditor(RESOURCES[idx],idx);
+  adminSelectedIdx=idx;
+  renderAdminSidebar();
+  renderEditor(RESOURCES[idx],idx);
 }
- 
+
+/* ─────────────────────────────────────────
+   ADMIN — WIZARD
+───────────────────────────────────────── */
+function renderAddResourceWizard() {
+  if(adminSelectedIdx>=0) { commitEditorToResources(); adminSelectedIdx=-1; renderAdminSidebar(); }
+  setAdminSubtitle('Add New Resource — choose the structure first');
+  document.getElementById('adminEditor').innerHTML = `
+    <div class="admin-wizard">
+      <div class="admin-wizard-head">
+        <div class="admin-wizard-title">What are you adding?</div>
+        <div class="admin-wizard-copy">Choose the shape that matches the resource. This keeps the admin side easy and prevents empty folders or confusing links.</div>
+      </div>
+      <div class="admin-wizard-grid">
+        <div class="admin-wizard-card" onclick="createResourceFromWizard('single')">
+          <div class="admin-wizard-icon">🔗</div>
+          <div class="admin-wizard-name">Single Link</div>
+          <div class="admin-wizard-desc">One card that opens one Google Drive file, folder, doc, spreadsheet, or video.</div>
+          <div class="admin-wizard-example"><strong>Example:</strong><br>Disclaimers, FMLS Guide, Desktop Wallpaper folder, one training video.</div>
+        </div>
+        <div class="admin-wizard-card" onclick="createResourceFromWizard('folder')">
+          <div class="admin-wizard-icon">📁</div>
+          <div class="admin-wizard-name">Folder with Files</div>
+          <div class="admin-wizard-desc">One card opens a folder menu with multiple file links inside.</div>
+          <div class="admin-wizard-example"><strong>Example:</strong><br>Listing Presentation → Version 1, Version 2, Current PDF.</div>
+        </div>
+        <div class="admin-wizard-card" onclick="createResourceFromWizard('category')">
+          <div class="admin-wizard-icon">🗂️</div>
+          <div class="admin-wizard-name">Category with Subfolders</div>
+          <div class="admin-wizard-desc">Best for a large area with multiple folders, each holding its own files.</div>
+          <div class="admin-wizard-example"><strong>Example:</strong><br>Brand Collateral → Buyers Guide, Sellers Guide, Listing Presentation.</div>
+        </div>
+      </div>
+      <div style="margin-top:18px;"><button class="btn-admin-secondary" onclick="renderAdminDashboard()">← Back to Dashboard</button></div>
+    </div>`;
+}
+
+function createResourceFromWizard(kind) {
+  const base = { icon:'📄', label:'New Resource', desc:'', type:'Guide', isNew:false, section:'' };
+  if(kind==='single') {
+    Object.assign(base,{ url:'PASTE_LINK_HERE' });
+  } else if(kind==='folder') {
+    Object.assign(base,{ icon:'📁', label:'New Folder Resource', type:'Folder', children:[{ icon:'📄', label:'New File', desc:'', type:'PDF', url:'PASTE_LINK_HERE' }] });
+  } else {
+    Object.assign(base,{ icon:'🗂️', label:'New Category', type:'Folder', children:[{ icon:'📁', label:'New Subfolder', desc:'', type:'Folder', children:[{ icon:'📄', label:'New File', desc:'', type:'PDF', url:'PASTE_LINK_HERE' }] }] });
+  }
+  RESOURCES.push(base);
+  adminSelectedIdx=RESOURCES.length-1;
+  renderAdminSidebar();
+  renderEditor(base,adminSelectedIdx);
+  showToast('Resource created — fill in the details and test the link before exporting.');
+}
+
 /* ─────────────────────────────────────────
    ADMIN — COMMIT EDITOR → RESOURCES
 ───────────────────────────────────────── */
 function commitEditorToResources() {
   const editor=document.getElementById('adminEditor');
-  if(!editor||adminSelectedIdx<0) return;
+  if(!editor||adminSelectedIdx<0||!editor.querySelector('.ai-label')) return;
   const get=(sel)=>(editor.querySelector(sel)||{}).value?.trim()||'';
   const r={
     icon: get('.ai-icon')||'📄',
@@ -1531,137 +1777,193 @@ function commitEditorToResources() {
   if(subfolderEls.length>0) {
     r.children=[];
     subfolderEls.forEach(sf=>{
-      const child={ icon:(sf.querySelector('.ci-icon')||{}).value?.trim()||'📄', label:(sf.querySelector('.ci-label')||{}).value?.trim()||'', desc:(sf.querySelector('.ci-desc')||{}).value?.trim()||'', type:(sf.querySelector('.ci-type')||{}).value?.trim()||'Guide' };
+      const child={
+        icon:(sf.querySelector('.ci-icon')||{}).value?.trim()||'📁',
+        label:(sf.querySelector('.ci-label')||{}).value?.trim()||'',
+        desc:(sf.querySelector('.ci-desc')||{}).value?.trim()||'',
+        type:(sf.querySelector('.ci-type')||{}).value?.trim()||'Folder'
+      };
       const fileRows=sf.querySelectorAll('.file-row');
       if(fileRows.length>0) {
         child.children=[];
-        fileRows.forEach(fr=>child.children.push({ icon:(fr.querySelector('.gi-icon')||{}).value?.trim()||'📄', label:(fr.querySelector('.gi-label')||{}).value?.trim()||'', desc:(fr.querySelector('.gi-desc')||{}).value?.trim()||'', type:(fr.querySelector('.gi-type')||{}).value?.trim()||'PDF', url:(fr.querySelector('.gi-url')||{}).value?.trim()||'PASTE_LINK_HERE' }));
-      } else { child.url=(sf.querySelector('.ci-url')||{}).value?.trim()||'PASTE_LINK_HERE'; }
+        fileRows.forEach(fr=>child.children.push({
+          icon:(fr.querySelector('.gi-icon')||{}).value?.trim()||'📄',
+          label:(fr.querySelector('.gi-label')||{}).value?.trim()||'',
+          desc:(fr.querySelector('.gi-desc')||{}).value?.trim()||'',
+          type:(fr.querySelector('.gi-type')||{}).value?.trim()||'PDF',
+          url:(fr.querySelector('.gi-url')||{}).value?.trim()||'PASTE_LINK_HERE'
+        }));
+      } else {
+        child.url=(sf.querySelector('.ci-url')||{}).value?.trim()||'PASTE_LINK_HERE';
+      }
       r.children.push(child);
     });
-  } else { r.url=get('.ai-url')||'PASTE_LINK_HERE'; }
+  } else {
+    r.url=get('.ai-url')||'PASTE_LINK_HERE';
+  }
   RESOURCES[adminSelectedIdx]=r;
 }
- 
+
 /* ─────────────────────────────────────────
    ADMIN — RENDER EDITOR
 ───────────────────────────────────────── */
 function escAttr(s){ return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
- 
+function escHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
 function renderEditor(r,idx) {
+  setAdminSubtitle(`Editing — ${r.label || 'New Resource'}`);
   const editor=document.getElementById('adminEditor');
   const hasChildren=r.children&&r.children.length>0;
   const subFoldersHtml=hasChildren?r.children.map((c,ci)=>buildSubfolderHtml(c,ci)).join(''):'';
-  const directLinkHtml=!hasChildren?`<div class="admin-field"><div class="admin-label">Google Drive Link</div><input class="admin-input url-input ai-url" type="text" value="${escAttr(r.url!=='PASTE_LINK_HERE'?r.url:'')}" placeholder="https://drive.google.com/file/d/... or /drive/folders/..."></div>`:'';
+  const directLinkHtml=!hasChildren?`<div class="admin-field"><div class="admin-label">Google Drive Link</div><div class="admin-url-tools"><input class="admin-input url-input ai-url" type="text" value="${escAttr(r.url!=='PASTE_LINK_HERE'?r.url:'')}" placeholder="Paste a Google Drive link here"><button class="btn-test-link" onclick="testDriveLink(this)">Test Link</button></div></div>`:'';
   editor.innerHTML=`
-    <div class="editor-section-title">Tile Basics</div>
-    <div class="admin-divider-row">
-      <div class="admin-divider-icon">🗂️</div>
-      <div class="admin-divider-info">
-        <div class="admin-divider-label">Section Header <span style="font-weight:400;color:var(--text-3);font-size:12px;">(optional)</span></div>
-        <div class="admin-divider-sub">If filled in, a bold divider label appears above this tile on the live site — e.g. "Client Facing" or "Internal Only"</div>
+    <div class="admin-editor-shell">
+      <div class="admin-form-card">
+        <div class="admin-note-box simple-helper"><strong>Simple mode:</strong> Fill in the card name, description, and link. Switch to Advanced only when you need sections, badges, or deeper folder settings.</div>
+        <div class="editor-section-title">Main Card</div>
+        <div class="admin-divider-row advanced-only">
+          <div class="admin-divider-icon">🗂️</div>
+          <div class="admin-divider-info">
+            <div class="admin-divider-label">Section Header <span style="font-weight:400;color:var(--text-3);font-size:12px;">(optional)</span></div>
+            <div class="admin-divider-sub">If filled in, a bold divider label appears above this card on the live site.</div>
+          </div>
+          <input class="admin-input ai-section" type="text" value="${escAttr(r.section||'')}" placeholder="e.g. Client Facing" style="max-width:190px" oninput="updateAdminLivePreview()">
+        </div>
+        <div class="admin-row-icon-name">
+          <div class="admin-field"><div class="admin-label">Icon</div><input class="admin-input ai-icon" type="text" value="${escAttr(r.icon)}" placeholder="🎨" maxlength="4" oninput="updateAdminLivePreview()"></div>
+          <div class="admin-field"><div class="admin-label">Card Name</div><input class="admin-input ai-label" type="text" value="${escAttr(r.label)}" placeholder="e.g. Brand Collateral" oninput="updateAdminLivePreview()"></div>
+        </div>
+        <div class="admin-row-2">
+          <div class="admin-field"><div class="admin-label">Category Label</div><input class="admin-input ai-type" type="text" value="${escAttr(r.type)}" placeholder="Guide, Folder, PDF…" oninput="updateAdminLivePreview()"></div>
+          <div class="admin-field"><div class="admin-label">Short Description</div><input class="admin-input ai-desc" type="text" value="${escAttr(r.desc)}" placeholder="One sentence advisors will understand" oninput="updateAdminLivePreview()"></div>
+        </div>
+        <div class="new-toggle-row advanced-only">
+          <div><div class="new-toggle-label">Mark as New</div><div class="new-toggle-sub">Shows a red “New” badge on this card until it is turned off.</div></div>
+          <label class="toggle-switch"><input type="checkbox" class="ai-new-toggle"${r.isNew?' checked':''} onchange="updateAdminLivePreview()"><span class="toggle-slider"></span></label>
+        </div>
+        ${directLinkHtml}
+        <div class="editor-section-title" style="margin-top:36px;">Folders &amp; File Links <span style="font-weight:400;font-size:10px;letter-spacing:0;text-transform:none;margin-left:8px;color:var(--text-3);">— use this when a card needs more than one link</span></div>
+        <div id="subfolderList">${subFoldersHtml}</div>
+        <button class="btn-add-sub" onclick="addSubfolder()">+ Add Folder / Group</button>
+        <div class="editor-bottom-row"><button class="btn-delete-tile-big" onclick="deleteSelectedTile()">🗑 Remove This Resource</button></div>
       </div>
-      <input class="admin-input ai-section" type="text" value="${escAttr(r.section||'')}" placeholder="e.g. Client Facing" style="max-width:180px">
-    </div>
-    <div class="admin-row-icon-name">
-      <div class="admin-field"><div class="admin-label">Icon (emoji)</div><input class="admin-input ai-icon" type="text" value="${escAttr(r.icon)}" placeholder="🎨" maxlength="4"></div>
-      <div class="admin-field"><div class="admin-label">Tile Name</div><input class="admin-input ai-label" type="text" value="${escAttr(r.label)}" placeholder="e.g. Brand Collateral"></div>
-    </div>
-    <div class="admin-row-2">
-      <div class="admin-field"><div class="admin-label">Type Badge</div><input class="admin-input ai-type" type="text" value="${escAttr(r.type)}" placeholder="Guide, Folder, PDF…"></div>
-      <div class="admin-field"><div class="admin-label">Description</div><input class="admin-input ai-desc" type="text" value="${escAttr(r.desc)}" placeholder="Short description on the tile"></div>
-    </div>
-    <div class="new-toggle-row">
-      <div><div class="new-toggle-label">Mark as New</div><div class="new-toggle-sub">Shows a red "New" badge on this tile until you turn it off</div></div>
-      <label class="toggle-switch"><input type="checkbox" class="ai-new-toggle"${r.isNew?' checked':''}><span class="toggle-slider"></span></label>
-    </div>
-    ${directLinkHtml}
-    <div class="editor-section-title" style="margin-top:36px;">Sub-Folders &amp; Files <span style="font-weight:400;font-size:10px;letter-spacing:0;text-transform:none;margin-left:8px;color:var(--text-3);">— Each sub-folder can hold multiple file links</span></div>
-    <div id="subfolderList">${subFoldersHtml}</div>
-    <button class="btn-add-sub" onclick="addSubfolder()">+ Add Sub-Folder</button>
-    <div class="editor-bottom-row"><button class="btn-delete-tile-big" onclick="deleteSelectedTile()">🗑 Remove This Tile</button></div>
-  `;
+      <div>
+        <div class="admin-preview-card">
+          <div class="admin-preview-label">Live Advisor Preview</div>
+          <div id="adminLivePreview"></div>
+          <div class="admin-card-preview-note">This preview updates as you type. It is only a card preview; click “Preview as Advisor” to see the full live page.</div>
+        </div>
+        <div class="admin-help-card">
+          <div class="admin-help-title">Recommended workflow</div>
+          <div class="admin-help-copy">1. Name the card clearly.<br>2. Paste the Google Drive link.<br>3. Click <strong>Test Link</strong>.<br>4. Run the export checklist before uploading resources.js.</div>
+        </div>
+      </div>
+    </div>`;
+  updateAdminLivePreview();
 }
- 
+
+function updateAdminLivePreview() {
+  const editor=document.getElementById('adminEditor');
+  const target=document.getElementById('adminLivePreview');
+  if(!editor||!target) return;
+  const get=(sel)=>(editor.querySelector(sel)||{}).value?.trim()||'';
+  const icon=get('.ai-icon')||'📄';
+  const label=get('.ai-label')||'Untitled Resource';
+  const desc=get('.ai-desc')||'Short description will appear here.';
+  const type=get('.ai-type')||'Guide';
+  const isNew=editor.querySelector('.ai-new-toggle')?.checked||false;
+  const folderCount=editor.querySelectorAll('.subfolder-card').length;
+  target.innerHTML=`
+    <div class="admin-live-card">
+      <div class="admin-live-card-top"><div class="admin-live-icon">${escHtml(icon)}</div><div class="admin-live-type">${escHtml(type)}</div></div>
+      <div class="admin-live-body">
+        <div class="admin-live-title">${escHtml(label)}</div>
+        <div class="admin-live-desc">${escHtml(desc)}</div>
+        <div class="admin-live-meta">
+          ${isNew?'<span class="admin-live-pill new">New</span>':''}
+          ${folderCount?`<span class="admin-live-pill">${folderCount} Folder${folderCount===1?'':'s'}</span>`:'<span class="admin-live-pill">Direct Link</span>'}
+        </div>
+      </div>
+    </div>`;
+}
+
 function buildSubfolderHtml(child,ci) {
   const hasFiles=child.children&&child.children.length>0;
   const filesHtml=hasFiles?child.children.map((gc,gi)=>buildFileRowHtml(gc,gi)).join(''):'';
-  const directLinkHtml=!hasFiles?`<div class="admin-field"><div class="admin-label">Google Drive Link (direct — no files inside)</div><input class="admin-input url-input ci-url" type="text" value="${escAttr(child.url&&child.url!=='PASTE_LINK_HERE'?child.url:'')}" placeholder="https://drive.google.com/..."></div>`:'';
+  const directLinkHtml=!hasFiles?`<div class="admin-field"><div class="admin-label">Google Drive Link for this folder</div><div class="admin-url-tools"><input class="admin-input url-input ci-url" type="text" value="${escAttr(child.url&&child.url!=='PASTE_LINK_HERE'?child.url:'')}" placeholder="Paste a Google Drive link here"><button class="btn-test-link" onclick="testDriveLink(this)">Test Link</button></div></div>`:'';
   return `<div class="subfolder-card" data-ci="${ci}">
     <div class="subfolder-header">
-      <div class="subfolder-icon-badge">${child.icon||'📁'}</div>
-      <div class="subfolder-name ${child.label?'':'subfolder-name-empty'}">${child.label||'Untitled Sub-Folder'}</div>
-      <button class="btn-icon-remove" title="Remove sub-folder" onclick="removeSubfolder(this)">✕</button>
+      <div class="subfolder-icon-badge">${escHtml(child.icon||'📁')}</div>
+      <div class="subfolder-name ${child.label?'':'subfolder-name-empty'}">${escHtml(child.label||'Untitled Folder')}</div>
+      <button class="btn-icon-remove" title="Remove folder" onclick="removeSubfolder(this)">✕</button>
     </div>
     <div class="subfolder-body">
+      <div class="admin-note-box simple-helper">Use this folder to group related files. Example: <strong>Listing Presentation</strong> with Version 1 and Version 2 inside.</div>
       <div class="admin-row-icon-name">
-        <div class="admin-field"><div class="admin-label">Icon</div><input class="admin-input ci-icon" type="text" value="${escAttr(child.icon||'📁')}" placeholder="📁" maxlength="4" oninput="this.closest('.subfolder-card').querySelector('.subfolder-icon-badge').textContent=this.value||'📁'"></div>
-        <div class="admin-field"><div class="admin-label">Sub-Folder Name</div><input class="admin-input ci-label" type="text" value="${escAttr(child.label||'')}" placeholder="e.g. Buyers Guide" oninput="const n=this.closest('.subfolder-card').querySelector('.subfolder-name');n.textContent=this.value||'Untitled Sub-Folder';n.classList.toggle('subfolder-name-empty',!this.value)"></div>
+        <div class="admin-field"><div class="admin-label">Icon</div><input class="admin-input ci-icon" type="text" value="${escAttr(child.icon||'📁')}" placeholder="📁" maxlength="4" oninput="this.closest('.subfolder-card').querySelector('.subfolder-icon-badge').textContent=this.value||'📁';updateAdminLivePreview();"></div>
+        <div class="admin-field"><div class="admin-label">Folder Name</div><input class="admin-input ci-label" type="text" value="${escAttr(child.label||'')}" placeholder="e.g. Buyers Guide" oninput="const n=this.closest('.subfolder-card').querySelector('.subfolder-name');n.textContent=this.value||'Untitled Folder';n.classList.toggle('subfolder-name-empty',!this.value)"></div>
       </div>
-      <div class="admin-row-2">
-        <div class="admin-field"><div class="admin-label">Type Badge</div><input class="admin-input ci-type" type="text" value="${escAttr(child.type||'Guide')}" placeholder="Guide"></div>
+      <div class="admin-row-2 advanced-only">
+        <div class="admin-field"><div class="admin-label">Category Label</div><input class="admin-input ci-type" type="text" value="${escAttr(child.type||'Folder')}" placeholder="Folder"></div>
         <div class="admin-field"><div class="admin-label">Description</div><input class="admin-input ci-desc" type="text" value="${escAttr(child.desc||'')}" placeholder="Optional description"></div>
       </div>
       ${directLinkHtml}
-      <div style="font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3);margin-top:4px;margin-bottom:8px;">Files Inside This Folder</div>
+      <div style="font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3);margin-top:4px;margin-bottom:8px;">Files inside this folder</div>
       <div class="file-list">${filesHtml}</div>
       <button class="btn-add-file" onclick="addFileRow(this)">+ Add File Link</button>
     </div>
   </div>`;
 }
- 
+
 function buildFileRowHtml(gc,gi) {
   return `<div class="file-row">
     <div><div class="file-row-label">Icon</div><input class="admin-input gi-icon" type="text" value="${escAttr(gc.icon||'📄')}" placeholder="📄" maxlength="4" style="text-align:center"></div>
-    <div><div class="file-row-label">File Name</div><input class="admin-input gi-label" type="text" value="${escAttr(gc.label||'')}" placeholder="e.g. Version 1"></div>
+    <div><div class="file-row-label">File Name</div><input class="admin-input gi-label" type="text" value="${escAttr(gc.label||'')}" placeholder="e.g. Version 1 or Current PDF"></div>
     <div><div class="file-row-label">Type</div><input class="admin-input gi-type" type="text" value="${escAttr(gc.type||'PDF')}" placeholder="PDF"></div>
     <button class="btn-icon-remove" title="Remove" onclick="removeFileRow(this)">✕</button>
     <div class="file-url-row">
-      <div><div class="file-row-label">Google Drive Link</div><input class="admin-input url-input gi-url" type="text" value="${escAttr(gc.url&&gc.url!=='PASTE_LINK_HERE'?gc.url:'')}" placeholder="https://drive.google.com/file/d/..."></div>
-      <div><div class="file-row-label">Desc</div><input class="admin-input gi-desc" type="text" value="${escAttr(gc.desc||'')}" placeholder="Optional"></div>
+      <div><div class="file-row-label">Google Drive Link</div><div class="admin-url-tools"><input class="admin-input url-input gi-url" type="text" value="${escAttr(gc.url&&gc.url!=='PASTE_LINK_HERE'?gc.url:'')}" placeholder="Paste a Google Drive link"><button class="btn-test-link" onclick="testDriveLink(this)">Test Link</button></div></div>
+      <div class="advanced-only"><div class="file-row-label">Description</div><input class="admin-input gi-desc" type="text" value="${escAttr(gc.desc||'')}" placeholder="Optional"></div>
     </div>
   </div>`;
 }
- 
+
 /* ─────────────────────────────────────────
    ADMIN — ACTIONS
 ───────────────────────────────────────── */
-function addTopLevelTile() {
-  if(adminSelectedIdx>=0) commitEditorToResources();
-  const newR={icon:'📄',label:'New Tile',desc:'',type:'Guide',url:'PASTE_LINK_HERE',isNew:false};
-  RESOURCES.push(newR); adminSelectedIdx=RESOURCES.length-1;
-  renderAdminSidebar(); renderEditor(newR,adminSelectedIdx);
-  showToast('New tile created — fill in the details on the right.');
-}
- 
+function addTopLevelTile() { renderAddResourceWizard(); }
+
 function deleteSelectedTile() {
   if(adminSelectedIdx<0) return;
-  if(!confirm(`Remove "${RESOURCES[adminSelectedIdx].label||'this tile'}"?`)) return;
-  RESOURCES.splice(adminSelectedIdx,1); adminSelectedIdx=-1;
+  if(!confirm(`Remove "${RESOURCES[adminSelectedIdx].label||'this resource'}"?`)) return;
+  RESOURCES.splice(adminSelectedIdx,1);
+  adminSelectedIdx=-1;
   renderAdminSidebar();
-  document.getElementById('adminEditor').innerHTML=`<div class="admin-empty"><div class="admin-empty-icon">✓</div><div class="admin-empty-title">Tile removed</div><div class="admin-empty-sub">Select another tile to edit, or add a new one.</div></div>`;
-  showToast('Tile removed.');
+  renderAdminDashboard();
+  showToast('Resource removed.');
 }
- 
+
 function addSubfolder() {
   const list=document.getElementById('subfolderList');
   const directField=document.getElementById('adminEditor').querySelector('.ai-url')?.closest('.admin-field');
   if(directField) directField.style.display='none';
   const ci=list.querySelectorAll('.subfolder-card').length;
   const div=document.createElement('div');
-  div.innerHTML=buildSubfolderHtml({icon:'📁',label:'',desc:'',type:'Guide'},ci);
+  div.innerHTML=buildSubfolderHtml({icon:'📁',label:'',desc:'',type:'Folder'},ci);
   list.appendChild(div.firstElementChild);
+  updateAdminLivePreview();
   list.lastElementChild.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
- 
+
 function removeSubfolder(btn) {
   btn.closest('.subfolder-card').remove();
   if(!document.getElementById('subfolderList').querySelectorAll('.subfolder-card').length) {
     const df=document.getElementById('adminEditor').querySelector('.ai-url')?.closest('.admin-field');
     if(df) df.style.display='';
   }
+  updateAdminLivePreview();
 }
- 
+
 function addFileRow(btn) {
   const sfBody=btn.closest('.subfolder-body');
   const fileList=sfBody.querySelector('.file-list');
@@ -1672,23 +1974,98 @@ function addFileRow(btn) {
   fileList.appendChild(div.firstElementChild);
   fileList.lastElementChild.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
- 
+
 function removeFileRow(btn) {
-  const row=btn.closest('.file-row'); const list=row.parentElement; row.remove();
+  const row=btn.closest('.file-row');
+  const list=row.parentElement;
+  row.remove();
   if(!list.querySelectorAll('.file-row').length) {
     const ciUrlField=list.closest('.subfolder-body').querySelector('.ci-url')?.closest('.admin-field');
     if(ciUrlField) ciUrlField.style.display='';
   }
 }
- 
+
+function testDriveLink(btn) {
+  const wrap=btn.closest('.admin-url-tools') || btn.parentElement;
+  const input=wrap?.querySelector('input');
+  const url=(input?.value||'').trim();
+  if(!url || url==='PASTE_LINK_HERE') { showToast('Paste a Google Drive link first.'); input?.focus(); return; }
+  if(!/^https?:\/\//i.test(url)) { showToast('This link needs to start with https://'); input?.focus(); return; }
+  window.open(url,'_blank','noopener');
+}
+
 /* ─────────────────────────────────────────
-   ADMIN — EXPORT resources.js
+   ADMIN — EXPORT CHECKLIST
 ───────────────────────────────────────── */
-function exportFile() {
+function collectAdminIssues() {
+  if(adminSelectedIdx>=0) commitEditorToResources();
+  const issues=[];
+  const add=(level,msg)=>issues.push({level,msg});
+  if(!RESOURCES.length) add('error','No resources have been added yet.');
+  RESOURCES.forEach((r,i)=>{
+    const name=r.label||`Resource ${i+1}`;
+    if(!r.label) add('error',`Main card ${i+1} is missing a name.`);
+    if(!r.desc) add('warn',`“${name}” does not have a short description.`);
+    if(!r.type) add('warn',`“${name}” does not have a category label.`);
+    if(r.url) {
+      if(r.url==='PASTE_LINK_HERE') add('warn',`“${name}” still has a placeholder link.`);
+      else if(!/^https?:\/\//i.test(r.url)) add('error',`“${name}” has a link that does not start with https://.`);
+    }
+    if(r.children&&r.children.length===0) add('warn',`“${name}” is set up as a folder but has no folders/files inside.`);
+    (r.children||[]).forEach((c,ci)=>{
+      const cname=c.label||`${name} folder ${ci+1}`;
+      if(!c.label) add('error',`A folder inside “${name}” is missing a name.`);
+      if(c.url) {
+        if(c.url==='PASTE_LINK_HERE') add('warn',`“${name} › ${cname}” still has a placeholder link.`);
+        else if(!/^https?:\/\//i.test(c.url)) add('error',`“${name} › ${cname}” has a link that does not start with https://.`);
+      }
+      if(c.children&&c.children.length===0) add('warn',`“${name} › ${cname}” has no file links inside.`);
+      (c.children||[]).forEach((f,fi)=>{
+        const fname=f.label||`${cname} file ${fi+1}`;
+        if(!f.label) add('error',`A file inside “${name} › ${cname}” is missing a name.`);
+        if(!f.url||f.url==='PASTE_LINK_HERE') add('warn',`“${name} › ${cname} › ${fname}” still has a placeholder link.`);
+        else if(!/^https?:\/\//i.test(f.url)) add('error',`“${name} › ${cname} › ${fname}” has a link that does not start with https://.`);
+      });
+    });
+  });
+  return issues;
+}
+
+function showExportChecklist() {
+  if(adminSelectedIdx>=0) commitEditorToResources();
+  const issues=collectAdminIssues();
+  const errors=issues.filter(i=>i.level==='error').length;
+  const warnings=issues.filter(i=>i.level==='warn').length;
+  const okItems=[];
+  if(!errors) okItems.push('No blocking errors found.');
+  if(!warnings) okItems.push('No placeholder or warning items found.');
+  okItems.push(`${RESOURCES.length} main resource card${RESOURCES.length===1?'':'s'} ready for export review.`);
+  const rows = [
+    ...okItems.map(msg=>`<div class="admin-check-item ok"><strong>✓</strong><span>${escHtml(msg)}</span></div>`),
+    ...issues.map(i=>`<div class="admin-check-item ${i.level==='error'?'error':'warn'}"><strong>${i.level==='error'?'✕':'⚠'}</strong><span>${escHtml(i.msg)}</span></div>`)
+  ].join('');
+  const modal=document.createElement('div');
+  modal.className='admin-checklist-modal';
+  modal.innerHTML=`
+    <div class="admin-checklist-panel">
+      <div class="admin-checklist-title">Ready to Export?</div>
+      <div class="admin-checklist-copy">This quick review helps prevent broken cards, empty folders, and placeholder links before changes go live for advisors.</div>
+      <div class="admin-checklist-list">${rows}</div>
+      <div class="admin-check-actions">
+        <button class="btn-admin-secondary" onclick="this.closest('.admin-checklist-modal').remove()">Go Back</button>
+        <button class="btn-admin-secondary" onclick="previewAsAdvisor();this.closest('.admin-checklist-modal')?.remove()">Preview as Advisor</button>
+        <button class="btn-admin-primary" onclick="performExportFile();this.closest('.admin-checklist-modal').remove()">Download resources.js</button>
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+}
+
+function exportFile() { showExportChecklist(); }
+
+function performExportFile() {
   if(adminSelectedIdx>=0) commitEditorToResources();
   buildShelf();
   const json=JSON.stringify(RESOURCES,null,2);
-  // Read announcement settings from admin UI
   const announceText = (document.getElementById('adminAnnounceText')?.value||'').trim();
   const announceActive = document.getElementById('adminAnnounceActive')?.checked||false;
   const cfg = { announcementActive: announceActive, announcementText: announceText };
@@ -1698,17 +2075,17 @@ function exportFile() {
    RESOURCES DATA FILE
    ───────────────────────────────────────────────────────────────
    This is the ONLY file that needs to be updated when adding,
-   editing, or removing tiles from the Resource Center.
+   editing, or removing resources from the Resource Center.
  
    After exporting from the Admin Panel, upload ONLY this file
    to GitHub — index.html never needs to change.
  
    Structure guide:
    ─────────────────
-   Top-level tile (direct link):  { label, desc, icon, type, url, isNew, section }
-   Top-level tile (with folders): { label, desc, icon, type, isNew, section, children: [...] }
-   Sub-folder with files:         { label, desc, icon, type, children: [...] }
-   Sub-folder direct link:        { label, desc, icon, type, url }
+   Main card (direct link):       { label, desc, icon, type, url, isNew, section }
+   Main card (with folders):      { label, desc, icon, type, isNew, section, children: [...] }
+   Folder with files:             { label, desc, icon, type, children: [...] }
+   Folder direct link:            { label, desc, icon, type, url }
    Individual file:               { label, desc, icon, type, url }
 ═══════════════════════════════════════════════════════════════ */
  
@@ -1718,12 +2095,15 @@ let SITE_CONFIG = ${cfgJson};
 let RESOURCES = ${json};
 `;
   const blob=new Blob([content],{type:'application/javascript'});
-  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='resources.js'; a.click();
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='resources.js';
+  a.click();
   URL.revokeObjectURL(a.href);
-  showToast('✓ resources.js downloaded! Upload ONLY this file to GitHub.');
+  showToast('✓ resources.js downloaded. Upload ONLY this file to GitHub.');
   closeAdmin();
 }
- 
+
 /* ─────────────────────────────────────────
    TOAST
 ───────────────────────────────────────── */
