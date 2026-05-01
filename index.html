@@ -722,6 +722,208 @@ body.site-entered .shelf-wrap { transition-delay: 0.26s; }
 
 
 
+/* ═══ PERFORMANCE + SMOOTHNESS POLISH ═══ */
+:root {
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  --ease-luxury:cubic-bezier(0.16,1,0.3,1);
+  --ease-soft:cubic-bezier(0.25,0.1,0.25,1);
+}
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:84px;
+  -webkit-text-size-adjust:100%;
+}
+@supports (scrollbar-gutter:stable) { html { scrollbar-gutter:stable; } }
+body {
+  overscroll-behavior-y:none;
+  text-rendering:optimizeLegibility;
+}
+*, *::before, *::after { -webkit-tap-highlight-color:transparent; }
+
+.shelf-wrap,
+.sheet-stage,
+.sub-picker,
+.admin-sidebar,
+.admin-editor,
+.admin-checklist-panel,
+.bar-right {
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+}
+
+.mag-card,
+.sub-item,
+.recent-chip,
+.admin-sidebar-item,
+.admin-wizard-card,
+.admin-action-card,
+.viewer-sheet,
+.admin-panel,
+.splash,
+.splash-stage,
+.splash-logo {
+  backface-visibility:hidden;
+  transform-style:preserve-3d;
+}
+
+.mag-card {
+  animation-duration:.46s !important;
+  animation-delay:.02s !important;
+  will-change:transform, opacity;
+  transform:translateZ(0);
+  transition:
+    transform .28s var(--ease-luxury),
+    box-shadow .28s var(--ease-luxury),
+    background-color .35s var(--ease),
+    border-color .35s var(--ease) !important;
+}
+.mag-card::before { transition:width .32s var(--ease-luxury), opacity .32s var(--ease-luxury) !important; }
+.mag-card:hover { transform:translate3d(2px,-3px,0) !important; }
+.mag-card:active { transform:translate3d(1px,-1px,0) scale(.997) !important; }
+.mag-arrow,
+.fav-btn,
+.bar-btn,
+.bar-copy,
+.bar-open,
+.bar-close,
+.admin-trigger,
+.filter-pill,
+.btn-export,
+.btn-admin-close-big,
+.btn-admin-secondary,
+.btn-admin-primary {
+  transition:
+    transform .18s var(--ease-luxury),
+    background-color .22s var(--ease),
+    border-color .22s var(--ease),
+    color .22s var(--ease),
+    box-shadow .22s var(--ease) !important;
+}
+
+.overlay { transition:opacity .32s var(--ease-luxury) !important; }
+.viewer-sheet {
+  transform:translate3d(0,14px,0) scale(.985);
+  will-change:transform, opacity;
+  transition:
+    transform .42s var(--ease-luxury),
+    background-color .35s var(--ease),
+    border-color .35s var(--ease) !important;
+}
+.overlay.open .viewer-sheet { transform:translate3d(0,0,0) scale(1) !important; }
+.sheet-frame { transition:opacity .34s var(--ease-luxury), transform .34s var(--ease-luxury) !important; will-change:opacity, transform; }
+.sheet-frame.from-right { transform:translate3d(34px,0,0); }
+.sheet-frame.from-left { transform:translate3d(-34px,0,0); }
+.sub-picker { transition:opacity .28s var(--ease-luxury) !important; }
+.sub-item { transition:transform .22s var(--ease-luxury), box-shadow .22s var(--ease-luxury), background-color .35s var(--ease), border-color .35s var(--ease) !important; }
+.sub-item:hover { transform:translate3d(1px,-2px,0) !important; }
+
+.admin-overlay { transition:opacity .28s var(--ease-luxury) !important; }
+.admin-panel {
+  transform:translate3d(0,18px,0) scale(.992) !important;
+  will-change:transform;
+  transition:transform .34s var(--ease-luxury), background-color .35s var(--ease) !important;
+}
+.admin-overlay.open .admin-panel { transform:translate3d(0,0,0) scale(1) !important; }
+.admin-sidebar-item,
+.admin-wizard-card,
+.admin-action-card,
+.subfolder-card,
+.file-row,
+.admin-input {
+  transition-duration:.22s !important;
+}
+.admin-checklist-modal { animation:modalFadeIn .22s var(--ease-luxury) both; }
+.admin-checklist-panel { animation:modalPanelIn .32s var(--ease-luxury) both; }
+@keyframes modalFadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes modalPanelIn { from { opacity:0; transform:translate3d(0,14px,0) scale(.985); } to { opacity:1; transform:translate3d(0,0,0) scale(1); } }
+
+body.splash-active nav,
+body.splash-active .announce-bar,
+body.splash-active .hero,
+body.splash-active .search-wrap,
+body.splash-active .filter-wrap,
+body.splash-active .shelf-wrap,
+body.splash-active footer {
+  transform:translate3d(0,14px,0) scale(.995);
+  filter:blur(10px);
+}
+body.site-entered nav,
+body.site-entered .announce-bar,
+body.site-entered .hero,
+body.site-entered .search-wrap,
+body.site-entered .filter-wrap,
+body.site-entered .shelf-wrap,
+body.site-entered footer {
+  transition:
+    opacity .82s var(--ease-luxury),
+    transform .82s var(--ease-luxury),
+    filter .82s var(--ease-luxury) !important;
+}
+.splash { transition:opacity .86s var(--ease-luxury), visibility .86s var(--ease-luxury) !important; }
+.splash-stage { transition:opacity .86s var(--ease-luxury), transform .9s var(--ease-luxury), filter .9s var(--ease-luxury) !important; }
+.splash.exit .splash-stage { transform:scale(1.028); filter:blur(7px); }
+.splash.ready .splash-logo { animation:splashLogoReveal .92s var(--ease-luxury) .08s both, splashLogoBreathe 2.4s ease-out .18s forwards !important; }
+.splash.exit .splash-logo { transition:opacity .72s var(--ease-luxury), transform .82s var(--ease-luxury), filter .82s var(--ease-luxury) !important; }
+
+@media (hover:none), (pointer:coarse) {
+  .mag-card,
+  .sub-item,
+  .recent-chip,
+  .admin-wizard-card,
+  .admin-action-card {
+    animation-duration:.32s !important;
+    transition-duration:.18s !important;
+  }
+  .mag-card:hover,
+  .sub-item:hover,
+  .recent-chip:hover,
+  .admin-wizard-card:hover,
+  .admin-action-card:hover {
+    transform:none !important;
+    box-shadow:var(--card-shadow) !important;
+  }
+  .mag-card::before { display:none; }
+  .mag-card:hover .mag-arrow { transform:none !important; }
+  .bar-right { scroll-snap-type:x proximity; }
+  .bar-btn,
+  .bar-copy,
+  .bar-open,
+  .bar-close,
+  .bar-back { min-height:38px; scroll-snap-align:start; }
+}
+
+@media (max-width:768px) {
+  html { scroll-padding-top:70px; }
+  .hero { padding-top:44px; }
+  .mag-card { min-height:96px; }
+  .mag-title { line-height:1.15; }
+  .viewer-sheet { transform:none !important; }
+  .sheet-stage { min-height:0; }
+  .admin-sidebar,
+  .admin-editor { scroll-behavior:smooth; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto !important; }
+  *, *::before, *::after {
+    animation-duration:.001ms !important;
+    animation-delay:0ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+  body.splash-active nav,
+  body.splash-active .announce-bar,
+  body.splash-active .hero,
+  body.splash-active .search-wrap,
+  body.splash-active .filter-wrap,
+  body.splash-active .shelf-wrap,
+  body.splash-active footer {
+    filter:none !important;
+    transform:none !important;
+  }
+}
+
 </style>
 </head>
 <body class="splash-active">
@@ -729,8 +931,8 @@ body.site-entered .shelf-wrap { transition-delay: 0.26s; }
 <!-- SPLASH SCREEN -->
 <div class="splash" id="splash" onclick="dismissSplash()" aria-label="Peachtree Town &amp; Country loading screen">
   <div class="splash-stage">
-    <img class="splash-logo splash-logo-light" src="ptc-emblem-light.png" alt="Peachtree Town &amp; Country">
-    <img class="splash-logo splash-logo-dark" src="ptc-emblem-dark.png" alt="Peachtree Town &amp; Country">
+    <img class="splash-logo splash-logo-light" src="ptc-emblem-light.png" alt="Peachtree Town &amp; Country" decoding="async" fetchpriority="high">
+    <img class="splash-logo splash-logo-dark" src="ptc-emblem-dark.png" alt="Peachtree Town &amp; Country" decoding="async" fetchpriority="high">
   </div>
   <div class="splash-hint">Click to enter</div>
   <div class="splash-progress-track"><span class="splash-progress" id="splashProgress"></span></div>
@@ -741,8 +943,8 @@ body.site-entered .shelf-wrap { transition-delay: 0.26s; }
 <nav>
   <div class="nav-inner">
     <div class="wordmark" aria-label="Peachtree Town &amp; Country">
-      <img class="nav-logo nav-logo-light" src="ptc-nav-logo-light.png" alt="Peachtree Town &amp; Country" onerror="this.parentElement.classList.add('logo-missing')">
-      <img class="nav-logo nav-logo-dark" src="ptc-nav-logo-dark.png" alt="Peachtree Town &amp; Country" onerror="this.parentElement.classList.add('logo-missing')">
+      <img class="nav-logo nav-logo-light" src="ptc-nav-logo-light.png" alt="Peachtree Town &amp; Country" decoding="async" onerror="this.parentElement.classList.add('logo-missing')">
+      <img class="nav-logo nav-logo-dark" src="ptc-nav-logo-dark.png" alt="Peachtree Town &amp; Country" decoding="async" onerror="this.parentElement.classList.add('logo-missing')">
       <span class="wordmark-fallback">Peachtree<small>Town &amp; Country</small></span>
     </div>
     <div class="nav-label">Advisor Resource Center</div>
@@ -2116,8 +2318,8 @@ function showToast(msg) {
 /* ─────────────────────────────────────────
    SPLASH SCREEN
 ───────────────────────────────────────── */
-const SPLASH_DURATION = 2600;
-const SPLASH_EXIT_MS  = 1250;
+const SPLASH_DURATION = 2200;
+const SPLASH_EXIT_MS  = 950;
 let splashTimer;
 let splashClosing = false;
 
@@ -2134,16 +2336,29 @@ function initSplash() {
 
   const waitForLogo = new Promise(resolve => {
     const img = activeLogo();
-    if (!img || img.complete) return resolve();
+    if (!img) return resolve();
+
+    // Decode the active logo when possible so the reveal does not stutter on first paint.
+    if (img.decode) {
+      img.decode().then(resolve).catch(resolve);
+      return;
+    }
+
+    if (img.complete) return resolve();
     img.addEventListener('load', resolve, { once: true });
     img.addEventListener('error', resolve, { once: true });
   });
 
-  waitForLogo.then(() => {
+  // Never let a slow image hold the page hostage.
+  const fallbackTimer = new Promise(resolve => setTimeout(resolve, 650));
+
+  Promise.race([waitForLogo, fallbackTimer]).then(() => {
     splash.classList.add('ready');
     if (progress) {
-      progress.style.transition = `width ${SPLASH_DURATION}ms cubic-bezier(0.16,1,0.3,1)`;
-      requestAnimationFrame(() => { progress.style.width = '100%'; });
+      progress.style.transition = `width ms cubic-bezier(0.16,1,0.3,1)`;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => { progress.style.width = '100%'; });
+      });
     }
     splashTimer = setTimeout(dismissSplash, SPLASH_DURATION);
   });
