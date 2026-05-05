@@ -239,5 +239,14 @@ let RESOURCES = [
         ]
       }
     ]
+  },
+  {
+    "icon": "📄",
+    "label": "New Resource",
+    "desc": "Meeting",
+    "type": "Guide",
+    "isNew": false,
+    "section": "",
+    "url": "https://docs.google.com/presentation/d/1O9j5cLiGZ0VQuHrc4jcCR7mylSOdYfPk/edit?usp=sharing&ouid=107565005755644236164&rtpof=true&sd=true"
   }
 ];
