@@ -129,7 +129,7 @@ let QUICK_LINKS = [{
     "type": "GSCCCA Search",
     "url": "https://www.gsccca.org/search",
     "loginAssist": true,
-    "loginHint": "Login credentials are available below. Copy the username and password, then open the GSCCCA search page.",
+    "loginHint": "Login credentials are not stored in the public portal. Use the approved internal password manager or contact an administrator.",
     "loginUsername": "townandcountry",
     "loginPassword": ""
   }, {
@@ -180,7 +180,7 @@ let QUICK_LINKS = [{
   "isNew": false,
   "featured": false,
   "loginAssist": true,
-  "loginHint": "Login credentials are available below. Copy the username and password, then open the login page.",
+  "loginHint": "Login credentials are not stored in the public portal. Use the approved internal password manager or contact an administrator.",
   "loginUsername": "bill@peachtree.com",
   "loginPassword": ""
 }, {

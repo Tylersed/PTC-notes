@@ -1889,7 +1889,7 @@ function toggleTheme() {
 }
 
 function unlock() {
-  if ($('password').value === ADMIN_PASSWORD) {
+  if (ADMIN_PASSWORD && $('password').value === ADMIN_PASSWORD) {
     $('gate').classList.add('hidden');
     $('app').style.display = 'block';
     renderTabs();
