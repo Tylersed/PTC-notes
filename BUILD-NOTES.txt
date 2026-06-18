@@ -1,7 +1,0 @@
-Peachtree Portal boutique luxury build.
-
-Latest updates:
-- Added Quick Copy for office details, support emails, and portal link.
-- Added Admin Change Log stored in the browser.
-- Preview/export generated data no longer includes auto-generated header comments.
-- Kept required color codes and URL fragments intact so the site continues to work.
