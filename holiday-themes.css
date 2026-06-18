@@ -1,0 +1,945 @@
+body[data-season="default"] {}
+
+body[data-season="christmas"] {
+  --holiday-red: #8B1E1E;
+  --holiday-red-2: #B42318;
+  --holiday-red-3: #6E1414;
+  --holiday-pine: #1B3A2A;
+  --holiday-pine-2: #274835;
+  --holiday-gold: #B08A48;
+  --holiday-gold-2: #D3B170;
+  --holiday-champagne: #F3E6CB;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(176, 138, 72, .24), transparent 26%),
+    radial-gradient(circle at 100% 4%, rgba(139, 30, 30, .20), transparent 30%),
+    radial-gradient(circle at 82% 88%, rgba(31, 61, 43, .16), transparent 36%),
+    radial-gradient(circle at 28% 78%, rgba(176, 138, 72, .09), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(0, 0, 0, 0)),
+    var(--bg);
+  position: relative;
+}
+
+body[data-season="christmas"]::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(243, 230, 203, .34), transparent 14%),
+    radial-gradient(circle at 88% 16%, rgba(176, 138, 72, .20), transparent 20%),
+    radial-gradient(circle at 52% 4%, rgba(139, 30, 30, .11), transparent 24%),
+    linear-gradient(135deg, rgba(176, 138, 72, .12), transparent 18%, transparent 80%, rgba(139, 30, 30, .10));
+}
+
+body[data-season="christmas"]::after {
+  content: '';
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 68px;
+  height: 62px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: .52;
+  background:
+    radial-gradient(circle at 4% 28%, rgba(176, 138, 72, .95) 0 4px, transparent 5px),
+    radial-gradient(circle at 12% 44%, rgba(139, 30, 30, .94) 0 4px, transparent 5px),
+    radial-gradient(circle at 20% 24%, rgba(243, 230, 203, .96) 0 4px, transparent 5px),
+    radial-gradient(circle at 28% 40%, rgba(31, 61, 43, .95) 0 4px, transparent 5px),
+    radial-gradient(circle at 36% 24%, rgba(176, 138, 72, .96) 0 4px, transparent 5px),
+    radial-gradient(circle at 44% 42%, rgba(139, 30, 30, .92) 0 4px, transparent 5px),
+    radial-gradient(circle at 52% 22%, rgba(243, 230, 203, .96) 0 4px, transparent 5px),
+    radial-gradient(circle at 60% 40%, rgba(31, 61, 43, .95) 0 4px, transparent 5px),
+    radial-gradient(circle at 68% 24%, rgba(176, 138, 72, .95) 0 4px, transparent 5px),
+    radial-gradient(circle at 76% 42%, rgba(139, 30, 30, .92) 0 4px, transparent 5px),
+    radial-gradient(circle at 84% 24%, rgba(243, 230, 203, .96) 0 4px, transparent 5px),
+    radial-gradient(circle at 92% 40%, rgba(31, 61, 43, .95) 0 4px, transparent 5px),
+    linear-gradient(180deg, rgba(31, 61, 43, .32), rgba(31, 61, 43, 0) 70%);
+  filter: drop-shadow(0 0 7px rgba(255, 255, 255, .35));
+}
+
+.holiday-snow-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 650;
+  opacity: .94;
+}
+
+.holiday-snowflake {
+  position: absolute;
+  top: -16px;
+  left: var(--snow-left);
+  width: var(--snow-size);
+  height: var(--snow-size);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, var(--snow-opacity));
+  box-shadow: 0 0 14px rgba(255, 255, 255, .52),
+    0 0 24px rgba(245, 244, 239, .24);
+  animation:
+    holidaySnowFall var(--snow-duration) linear var(--snow-delay) infinite,
+    holidaySnowDrift var(--snow-drift-duration) ease-in-out var(--snow-delay) infinite alternate,
+    holidaySnowPulse var(--snow-pulse-duration) ease-in-out var(--snow-delay) infinite;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+}
+
+.holiday-snowflake::after {
+  content: '';
+  position: absolute;
+  inset: 28%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .92);
+}
+
+@keyframes holidaySnowFall {
+  0% {
+    transform: translate3d(0, -24px, 0);
+  }
+
+  100% {
+    transform: translate3d(var(--snow-drift), calc(100vh + 40px), 0);
+  }
+}
+
+@keyframes holidaySnowDrift {
+  0% {
+    margin-left: calc(var(--snow-sway) * -1);
+  }
+
+  100% {
+    margin-left: var(--snow-sway);
+  }
+}
+
+@keyframes holidaySnowPulse {
+
+  0%,
+  100% {
+    opacity: .82;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+body[data-season="christmas"] nav {
+  border-bottom-color: rgba(176, 138, 72, .34);
+  box-shadow: 0 14px 40px rgba(139, 30, 30, .08);
+}
+
+body[data-season="christmas"] nav::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(176, 138, 72, .82), rgba(139, 30, 30, .56), rgba(176, 138, 72, .82), transparent);
+  pointer-events: none;
+}
+
+body[data-season="christmas"] .nav-label {
+  color: var(--holiday-red-3);
+  text-shadow: 0 0 18px rgba(176, 138, 72, .14);
+}
+
+body[data-season="christmas"] .hero,
+body[data-season="christmas"] .hero-copy,
+body[data-season="christmas"] .hero-text {
+  position: relative;
+  z-index: 1;
+}
+
+body[data-season="christmas"] .hero-aside {
+  border-color: rgba(176, 138, 72, .24);
+  box-shadow: var(--shadow),
+    0 18px 46px rgba(176, 138, 72, .12),
+    0 0 0 1px rgba(176, 138, 72, .10);
+}
+
+body[data-season="christmas"] .hero-aside::after {
+  background: radial-gradient(circle, rgba(176, 138, 72, .16), rgba(139, 30, 30, .08) 54%, transparent 70%);
+}
+
+body[data-season="christmas"] .hero-text::before,
+body[data-season="christmas"] .hero-copy::before {
+  content: 'Christmas Edition';
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: max-content;
+  margin-bottom: 16px;
+  padding: 8px 14px;
+  border: 1px solid rgba(176, 138, 72, .44);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(176, 138, 72, .18), rgba(139, 30, 30, .10));
+  color: var(--text);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .20em;
+  text-transform: uppercase;
+  box-shadow: 0 12px 30px rgba(176, 138, 72, .14),
+    inset 0 1px 0 rgba(255, 255, 255, .34);
+}
+
+body[data-season="christmas"] .hero-text::before {
+  content: 'Christmas Edition ✦';
+}
+
+body[data-season="christmas"] .hero h1,
+body[data-season="christmas"] .hero-title {
+  text-shadow: 0 6px 24px rgba(176, 138, 72, .10);
+}
+
+body[data-season="christmas"] .hero-rule {
+  background: linear-gradient(90deg, rgba(176, 138, 72, .82), rgba(139, 30, 30, .50));
+  width: 80px;
+  height: 2px;
+}
+
+body[data-season="christmas"] .section-kicker,
+body[data-season="christmas"] .shelf-divider,
+body[data-season="christmas"] .section-label {
+  color: var(--holiday-red-3);
+}
+
+body[data-season="christmas"] .section-kicker::after,
+body[data-season="christmas"] .shelf-divider::after {
+  content: ' ✦';
+  color: var(--holiday-gold);
+  letter-spacing: normal;
+}
+
+body[data-season="christmas"] .hero-aside,
+body[data-season="christmas"] .office-section,
+body[data-season="christmas"] .support-section,
+body[data-season="christmas"] .search-panel,
+body[data-season="christmas"] .tool-card,
+body[data-season="christmas"] .resource-card,
+body[data-season="christmas"] .notice,
+body[data-season="christmas"] .mini-notice,
+body[data-season="christmas"] .office-card,
+body[data-season="christmas"] .support-card,
+body[data-season="christmas"] .request-btn {
+  border-color: rgba(176, 138, 72, .22);
+}
+
+body[data-season="christmas"] .office-section,
+body[data-season="christmas"] .support-section,
+body[data-season="christmas"] .hero-aside {
+  position: relative;
+  overflow: hidden;
+}
+
+body[data-season="christmas"] .office-section::before,
+body[data-season="christmas"] .support-section::before,
+body[data-season="christmas"] .hero-aside::before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(176, 138, 72, .72), rgba(139, 30, 30, .28), rgba(176, 138, 72, .72), transparent);
+  pointer-events: none;
+}
+
+body[data-season="christmas"] .tool-card::after,
+body[data-season="christmas"] .notice::after,
+body[data-season="christmas"] .resource-card::after,
+body[data-season="christmas"] .office-card::after,
+body[data-season="christmas"] .support-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .34);
+  opacity: .75;
+}
+
+body[data-season="christmas"] .tool-card:hover,
+body[data-season="christmas"] .resource-card:hover,
+body[data-season="christmas"] .notice:hover,
+body[data-season="christmas"] .mini-notice:hover,
+body[data-season="christmas"] .office-card:hover,
+body[data-season="christmas"] .support-card:hover,
+body[data-season="christmas"] .request-btn:hover {
+  box-shadow: var(--shadow-hover),
+    0 0 0 1px rgba(176, 138, 72, .18),
+    0 0 44px rgba(176, 138, 72, .14);
+  border-color: rgba(176, 138, 72, .32);
+}
+
+body[data-season="christmas"] .btn-primary,
+body[data-season="christmas"] .mini-btn.primary,
+body[data-season="christmas"] .office-action {
+  background: linear-gradient(135deg, var(--holiday-pine), #203022 52%, var(--holiday-red));
+  color: var(--ivory);
+  border-color: transparent;
+}
+
+body[data-season="christmas"] .btn-soft:hover,
+body[data-season="christmas"] .chip:hover,
+body[data-season="christmas"] .chip.active,
+body[data-season="christmas"] .filter-pill.active,
+body[data-season="christmas"] .request-btn.active {
+  background: linear-gradient(135deg, var(--holiday-red-3), var(--holiday-red));
+  color: var(--ivory);
+  border-color: var(--holiday-red);
+}
+
+body[data-season="christmas"] .new-badge,
+body[data-season="christmas"] .notice.high::before,
+body[data-season="christmas"] .mini-notice.high::before {
+  background: linear-gradient(180deg, var(--holiday-red-2), var(--holiday-red-3));
+}
+
+body[data-season="christmas"] .notice.normal::before,
+body[data-season="christmas"] .hours-pill span,
+body[data-season="christmas"] .gold-accent {
+  color: var(--holiday-gold-2);
+}
+
+body[data-season="christmas"] .hours-pill {
+  background: linear-gradient(135deg, rgba(176, 138, 72, .16), rgba(139, 30, 30, .08));
+  border-color: rgba(176, 138, 72, .36);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .30);
+}
+
+body[data-season="christmas"] .office-pin,
+body[data-season="christmas"] .support-ico,
+body[data-season="christmas"] .choice-ico {
+  background: linear-gradient(135deg, var(--holiday-pine), var(--holiday-red));
+  color: var(--ivory);
+}
+
+body[data-season="christmas"] .status-offline,
+body[data-season="christmas"] .link-status.offline {
+  border-color: rgba(180, 35, 24, .55) !important;
+}
+
+@media (max-width:760px) {
+  body[data-season="christmas"]::after {
+    top: 68px;
+    height: 46px;
+    opacity: .42;
+  }
+
+  .holiday-snow-layer {
+    opacity: .82;
+  }
+
+  body[data-season="christmas"] .hero-text::before,
+  body[data-season="christmas"] .hero-copy::before {
+    margin-bottom: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .holiday-snowflake {
+    animation: none;
+    opacity: .40;
+  }
+
+  body[data-season="christmas"]::after {
+    opacity: .28;
+  }
+}
+
+body[data-season="christmas"] main::before {
+  content: 'Peachtree Christmas Edition · Advisor Access';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 760px);
+  margin: 28px auto 0;
+  padding: 11px 18px;
+  border: 1px solid rgba(176, 138, 72, .36);
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .60), rgba(243, 230, 203, .36)),
+    linear-gradient(90deg, rgba(139, 30, 30, .08), rgba(176, 138, 72, .12), rgba(31, 61, 43, .08));
+  color: var(--text);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .20em;
+  text-transform: uppercase;
+  box-shadow: 0 16px 42px rgba(176, 138, 72, .13),
+    inset 0 1px 0 rgba(255, 255, 255, .58);
+  position: relative;
+  z-index: 3;
+}
+
+[data-theme="dark"] body[data-season="christmas"] main::before {
+  background:
+    linear-gradient(135deg, rgba(28, 30, 28, .92), rgba(31, 61, 43, .42)),
+    linear-gradient(90deg, rgba(139, 30, 30, .22), rgba(176, 138, 72, .16), rgba(31, 61, 43, .20));
+  color: var(--ivory);
+  box-shadow:
+    0 16px 42px rgba(0, 0, 0, .34),
+    0 0 34px rgba(176, 138, 72, .10),
+    inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+body[data-season="christmas"] .hero {
+  padding-top: 54px;
+}
+
+body[data-season="christmas"] .hero::before {
+  content: '';
+  position: absolute;
+  inset: 18px 18px auto auto;
+  width: 280px;
+  height: 280px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(176, 138, 72, .22), rgba(139, 30, 30, .10) 42%, transparent 68%);
+  filter: blur(2px);
+  z-index: 0;
+}
+
+body[data-season="christmas"] .hero::after {
+  content: '';
+  position: absolute;
+  right: 30px;
+  top: 70px;
+  width: 180px;
+  height: 180px;
+  pointer-events: none;
+  opacity: .55;
+  background:
+    radial-gradient(circle at 50% 8%, rgba(176, 138, 72, .85) 0 2px, transparent 3px),
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, .82) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 70% 38%, rgba(139, 30, 30, .66) 0 2px, transparent 3px),
+    radial-gradient(circle at 48% 66%, rgba(31, 61, 43, .62) 0 2px, transparent 3px);
+  filter: drop-shadow(0 0 10px rgba(176, 138, 72, .18));
+}
+
+body[data-season="christmas"] .mini-notice,
+body[data-season="christmas"] .notice {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, .92), rgba(248, 247, 242, .90)),
+    radial-gradient(circle at 100% 0%, rgba(176, 138, 72, .14), transparent 32%);
+  position: relative;
+}
+
+[data-theme="dark"] body[data-season="christmas"] .mini-notice,
+[data-theme="dark"] body[data-season="christmas"] .notice {
+  background:
+    linear-gradient(145deg, rgba(28, 30, 28, .96), rgba(21, 24, 21, .94)),
+    radial-gradient(circle at 100% 0%, rgba(176, 138, 72, .12), transparent 32%);
+}
+
+body[data-season="christmas"] .mini-notice .mini-meta::before,
+body[data-season="christmas"] .notice .notice-meta::before {
+  content: 'Seasonal Notice · ';
+  color: var(--holiday-gold);
+}
+
+body[data-season="christmas"] .tool-card,
+body[data-season="christmas"] .resource-card,
+body[data-season="christmas"] .office-card,
+body[data-season="christmas"] .support-card,
+body[data-season="christmas"] .request-btn,
+body[data-season="christmas"] .mini-notice,
+body[data-season="christmas"] .notice {
+  position: relative;
+  isolation: isolate;
+}
+
+body[data-season="christmas"] .tool-card::before,
+body[data-season="christmas"] .resource-card::before,
+body[data-season="christmas"] .office-card::before,
+body[data-season="christmas"] .support-card::before,
+body[data-season="christmas"] .request-btn::before,
+body[data-season="christmas"] .mini-notice::before,
+body[data-season="christmas"] .notice::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-top: 1px solid rgba(176, 138, 72, .44);
+  border-right: 1px solid rgba(176, 138, 72, .34);
+  border-radius: 0 10px 0 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: .78;
+}
+
+body[data-season="christmas"] .tool-card,
+body[data-season="christmas"] .resource-card,
+body[data-season="christmas"] .office-card,
+body[data-season="christmas"] .support-card,
+body[data-season="christmas"] .request-btn {
+  backdrop-filter: saturate(118%) blur(2px);
+  -webkit-backdrop-filter: saturate(118%) blur(2px);
+}
+
+body[data-season="christmas"] .office-section,
+body[data-season="christmas"] .support-section {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(176, 138, 72, .14), transparent 34%),
+    radial-gradient(circle at 0% 100%, rgba(139, 30, 30, .08), transparent 30%),
+    linear-gradient(145deg, var(--card), var(--card-2));
+}
+
+body[data-season="christmas"] .office-section .section-kicker,
+body[data-season="christmas"] .support-section .section-kicker {
+  border-bottom-color: rgba(176, 138, 72, .24);
+}
+
+body[data-season="christmas"] .holiday-snow-layer::after {
+  content: '';
+  position: fixed;
+  left: -5vw;
+  right: -5vw;
+  bottom: -26px;
+  height: 86px;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 12% 100%, rgba(255, 255, 255, .72), transparent 58%),
+    radial-gradient(ellipse at 36% 100%, rgba(245, 244, 239, .58), transparent 56%),
+    radial-gradient(ellipse at 62% 100%, rgba(255, 255, 255, .68), transparent 58%),
+    radial-gradient(ellipse at 88% 100%, rgba(245, 244, 239, .50), transparent 56%);
+  opacity: .46;
+  filter: blur(.2px);
+}
+
+body[data-season="christmas"] .btn-primary::before,
+body[data-season="christmas"] .mini-btn.primary::before {
+  content: '✦';
+  font-size: 10px;
+  opacity: .86;
+}
+
+body[data-season="christmas"] .btn-primary,
+body[data-season="christmas"] .mini-btn.primary {
+  position: relative;
+  overflow: hidden;
+}
+
+body[data-season="christmas"] .btn-primary::after,
+body[data-season="christmas"] .mini-btn.primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 0 32%, rgba(255, 255, 255, .18) 42%, transparent 52% 100%);
+  transform: translateX(-120%);
+  transition: transform .65s var(--ease);
+}
+
+body[data-season="christmas"] .btn-primary:hover::after,
+body[data-season="christmas"] .mini-btn.primary:hover::after {
+  transform: translateX(120%);
+}
+
+[data-theme="dark"] body[data-season="christmas"] {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(176, 138, 72, .20), transparent 28%),
+    radial-gradient(circle at 100% 6%, rgba(139, 30, 30, .22), transparent 32%),
+    radial-gradient(circle at 72% 88%, rgba(31, 61, 43, .28), transparent 38%),
+    linear-gradient(180deg, #141614, #0E100E);
+}
+
+[data-theme="dark"] body[data-season="christmas"] .hero-aside,
+[data-theme="dark"] body[data-season="christmas"] .office-section,
+[data-theme="dark"] body[data-season="christmas"] .support-section,
+[data-theme="dark"] body[data-season="christmas"] .tool-card,
+[data-theme="dark"] body[data-season="christmas"] .resource-card,
+[data-theme="dark"] body[data-season="christmas"] .mini-notice,
+[data-theme="dark"] body[data-season="christmas"] .notice {
+  box-shadow: var(--shadow),
+    0 0 0 1px rgba(176, 138, 72, .08),
+    0 0 38px rgba(176, 138, 72, .06);
+}
+
+@media (max-width:760px) {
+  body[data-season="christmas"] main::before {
+    margin-top: 18px;
+    padding: 10px 14px;
+    font-size: 9px;
+    letter-spacing: .14em;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  body[data-season="christmas"] .hero {
+    padding-top: 34px;
+  }
+
+  body[data-season="christmas"] .hero::before {
+    width: 190px;
+    height: 190px;
+    right: -30px;
+    top: 20px;
+  }
+
+  body[data-season="christmas"] .hero::after {
+    width: 120px;
+    height: 120px;
+    right: 8px;
+    top: 54px;
+    opacity: .38;
+  }
+
+  body[data-season="christmas"] .tool-card::before,
+  body[data-season="christmas"] .resource-card::before,
+  body[data-season="christmas"] .office-card::before,
+  body[data-season="christmas"] .support-card::before,
+  body[data-season="christmas"] .request-btn::before,
+  body[data-season="christmas"] .mini-notice::before,
+  body[data-season="christmas"] .notice::before {
+    width: 26px;
+    height: 26px;
+    top: 8px;
+    right: 8px;
+  }
+}
+
+.christmas-lion {
+  position: absolute;
+  left: var(--christmas-lion-left);
+  top: var(--christmas-lion-top);
+  width: var(--christmas-lion-size);
+  height: var(--christmas-lion-size);
+  background-image: var(--christmas-lion-image);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: var(--christmas-lion-opacity);
+  filter: var(--christmas-lion-filter);
+  animation:
+    christmasLionFloat var(--christmas-lion-duration) ease-in-out var(--christmas-lion-delay) infinite alternate,
+    christmasLionGlow calc(var(--christmas-lion-duration) * .82) ease-in-out var(--christmas-lion-delay) infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes christmasLionFloat {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-2deg) scale(.98);
+  }
+
+  100% {
+    transform: translate3d(0, -14px, 0) rotate(2deg) scale(1.03);
+  }
+}
+
+@keyframes christmasLionGlow {
+  0% {
+    opacity: calc(var(--christmas-lion-opacity) * .76);
+  }
+
+  100% {
+    opacity: var(--christmas-lion-opacity);
+  }
+}
+
+.christmas-tree {
+  position: absolute;
+  left: var(--christmas-tree-left);
+  top: var(--christmas-tree-top);
+  width: var(--christmas-tree-size);
+  height: calc(var(--christmas-tree-size) * 1.22);
+  opacity: var(--christmas-tree-opacity);
+  animation:
+    christmasTreeFloat var(--christmas-tree-duration) ease-in-out var(--christmas-tree-delay) infinite alternate,
+    christmasTreeGlow calc(var(--christmas-tree-duration) * .88) ease-in-out var(--christmas-tree-delay) infinite alternate;
+  transform-origin: center bottom;
+}
+
+.christmas-tree::before,
+.christmas-tree::after {
+  content: '';
+  position: absolute;
+}
+
+.christmas-tree::before {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 14%;
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(243, 230, 203, .88) 0 3px, transparent 4px),
+    radial-gradient(circle at 24% 34%, rgba(176, 138, 72, .68) 0 2px, transparent 3px),
+    radial-gradient(circle at 74% 30%, rgba(139, 30, 30, .58) 0 2px, transparent 3px),
+    radial-gradient(circle at 32% 58%, rgba(243, 230, 203, .66) 0 2px, transparent 3px),
+    radial-gradient(circle at 66% 60%, rgba(176, 138, 72, .62) 0 2px, transparent 3px),
+    linear-gradient(180deg, rgba(31, 61, 43, .98), rgba(24, 49, 35, .98));
+  clip-path: polygon(50% 0%, 86% 28%, 72% 28%, 100% 56%, 78% 56%, 92% 76%, 8% 76%, 22% 56%, 0% 56%, 28% 28%, 14% 28%);
+  box-shadow: 0 0 18px rgba(31, 61, 43, .12),
+    inset 0 1px 0 rgba(255, 255, 255, .14);
+}
+
+.christmas-tree::after {
+  width: 18%;
+  height: 17%;
+  left: 41%;
+  bottom: 0;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #7A4A24, #5A3317);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .05);
+}
+
+@keyframes christmasTreeFloat {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-2deg) scale(.98);
+  }
+
+  100% {
+    transform: translate3d(0, -10px, 0) rotate(2deg) scale(1.03);
+  }
+}
+
+@keyframes christmasTreeGlow {
+  0% {
+    opacity: calc(var(--christmas-tree-opacity) * .78);
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .08));
+  }
+
+  100% {
+    opacity: var(--christmas-tree-opacity);
+    filter: drop-shadow(0 12px 22px rgba(176, 138, 72, .14));
+  }
+}
+
+[data-theme="light"] .christmas-lion {
+  mix-blend-mode: multiply;
+}
+
+[data-theme="dark"] .christmas-lion {
+  mix-blend-mode: screen;
+}
+
+@media (max-width:760px) {
+  .christmas-tree {
+    opacity: calc(var(--christmas-tree-opacity) * .92);
+  }
+
+  .christmas-lion {
+    opacity: calc(var(--christmas-lion-opacity) * .92);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .christmas-lion,
+  .christmas-tree {
+    animation: none;
+  }
+}
+
+body[data-season="fall"] {
+  --fall-copper: #9A5A24;
+  --fall-amber: #C4934B;
+  --fall-walnut: #4A2F1B;
+  --fall-cream: #F6E8D2;
+  background:
+    radial-gradient(circle at 8% 2%, rgba(196, 147, 75, .24), transparent 28%),
+    radial-gradient(circle at 92% 14%, rgba(154, 90, 36, .20), transparent 30%),
+    radial-gradient(circle at 30% 92%, rgba(74, 47, 27, .12), transparent 35%),
+    linear-gradient(180deg, rgba(196, 147, 75, .06), transparent 36%),
+    var(--bg);
+}
+
+body[data-season="fall"]::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(246, 232, 210, .32), transparent 16%),
+    radial-gradient(circle at 84% 20%, rgba(196, 147, 75, .18), transparent 24%),
+    linear-gradient(135deg, rgba(154, 90, 36, .10), transparent 22%, transparent 78%, rgba(196, 147, 75, .12));
+}
+
+body[data-season="fall"] nav {
+  background: color-mix(in srgb, var(--nav) 82%, rgba(196, 147, 75, .14)) !important;
+}
+
+body[data-season="fall"] .section-kicker::after,
+body[data-season="fall"] .hero-rule {
+  background: linear-gradient(90deg, transparent, rgba(196, 147, 75, .78), transparent) !important;
+}
+
+body[data-season="fall"] .btn-primary,
+body[data-season="fall"] .mini-btn.primary,
+body[data-season="fall"] .office-action {
+  background: linear-gradient(135deg, #222422, #4A2F1B) !important;
+  color: #F6E8D2 !important;
+}
+
+body[data-season="fall"] .tool-card,
+body[data-season="fall"] .resource-card,
+body[data-season="fall"] .office-card,
+body[data-season="fall"] .support-card,
+body[data-season="fall"] .request-btn,
+body[data-season="fall"] .mini-notice,
+body[data-season="fall"] .notice,
+body[data-season="fall"] .hero-aside,
+body[data-season="fall"] .office-section,
+body[data-season="fall"] .support-section {
+  border-color: rgba(196, 147, 75, .22) !important;
+  box-shadow: 0 24px 80px rgba(74, 47, 27, .10), 0 1px 0 rgba(255, 255, 255, .16) inset !important;
+}
+
+body[data-season="fall"] .tool-card:hover,
+body[data-season="fall"] .resource-card:hover,
+body[data-season="fall"] .office-card:hover,
+body[data-season="fall"] .support-card:hover,
+body[data-season="fall"] .request-btn:hover,
+body[data-season="fall"] .mini-notice:hover,
+body[data-season="fall"] .notice:hover {
+  border-color: rgba(196, 147, 75, .45) !important;
+  box-shadow: 0 34px 96px rgba(74, 47, 27, .16), 0 1px 0 rgba(255, 255, 255, .18) inset !important;
+}
+
+[data-theme="dark"] body[data-season="fall"] {
+  background:
+    radial-gradient(circle at 9% 4%, rgba(196, 147, 75, .22), transparent 28%),
+    radial-gradient(circle at 90% 12%, rgba(154, 90, 36, .18), transparent 30%),
+    linear-gradient(180deg, #0B0D0B, #15110C 48%, #0C0E0C);
+}
+
+.holiday-fall-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 650;
+  opacity: .95;
+}
+
+.fall-leaf {
+  position: absolute;
+  top: -24px;
+  left: var(--fall-left);
+  width: var(--fall-size);
+  height: calc(var(--fall-size) * 1.55);
+  opacity: var(--fall-opacity);
+  border-radius: 70% 12% 70% 12%;
+  background:
+    linear-gradient(135deg, rgba(246, 232, 210, .62), transparent 42%),
+    linear-gradient(160deg, hsl(var(--fall-hue) 58% 48%), hsl(calc(var(--fall-hue) + 12deg) 62% 34%));
+  box-shadow: 0 8px 18px rgba(74, 47, 27, .16), inset 0 0 0 1px rgba(255, 255, 255, .18);
+  transform-origin: 50% 10%;
+  animation:
+    fallLeafDrift var(--fall-duration) linear var(--fall-delay) infinite,
+    fallLeafSpin var(--fall-spin-duration) ease-in-out var(--fall-delay) infinite alternate;
+}
+
+.fall-leaf::after {
+  content: '';
+  position: absolute;
+  left: 48%;
+  top: 8%;
+  bottom: 10%;
+  width: 1px;
+  background: rgba(255, 255, 255, .34);
+  transform: rotate(-8deg);
+  border-radius: 999px;
+}
+
+.fall-ember {
+  position: absolute;
+  left: var(--ember-left);
+  top: var(--ember-top);
+  width: var(--ember-size);
+  height: var(--ember-size);
+  border-radius: 50%;
+  opacity: var(--ember-opacity);
+  background: rgba(196, 147, 75, .92);
+  filter: blur(.2px) drop-shadow(0 0 10px rgba(196, 147, 75, .42));
+  animation: fallEmberPulse var(--ember-duration) ease-in-out var(--ember-delay) infinite alternate;
+}
+
+.fall-lion {
+  position: absolute;
+  left: var(--fall-lion-left);
+  top: var(--fall-lion-top);
+  width: var(--fall-lion-size);
+  height: var(--fall-lion-size);
+  background-image: var(--fall-lion-image);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: var(--fall-lion-opacity);
+  filter: sepia(.35) saturate(1.15) drop-shadow(0 20px 44px rgba(196, 147, 75, .18));
+  animation: fallLionFloat var(--fall-lion-duration) ease-in-out var(--fall-lion-delay) infinite alternate;
+}
+
+[data-theme="light"] .fall-lion {
+  mix-blend-mode: multiply;
+}
+
+[data-theme="dark"] .fall-lion {
+  mix-blend-mode: screen;
+}
+
+@keyframes fallLeafDrift {
+  0% {
+    transform: translate3d(0, -4vh, 0) rotate(0deg);
+  }
+
+  100% {
+    transform: translate3d(var(--fall-drift), 108vh, 0) rotate(720deg);
+  }
+}
+
+@keyframes fallLeafSpin {
+  0% {
+    margin-left: -18px;
+    filter: saturate(.9) brightness(.96);
+  }
+
+  100% {
+    margin-left: 18px;
+    filter: saturate(1.16) brightness(1.04);
+  }
+}
+
+@keyframes fallEmberPulse {
+  from {
+    transform: translateY(0) scale(.82);
+    opacity: calc(var(--ember-opacity) * .55);
+  }
+
+  to {
+    transform: translateY(-18px) scale(1.18);
+    opacity: var(--ember-opacity);
+  }
+}
+
+@keyframes fallLionFloat {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-2deg) scale(.98);
+  }
+
+  100% {
+    transform: translate3d(0, -16px, 0) rotate(2deg) scale(1.03);
+  }
+}
+
+@media (max-width:760px) {
+  .fall-leaf {
+    opacity: calc(var(--fall-opacity) * .82);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .fall-leaf,
+  .fall-ember,
+  .fall-lion {
+    animation: none !important;
+  }
+}

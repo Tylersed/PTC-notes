@@ -1,16 +1,11 @@
-let SITE_CONFIG = {
-  "siteName": "My Peachtree Portal",
-  "navLabel": "My Peachtree Portal",
-  "eyebrow": "Advisor tools, resources, support, and company updates",
-  "heroTitle": "My Peachtree Portal",
-  "heroItalic": "",
-  "heroDescription": "A refined home for advisor tools, company resources, support requests, and daily business access.",
-  "announcementActive": true,
-  "announcementText": "Welcome to My Peachtree Portal. Use this page as your starting point for tools, updates, resources, and support.",
-  "activeTheme": "default",
-  "versionNote": "Cleaned My Peachtree Portal package with placeholder links disabled and Advisor Resource Center improvements included."
-};
-let RESOURCES = [{
+/* My Peachtree Portal internal Advisor Resource Center. Edit this file for resource center cards, folders, files, videos, and guides.
+
+   Printing note:
+   - PDF items can include printUrl for a local PDF copy inside the /files folder.
+   - View File/Open in Google Drive can still use Google Drive links.
+   - Print uses printUrl when present, which avoids Google Drive's browser security limits.
+*/
+let ADVISOR_RESOURCES = [{
   "label": "Brand Collateral",
   "desc": "Logos, approved files, and branded collateral assets",
   "icon": "🎨",

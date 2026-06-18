@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print File</title><style>
+body {
+  font-family: system-ui, sans-serif;
+  background: #F5F4EF;
+  color: #222422;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 24px;
+}
+
+.card {
+  max-width: 620px;
+  background: #fff;
+  border: 1px solid rgba(34, 36, 34, .12);
+  border-radius: 24px;
+  padding: 26px;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, .12);
+}
+
+h1 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  margin: 0 0 10px;
+  font-size: 34px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+button,
+a {
+  border: 1px solid rgba(34, 36, 34, .18);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: #222422;
+  color: #F5F4EF;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.secondary {
+  background: transparent;
+  color: #222422;
+}
+</style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Open in Drive to Print</h1>
+      <p>My Peachtree Portal opens Google Drive files directly for printing. Once the file opens, press Ctrl + P or click the Google Drive print icon.</p>
+      <div class="actions">
+        <button onclick="window.close()" class="secondary">Close</button>
+      </div>
+    </div>
+  </body>
+</html>

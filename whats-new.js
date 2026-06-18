@@ -1,0 +1,1 @@
+let WHATS_NEW = [];
