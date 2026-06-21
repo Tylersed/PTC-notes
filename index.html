@@ -4966,7 +4966,7 @@ footer {
 }
 </style>
     <link rel="stylesheet" href="holiday-themes.css">
-    <style id="ptc-final-polish-v2">
+    <style>
 /* ═══════════════════════════════════════════════════════════════
    PTC Final Polish v2
    - removes boxed title/notification feel
@@ -5085,2551 +5085,12 @@ body.page-settled .cinematic-stage::before{animation-duration:42s;}
 @media(max-width:760px){.scroll-progress{height:2px}.hero.cinematic-hero::before{inset:0!important}.hero-notice-panel{border-radius:22px!important}}
 @media(max-width:760px){.hero-title-stage{display:block!important;width:100%!important;max-width:100%!important}.portal-title-text{width:100%!important;max-width:100%!important;flex-wrap:wrap!important}}
 @media (prefers-reduced-motion: reduce){.scroll-progress span{transition:none}.soft-grid-fresh > *{animation:none!important}.btn,.mini-btn,.directory-top,.support-top,.pill-toggle,.chip,.filter-pill{transform:none!important}}
-</style>
-    <style>
-.copy-center {
-  margin-top: 34px;
-  border: 1px solid var(--border);
-  background: linear-gradient(145deg, var(--card), var(--card-2));
-  border-radius: 28px;
-  box-shadow: var(--shadow);
-  padding: 24px;
-  position: relative;
-  overflow: hidden;
-}
 
-.copy-center::after {
-  content: '';
-  position: absolute;
-  right: -64px;
-  top: -74px;
-  width: 210px;
-  height: 210px;
-  border-radius: 50%;
-  background: rgba(162, 124, 61, .08);
-  pointer-events: none;
-}
-
-.copy-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 18px;
-  margin-bottom: 18px;
-  position: relative;
-  z-index: 1;
-}
-
-.copy-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 38px;
-  line-height: 1.05;
-  font-weight: 400;
-  margin-top: 8px;
-}
-
-.copy-copy {
-  font-size: 13.5px;
-  line-height: 1.65;
-  color: var(--muted);
-  max-width: 760px;
-  margin-top: 8px;
-}
-
-.copy-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  position: relative;
-  z-index: 1;
-}
-
-.copy-card {
-  text-align: left;
-  border: 1px solid var(--border);
-  background: var(--card);
-  color: var(--text);
-  border-radius: 18px;
-  padding: 16px;
-  cursor: pointer;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 12px;
-  align-items: center;
-  transition: .22s var(--ease);
-  font-family: Geist, system-ui, sans-serif;
-}
-
-.copy-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--border-2);
-}
-
-.copy-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: var(--reverse-bg);
-  color: var(--reverse);
-  display: grid;
-  place-items: center;
-  font-size: 18px;
-}
-
-.copy-label {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 23px;
-  line-height: 1.05;
-}
-
-.copy-value {
-  color: var(--muted);
-  font-size: 11.5px;
-  line-height: 1.45;
-  margin-top: 4px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.copy-action {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid var(--border-2);
-  display: grid;
-  place-items: center;
-  color: var(--soft);
-  transition: .2s var(--ease);
-}
-
-.copy-card:hover .copy-action {
-  background: var(--reverse-bg);
-  color: var(--reverse);
-  border-color: var(--reverse-bg);
-  transform: translateX(2px);
-}
-
-@media (max-width:1100px) {
-  .copy-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width:760px) {
-  .copy-center {
-    padding: 18px;
-    border-radius: 22px;
-  }
-
-  .copy-head {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .copy-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .copy-card {
-    padding: 14px;
-  }
-}
-</style>
-  </head>
-  <body data-season="default">
-    <div class="scroll-progress" id="scrollProgress" aria-hidden="true">
-      <span>
-      </span>
-    </div>
-    <div class="cinematic-stage" aria-hidden="true">
-      <div class="ambient-orb orb-a">
-      </div>
-      <div class="ambient-orb orb-b">
-      </div>
-      <div class="ambient-orb orb-c">
-      </div>
-      <div class="starfield">
-      </div>
-      <div class="luxury-noise">
-      </div>
-    </div>
-    <div class="splash" id="splash" onclick="hideSplash(true)" aria-label="Peachtree Town and Country loading screen">
-      <div class="splash-inner">
-        <img class="splash-logo splash-logo-light" src="assets/ptc-emblem-light.png" alt="Peachtree Town and Country">
-        <img class="splash-logo splash-logo-dark" src="assets/ptc-emblem-dark.png" alt="Peachtree Town and Country">
-      </div>
-    </div>
-    <nav>
-      <div class="nav-inner">
-        <div class="wordmark" aria-label="Peachtree Town and Country">
-          <img
-            class="nav-logo nav-logo-light"
-            src="assets/ptc-nav-logo-light.png"
-            alt="Peachtree Town and Country"
-            onerror="this.parentElement.classList.add('logo-missing')">
-          <img
-            class="nav-logo nav-logo-dark"
-            src="assets/ptc-nav-logo-dark.png"
-            alt="Peachtree Town and Country"
-            onerror="this.parentElement.classList.add('logo-missing')">
-          <span class="fallback">Peachtree Town and Country</span>
-        </div>
-        <div class="nav-label" id="navLabel">My Peachtree Portal</div>
-        <div class="nav-right">
-          <div class="nav-search">
-            <span>⌕</span>
-            <input id="searchInput" placeholder="Search portal…" autocomplete="off" oninput="handleSearch(this.value)">
-            <span class="search-count" id="searchCount">
-            </span>
-            <button class="clear-btn hidden" id="clearSearch" onclick="clearSearch()">Clear</button>
-          </div>
-          <button class="directory-top" onclick="openDirectory()">👥 Peachtree Directory</button>
-          <div class="pill-toggle" onclick="toggleTheme()" title="Toggle theme">
-            <span id="tpLight" class="on">Day</span>
-            <span id="tpDark">Night</span>
-          </div>
-          <button class="support-top" onclick="openSupport()">🛟 Support Concierge</button>
-        </div>
-      </div>
-    </nav>
-    <main>
-      <section class="hero cinematic-hero">
-        <div>
-          <div
-            class="eyebrow portal-eyebrow"
-            id="heroEyebrow"
-            aria-label="Portal description">Advisor tools, resources, support, and company updates</div>
-          <h1 class="hero-heading hero-title-stage">
-            <span class="hero-title-lion" aria-hidden="true">
-            </span>
-            <span id="heroTitle" class="portal-title-text" aria-label="My Peachtree Portal">My Peachtree Portal</span>
-          </h1>
-          <div class="hero-rule">
-          </div>
-          <p id="heroDescription">A refined home for advisor tools, company resources, support requests, and daily business access.</p>
-          <div class="hero-action-row">
-            <button
-              class="btn btn-primary hero-cta"
-              onclick="document.getElementById('toolsSection')?.scrollIntoView({behavior:'smooth'})">Tools</button>
-            <button class="btn btn-soft hero-cta" onclick="openAdvisorResources()">Open Resource Center</button>
-          </div>
-        </div>
-        <aside class="hero-aside">
-          <div class="today-card inspiration-card" id="inspirationCard">
-            <div class="inspiration-glow" aria-hidden="true">
-            </div>
-            <div class="aside-kicker inspiration-kicker">Motivational Quotes</div>
-            <div class="inspiration-stage" id="inspirationStage" aria-live="polite">
-              <img class="inspiration-lion inspiration-lion-light" src="assets/ptc-emblem-dark.png" alt="" aria-hidden="true">
-              <img class="inspiration-lion inspiration-lion-dark" src="assets/ptc-emblem-light.png" alt="" aria-hidden="true">
-              <div class="quote-slide active">
-                <div class="aside-title" id="todayTitle">Refined focus. Better outcomes.</div>
-                <div class="aside-copy" id="todayCopy">A daily thought will appear here.</div>
-              </div>
-            </div>
-            <div class="inspiration-progress" aria-hidden="true">
-              <span id="inspirationProgressBar">
-              </span>
-            </div>
-          </div>
-          <div class="hero-notice-panel">
-            <div class="hero-notice-head">
-              <div class="hero-notice-title">Notification Center</div>
-              <div class="hero-notice-count" id="heroNoticeCount">Current Updates</div>
-            </div>
-            <div class="hero-notices" id="heroNotifications">
-            </div>
-          </div>
-        </aside>
-      </section>
-      <div class="announce-banner" id="announceBanner">
-        <span id="announceMsg">
-        </span>
-        <button onclick="dismissBanner()">Dismiss</button>
-      </div>
-      <section class="section" id="toolsSection">
-        <div class="section-top">
-          <div class="section-kicker">Advisor Link Hub</div>
-          <div class="section-note">Core platforms and quick access links</div>
-        </div>
-        <div class="tools" id="quickLinksGrid">
-        </div>
-      </section>
-      <section class="support-section" id="supportSection">
-        <div class="support-intro">
-          <div>
-            <h2 class="support-title-luxury" aria-label="Support Concierge">
-              <span class="support-title-main">Support Concierge</span>
-            </h2>
-            <p>Choose the best support path. On mobile, My Peachtree Portal will try to open the Outlook app with a pre-filled email. On desktop, it will open Outlook on the web.</p>
-          </div>
-          <button class="btn btn-primary" onclick="openSupportModal()">Open Support Concierge ↗</button>
-        </div>
-        <div class="section-top">
-          <div class="section-kicker">Support Contacts</div>
-          <div class="section-note">Pick the right person before sending</div>
-        </div>
-        <div class="support-grid" id="supportGrid">
-        </div>
-        <div class="section-top" style="margin-top:22px">
-          <div class="section-kicker">Common Requests</div>
-          <div class="section-note">Fast templates for common needs</div>
-        </div>
-        <div class="request-grid" id="requestGrid">
-        </div>
-      </section>
-      <section class="office-section" id="officeInfo">
-        <div class="office-head">
-          <div>
-            <div class="section-kicker" id="officeSectionTitle">Office Details</div>
-            <p class="office-copy" id="officeCopy">Office hours and location details for our Atlanta and North Atlanta offices.</p>
-          </div>
-          <div class="hours-pill" aria-label="Office Hours Monday-Friday 9:00 AM to 5:00 PM">
-            <div class="hours-pill-track">
-              <span id="officeHoursLabel">Office Hours</span>
-              <strong id="officeHoursText">Monday–Friday · 9:00 AM–5:00 PM</strong>
-            </div>
-          </div>
-        </div>
-        <div class="office-list" id="officeList">
-        </div>
-      </section>
-    </main>
-    <footer aria-label="Site footer">
-      <div class="footer-marquee-shell">
-        <div class="footer-marquee-track">
-          <div class="footer-marquee-group" aria-hidden="false">
-            <span class="footer-marquee-item">
-              <span>Peachtree Town &amp; Country LLC internal use only 2026</span>
-            </span>
-            <span class="footer-marquee-item">
-              <span>Peachtree Town &amp; Country LLC internal use only 2026</span>
-            </span>
-            <span class="footer-marquee-item">
-              <span>Peachtree Town &amp; Country LLC internal use only 2026</span>
-            </span>
-            <span class="footer-marquee-item">
-              <span>Peachtree Town &amp; Country LLC internal use only 2026</span>
-            </span>
-          </div>
-          <div class="footer-marquee-group" aria-hidden="true">
-            <span class="footer-marquee-item">
-              <span>Peachtree Town &amp; Country LLC internal use only 2026</span>
-            </span>
-            <span class="footer-marquee-item">
-              <span>Peachtree Town &amp; Country LLC internal use only 2026</span>
-            </span>
-            <span class="footer-marquee-item">
-              <span>Peachtree Town &amp; Country LLC internal use only 2026</span>
-            </span>
-            <span class="footer-marquee-item">
-              <span>Peachtree Town &amp; Country LLC internal use only 2026</span>
-            </span>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <div class="modal" id="modal">
-      <div class="modal-scrim" onclick="closeModal()">
-      </div>
-      <div class="modal-panel">
-        <div class="modal-head">
-          <div>
-            <div class="modal-kicker" id="modalKicker">Folder</div>
-            <div class="modal-title" id="modalTitle">Resource</div>
-            <div class="modal-sub" id="modalSub">
-            </div>
-          </div>
-          <button class="close" onclick="closeModal()">×</button>
-        </div>
-        <div class="modal-body">
-          <div class="back-row" id="backRow">
-            <button class="btn btn-soft" onclick="goFolderBack()">← Back</button>
-          </div>
-          <div class="folder-grid" id="modalGrid">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal advisor-resource-modal" id="advisorResourceModal">
-      <div class="modal-scrim" onclick="closeAdvisorResources()">
-      </div>
-      <div class="modal-panel">
-        <div class="modal-head">
-          <div>
-            <div class="modal-kicker">Advisor Resource Center</div>
-            <div class="modal-title" id="advisorResourceTitle">Advisor Resource Center</div>
-            <div
-              class="modal-sub">Find what you need, click it, and view it right here. PDFs, PowerPoints, Google Slides, Docs, Sheets, videos, and folders all use the same simple viewer.</div>
-          </div>
-          <div class="modal-head-actions">
-            <button
-              class="portal-home-btn"
-              onclick="closeAdvisorResources()"
-              title="Back to My Peachtree Portal"
-              aria-label="Back to My Peachtree Portal">
-            <button class="close" onclick="closeAdvisorResources()">×</button>
-          </div>
-        </div>
-        <div class="modal-body">
-          <div class="advisor-resource-controls">
-            <input
-              class="advisor-resource-search"
-              id="advisorResourceSearch"
-              placeholder="Search by name, topic, file type, or folder…"
-              oninput="renderAdvisorResources()">
-            <button class="btn btn-soft" onclick="clearAdvisorResourceSearch()">Clear</button>
-          </div>
-          <div class="advisor-resource-filters" id="advisorResourceFilters">
-          </div>
-          <div class="advisor-resource-breadcrumb" id="advisorResourceBreadcrumb">
-          </div>
-          <div class="advisor-resource-grid" id="advisorResourceGrid">
-          </div>
-          <div class="advisor-resource-viewer hidden" id="advisorResourceViewer">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal directory-modal" id="directoryModal">
-      <div class="modal-scrim" onclick="closeDirectory()">
-      </div>
-      <div class="modal-panel">
-        <div class="modal-head">
-          <div>
-            <div class="modal-kicker">Company Directory</div>
-            <div class="modal-title">Peachtree Directory</div>
-            <div class="modal-sub">Search staff, leadership, and agents with Peachtree Town and Country email addresses.</div>
-          </div>
-          <button class="close" onclick="closeDirectory()">×</button>
-        </div>
-        <div class="modal-body">
-          <div class="directory-controls">
-            <input
-              class="directory-search"
-              id="directorySearch"
-              placeholder="Search by name, role, office, or email…"
-              oninput="renderDirectory()">
-            <button class="btn btn-soft" onclick="clearDirectorySearch()">Clear</button>
-          </div>
-          <div class="directory-filters" id="directoryFilters">
-          </div>
-          <div class="directory-grid" id="directoryGrid">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal support-modal" id="supportModal">
-      <div class="modal-scrim" onclick="closeSupportModal()">
-      </div>
-      <div class="modal-panel">
-        <div class="modal-head">
-          <div>
-            <div class="modal-kicker">Support Concierge</div>
-            <div class="modal-title">How can we help?</div>
-            <div
-              class="modal-sub">Choose the best contact below. On mobile, My Peachtree Portal will try to open the Outlook app with a pre-filled email. On desktop, it will open Outlook on the web.</div>
-            <div class="modal-sub-actions">
-              <button class="btn btn-primary" onclick="composeGeneralSupport()">General Support Request</button>
-              <button class="btn btn-soft" onclick="composeRequest('Report a Website Issue')">Report Website Issue</button>
-            </div>
-          </div>
-          <button class="close" onclick="closeSupportModal()">×</button>
-        </div>
-        <div class="modal-body">
-          <div class="support-modal-grid" id="supportModalGrid">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal support-info-modal" id="supportInfoModal">
-      <div class="modal-scrim" onclick="closeSupportInfoModal()">
-      </div>
-      <div class="modal-panel">
-        <div class="modal-head">
-          <div>
-            <div class="modal-kicker">Support Concierge</div>
-            <div class="modal-title" id="supportInfoTitle">How to Use Support Concierge</div>
-            <div class="modal-sub">Quick guidance for submitting a clear support request.</div>
-          </div>
-          <button class="close" onclick="closeSupportInfoModal()">×</button>
-        </div>
-        <div class="modal-body">
-          <div class="support-info-copy" id="supportInfoBody">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal login-assist-modal" id="loginAssistModal">
-      <div class="modal-scrim" onclick="closeLoginAssistModal()">
-      </div>
-      <div class="modal-panel">
-        <div class="modal-head">
-          <div>
-            <div class="modal-kicker">Google Password Manager</div>
-            <div class="modal-title" id="loginAssistTitle">Open Login</div>
-            <div
-              class="modal-sub">Peachtree Portal will open the vendor page. Chrome can then use the saved login from Google Password Manager.</div>
-          </div>
-          <button class="close" onclick="closeLoginAssistModal()">×</button>
-        </div>
-        <div class="modal-body">
-          <div class="login-assist-box">
-            <div class="login-assist-title" id="loginAssistName">Login Assist</div>
-            <div class="login-assist-copy" id="loginAssistDesc">
-            </div>
-            <div class="credential-box hidden" id="loginCredentialBox">
-              <div class="credential-row">
-                <div>
-                  <div class="credential-label">Username</div>
-                  <div class="credential-value" id="loginUsernameValue">
-                  </div>
-                </div>
-                <button class="btn btn-soft credential-copy" onclick="copyLoginUsername()">Copy Username</button>
-              </div>
-              <div class="credential-row">
-                <div>
-                  <div class="credential-label">Password</div>
-                  <div class="credential-value password-value" id="loginPasswordValue">
-                  </div>
-                </div>
-                <button class="btn btn-soft credential-copy" onclick="copyLoginPassword()">Copy Password</button>
-              </div>
-            </div>
-            <div class="login-steps">
-              <div class="login-step">
-                <b>1</b>
-                <span>Click <strong>Open Login Page</strong>.</span>
-              </div>
-              <div class="login-step">
-                <b>2</b>
-                <span>When Chrome shows the saved Google Password Manager login, choose the advisor’s saved username/password.</span>
-              </div>
-              <div class="login-step">
-                <b>3</b>
-                <span>If the vendor sends you to the dashboard instead of the exact page, come back to My Peachtree Portal and click the card again after you are signed in.</span>
-              </div>
-            </div>
-            <div class="login-actions">
-              <button class="btn btn-primary" onclick="launchLoginAssist('new')">Open Login Page ↗</button>
-              <button class="btn btn-soft" onclick="launchLoginAssist('same')">Open in Same Tab</button>
-              <button class="btn btn-soft" onclick="copyLoginAssistLink()">Copy Link</button>
-            </div>
-            <div
-              class="login-note">Peachtree Portal does not submit the password for you. Copy the credentials if needed, then open the vendor login page.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="toast" id="toast">
-    </div>
-    <script src="resources.js"></script>
-    <script src="advisor-resources.js"></script>
-    <script src="inspirations.js"></script>
-    <script src="notifications.js"></script>
-    <script src="links.js"></script>
-    <script src="whats-new.js"></script>
-    <script src="offices.js"></script>
-    <script src="support.js"></script>
-    <script src="directory.js"></script>
-    <script src="holiday-effects.js" defer></script>
-    <script>
-const LS_THEME = 'ptc_theme_v2';
-const LS_BANNER = 'ptc_banner_dismissed_v2';
-let activeFilter = 'all';
-let folderStack = [];
-let searchTerm = '';
-const DEFAULT_SUPPORT_CONTACTS = [{
-  key: 'tech',
-  icon: '💻',
-  title: 'Technology Support',
-  person: 'Tyler Seder',
-  email: 'tyler@peachtreetc.com',
-  desc: 'Outlook, passwords, Google Drive, Moxi access, login issues, website issues, and general tech help.',
-  subject: 'Advisor Technology Support Request'
-}, {
-  key: 'marketing',
-  icon: '📣',
-  title: 'Marketing Support',
-  person: 'Marketing Team',
-  email: 'marketing@peachtreetc.com',
-  desc: 'Listing marketing, social media, brand assets, flyers, photography, video, campaigns, and signature help.',
-  subject: 'Advisor Marketing Support Request'
-}, {
-  key: 'operations',
-  icon: '🏢',
-  title: 'Operations / Office Support',
-  person: 'Gina Campbell',
-  email: 'gina@peachtreetc.com',
-  desc: 'Office questions, advisor support, onboarding, meetings, processes, and general company guidance.',
-  subject: 'Advisor Office / Operations Support Request'
-}, {
-  key: 'support_on_standby',
-  icon: '🔴',
-  title: 'Support On Standby',
-  person: 'Gina Campbell + Bill',
-  email: 'gina@peachtreetc.com;bill@peachtreetc.com',
-  desc: 'Advisor support requests for open house support and other advisor assistance.',
-  subject: '🔴 High Priority: Support On Standby Request',
-  body: `Priority: High
-
-Hello,
-
-I am requesting support for hosting an open house or other assistance.
-
-Below please find details:
-
-Location:
-Date:
-Description of assistance requested:
-
-Thank you.`
-}, {
-  key: 'general',
-  icon: '🛟',
-  title: 'General Support',
-  person: 'Amy',
-  email: 'amy@peachtreetc.com',
-  desc: 'Use this when you are not sure who should receive the request. Amy can help route it to the right person.',
-  subject: 'Advisor General Support Request'
-}];
-const DEFAULT_REQUEST_TYPES = [{
-  label: 'Request IT Help',
-  to: 'tyler@peachtreetc.com',
-  subject: 'Advisor IT Help Request',
-  hint: 'Outlook, login, Drive, Moxi, access issues'
-}, {
-  label: 'Request Marketing Help',
-  to: 'marketing@peachtreetc.com',
-  subject: 'Advisor Marketing Help Request',
-  hint: 'Flyers, listing assets, social, campaigns'
-}, {
-  label: 'Request Google Drive Access',
-  to: 'tyler@peachtreetc.com;marketing@peachtreetc.com',
-  subject: 'Google Drive Access Request',
-  hint: 'Folders, permissions, listing photos'
-}, {
-  label: 'Request Listing Photo Folder',
-  to: 'tyler@peachtreetc.com;marketing@peachtreetc.com',
-  subject: 'Listing Photo Folder Request',
-  hint: 'Create or access listing media'
-}, {
-  label: 'Request Signature Help',
-  to: 'marketing@peachtreetc.com',
-  subject: 'Outlook Signature Help Request',
-  hint: 'WiseStamp or Outlook signature issue'
-}, {
-  label: 'Request MoxiWorks Help',
-  to: 'tyler@peachtreetc.com',
-  subject: 'MoxiWorks Help Request',
-  hint: 'Login, CRM, contact sync, access'
-}, {
-  label: 'Request Training / How-To Help',
-  to: 'gina@peachtreetc.com',
-  subject: 'Advisor Training / How-To Request',
-  hint: 'How-to help or process questions'
-}, {
-  label: 'Report Website Issue',
-  to: 'tyler@peachtreetc.com',
-  subject: 'My Peachtree Portal Website Issue',
-  hint: 'Broken link or site feedback'
-}];
-
-function supportContacts() {
-  return (typeof SUPPORT_CONTACTS !== 'undefined' && Array.isArray(SUPPORT_CONTACTS) &&
-    SUPPORT_CONTACTS.length) ? SUPPORT_CONTACTS : DEFAULT_SUPPORT_CONTACTS;
-}
-
-function requestTypes() {
-  return (typeof REQUEST_TYPES !== 'undefined' && Array.isArray(REQUEST_TYPES) && REQUEST_TYPES
-    .length) ? REQUEST_TYPES : DEFAULT_REQUEST_TYPES;
-}
-
-function $(id) {
-  return document.getElementById(id);
-}
-
-function dataArray(name) {
-  if (name === 'NOTIFICATIONS')
-    return (typeof NOTIFICATIONS !== 'undefined' && Array.isArray(NOTIFICATIONS)) ? NOTIFICATIONS :
-      [];
-  if (name === 'QUICK_LINKS')
-    return (typeof QUICK_LINKS !== 'undefined' && Array.isArray(QUICK_LINKS)) ? QUICK_LINKS : [];
-  if (name === 'RESOURCES')
-    return (typeof RESOURCES !== 'undefined' && Array.isArray(RESOURCES)) ? RESOURCES : [];
-  if (name === 'WHATS_NEW')
-    return (typeof WHATS_NEW !== 'undefined' && Array.isArray(WHATS_NEW)) ? WHATS_NEW : [];
-  return [];
-}
-
-function cfg() {
-  return (typeof SITE_CONFIG === 'object' && SITE_CONFIG) ? SITE_CONFIG : {};
-}
-
-function safe(s) {
-  return String(s || '').replace(/[&<>'"]/g, c => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    "'": '&#39;',
-    '"': '&quot;'
-  } [c]));
-}
-
-function isPlaceholder(url) {
-  return !url || url === 'PASTE_LINK_HERE' || url === 'PASTE_MEETING_LINK_HERE';
-}
-
-function itemHasContent(i) {
-  return isFolder(i) || isSupportConciergeLink(i) || (i && i.action === 'advisorResources') ||
-    isLoginAssist(i) || (!isPlaceholder(i.url));
-}
-
-function isFolder(i) {
-  return !!(i.children && i.children.length);
-}
-
-function isSupportConciergeLink(i) {
-  return !!(i && (i.action === 'support' || String(i.label || '').trim().toLowerCase() ===
-    'support concierge'));
-}
-
-function visibleQuickLinks(items) {
-  return (items || []).filter(i => !isSupportConciergeLink(i));
-}
-
-function initTheme() {
-  const saved = localStorage.getItem(LS_THEME) || 'light';
-  applyTheme(saved);
-}
-
-function applyTheme(t) {
-  document.documentElement.setAttribute('data-theme', t);
-  localStorage.setItem(LS_THEME, t);
-  $('tpLight').classList.toggle('on', t === 'light');
-  $('tpDark').classList.toggle('on', t === 'dark');
-}
-
-function toggleTheme() {
-  applyTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
-}
-
-function renderPortalTitle() {
-  return `My Peachtree Portal`;
-}
-
-function setHeroTitleText(title) {
-  const el = $('heroTitle');
-  if (!el)
-    return;
-  const text = String(title || 'My Peachtree Portal');
-  el.textContent = '';
-  el.setAttribute('aria-label', text);
-  let letterIndex = 0;
-  text.split(' ').forEach((word, wordIndex) => {
-    if (wordIndex > 0) {
-      const space = document.createElement('span');
-      space.className = 'hero-title-space';
-      space.setAttribute('aria-hidden', 'true');
-      el.appendChild(space);
-    }
-    const wordWrap = document.createElement('span');
-    wordWrap.className = 'hero-title-word';
-    [...word].forEach(ch => {
-      const letter = document.createElement('span');
-      letter.className = 'hero-title-letter';
-      letter.style.setProperty('--letter-index', letterIndex);
-      letter.textContent = ch;
-      wordWrap.appendChild(letter);
-      letterIndex++;
-    });
-    el.appendChild(wordWrap);
-  });
-}
-
-function renderPortalEyebrow() {
-  return `Advisor tools, resources, support, and company updates`;
-}
-
-function normalizeSeason(value) {
-  const allowed = ['default', 'christmas', 'halloween', 'fall'];
-  const v = String(value || 'default').toLowerCase().trim();
-  return allowed.includes(v) ? v : 'default';
-}
-
-function applySeasonFromConfig() {
-  const c = cfg();
-  const season = normalizeSeason(c.activeTheme || c.theme || 'default');
-  document.body.dataset.season = season;
-  if (window.PortalHoliday && typeof window.PortalHoliday.setSeason === 'function') {
-    window.PortalHoliday.setSeason(season);
-  }
-}
-
-function applyConfig() {
-  const c = cfg();
-  applySeasonFromConfig();
-  $('navLabel').textContent = c.navLabel || c.siteName || 'My Peachtree Portal';
-  const eyebrow = $('heroEyebrow');
-  if (eyebrow) {
-    eyebrow.classList.remove('portal-eyebrow');
-    eyebrow.classList.add('portal-eyebrow');
-    eyebrow.textContent = c.eyebrow || 'Advisor tools, resources, support, and company updates';
-  }
-  const title = c.heroTitle || 'My Peachtree Portal';
-  $('heroTitle').classList.remove('portal-word');
-  $('heroTitle').classList.add('portal-title-text');
-  setHeroTitleText(title);
-  if ($('heroItalic')) {
-    $('heroItalic').textContent = '';
-    $('heroItalic').style.display = 'none';
-  }
-  $('heroDescription').textContent = c.heroDescription ||
-    'A refined home for advisor tools, company resources, support requests, and daily business access.';
-  document.title = 'Peachtree · ' + (c.siteName || 'My Peachtree Portal');
-  buildBanner();
-}
-
-function buildBanner() {
-  const c = cfg();
-  const bar = $('announceBanner');
-  if (!c.announcementActive || !c.announcementText || localStorage.getItem(LS_BANNER) === c
-    .announcementText) {
-    bar.classList.remove('show');
-    return;
-  }
-  $('announceMsg').textContent = c.announcementText;
-  bar.classList.add('show');
-}
-
-function dismissBanner() {
-  const c = cfg();
-  if (c.announcementText)
-    localStorage.setItem(LS_BANNER, c.announcementText);
-  $('announceBanner').classList.remove('show');
-}
-
-function notificationInWindow(n) {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  function parseDate(v) {
-    if (!v)
-      return null;
-    const d = new Date(v + 'T00:00:00');
-    return isNaN(d) ? null : d;
-  }
-  const start = parseDate(n.startDate);
-  const end = parseDate(n.endDate || n.expires);
-  if (start && today < start)
-    return false;
-  if (end && today > end)
-    return false;
-  return true;
-}
-
-function activeNotifications() {
-  return dataArray('NOTIFICATIONS').filter(n => n && n.active !== false && notificationInWindow(n));
-}
-
-function renderNotifications() {
-  const grid = $('heroNotifications');
-  const count = $('heroNoticeCount');
-  const notes = activeNotifications();
-  grid.innerHTML = '';
-  if (count)
-    count.textContent = notes.length ? notes.length + ' Active' : 'No Active Notices';
-  if (!notes.length) {
-    grid.innerHTML =
-      '<div class="mini-notice"><div class="mini-title">All clear.</div><div class="mini-msg">No active notifications right now.</div></div>';
-    return;
-  }
-  notes.slice(0, 2).forEach(n => {
-    const has = !isPlaceholder(n.url);
-    const hasSecond = !isPlaceholder(n.secondaryUrl);
-    const details = [
-      n.date ? ['Date', n.date] : null,
-      n.time ? ['Time', n.time] : null,
-      n.location ? ['Location', n.location] : null
-    ].filter(Boolean).map(d =>
-      `<div class="mini-detail"><span>${safe(d[0])}</span><strong>${safe(d[1])}</strong></div>`
-    ).join('');
-    const card = document.createElement('article');
-    card.className = 'mini-notice ' + (n.priority || 'normal');
-    card.innerHTML =
-      `<div class="mini-meta">${safe(n.priority || 'notice')}</div><div class="mini-title">${safe(n.title || 'Notice')}</div><div class="mini-msg">${safe(n.message || '')}</div>${details ? `<div class="mini-details">${details}</div>` : ''}<div class="mini-actions">${has ? `<a class="mini-btn primary" href="${safe(n.url)}" target="_blank" rel="noopener">${safe(n.linkText || 'Online Link')} ↗</a>` : ''}${hasSecond ? `<a class="mini-btn" href="${safe(n.secondaryUrl)}" target="_blank" rel="noopener">${safe(n.secondaryLinkText || 'Directions')} ↗</a>` : ''}</div>`;
-    grid.appendChild(card);
-  });
-}
-
-function renderQuickLinks(items = dataArray('QUICK_LINKS')) {
-  const grid = $('quickLinksGrid');
-  grid.innerHTML = '';
-  visibleQuickLinks(items).slice().sort((a, b) => (b.featured === true) - (a.featured === true))
-    .forEach((r, i) => {
-      const disabled = !itemHasContent(r);
-      const folder = isFolder(r);
-      const login = isLoginAssist(r);
-      const key = linkStatusKey(r);
-      const treeStatus = treeLinkStatus(r);
-      const status = treeStatus;
-      const card = document.createElement('article');
-      card.className = 'tool-card' + (disabled ? ' disabled' : '') + (login ? ' login-ready' :
-        '') + (status && status.state === 'offline' ? ' status-offline' : '');
-      if (key)
-        card.dataset.statusKey = key;
-      card.onclick = () => !disabled && openItem(r);
-      const footerLabel = disabled ? 'Needs link' : (r.action === 'advisorResources' ?
-        'View Files' : (folder ? (r.children.length + ' Options') : (login ?
-          'Chrome Autofill Ready' : safe(r.type || 'Open'))));
-      const statusHtml = renderStatusBadge(status);
-      const badge = '';
-      card.innerHTML =
-        `${badge}<div class="tool-icon">${safe(r.icon || '🔗')}</div><div class="tool-type">${safe(r.type || r.section || 'Link')}</div><div class="tool-title">${safe(r.label || 'Untitled')}</div><div class="tool-desc">${safe(r.desc || '')}</div><div class="tool-footer"><span class="tool-footer-left"><span>${footerLabel}</span>${statusHtml}</span><span class="arrow">${folder ? '→' : '↗'}</span></div>`;
-      grid.appendChild(card);
-    });
-  applyRenderedStatuses();
-}
-
-function getSections() {
-  const set = new Set(['all']);
-  dataArray('RESOURCES').forEach(r => set.add((r.section || r.type || 'Resources').toLowerCase()));
-  return [...set];
-}
-
-function renderChips() {
-  const chips = $('filterChips');
-  chips.innerHTML = '';
-  getSections().forEach(s => {
-    const b = document.createElement('button');
-    b.className = 'chip' + (s === activeFilter ? ' active' : '');
-    b.textContent = s === 'all' ? 'All' : titleCase(s);
-    b.onclick = () => {
-      activeFilter = s;
-      renderChips();
-      renderResources();
-    };
-    chips.appendChild(b);
-  });
-}
-
-function titleCase(s) {
-  return String(s).replace(/\w\S*/g, t => t[0].toUpperCase() + t.slice(1));
-}
-
-function renderResources(items = dataArray('RESOURCES')) {
-  const list = $('resourceList');
-  list.innerHTML = '';
-  let filtered = items.filter(r => activeFilter === 'all' || String(r.section || r.type ||
-    'resources').toLowerCase() === activeFilter);
-  if (searchTerm)
-    filtered = filtered.filter(r => matchesDeep(r, searchTerm));
-  filtered.forEach((r, i) => list.appendChild(resourceCard(r, i)));
-  $('emptyState').classList.toggle('hidden', filtered.length > 0);
-}
-
-function resourceCard(r, i) {
-  const disabled = !itemHasContent(r);
-  const status = treeLinkStatus(r);
-  const card = document.createElement('article');
-  card.className = 'resource-card' + (disabled ? ' disabled' : '') + (status && status.state ===
-    'offline' ? ' status-offline' : '');
-  const key = linkStatusKey(r);
-  if (key)
-    card.dataset.statusKey = key;
-  card.onclick = () => !disabled && openItem(r);
-  const statusHtml = renderStatusBadge(status);
-  card.innerHTML =
-    `<div class="spine"><div class="spine-icon">${safe(r.icon || '📄')}</div><div class="spine-num">${String(i + 1).padStart(2, '0')}</div></div><div class="res-body"><div class="res-info"><div class="res-type">${safe(r.section || r.type || 'Resource')}${r.isNew ? ' · New' : ''}</div><div class="res-title">${safe(r.label || 'Untitled')}</div><div class="res-desc">${safe(r.desc || '')}</div></div><div><div class="res-badge">${isFolder(r) ? (r.children.length + ' Items') : (isPlaceholder(r.url) ? 'Needs Link' : safe(r.type || 'Link'))}${statusHtml}</div><div class="arrow" style="margin-top:12px;margin-left:auto">${isFolder(r) ? '→' : '↗'}</div></div></div>`;
-  return card;
-}
-
-function flattenResources(items, path = '') {
-  let out = [];
-  (items || []).forEach(item => {
-    const p = path ? path + ' › ' + (item.label || 'Untitled') : (item.label || 'Untitled');
-    out.push({
-      item,
-      path
-    });
-    if (item.children)
-      out = out.concat(flattenResources(item.children, p));
-  });
-  return out;
-}
-
-function matches(r, q) {
-  q = q.toLowerCase();
-  return [r.label, r.desc, r.type, r.section, r.url].filter(Boolean).join(' ').toLowerCase()
-    .includes(q);
-}
-
-function matchesDeep(r, q) {
-  if (matches(r, q))
-    return true;
-  return (r.children || []).some(c => matchesDeep(c, q));
-}
-
-let portalSearchScrollTimer;
-
-function scrollToToolResults() {
-  const target = document.getElementById('toolsSection');
-  if (!target)
-    return;
-  clearTimeout(portalSearchScrollTimer);
-  portalSearchScrollTimer = setTimeout(() => {
-    const nav = document.querySelector('nav');
-    const navHeight = nav ? nav.offsetHeight : 0;
-    const extraSpace = 34;
-    const y = target.getBoundingClientRect().top + window.pageYOffset - navHeight - extraSpace;
-    window.scrollTo({
-      top: Math.max(0, y),
-      behavior: 'smooth'
-    });
-  }, 120);
-}
-
-function buildSearchResults(q) {
-  const quick = visibleQuickLinks(dataArray('QUICK_LINKS')).filter(i => matches(i, q));
-  const res = flattenResources(dataArray('RESOURCES')).filter(x => matches(x.item, q));
-  return {
-    quick,
-    res
-  };
-}
-
-function handleSearch(v) {
-  searchTerm = v.trim().toLowerCase();
-  $('clearSearch').classList.toggle('hidden', !searchTerm);
-  if (!searchTerm) {
-    $('searchCount').textContent = '';
-    renderQuickLinks();
-    return;
-  }
-  const found = visibleQuickLinks(dataArray('QUICK_LINKS')).filter(i => matchesDeep(i, searchTerm));
-  $('searchCount').textContent = found.length + ' result' + (found.length === 1 ? '' : 's');
-  renderQuickLinks(found);
-  scrollToToolResults();
-}
-
-function clearSearch() {
-  $('searchInput').value = '';
-  handleSearch('');
-}
-const LINK_STATUS = {};
-let linkStatusStarted = false;
-
-function linkStatusKey(item) {
-  // Check any real URL, including folder URLs. This makes Advisor Resource Center
-  // folder cards turn red if their own Drive folder link is down, not only child files.
-  if (!item || isPlaceholder(item.url))
-    return '';
-  try {
-    const u = new URL(item.url);
-    if (!['http:', 'https:'].includes(u.protocol))
-      return '';
-    return (item.label || 'Link') + '|' + u.href;
-  } catch {
-    return '';
-  }
-}
-
-function renderStatusBadge(status) {
-  // Only show a status badge when a link is confirmed offline.
-  // Online, checking, and unverified states stay visually silent.
-  if (!status || status.state !== 'offline')
-    return '';
-  return `<span class="link-status offline">Maintenance in Progress</span>`;
-}
-
-function directLinkStatus(item) {
-  const key = linkStatusKey(item);
-  return key ? LINK_STATUS[key] : null;
-}
-
-function treeLinkStatus(item) {
-  // Checks the item itself and every nested child link.
-  // This lets parent icon cards turn red when a link inside the icon/folder is down.
-  if (!item)
-    return null;
-  const direct = directLinkStatus(item);
-  if (direct && direct.state === 'offline')
-    return direct;
-  const children = Array.isArray(item.children) ? item.children : [];
-  let sawChecking = false;
-  let sawOnline = false;
-  for (const child of children) {
-    const status = treeLinkStatus(child);
-    if (status && status.state === 'offline')
-      return status;
-    if (status && status.state === 'checking')
-      sawChecking = true;
-    if (status && status.state === 'online')
-      sawOnline = true;
-  }
-  if (direct && direct.state === 'checking')
-    sawChecking = true;
-  if (direct && direct.state === 'online')
-    sawOnline = true;
-  if (sawChecking)
-    return {
-      state: 'checking'
-    };
-  if (sawOnline)
-    return {
-      state: 'online'
-    };
-  return direct;
-}
-
-function collectLinkItems(items, out = []) {
-  (items || []).forEach(item => {
-    if (linkStatusKey(item))
-      out.push(item);
-    if (item && Array.isArray(item.children))
-      collectLinkItems(item.children, out);
-  });
-  return out;
-}
-
-function uniqueLinkItems(items) {
-  const seen = new Set();
-  return (items || []).filter(item => {
-    const key = linkStatusKey(item);
-    if (!key || seen.has(key))
-      return false;
-    seen.add(key);
-    return true;
-  });
-}
-
-function applyRenderedStatuses() {
-  document.querySelectorAll('[data-status-key]').forEach(card => {
-    const status = LINK_STATUS[card.dataset.statusKey];
-    card.classList.remove('status-online');
-    card.classList.toggle('status-offline', !!status && status.state === 'offline');
-  });
-}
-
-function statusCheckUrl(rawUrl) {
-  try {
-    const u = new URL(rawUrl);
-    if (!['http:', 'https:'].includes(u.protocol))
-      return '';
-    if (isPeachtreePortalUrl(rawUrl) && isPeachtreeDeepLink(rawUrl))
-      return buildPeachtreeRedirectUrl(rawUrl);
-    return u.href;
-  } catch {
-    return '';
-  }
-}
-async function checkOneLink(item) {
-  const key = linkStatusKey(item);
-  const url = statusCheckUrl(item.url);
-  if (!key || !url)
-    return;
-  LINK_STATUS[key] = {
-    state: 'checking'
-  };
-  renderQuickLinks();
-  if (typeof renderAdvisorResources === 'function' && document.getElementById(
-      'advisorResourceModal')?.classList.contains('open'))
-    renderAdvisorResources();
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 4500);
-  try {
-    await fetch(url, {
-      method: 'GET',
-      mode: 'no-cors',
-      cache: 'no-store',
-      signal: controller.signal
-    });
-    LINK_STATUS[key] = {
-      state: 'online'
-    };
-  } catch (err) {
-    if (err && err.name === 'AbortError') {
-      LINK_STATUS[key] = {
-        state: 'unverified'
-      };
-    } else {
-      LINK_STATUS[key] = {
-        state: 'offline'
-      };
-    }
-  } finally {
-    clearTimeout(timeout);
-    renderQuickLinks();
-    if (folderStack && folderStack.length)
-      renderFolder(folderStack[folderStack.length - 1]);
-    if (typeof renderAdvisorResources === 'function' && document.getElementById(
-        'advisorResourceModal')?.classList.contains('open'))
-      renderAdvisorResources();
-  }
-}
-
-function runOneTimeLinkStatusCheck() {
-  if (linkStatusStarted)
-    return;
-  linkStatusStarted = true;
-  const links = uniqueLinkItems([
-    ...collectLinkItems(visibleQuickLinks(dataArray('QUICK_LINKS'))),
-    ...collectLinkItems(dataArray('RESOURCES')),
-    ...collectLinkItems(typeof ADVISOR_RESOURCES !== 'undefined' ? ADVISOR_RESOURCES : [])
-  ]);
-  links.forEach(i => {
-    LINK_STATUS[linkStatusKey(i)] = {
-      state: 'checking'
-    };
-  });
-  renderQuickLinks();
-  links.forEach((item, index) => setTimeout(() => checkOneLink(item), index * 180));
-}
-
-function isLoginAssist(item) {
-  return item && item.loginAssist === true && !isPlaceholder(item.url);
-}
-let pendingLoginAssist = null;
-
-function isPeachtreePortalUrl(url) {
-  try {
-    const u = new URL(url);
-    return u.hostname.replace(/^www\./, '').toLowerCase() === 'mypeachtreeportal.com';
-  } catch (e) {
-    return false;
-  }
-}
-
-function buildPeachtreeRedirectUrl(url) {
-  try {
-    const u = new URL(url);
-    const path = (u.pathname || '/dashboard') + (u.search || '') + (u.hash || '');
-    if (u.pathname === '/login' && u.searchParams.has('redirect'))
-      return url;
-    /* Keep the normal dashboard link normal. Only rewrite true deeper Peachtree Portal links. */
-    if (path === '/' || path === '/dashboard')
-      return url;
-    return 'https://mypeachtreeportal.com/login?redirect=' + path;
-  } catch (e) {
-    return url;
-  }
-}
-
-function isPeachtreeDeepLink(url) {
-  try {
-    const u = new URL(url);
-    const path = (u.pathname || '/dashboard') + (u.search || '') + (u.hash || '');
-    return isPeachtreePortalUrl(url) && !(path === '/' || path === '/dashboard') && !(u.pathname ===
-      '/login' && u.searchParams.has('redirect'));
-  } catch (e) {
-    return false;
-  }
-}
-
-function openSmartUrl(url) {
-  const finalUrl = isPeachtreePortalUrl(url) ? buildPeachtreeRedirectUrl(url) : url;
-  if (finalUrl !== url)
-    showToast('Opening Peachtree Portal with saved redirect...');
-  setTimeout(() => window.open(finalUrl, '_blank', 'noopener'), finalUrl !== url ? 350 : 0);
-}
-
-function openItem(item) {
-  if (item && item.action === 'advisorResources') {
-    openAdvisorResources();
-    return;
-  }
-  if (String(item.label || '').toLowerCase() === 'support' || item.action === 'support') {
-    openSupportModal();
-    return;
-  }
-  if (isFolder(item)) {
-    openFolder(item);
-    return;
-  }
-  if (isPlaceholder(item.url)) {
-    showToast('This link still needs to be added.');
-    return;
-  }
-  if (isPeachtreePortalUrl(item.url)) {
-    openSmartUrl(item.url);
-    return;
-  }
-  if (isLoginAssist(item)) {
-    openLoginAssistModal(item);
-    return;
-  }
-  window.open(item.url, '_blank', 'noopener');
-}
-
-function openLoginAssistModal(item) {
-  pendingLoginAssist = item;
-  $('loginAssistTitle').textContent = 'Open ' + (item.label || 'Login');
-  $('loginAssistName').textContent = item.label || 'Login Assist';
-  $('loginAssistDesc').textContent = item.loginHint ||
-    'Copy the login credentials if shown below, then open the login page.';
-  const box = $('loginCredentialBox');
-  const user = $('loginUsernameValue');
-  const pass = $('loginPasswordValue');
-  const hasCred = !!(item.loginUsername || item.loginPassword);
-  if (box)
-    box.classList.toggle('hidden', !hasCred);
-  if (user)
-    user.textContent = item.loginUsername || '';
-  if (pass)
-    pass.textContent = item.loginPassword || '';
-  $('loginAssistModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeLoginAssistModal() {
-  $('loginAssistModal').classList.remove('open');
-  document.body.style.overflow = '';
-  pendingLoginAssist = null;
-}
-
-function launchLoginAssist(mode) {
-  if (!pendingLoginAssist || isPlaceholder(pendingLoginAssist.url))
-    return;
-  const url = isPeachtreePortalUrl(pendingLoginAssist.url) ? buildPeachtreeRedirectUrl(
-    pendingLoginAssist.url) : pendingLoginAssist.url;
-  if (mode === 'same') {
-    location.href = url;
-  } else {
-    window.open(url, '_blank', 'noopener');
-  }
-  closeLoginAssistModal();
-}
-
-function copyLoginAssistLink() {
-  if (!pendingLoginAssist)
-    return;
-  copyText(pendingLoginAssist.url);
-}
-
-function copyLoginUsername() {
-  if (!pendingLoginAssist || !pendingLoginAssist.loginUsername)
-    return;
-  copyText(pendingLoginAssist.loginUsername);
-  showToast('Username copied');
-}
-
-function copyLoginPassword() {
-  if (!pendingLoginAssist || !pendingLoginAssist.loginPassword)
-    return;
-  copyText(pendingLoginAssist.loginPassword);
-  showToast('Password copied');
-}
-
-function openFolder(folder) {
-  folderStack = [folder];
-  renderFolder(folder);
-  $('modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function renderFolder(folder) {
-  $('modalKicker').textContent = (folderStack.length > 1 ? 'Subfolder' : 'Folder');
-  $('modalTitle').textContent = folder.label || 'Folder';
-  $('modalSub').textContent = folder.desc || 'Select a resource below.';
-  $('backRow').classList.toggle('show', folderStack.length > 1);
-  const grid = $('modalGrid');
-  grid.innerHTML = '';
-  (folder.children || []).forEach(child => {
-    const disabled = !itemHasContent(child);
-    const status = treeLinkStatus(child);
-    const key = linkStatusKey(child);
-    const el = document.createElement('div');
-    el.className = 'folder-item' + (disabled ? ' disabled' : '') + (status && status.state ===
-      'offline' ? ' status-offline' : '');
-    if (key)
-      el.dataset.statusKey = key;
-    el.onclick = () => {
-      if (disabled)
-        return;
-      if (isFolder(child)) {
-        folderStack.push(child);
-        renderFolder(child);
-      } else
-        openItem(child);
-    };
-    const statusHtml = renderStatusBadge(status);
-    el.innerHTML =
-      `<div class="folder-ico">${safe(child.icon || '📄')}</div>
-<div style="min-width:0">
-<div class="folder-label">${safe(child.label || 'Untitled')}</div>${child.desc ? `<div class="folder-desc">${safe(child.desc)}</div>` : ''}</div>
-<div class="folder-meta">${isFolder(child) ? child.children.length + ' items' : (isPlaceholder(child.url) ? 'Needs Link' : safe(child.type || 'Open'))}
-${statusHtml}</div>`;
-    grid.appendChild(el);
-  });
-  if (!(folder.children || []).length)
-    grid.innerHTML = '<div class="empty" style="grid-column:1/-1">This folder is empty.</div>';
-}
-
-function goFolderBack() {
-  if (folderStack.length > 1) {
-    folderStack.pop();
-    renderFolder(folderStack[folderStack.length - 1]);
-  }
-}
-
-function closeModal() {
-  $('modal').classList.remove('open');
-  document.body.style.overflow = '';
-  folderStack = [];
-}
-
-function copyText(txt) {
-  navigator.clipboard?.writeText(txt).then(() => showToast('Copied to clipboard')).catch(() =>
-    showToast('Copy failed'));
-}
-
-function showToast(msg) {
-  const t = $('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(window.__toast);
-  window.__toast = setTimeout(() => t.classList.remove('show'), 2600);
-}
-
-function outlookWebComposeUrl(to, subject, body) {
-  return 'https://outlook.cloud.microsoft/mail/deeplink/compose?to=' + encodeURIComponent(to) +
-    '&subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-}
-
-function outlookAppComposeUrl(to, subject, body) {
-  return 'ms-outlook://compose?to=' + encodeURIComponent(to) + '&subject=' + encodeURIComponent(
-    subject) + '&body=' + encodeURIComponent(body);
-}
-
-function isMobileOutlookTarget() {
-  const ua = navigator.userAgent || '';
-  const isiPadOS = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
-  return /iPhone|iPad|iPod|Android/i.test(ua) || isiPadOS;
-}
-
-function openOutlookCompose(to, subject, body) {
-  const webUrl = outlookWebComposeUrl(to, subject, body);
-  if (!isMobileOutlookTarget()) {
-    window.open(webUrl, '_blank', 'noopener');
-    return;
-  }
-  let appOpened = false;
-  let fallbackTimer = null;
-  const cancelFallback = () => {
-    appOpened = true;
-    if (fallbackTimer)
-      clearTimeout(fallbackTimer);
-  };
-  window.addEventListener('pagehide', cancelFallback, {
-    once: true
-  });
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden)
-      cancelFallback();
-  }, {
-    once: true
-  });
-  window.location.href = outlookAppComposeUrl(to, subject, body);
-  fallbackTimer = setTimeout(() => {
-    if (!appOpened && !document.hidden) {
-      showToast('Opening Outlook on the web...');
-      window.open(webUrl, '_blank', 'noopener');
-    }
-  }, 1600);
-}
-
-function bodyTemplate(name) {
-  return `Hi ${name},
-
-I need help with:
-
-Thank you,`;
-}
-
-function composeTo(contact) {
-  openOutlookCompose(contact.email, contact.subject, contact.body || bodyTemplate((contact.person ||
-    '').split(' ')[0] || 'there'));
-}
-
-function composeGeneralSupport() {
-  const c = supportContacts().find(x => x.key === 'general') || supportContacts()[0];
-  composeTo(c);
-}
-
-function composeRequest(label) {
-  const list = requestTypes();
-  const req = list.find(r => r.label === label) || list.find(r => r.subject === label) || list[0];
-  openOutlookCompose(req.to, req.subject, `Hi,
-
-I need help with ${req.label.replace('Request ', '').toLowerCase()}:
-
-Thank you,`);
-}
-
-function openSupport() {
-  openSupportModal();
-}
-
-function openSupportModal() {
-  $('supportModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeSupportModal() {
-  $('supportModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function isInfoSupportCard(c) {
-  return c && c.action === 'info';
-}
-
-function openSupportInfoModal(card) {
-  $('supportInfoTitle').textContent = card.infoTitle || card.title ||
-    'How to Use Support Concierge';
-  $('supportInfoBody').textContent = card.infoBody || card.body || card.desc || '';
-  $('supportInfoModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeSupportInfoModal() {
-  $('supportInfoModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function handleSupportCard(c) {
-  if (isInfoSupportCard(c)) {
-    openSupportInfoModal(c);
-    return;
-  }
-  composeTo(c);
-}
-
-function renderSupportCards() {
-  const grid = $('supportGrid');
-  const modal = $('supportModalGrid');
-  const req = $('requestGrid');
-  grid.innerHTML = '';
-  modal.innerHTML = '';
-  req.innerHTML = '';
-  supportContacts().forEach(c => {
-    const info = isInfoSupportCard(c);
-    const card = document.createElement('article');
-    card.className = 'support-card' + (info ? ' info-card' : '');
-    card.onclick = () => handleSupportCard(c);
-    card.innerHTML =
-      `<div class="support-ico">${c.icon}</div>
-<div class="support-name">${safe(c.title)}</div>
-<div class="support-desc">${safe(c.desc)}</div>
-<div class="support-email">${info ? 'Read guidance' : safe(c.person) + ' · ' + safe(c.email)}</div>`;
-    grid.appendChild(card);
-    const choice = document.createElement('article');
-    choice.className = 'support-choice' + (info ? ' info-card' : '');
-    choice.onclick = () => handleSupportCard(c);
-    choice.innerHTML =
-      `<div class="choice-ico">${c.icon}</div>
-<div>
-<div class="choice-person">${info ? 'Advisor Guidance' : safe(c.person)}</div>
-<div class="choice-title">${safe(c.title)}</div>
-<div class="choice-desc">${safe(c.desc)}</div>
-<div class="choice-email">${info ? 'Read guidance' : safe(c.email)}</div>
-</div>`;
-    modal.appendChild(choice);
-  });
-  requestTypes().forEach(r => {
-    const b = document.createElement('button');
-    b.className = 'request-btn';
-    b.onclick = () => composeRequest(r.label);
-    b.innerHTML = `<strong>${safe(r.label)}</strong>
-<span>${safe(r.hint)}</span>`;
-    req.appendChild(b);
-  });
-}
-let advisorResourceStack = [];
-let activeAdvisorResourceFilter = 'All';
-
-function advisorResources() {
-  return (typeof ADVISOR_RESOURCES !== 'undefined' && Array.isArray(ADVISOR_RESOURCES)) ?
-    ADVISOR_RESOURCES : [];
-}
-
-function advisorResourceCurrentItems() {
-  return advisorResourceStack.length ? ((advisorResourceStack[advisorResourceStack.length - 1]
-    .children) || []) : advisorResources();
-}
-
-function advisorResourceCategories() {
-  const set = new Set(['All']);
-
-  function walk(items) {
-    (items || []).forEach(i => {
-      if (i.section)
-        set.add(i.section);
-      if (i.type)
-        set.add(i.type);
-      if (i.children)
-        walk(i.children);
-    });
-  }
-  walk(advisorResources());
-  return [...set].filter(Boolean);
-}
-
-function openAdvisorResources() {
-  advisorResourceStack = [];
-  activeAdvisorResourceFilter = 'All';
-  if ($('advisorResourceSearch'))
-    $('advisorResourceSearch').value = '';
-  $('advisorResourceModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  renderAdvisorResources();
-  setTimeout(() => $('advisorResourceSearch')?.focus(), 120);
-}
-
-function closeAdvisorResources() {
-  $('advisorResourceModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function clearAdvisorResourceSearch() {
-  if ($('advisorResourceSearch'))
-    $('advisorResourceSearch').value = '';
-  activeAdvisorResourceFilter = 'All';
-  closeAdvisorResourcePreview();
-  renderAdvisorResources();
-}
-
-function setAdvisorResourceFilter(filter) {
-  activeAdvisorResourceFilter = filter;
-  closeAdvisorResourcePreview();
-  renderAdvisorResources();
-}
-
-function openAdvisorResourceFolder(item) {
-  advisorResourceStack.push(item);
-  if ($('advisorResourceSearch'))
-    $('advisorResourceSearch').value = '';
-  activeAdvisorResourceFilter = 'All';
-  closeAdvisorResourcePreview();
-  renderAdvisorResources();
-}
-
-function advisorResourceBack() {
-  advisorResourceStack.pop();
-  closeAdvisorResourcePreview();
-  renderAdvisorResources();
-}
-
-function flattenAdvisorResources(items = advisorResources(), out = []) {
-  (items || []).forEach(i => {
-    out.push(i);
-    if (i.children)
-      flattenAdvisorResources(i.children, out);
-  });
-  return out;
-}
-
-function advisorResourceMatches(item, q) {
-  if (!q)
-    return true;
-  const hay = [item.label, item.desc, item.type, item.section, item.url].join(' ').toLowerCase();
-  return hay.includes(q);
-}
-
-function advisorResourceHasUrl(item) {
-  return item && item.url && String(item.url).trim() && !isPlaceholder(item.url);
-}
-const advisorResourcePreviewCache = new Map();
-let currentAdvisorResourceItem = null;
-
-function warmAdvisorResourcePreview(item) {
-  return;
-}
-
-function warmVisibleAdvisorResources(items) {
-  return;
-}
-
-function advisorResourceEmbedUrl(url) {
-  const raw = String(url || '').trim();
-  if (!raw)
-    return '';
-  const clean = raw.replace(/&amp;/g, '&');
-  let id = '';
-  const fileMatch = clean.match(/\/file\/d\/([^/]+)/);
-  const folderMatch = clean.match(/\/folders\/([^/?#]+)/);
-  const idMatch = clean.match(/[?&]id=([^&#]+)/);
-  if (folderMatch)
-    return 'https://drive.google.com/embeddedfolderview?id=' + encodeURIComponent(folderMatch[1]) +
-      '#grid';
-  if (fileMatch)
-    id = fileMatch[1];
-  if (idMatch)
-    id = idMatch[1];
-  if (id)
-    return 'https://drive.google.com/file/d/' + encodeURIComponent(id) + '/preview';
-  // Native Google formats: Docs, Slides, Sheets, Forms, Drawings.
-  if (clean.includes('docs.google.com/document'))
-    return clean.replace(/\/edit.*$/, '/preview').replace(/\/view.*$/, '/preview');
-  if (clean.includes('docs.google.com/presentation'))
-    return clean.replace(/\/edit.*$/, '/preview').replace(/\/view.*$/, '/preview');
-  if (clean.includes('docs.google.com/spreadsheets'))
-    return clean.replace(/\/edit.*$/, '/preview').replace(/\/view.*$/, '/preview');
-  if (clean.includes('docs.google.com/forms'))
-    return clean.replace(/\/edit.*$/, '/viewform').replace(/\/view.*$/, '/viewform');
-  if (clean.includes('docs.google.com/drawings'))
-    return clean.replace(/\/edit.*$/, '/preview').replace(/\/view.*$/, '/preview');
-  return clean;
-}
-
-function advisorResourceKind(item) {
-  const text = [item.type, item.label, item.url].join(' ').toLowerCase();
-  if (item.children && item.children.length)
-    return 'Folder';
-  if (text.includes('presentation') || text.includes('slides') || text.includes('powerpoint') ||
-    text.includes('ppt'))
-    return 'Slides';
-  if (text.includes('pdf'))
-    return 'PDF';
-  if (text.includes('spreadsheet') || text.includes('sheet') || text.includes('excel') || text
-    .includes('xlsx'))
-    return 'Spreadsheet';
-  if (text.includes('document') || text.includes('doc') || text.includes('word'))
-    return 'Document';
-  if (text.includes('video') || text.includes('mp4') || text.includes('youtube'))
-    return 'Video';
-  return item.type || 'File';
-}
-
-function openAdvisorResourceFullScreen() {
-  const frame = document.querySelector('#advisorResourceViewer iframe');
-  if (frame && frame.requestFullscreen) {
-    frame.requestFullscreen().catch(() => {});
-    return;
-  }
-  const url = frame && frame.src ? frame.src : '';
-  if (url)
-    window.open(url, '_blank', 'noopener');
-}
-
-function advisorResourceExtractGoogleId(url) {
-  const clean = String(url || '').replace(/&amp;/g, '&');
-  const fileMatch = clean.match(/\/file\/d\/([^/]+)/);
-  const docMatch = clean.match(
-    /docs\.google\.com\/(document|presentation|spreadsheets|drawings)\/d\/([^/]+)/);
-  const idMatch = clean.match(/[?&]id=([^&#]+)/);
-  if (docMatch)
-    return {
-      type: docMatch[1],
-      id: docMatch[2]
-    };
-  if (fileMatch)
-    return {
-      type: 'file',
-      id: fileMatch[1]
-    };
-  if (idMatch)
-    return {
-      type: 'file',
-      id: idMatch[1]
-    };
-  return {
-    type: '',
-    id: ''
-  };
-}
-
-function advisorResourceDownloadUrl(url) {
-  const clean = String(url || '').replace(/&amp;/g, '&');
-  const info = advisorResourceExtractGoogleId(clean);
-  if (!info.id)
-    return clean;
-  if (info.type === 'document')
-    return 'https://docs.google.com/document/d/' + encodeURIComponent(info.id) +
-      '/export?format=pdf';
-  if (info.type === 'presentation')
-    return 'https://docs.google.com/presentation/d/' + encodeURIComponent(info.id) + '/export/pdf';
-  if (info.type === 'spreadsheets')
-    return 'https://docs.google.com/spreadsheets/d/' + encodeURIComponent(info.id) +
-      '/export?format=xlsx';
-  if (info.type === 'drawings')
-    return 'https://docs.google.com/drawings/d/' + encodeURIComponent(info.id) + '/export/png';
-  return 'https://drive.google.com/uc?export=download&id=' + encodeURIComponent(info.id);
-}
-
-function downloadAdvisorResourceFile() {
-  if (!currentAdvisorResourceItem || !advisorResourceHasUrl(currentAdvisorResourceItem)) {
-    showToast('No download available for this item.');
-    return;
-  }
-  window.open(advisorResourceDownloadUrl(currentAdvisorResourceItem.url), '_blank', 'noopener');
-}
-function advisorResourceGoogleDriveViewUrl(url) {
-  const clean = String(url || '').replace(/&amp;/g, '&');
-  const info = advisorResourceExtractGoogleId(clean);
-  if (!info.id)
-    return clean;
-  if (info.type === 'document')
-    return 'https://docs.google.com/document/d/' + encodeURIComponent(info.id) +
-      '/edit?usp=sharing';
-  if (info.type === 'presentation')
-    return 'https://docs.google.com/presentation/d/' + encodeURIComponent(info.id) +
-      '/edit?usp=sharing';
-  if (info.type === 'spreadsheets')
-    return 'https://docs.google.com/spreadsheets/d/' + encodeURIComponent(info.id) +
-      '/edit?usp=sharing';
-  if (info.type === 'drawings')
-    return 'https://docs.google.com/drawings/d/' + encodeURIComponent(info.id) +
-      '/edit?usp=sharing';
-  return 'https://drive.google.com/file/d/' + encodeURIComponent(info.id) + '/view?usp=sharing';
-}
-
-function advisorResourceLooksLikePdf(item) {
-  const text = [item && item.type, item && item.label, item && item.url].join(' ').toLowerCase();
-  return text.includes('pdf');
-}
-
-function advisorResourceInlinePdfUrl(url) {
-  const clean = String(url || '').replace(/&amp;/g, '&');
-  const info = advisorResourceExtractGoogleId(clean);
-  if (!info.id)
-    return clean;
-  // export=view is the closest Drive URL to an inline file view. If Drive forces preview or download,
-  // the fallback button in the print window opens the normal Drive page.
-  return 'https://drive.google.com/uc?export=view&id=' + encodeURIComponent(info.id);
-}
-
-function advisorResourceLocalPrintUrl(item) {
-  if (!item)
-    return '';
-  const explicit = String(item.printUrl || item.printURL || item.localPdf || item.localPDF || '')
-    .trim();
-  if (explicit)
-    return explicit;
-  const url = String(item.url || '').trim();
-  if (!url)
-    return '';
-  // Same-site/local PDFs can be printed directly. Google Drive URLs intentionally do not count here.
-  const lower = url.toLowerCase().split('?')[0].split('#')[0];
-  const isGoogle = lower.includes('drive.google.com') || lower.includes('docs.google.com');
-  if (!isGoogle && lower.endsWith('.pdf'))
-    return url;
-  return '';
-}
-
-function advisorResourcePrintHelperUrl(item) {
-  const local = advisorResourceLocalPrintUrl(item);
-  if (!local)
-    return '';
-  return 'print-file.html?file=' + encodeURIComponent(local) + '&title=' + encodeURIComponent(item
-    .label || 'Print File');
-}
-
-function advisorResourceOpenLocalPdfAndPrint(item) {
-  const local = advisorResourceLocalPrintUrl(item);
-  if (!local)
-    return false;
-  // Open the actual PDF file directly instead of printing a wrapper page.
-  // This is the most reliable option for non-technical users because, even if
-  // Chrome blocks the automatic print call, the user is already looking at the
-  // real PDF with Chrome's built-in print button visible.
-  const opened = window.open(local, '_blank');
-  if (!opened) {
-    showToast('Popup blocked. Allow popups, then try Print again.');
-    return true;
-  }
-  showToast('Opening PDF print window…');
-  const tryPrintAt = function(delay) {
-    setTimeout(function() {
-      try {
-        opened.focus();
-        opened.print();
-      } catch (error) {
-        // If Chrome blocks scripted printing, do nothing. The real PDF is still open.
-      }
-    }, delay);
-  };
-  // Give Chrome's PDF viewer time to finish loading. Multiple attempts help with
-  // larger PDFs without creating blank print-wrapper pages.
-  tryPrintAt(3500);
-  tryPrintAt(6500);
-  tryPrintAt(9500);
-  return true;
-}
-
-function printAdvisorResourceFile() {
-  if (!currentAdvisorResourceItem || !advisorResourceHasUrl(currentAdvisorResourceItem)) {
-    showToast('No print view available for this item.');
-    return;
-  }
-  if (advisorResourceOpenLocalPdfAndPrint(currentAdvisorResourceItem)) {
-    return;
-  }
-  // Google Drive/Docs/Slides/Sheets cannot be auto-printed by this static site.
-  // If there is no local PDF print copy, open the real Drive page instead of a blank wrapper.
-  const printUrl = advisorResourceGoogleDriveViewUrl(currentAdvisorResourceItem.url);
-  const opened = window.open(printUrl, '_blank', 'noopener');
-  if (opened) {
-    showToast('Opened in Google Drive. Click the print icon or press Ctrl + P.');
-  } else {
-    showToast('Popup blocked. Allow popups, then try Print again.');
-  }
-}
-
-function advisorResourceHelpEmail() {
-  const subject = encodeURIComponent('Advisor Resource Center Help');
-  const body = encodeURIComponent('Hello,\n\nI need help opening or finding this resource:\n\n');
-  window.location.href = 'mailto:tyler@peachtreetc.com?subject=' + subject + '&body=' + body;
-}
-
-function closeAdvisorResourcePreview() {
-  currentAdvisorResourceItem = null;
-  const viewer = $('advisorResourceViewer');
-  const grid = $('advisorResourceGrid');
-  if (viewer) {
-    viewer.classList.add('hidden');
-    viewer.innerHTML = '';
-  }
-  if (grid)
-    grid.classList.remove('hidden');
-}
-
-function openAdvisorResourceItem(item) {
-  if (item.children && item.children.length) {
-    openAdvisorResourceFolder(item);
-    return;
-  }
-  if (!advisorResourceHasUrl(item)) {
-    showToast('This file is not ready yet.');
-    return;
-  }
-  currentAdvisorResourceItem = item;
-  const viewer = $('advisorResourceViewer');
-  const grid = $('advisorResourceGrid');
-  if (!viewer || !grid) {
-    window.open(item.url, '_blank', 'noopener');
-    return;
-  }
-  const embed = advisorResourceEmbedUrl(item.url);
-  const kind = advisorResourceKind(item);
-  grid.classList.add('hidden');
-  viewer.classList.remove('hidden');
-  const simpleDesc = safe(item.desc || ('Click through, scroll, read, or review this ' + String(
-    kind).toLowerCase() + ' here.'));
-  const hasLocalPrint = !!advisorResourceLocalPrintUrl(item);
-  const printButtonLabel = hasLocalPrint ? 'Print' : 'Open in Drive to Print';
-  const printButtonTitle = hasLocalPrint ? 'Prints the local PDF copy from this portal.' :
-    'Opens the real Google Drive file page so the content is visible before printing.';
-  const printHelp = hasLocalPrint ?
-    'Use <strong>Print</strong> to open a print-ready PDF copy in Chrome. If Chrome blocks the print dialog, use the Print button in the print tab.' :
-    'To print, click <strong>Open in Drive to Print</strong>. The file will open in Google Drive with the content visible. Then press <strong>Ctrl + P</strong> or click the Google Drive print icon.';
-  viewer.innerHTML =
-    `<div class="advisor-resource-viewer-head">
-<div>
-<div class="advisor-resource-viewer-kicker">${safe(kind)}</div>
-<div class="advisor-resource-viewer-title">${safe(item.label || 'File')}</div>
-<div class="advisor-resource-viewer-desc">${simpleDesc}</div>
-</div>
-<div class="advisor-resource-viewer-actions">
-<button class="advisor-resource-action" onclick="closeAdvisorResourcePreview()">Back</button>
-<button class="advisor-resource-action primary" onclick="openAdvisorResourceFullScreen()">View Full Screen</button>
-<button class="advisor-resource-action" onclick="downloadAdvisorResourceFile()">Download</button>
-<button class="advisor-resource-action" onclick="printAdvisorResourceFile()" title="${safe(printButtonTitle)}">${safe(printButtonLabel)}</button>
-<button class="advisor-resource-action" onclick="window.open('${safe(item.url)}','_blank','noopener')">Open in Google Drive</button>
-</div>
-</div>
-<div class="advisor-resource-frame-wrap">
-<div class="advisor-resource-loading" id="advisorResourceLoading">Opening your file…</div>
-</div>
-<div class="advisor-resource-preview-note">The file should appear above. You can scroll PDFs, click through slides and PowerPoints, review Google Docs or Sheets, and play videos right here. Use <strong>Download</strong> to save a copy or <strong>View Full Screen</strong> for a larger preview. ${printHelp}</div>
-<div class="advisor-resource-help-strip">
-<div>
-<strong>Need help?</strong>
-<span>If you cannot open, download, print, or find what you need, send a quick help request.</span>
-</div>
-<button class="advisor-resource-action" onclick="advisorResourceHelpEmail()">Ask for Help</button>
-</div>`;
-  const wrap = viewer.querySelector('.advisor-resource-frame-wrap');
-  const loading = $('advisorResourceLoading');
-  const frame = document.createElement('iframe');
-  frame.className = 'advisor-resource-frame';
-  frame.allow = 'autoplay; fullscreen; clipboard-read; clipboard-write';
-  frame.setAttribute('allowfullscreen', 'true');
-  frame.loading = 'eager';
-  frame.referrerPolicy = 'no-referrer-when-downgrade';
-  frame.onload = () => {
-    if (loading)
-      loading.remove();
-  };
-  frame.src = embed;
-  wrap.appendChild(frame);
-  setTimeout(() => {
-    if (loading) {
-      loading.textContent =
-        'Still opening… choose View Full Screen or Open in Google Drive if it does not appear.';
-    }
-  }, 3000);
-  viewer.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start'
-  });
-}
-
-function renderAdvisorResourceBreadcrumb() {
-  const bc = $('advisorResourceBreadcrumb');
-  if (!bc)
-    return;
-  bc.innerHTML = '';
-  const home = document.createElement('button');
-  home.textContent = 'Resource Center';
-  home.onclick = () => {
-    advisorResourceStack = [];
-    renderAdvisorResources();
-  };
-  bc.appendChild(home);
-  advisorResourceStack.forEach((f, i) => {
-    const span = document.createElement('span');
-    span.textContent = '›';
-    bc.appendChild(span);
-    const b = document.createElement('button');
-    b.textContent = f.label || 'Folder';
-    b.onclick = () => {
-      advisorResourceStack = advisorResourceStack.slice(0, i + 1);
-      renderAdvisorResources();
-    };
-    bc.appendChild(b);
-  });
-}
-
-function renderAdvisorResources() {
-  closeAdvisorResourcePreview();
-  const filters = $('advisorResourceFilters');
-  const grid = $('advisorResourceGrid');
-  if (!filters || !grid)
-    return;
-  const q = ($('advisorResourceSearch')?.value || '').trim().toLowerCase();
-  const title = $('advisorResourceTitle');
-  if (title)
-    title.textContent = advisorResourceStack.length ? (advisorResourceStack[advisorResourceStack
-      .length - 1].label || 'Advisor Resource Center') : 'Advisor Resource Center';
-  filters.innerHTML = '';
-  advisorResourceCategories().forEach(cat => {
-    const b = document.createElement('button');
-    b.className = 'advisor-resource-chip' + (cat === activeAdvisorResourceFilter ? ' active' :
-      '');
-    b.textContent = cat;
-    b.onclick = () => setAdvisorResourceFilter(cat);
-    filters.appendChild(b);
-  });
-  renderAdvisorResourceBreadcrumb();
-  let items = q ? flattenAdvisorResources() : advisorResourceCurrentItems();
-  items = items.filter(i => (activeAdvisorResourceFilter === 'All' || i.section ===
-      activeAdvisorResourceFilter || i.type === activeAdvisorResourceFilter) &&
-    advisorResourceMatches(i, q));
-  grid.innerHTML = '';
-  if (!items.length) {
-    grid.innerHTML =
-      '<div class="advisor-resource-empty">No files found. Try a simpler search, like “buyer,” “listing,” “logo,” or “guide.”</div>';
-    return;
-  }
-  items.forEach(item => {
-    const folder = !!(item.children && item.children.length);
-    const status = treeLinkStatus(item);
-    const key = linkStatusKey(item);
-    const card = document.createElement('article');
-    card.className = 'advisor-resource-card' + (status && status.state === 'offline' ?
-      ' status-offline' : '');
-    if (key)
-      card.dataset.statusKey = key;
-    card.onclick = () => openAdvisorResourceItem(item);
-    card.onmouseenter = () => warmAdvisorResourcePreview(item);
-    card.ontouchstart = () => warmAdvisorResourcePreview(item);
-    card.onfocus = () => warmAdvisorResourcePreview(item);
-    const actionLabel = folder ? (item.children.length + ' Items') : (advisorResourceHasUrl(
-      item) ? 'Ready to View' : 'Not Ready');
-    const statusHtml = renderStatusBadge(status);
-    card.innerHTML =
-      `<div>
-<div class="advisor-resource-icon">${safe(item.icon || '📄')}</div>
-<div class="advisor-resource-type">${safe(item.type || item.section || 'Resource')}</div>
-<div class="advisor-resource-title">${safe(item.label || 'Untitled')}</div>
-<div class="advisor-resource-desc">${safe(item.desc || '')}</div>
-</div>
-<div class="advisor-resource-actions">
-<button class="advisor-resource-action primary" onclick="event.stopPropagation();openAdvisorResourceItem(item)">${folder ? 'Open Folder' : 'View File'}</button>${advisorResourceHasUrl(item) ? `<button class="advisor-resource-action" onclick="event.stopPropagation();window.open('${safe(item.url)}','_blank','noopener')">Full Screen</button>` : ''}<span class="advisor-resource-action">${safe(actionLabel)}</span>${statusHtml}</div>`;
-    grid.appendChild(card);
-  });
-  warmVisibleAdvisorResources(items);
-}
-let activeDirectoryFilter = 'All';
-
-function directoryContacts() {
-  return (typeof DIRECTORY_CONTACTS !== 'undefined' && Array.isArray(DIRECTORY_CONTACTS)) ?
-    DIRECTORY_CONTACTS.filter(p => p && p.active !== false) : [];
-}
-
-function directoryCategories() {
-  const preferred = ['All', 'Leadership', 'Staff', 'Agents'];
-  const existing = new Set(directoryContacts().map(p => p.category || 'Agents'));
-  return preferred.filter(c => c === 'All' || existing.has(c));
-}
-
-function openDirectory() {
-  $('directoryModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  renderDirectory();
-  setTimeout(() => $('directorySearch')?.focus(), 120);
-}
-
-function closeDirectory() {
-  $('directoryModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function clearDirectorySearch() {
-  if ($('directorySearch'))
-    $('directorySearch').value = '';
-  activeDirectoryFilter = 'All';
-  renderDirectory();
-}
-
-function setDirectoryFilter(cat) {
-  activeDirectoryFilter = cat;
-  renderDirectory();
-}
-
-function directoryMatches(p, q) {
-  if (!q)
-    return true;
-  const hay = [p.name, p.role, p.email, p.phone, p.office, p.category, p.department, p.tags].join(
-    ' ').toLowerCase();
-  return hay.includes(q);
-}
-
-function emailDirectoryPerson(email, name) {
-  openOutlookCompose(email, 'Peachtree Directory Contact', `Hello ${name || ''},\n\n`);
-}
-
-function callDirectoryPerson(phone) {
-  if (!phone) {
-    showToast('No phone number listed');
-    return;
-  }
-  location.href = 'tel:' + phone.replace(/[^\d+]/g, '');
-}
-
-function renderDirectory() {
-  const filters = $('directoryFilters');
-  const grid = $('directoryGrid');
-  if (!filters || !grid)
-    return;
-  const q = ($('directorySearch')?.value || '').trim().toLowerCase();
-  filters.innerHTML = '';
-  directoryCategories().forEach(cat => {
-    const b = document.createElement('button');
-    b.className = 'directory-chip' + (cat === activeDirectoryFilter ? ' active' : '');
-    b.textContent = cat;
-    b.onclick = () => setDirectoryFilter(cat);
-    filters.appendChild(b);
-  });
-  const people = directoryContacts().filter(p => (activeDirectoryFilter === 'All' || (p.category ||
-    'Agents') === activeDirectoryFilter) && directoryMatches(p, q));
-  grid.innerHTML = '';
-  if (!people.length) {
-    grid.innerHTML = '<div class="directory-empty">No directory results found.</div>';
-    return;
-  }
-  people.forEach(p => {
-    const card = document.createElement('article');
-    card.className = 'directory-card';
-    const phone = p.phone ? `<div>Phone: ${safe(p.phone)}</div>` : '';
-    const office = p.office ? `<div>Office: ${safe(p.office)}</div>` : '';
-    const dept = p.department ? `<div>Department: ${safe(p.department)}</div>` : '';
-    card.innerHTML =
-      `<div>
-<div class="directory-type">${safe(p.category || 'Agents')}</div>
-<div class="directory-name">${safe(p.name)}</div>
-<div class="directory-role">${safe(p.role || '')}</div>
-</div>
-<div class="directory-meta">
-<div>${safe(p.email || '')}</div>${phone}
-${office}
-${dept}</div>
-<div class="directory-actions">
-<button class="directory-action primary" onclick="emailDirectoryPerson('${safe(p.email)}','${safe(p.name)}')">Email</button>${p.phone ? `<button class="directory-action" onclick="callDirectoryPerson('${safe(p.phone)}')">Call</button>` : ''}<button class="directory-action" onclick="copyText('${safe(p.email)}')">Copy Email</button>
-</div>`;
-    grid.appendChild(card);
-  });
-}
-
-function officeInfo() {
-  return (typeof OFFICE_INFO === 'object' && OFFICE_INFO) ? OFFICE_INFO : null;
-}
-
-function renderOfficeInfo() {
-  const info = officeInfo();
-  if (!info)
-    return;
-  if ($('officeSectionTitle'))
-    $('officeSectionTitle').textContent = info.sectionTitle || 'Peachtree Market Centers';
-  if ($('officeCopy'))
-    $('officeCopy').textContent = info.copy || 'Office hours and location details.';
-  if ($('officeHoursLabel'))
-    $('officeHoursLabel').textContent = info.hoursLabel || 'Office Hours';
-  if ($('officeHoursText'))
-    $('officeHoursText').textContent = info.hours || 'Monday–Friday · 9:00 AM–5:00 PM';
-  const list = $('officeList');
-  if (!list)
-    return;
-  list.innerHTML = '';
-  (info.locations || []).forEach(o => {
-    const a = document.createElement('a');
-    a.className = 'office-card';
-    a.href = o.mapsUrl || '#';
-    a.target = '_blank';
-    a.rel = 'noopener';
-    a.setAttribute('aria-label', 'Open ' + (o.name || 'office') + ' in maps');
-    const address = safe(o.address || '').replace(/\n/g, '<br>');
-    a.innerHTML =
-      `<div class="office-pin">${safe(o.icon || '📍')}</div>
-<div>
-<div class="office-eyebrow">${safe(o.eyebrow || 'Market Center')}</div>
-<div class="office-name">${safe(o.name || 'Office')}</div>
-<div class="office-address">${address}</div>
-</div>
-<div class="office-action">${safe(o.actionText || 'Open in Apple Maps')} ↗</div>`;
-    list.appendChild(a);
-  });
-}
-
-function renderWhatsNew() {
-  const section = $('whatsNewSection');
-  const grid = $('whatsNewGrid');
-  if (!section || !grid)
-    return;
-  const items = dataArray('WHATS_NEW').filter(x => x && x.active !== false).slice(0, 3);
-  if (!items.length) {
-    section.classList.add('hidden');
-    return;
-  }
-  section.classList.remove('hidden');
-  grid.innerHTML = '';
-  items.forEach(item => {
-    const card = document.createElement('article');
-    card.className = 'notice whats-new-card';
-    card.innerHTML =
-      `<div class="what-tag">${safe(item.tag || item.date || 'Update')}</div>
-<div class="notice-title">${safe(item.title || 'My Peachtree Portal Update')}</div>
-<div class="notice-msg">${safe(item.message || '')}</div>${item.date ? `<div class="notice-meta" style="margin-top:14px">${safe(item.date)}</div>` : ''}`;
-    grid.appendChild(card);
-  });
-}
-
-function quotePool() {
-  return (typeof INSPIRATION_QUOTES !== 'undefined' && Array.isArray(INSPIRATION_QUOTES) &&
-    INSPIRATION_QUOTES.length) ? INSPIRATION_QUOTES : [{
-    title: 'Inspiration of the Day',
-    quote: 'Excellence shows up in the details before anyone has to ask.',
-    author: 'Peachtree Town and Country'
-  }];
-}
-let inspirationIndex = -1;
-let inspirationTimer = null;
-let inspirationPaused = false;
-const INSPIRATION_INTERVAL = 20000;
-
-function buildInspirationSlide(q, active) {
-  const slide = document.createElement('div');
-  slide.className = 'quote-slide' + (active ? ' active' : '');
-  slide.innerHTML =
-    `<div class="aside-title" id="todayTitle">${safe(q.title || 'Inspiration of the Day')}</div>
-<div class="aside-copy" id="todayCopy">“${safe(q.quote || 'Excellence is built one detail at a time.')}”${q.author ? `<br>
-<span class="quote-author">— ${safe(q.author)}</span>` : ''}</div>`;
-  return slide;
-}
-
-function restartInspirationProgress() {
-  const bar = $('inspirationProgressBar');
-  if (!bar)
-    return;
-  bar.style.animation = 'none';
-  void bar.offsetWidth;
-  bar.style.animation = '';
-}
-
-function setInspirationQuote(idx, animate) {
-  const quotes = quotePool();
-  if (!quotes.length)
-    return;
-  inspirationIndex = ((idx % quotes.length) + quotes.length) % quotes.length;
-  sessionStorage.setItem('portal_last_quote_idx', String(inspirationIndex));
-  const q = quotes[inspirationIndex] || quotes[0];
-  const stage = $('inspirationStage');
-  const card = $('inspirationCard');
-  if (!stage) {
-    if ($('todayTitle'))
-      $('todayTitle').textContent = q.title || 'Inspiration of the Day';
-    if ($('todayCopy'))
-      $('todayCopy').innerHTML = '“' + safe(q.quote ||
-        'Excellence is built one detail at a time.') + '”' + (q.author ?
-        '<br><span class="quote-author">— ' + safe(q.author) + '</span>' : '');
-    return;
-  }
-  const oldSlide = stage.querySelector('.quote-slide.active');
-  const newSlide = buildInspirationSlide(q, true);
-  if (!animate || !oldSlide) {
-    stage.querySelectorAll('.quote-slide').forEach(el => el.remove());
-    stage.appendChild(newSlide);
-    restartInspirationProgress();
-    return;
-  }
-  oldSlide.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
-  oldSlide.classList.remove('active');
-  oldSlide.classList.add('leave');
-  newSlide.classList.add('enter');
-  stage.appendChild(newSlide);
-  if (card) {
-    card.classList.remove('lion-follow');
-    void card.offsetWidth;
-    card.classList.add('lion-follow');
-    setTimeout(() => card.classList.remove('lion-follow'), 1400);
-  }
-  setTimeout(() => {
-    stage.querySelectorAll('.quote-slide.leave').forEach(el => el.remove());
-    newSlide.classList.remove('enter');
-  }, 980);
-  restartInspirationProgress();
-}
-
-function nextInspirationQuote(animate = true) {
-  const quotes = quotePool();
-  if (!quotes.length)
-    return;
-  setInspirationQuote(inspirationIndex + 1, animate);
-}
-
-function scheduleInspirationRotation() {
-  clearInterval(inspirationTimer);
-  inspirationTimer = setInterval(() => {
-    if (!inspirationPaused)
-      nextInspirationQuote(true);
-  }, INSPIRATION_INTERVAL);
-}
-
-function renderInspiration() {
-  const quotes = quotePool();
-  let idx = Math.floor(Math.random() * quotes.length);
-  const last = Number(sessionStorage.getItem('portal_last_quote_idx'));
-  if (quotes.length > 1 && idx === last) {
-    idx = (idx + 1 + Math.floor(Math.random() * (quotes.length - 1))) % quotes.length;
-  }
-  const card = $('inspirationCard');
-  if (card) {
-    card.addEventListener('mouseenter', () => {
-      inspirationPaused = true;
-    });
-    card.addEventListener('mouseleave', () => {
-      inspirationPaused = false;
-    });
-  }
-  setInspirationQuote(idx, false);
-  scheduleInspirationRotation();
-}
-
-function initLuxuryPointer() {
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-    return;
-  let raf = 0,
-    lastX = window.innerWidth / 2,
-    lastY = window.innerHeight * .2;
-  const root = document.documentElement;
-
-  function paint() {
-    raf = 0;
-    root.style.setProperty('--pointer-x', lastX + 'px');
-    root.style.setProperty('--pointer-y', lastY + 'px');
-  }
-  window.addEventListener('pointermove', e => {
-    lastX = e.clientX;
-    lastY = e.clientY;
-    if (!raf)
-      raf = requestAnimationFrame(paint);
-  }, {
-    passive: true
-  });
-}
-
-function initCinematicMotion() {
-  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)')
-    .matches;
-  const selectors = ['.cinematic-hero', '.announce-banner', '.section', '.support-section',
-    '.office-section', 'footer', '.tool-card', '.notice', '.support-card', '.request-btn',
-    '.office-card'
-  ].join(',');
-  const targets = [...document.querySelectorAll(selectors)];
-  targets.forEach((el, i) => {
-    el.classList.add('reveal-target');
-    el.style.setProperty('--reveal-delay', Math.min((i % 9) * 58, 420) + 'ms');
-  });
-  document.body.classList.add('motion-ready');
-  if (reduced) {
-    targets.forEach(el => el.classList.add('revealed'));
-    return;
-  }
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        io.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: .12,
-    rootMargin: '0px 0px -8% 0px'
-  });
-  targets.forEach(el => io.observe(el));
-}
-
-function enhanceCardSpotlight() {
-  const hoverables =
-    '.tool-card,.notice,.support-card,.request-btn,.office-card,.resource-card,.advisor-resource-card,.directory-card';
-  document.addEventListener('pointermove', e => {
-    const card = e.target.closest && e.target.closest(hoverables);
-    if (!card)
-      return;
-    const r = card.getBoundingClientRect();
-    card.style.setProperty('--card-x', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
-    card.style.setProperty('--card-y', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
-  }, {
-    passive: true
-  });
-}
-
-function initScrollProgress() {
-  const bar = document.querySelector('#scrollProgress span');
-  if (!bar)
-    return;
-  let raf = 0;
-
-  function update() {
-    raf = 0;
-    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    const pct = Math.min(100, Math.max(0, (window.scrollY / max) * 100));
-    document.documentElement.style.setProperty('--scroll-progress', pct.toFixed(2) + '%');
-  }
-  update();
-  window.addEventListener('scroll', () => {
-    if (!raf)
-      raf = requestAnimationFrame(update);
-  }, {
-    passive: true
-  });
-  window.addEventListener('resize', update, {
-    passive: true
-  });
-}
-
-function initMagneticControls() {
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-    return;
-  const selector = '.btn,.mini-btn,.directory-top,.support-top,.chip,.filter-pill';
-  document.addEventListener('pointermove', e => {
-    const el = e.target.closest && e.target.closest(selector);
-    if (!el)
-      return;
-    const r = el.getBoundingClientRect();
-    const x = ((e.clientX - r.left) / r.width - .5) * 8;
-    const y = ((e.clientY - r.top) / r.height - .5) * 6;
-    el.style.setProperty('--magnet-x', x.toFixed(2) + 'px');
-    el.style.setProperty('--magnet-y', y.toFixed(2) + 'px');
-  }, {
-    passive: true
-  });
-  document.addEventListener('pointerout', e => {
-    const el = e.target.closest && e.target.closest(selector);
-    if (!el)
-      return;
-    el.style.setProperty('--magnet-x', '0px');
-    el.style.setProperty('--magnet-y', '0px');
-  }, {
-    passive: true
-  });
-}
-
-function initSoftCollectionMotion() {
-  const ids = ['quickLinksGrid', 'supportGrid', 'requestGrid', 'officeList', 'heroNotifications',
-    'modalGrid', 'advisorResourceGrid', 'advisorResourceFilters', 'advisorResourceBreadcrumb'
-  ];
-  const seen = new WeakMap();
-
-  function fresh(container) {
-    if (!container || seen.get(container))
-      return;
-    seen.set(container, true);
-    requestAnimationFrame(() => seen.delete(container));
-    [...container.children].forEach((child, i) => child.style.setProperty('--fresh-index', i));
-    container.classList.remove('soft-grid-fresh');
-    void container.offsetWidth;
-    container.classList.add('soft-grid-fresh');
-    setTimeout(() => container.classList.remove('soft-grid-fresh'), 900);
-  }
-  ids.forEach(id => {
-    const el = $(id);
-    if (!el)
-      return;
-    const mo = new MutationObserver(() => fresh(el));
-    mo.observe(el, {
-      childList: true,
-      subtree: false
-    });
-  });
-  setTimeout(() => document.body.classList.add('page-settled'), 1800);
-}
-
-function hideSplash(force) {
-  const s = $('splash');
-  if (!s)
-    return;
-  s.classList.add('hide');
-}
-
-function adminShortcut(e) {
-  const typing = ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName);
-  if (typing)
-    return;
-  if ((e.metaKey || e.ctrlKey) && e.altKey && e.code === 'KeyA') {
-    e.preventDefault();
-    location.href = 'admin.html';
-  }
-}
-
-function init() {
-  initTheme();
-  initLuxuryPointer();
-  enhanceCardSpotlight();
-  initScrollProgress();
-  initMagneticControls();
-  initSoftCollectionMotion();
-  applyConfig();
-  renderInspiration();
-  renderNotifications();
-  renderQuickLinks();
-  renderOfficeInfo();
-  renderSupportCards();
-  initCinematicMotion();
-  runOneTimeLinkStatusCheck();
-  document.addEventListener('keydown', adminShortcut);
-  setTimeout(() => hideSplash(false), 1500);
-}
-init();
-</script>
-    <style>
 .today-hub {
   margin: 20px 0 30px;
   display: grid;
-  grid-template-columns: 1.05fr .95fr 1.2fr;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 760px;
   gap: 16px;
   align-items: stretch;
 }
@@ -8211,6 +5672,2265 @@ init();
   }
 }
 </style>
+</head>
+  <body data-season="default">
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true">
+      <span>
+      </span>
+    </div>
+    <div class="cinematic-stage" aria-hidden="true">
+      <div class="ambient-orb orb-a">
+      </div>
+      <div class="ambient-orb orb-b">
+      </div>
+      <div class="ambient-orb orb-c">
+      </div>
+      <div class="starfield">
+      </div>
+      <div class="luxury-noise">
+      </div>
+    </div>
+    <div class="splash" id="splash" onclick="hideSplash(true)" aria-label="Peachtree Town and Country loading screen">
+      <div class="splash-inner">
+        <img class="splash-logo splash-logo-light" src="assets/ptc-emblem-light.png" alt="Peachtree Town and Country">
+        <img class="splash-logo splash-logo-dark" src="assets/ptc-emblem-dark.png" alt="Peachtree Town and Country">
+      </div>
+    </div>
+    <nav>
+      <div class="nav-inner">
+        <div class="wordmark" aria-label="Peachtree Town and Country">
+          <img
+            class="nav-logo nav-logo-light"
+            src="assets/ptc-nav-logo-light.png"
+            alt="Peachtree Town and Country"
+            onerror="this.parentElement.classList.add('logo-missing')">
+          <img
+            class="nav-logo nav-logo-dark"
+            src="assets/ptc-nav-logo-dark.png"
+            alt="Peachtree Town and Country"
+            onerror="this.parentElement.classList.add('logo-missing')">
+          <span class="fallback">Peachtree Town and Country</span>
+        </div>
+        <div class="nav-label" id="navLabel">My Peachtree Portal</div>
+        <div class="nav-right">
+          <div class="nav-search">
+            <span>⌕</span>
+            <input id="searchInput" placeholder="Search portal…" autocomplete="off" oninput="handleSearch(this.value)">
+            <span class="search-count" id="searchCount">
+            </span>
+            <button class="clear-btn hidden" id="clearSearch" onclick="clearSearch()">Clear</button>
+          </div>
+          <button class="directory-top" onclick="openDirectory()">👥 Peachtree Directory</button>
+          <div class="pill-toggle" onclick="toggleTheme()" title="Toggle theme">
+            <span id="tpLight" class="on">Day</span>
+            <span id="tpDark">Night</span>
+          </div>
+          <button class="support-top" onclick="openSupport()">🛟 Support Concierge</button>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <section class="hero cinematic-hero">
+        <div>
+          <div
+            class="eyebrow portal-eyebrow"
+            id="heroEyebrow"
+            aria-label="Portal description">Advisor tools, resources, support, and company updates</div>
+          <h1 class="hero-heading hero-title-stage">
+            <span class="hero-title-lion" aria-hidden="true">
+            </span>
+            <span id="heroTitle" class="portal-title-text" aria-label="My Peachtree Portal">My Peachtree Portal</span>
+          </h1>
+          <div class="hero-rule">
+          </div>
+          <p id="heroDescription">A refined home for advisor tools, company resources, support requests, and daily business access.</p>
+          <div class="hero-action-row">
+            <button
+              class="btn btn-primary hero-cta"
+              onclick="document.getElementById('toolsSection')?.scrollIntoView({behavior:'smooth'})">Tools</button>
+            <button class="btn btn-soft hero-cta" onclick="openAdvisorResources()">Open Resource Center</button>
+          </div>
+        </div>
+        <aside class="hero-aside">
+          <div class="today-card inspiration-card" id="inspirationCard">
+            <div class="inspiration-glow" aria-hidden="true">
+            </div>
+            <div class="aside-kicker inspiration-kicker">Motivational Quotes</div>
+            <div class="inspiration-stage" id="inspirationStage" aria-live="polite">
+              <img class="inspiration-lion inspiration-lion-light" src="assets/ptc-emblem-dark.png" alt="" aria-hidden="true">
+              <img class="inspiration-lion inspiration-lion-dark" src="assets/ptc-emblem-light.png" alt="" aria-hidden="true">
+              <div class="quote-slide active">
+                <div class="aside-title" id="todayTitle">Refined focus. Better outcomes.</div>
+                <div class="aside-copy" id="todayCopy">A daily thought will appear here.</div>
+              </div>
+            </div>
+            <div class="inspiration-progress" aria-hidden="true">
+              <span id="inspirationProgressBar">
+              </span>
+            </div>
+          </div>
+          <div class="hero-notice-panel">
+            <div class="hero-notice-head">
+              <div class="hero-notice-title">Notification Center</div>
+              <div class="hero-notice-count" id="heroNoticeCount">Current Updates</div>
+            </div>
+            <div class="hero-notices" id="heroNotifications">
+            </div>
+          </div>
+        </aside>
+      </section>
+      <div class="announce-banner" id="announceBanner">
+        <span id="announceMsg">
+        </span>
+        <button onclick="dismissBanner()">Dismiss</button>
+      </div>
+      <section class="section" id="toolsSection">
+        <div class="section-top">
+          <div class="section-kicker">Advisor Link Hub</div>
+          <div class="section-note">Core platforms and quick access links</div>
+        </div>
+        <div class="tools" id="quickLinksGrid">
+        </div>
+      </section>
+      <section class="support-section" id="supportSection">
+        <div class="support-intro">
+          <div>
+            <h2 class="support-title-luxury" aria-label="Support Concierge">
+              <span class="support-title-main">Support Concierge</span>
+            </h2>
+            <p>Choose the best support path. On mobile, My Peachtree Portal will try to open the Outlook app with a pre-filled email. On desktop, it will open Outlook on the web.</p>
+          </div>
+          <button class="btn btn-primary" onclick="openSupportModal()">Open Support Concierge ↗</button>
+        </div>
+        <div class="section-top">
+          <div class="section-kicker">Support Contacts</div>
+          <div class="section-note">Pick the right person before sending</div>
+        </div>
+        <div class="support-grid" id="supportGrid">
+        </div>
+        <div class="section-top" style="margin-top:22px">
+          <div class="section-kicker">Common Requests</div>
+          <div class="section-note">Fast templates for common needs</div>
+        </div>
+        <div class="request-grid" id="requestGrid">
+        </div>
+      </section>
+      <section class="office-section" id="officeInfo">
+        <div class="office-head">
+          <div>
+            <div class="section-kicker" id="officeSectionTitle">Office Details</div>
+            <p class="office-copy" id="officeCopy">Office hours and location details for our Atlanta and North Atlanta offices.</p>
+          </div>
+          <div class="hours-pill" aria-label="Office Hours Monday-Friday 9:00 AM to 5:00 PM">
+            <div class="hours-pill-track">
+              <span id="officeHoursLabel">Office Hours</span>
+              <strong id="officeHoursText">Monday–Friday · 9:00 AM–5:00 PM</strong>
+            </div>
+          </div>
+        </div>
+        <div class="office-list" id="officeList">
+        </div>
+      </section>
+    </main>
+    <footer aria-label="Site footer">
+      <div class="footer-marquee-shell">
+        <div class="footer-marquee-track">
+          <div class="footer-marquee-group" aria-hidden="false">
+            <span class="footer-marquee-item">
+              <span>Peachtree Town &amp; Country LLC · 2026</span>
+            </span>
+            <span class="footer-marquee-item">
+              <span>Peachtree Town &amp; Country LLC · 2026</span>
+            </span>
+            <span class="footer-marquee-item">
+              <span>Peachtree Town &amp; Country LLC · 2026</span>
+            </span>
+            <span class="footer-marquee-item">
+              <span>Peachtree Town &amp; Country LLC · 2026</span>
+            </span>
+          </div>
+          <div class="footer-marquee-group" aria-hidden="true">
+            <span class="footer-marquee-item">
+              <span>Peachtree Town &amp; Country LLC · 2026</span>
+            </span>
+            <span class="footer-marquee-item">
+              <span>Peachtree Town &amp; Country LLC · 2026</span>
+            </span>
+            <span class="footer-marquee-item">
+              <span>Peachtree Town &amp; Country LLC · 2026</span>
+            </span>
+            <span class="footer-marquee-item">
+              <span>Peachtree Town &amp; Country LLC · 2026</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="modal" id="modal">
+      <div class="modal-scrim" onclick="closeModal()">
+      </div>
+      <div class="modal-panel">
+        <div class="modal-head">
+          <div>
+            <div class="modal-kicker" id="modalKicker">Folder</div>
+            <div class="modal-title" id="modalTitle">Resource</div>
+            <div class="modal-sub" id="modalSub">
+            </div>
+          </div>
+          <button type="button" class="close" onclick="closeModal()" aria-label="Close dialog">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="back-row" id="backRow">
+            <button class="btn btn-soft" onclick="goFolderBack()">← Back</button>
+          </div>
+          <div class="folder-grid" id="modalGrid">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal advisor-resource-modal" id="advisorResourceModal">
+      <div class="modal-scrim" onclick="closeAdvisorResources()">
+      </div>
+      <div class="modal-panel">
+        <div class="modal-head">
+          <div>
+            <div class="modal-kicker">Advisor Resource Center</div>
+            <div class="modal-title" id="advisorResourceTitle">Advisor Resource Center</div>
+            <div
+              class="modal-sub">Find what you need, click it, and view it right here. PDFs, PowerPoints, Google Slides, Docs, Sheets, videos, and folders all use the same simple viewer.</div>
+          </div>
+          <div class="modal-head-actions">
+            <button
+              type="button"
+              class="portal-home-btn"
+              onclick="closeAdvisorResources()"
+              title="Back to My Peachtree Portal"
+              aria-label="Back to My Peachtree Portal">←</button>
+            <button type="button" class="close" onclick="closeAdvisorResources()" aria-label="Close Advisor Resource Center">×</button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="advisor-resource-controls">
+            <input
+              class="advisor-resource-search"
+              id="advisorResourceSearch"
+              placeholder="Search by name, topic, file type, or folder…"
+              oninput="renderAdvisorResources()">
+            <button class="btn btn-soft" onclick="clearAdvisorResourceSearch()">Clear</button>
+          </div>
+          <div class="advisor-resource-filters" id="advisorResourceFilters">
+          </div>
+          <div class="advisor-resource-breadcrumb" id="advisorResourceBreadcrumb">
+          </div>
+          <div class="advisor-resource-grid" id="advisorResourceGrid">
+          </div>
+          <div class="advisor-resource-viewer hidden" id="advisorResourceViewer">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal directory-modal" id="directoryModal">
+      <div class="modal-scrim" onclick="closeDirectory()">
+      </div>
+      <div class="modal-panel">
+        <div class="modal-head">
+          <div>
+            <div class="modal-kicker">Company Directory</div>
+            <div class="modal-title">Peachtree Directory</div>
+            <div class="modal-sub">Search staff, leadership, and agents with Peachtree Town and Country email addresses.</div>
+          </div>
+          <button type="button" class="close" onclick="closeDirectory()" aria-label="Close dialog">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="directory-controls">
+            <input
+              class="directory-search"
+              id="directorySearch"
+              placeholder="Search by name, role, office, or email…"
+              oninput="renderDirectory()">
+            <button class="btn btn-soft" onclick="clearDirectorySearch()">Clear</button>
+          </div>
+          <div class="directory-filters" id="directoryFilters">
+          </div>
+          <div class="directory-grid" id="directoryGrid">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal support-modal" id="supportModal">
+      <div class="modal-scrim" onclick="closeSupportModal()">
+      </div>
+      <div class="modal-panel">
+        <div class="modal-head">
+          <div>
+            <div class="modal-kicker">Support Concierge</div>
+            <div class="modal-title">How can we help?</div>
+            <div
+              class="modal-sub">Choose the best contact below. On mobile, My Peachtree Portal will try to open the Outlook app with a pre-filled email. On desktop, it will open Outlook on the web.</div>
+            <div class="modal-sub-actions">
+              <button class="btn btn-primary" onclick="composeGeneralSupport()">General Support Request</button>
+              <button class="btn btn-soft" onclick="composeRequest('Report a Website Issue')">Report Website Issue</button>
+            </div>
+          </div>
+          <button type="button" class="close" onclick="closeSupportModal()" aria-label="Close dialog">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="support-modal-grid" id="supportModalGrid">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal support-info-modal" id="supportInfoModal">
+      <div class="modal-scrim" onclick="closeSupportInfoModal()">
+      </div>
+      <div class="modal-panel">
+        <div class="modal-head">
+          <div>
+            <div class="modal-kicker">Support Concierge</div>
+            <div class="modal-title" id="supportInfoTitle">How to Use Support Concierge</div>
+            <div class="modal-sub">Quick guidance for submitting a clear support request.</div>
+          </div>
+          <button type="button" class="close" onclick="closeSupportInfoModal()" aria-label="Close dialog">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="support-info-copy" id="supportInfoBody">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal login-assist-modal" id="loginAssistModal">
+      <div class="modal-scrim" onclick="closeLoginAssistModal()">
+      </div>
+      <div class="modal-panel">
+        <div class="modal-head">
+          <div>
+            <div class="modal-kicker">Google Password Manager</div>
+            <div class="modal-title" id="loginAssistTitle">Open Login</div>
+            <div
+              class="modal-sub">Peachtree Portal will open the vendor page. Use your approved login or Chrome Password Manager to sign in.</div>
+          </div>
+          <button type="button" class="close" onclick="closeLoginAssistModal()" aria-label="Close dialog">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="login-assist-box">
+            <div class="login-assist-title" id="loginAssistName">Login Assist</div>
+            <div class="login-assist-copy" id="loginAssistDesc">
+            </div>
+<div class="login-steps">
+              <div class="login-step">
+                <b>1</b>
+                <span>Click <strong>Open Login Page</strong>.</span>
+              </div>
+              <div class="login-step">
+                <b>2</b>
+                <span>Use your individual account or select an approved saved login from Chrome Password Manager.</span>
+              </div>
+              <div class="login-step">
+                <b>3</b>
+                <span>If the vendor sends you to the dashboard instead of the exact page, come back to My Peachtree Portal and click the card again after you are signed in.</span>
+              </div>
+            </div>
+            <div class="login-actions">
+              <button class="btn btn-primary" onclick="launchLoginAssist('new')">Open Login Page ↗</button>
+              <button class="btn btn-soft" onclick="launchLoginAssist('same')">Open in Same Tab</button>
+              <button class="btn btn-soft" onclick="copyLoginAssistLink()">Copy Link</button>
+            </div>
+            <div
+              class="login-note">For security, passwords are not stored or displayed by this page.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="toast" id="toast">
+    </div>
+    <script src="resources.js"></script>
+    <script src="advisor-resources.js"></script>
+    <script src="inspirations.js"></script>
+    <script src="notifications.js"></script>
+    <script src="links.js"></script>
+    <script src="whats-new.js"></script>
+    <script src="offices.js"></script>
+    <script src="support.js"></script>
+    <script src="directory.js"></script>
+    <script src="holiday-effects.js" defer></script>
+    <script>
+const LS_THEME = 'ptc_theme_v2';
+const LS_BANNER = 'ptc_banner_dismissed_v2';
+let folderStack = [];
+let searchTerm = '';
+const DEFAULT_SUPPORT_CONTACTS = [{
+  key: 'tech',
+  icon: '💻',
+  title: 'Technology Support',
+  person: 'Tyler Seder',
+  email: 'tyler@peachtreetc.com',
+  desc: 'Outlook, passwords, Google Drive, Moxi access, login issues, website issues, and general tech help.',
+  subject: 'Advisor Technology Support Request'
+}, {
+  key: 'marketing',
+  icon: '📣',
+  title: 'Marketing Support',
+  person: 'Marketing Team',
+  email: 'marketing@peachtreetc.com',
+  desc: 'Listing marketing, social media, brand assets, flyers, photography, video, campaigns, and signature help.',
+  subject: 'Advisor Marketing Support Request'
+}, {
+  key: 'operations',
+  icon: '🏢',
+  title: 'Operations / Office Support',
+  person: 'Gina Campbell',
+  email: 'gina@peachtreetc.com',
+  desc: 'Office questions, advisor support, onboarding, meetings, processes, and general company guidance.',
+  subject: 'Advisor Office / Operations Support Request'
+}, {
+  key: 'support_on_standby',
+  icon: '🔴',
+  title: 'Support On Standby',
+  person: 'Gina Campbell + Bill',
+  email: 'gina@peachtreetc.com;bill@peachtreetc.com',
+  desc: 'Advisor support requests for open house support and other advisor assistance.',
+  subject: '🔴 High Priority: Support On Standby Request',
+  body: `Priority: High
+
+Hello,
+
+I am requesting support for hosting an open house or other assistance.
+
+Below please find details:
+
+Location:
+Date:
+Description of assistance requested:
+
+Thank you.`
+}, {
+  key: 'general',
+  icon: '🛟',
+  title: 'General Support',
+  person: 'Amy',
+  email: 'amy@peachtreetc.com',
+  desc: 'Use this when you are not sure who should receive the request. Amy can help route it to the right person.',
+  subject: 'Advisor General Support Request'
+}];
+const DEFAULT_REQUEST_TYPES = [{
+  label: 'Request IT Help',
+  to: 'tyler@peachtreetc.com',
+  subject: 'Advisor IT Help Request',
+  hint: 'Outlook, login, Drive, Moxi, access issues'
+}, {
+  label: 'Request Marketing Help',
+  to: 'marketing@peachtreetc.com',
+  subject: 'Advisor Marketing Help Request',
+  hint: 'Flyers, listing assets, social, campaigns'
+}, {
+  label: 'Request Google Drive Access',
+  to: 'tyler@peachtreetc.com;marketing@peachtreetc.com',
+  subject: 'Google Drive Access Request',
+  hint: 'Folders, permissions, listing photos'
+}, {
+  label: 'Request Listing Photo Folder',
+  to: 'tyler@peachtreetc.com;marketing@peachtreetc.com',
+  subject: 'Listing Photo Folder Request',
+  hint: 'Create or access listing media'
+}, {
+  label: 'Request Signature Help',
+  to: 'marketing@peachtreetc.com',
+  subject: 'Outlook Signature Help Request',
+  hint: 'WiseStamp or Outlook signature issue'
+}, {
+  label: 'Request MoxiWorks Help',
+  to: 'tyler@peachtreetc.com',
+  subject: 'MoxiWorks Help Request',
+  hint: 'Login, CRM, contact sync, access'
+}, {
+  label: 'Request Training / How-To Help',
+  to: 'gina@peachtreetc.com',
+  subject: 'Advisor Training / How-To Request',
+  hint: 'How-to help or process questions'
+}, {
+  label: 'Report Website Issue',
+  to: 'tyler@peachtreetc.com',
+  subject: 'My Peachtree Portal Website Issue',
+  hint: 'Broken link or site feedback'
+}];
+
+function supportContacts() {
+  return (typeof SUPPORT_CONTACTS !== 'undefined' && Array.isArray(SUPPORT_CONTACTS) &&
+    SUPPORT_CONTACTS.length) ? SUPPORT_CONTACTS : DEFAULT_SUPPORT_CONTACTS;
+}
+
+function requestTypes() {
+  return (typeof REQUEST_TYPES !== 'undefined' && Array.isArray(REQUEST_TYPES) && REQUEST_TYPES
+    .length) ? REQUEST_TYPES : DEFAULT_REQUEST_TYPES;
+}
+
+function $(id) {
+  return document.getElementById(id);
+}
+
+function dataArray(name) {
+  if (name === 'NOTIFICATIONS')
+    return (typeof NOTIFICATIONS !== 'undefined' && Array.isArray(NOTIFICATIONS)) ? NOTIFICATIONS :
+      [];
+  if (name === 'QUICK_LINKS')
+    return (typeof QUICK_LINKS !== 'undefined' && Array.isArray(QUICK_LINKS)) ? QUICK_LINKS : [];
+  if (name === 'RESOURCES')
+    return (typeof RESOURCES !== 'undefined' && Array.isArray(RESOURCES)) ? RESOURCES : [];
+  if (name === 'WHATS_NEW')
+    return (typeof WHATS_NEW !== 'undefined' && Array.isArray(WHATS_NEW)) ? WHATS_NEW : [];
+  return [];
+}
+
+function cfg() {
+  return (typeof SITE_CONFIG === 'object' && SITE_CONFIG) ? SITE_CONFIG : {};
+}
+
+function safe(s) {
+  return String(s || '').replace(/[&<>'"]/g, c => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    "'": '&#39;',
+    '"': '&quot;'
+  } [c]));
+}
+
+function makeKeyboardClickable(element, activate, disabled = false) {
+  if (!element || typeof activate !== 'function')
+    return;
+  element.setAttribute('role', 'button');
+  element.tabIndex = disabled ? -1 : 0;
+  element.setAttribute('aria-disabled', disabled ? 'true' : 'false');
+  element.addEventListener('keydown', event => {
+    if (disabled || (event.key !== 'Enter' && event.key !== ' '))
+      return;
+    event.preventDefault();
+    activate();
+  });
+}
+
+function isPlaceholder(url) {
+  return !url || url === 'PASTE_LINK_HERE' || url === 'PASTE_MEETING_LINK_HERE';
+}
+
+function itemHasContent(i) {
+  return isFolder(i) || isSupportConciergeLink(i) || (i && i.action === 'advisorResources') ||
+    isLoginAssist(i) || (!isPlaceholder(i.url));
+}
+
+function isFolder(i) {
+  return !!(i.children && i.children.length);
+}
+
+function isSupportConciergeLink(i) {
+  return !!(i && (i.action === 'support' || String(i.label || '').trim().toLowerCase() ===
+    'support concierge'));
+}
+
+function visibleQuickLinks(items) {
+  return (items || []).filter(i => !isSupportConciergeLink(i));
+}
+
+function initTheme() {
+  const saved = localStorage.getItem(LS_THEME) || 'light';
+  applyTheme(saved);
+}
+
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  localStorage.setItem(LS_THEME, t);
+  $('tpLight').classList.toggle('on', t === 'light');
+  $('tpDark').classList.toggle('on', t === 'dark');
+}
+
+function toggleTheme() {
+  applyTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+}
+
+function renderPortalTitle() {
+  return `My Peachtree Portal`;
+}
+
+function setHeroTitleText(title) {
+  const el = $('heroTitle');
+  if (!el)
+    return;
+  const text = String(title || 'My Peachtree Portal');
+  el.textContent = '';
+  el.setAttribute('aria-label', text);
+  let letterIndex = 0;
+  text.split(' ').forEach((word, wordIndex) => {
+    if (wordIndex > 0) {
+      const space = document.createElement('span');
+      space.className = 'hero-title-space';
+      space.setAttribute('aria-hidden', 'true');
+      el.appendChild(space);
+    }
+    const wordWrap = document.createElement('span');
+    wordWrap.className = 'hero-title-word';
+    [...word].forEach(ch => {
+      const letter = document.createElement('span');
+      letter.className = 'hero-title-letter';
+      letter.style.setProperty('--letter-index', letterIndex);
+      letter.textContent = ch;
+      wordWrap.appendChild(letter);
+      letterIndex++;
+    });
+    el.appendChild(wordWrap);
+  });
+}
+
+function renderPortalEyebrow() {
+  return `Advisor tools, resources, support, and company updates`;
+}
+
+function normalizeSeason(value) {
+  const allowed = ['default', 'christmas', 'halloween', 'fall'];
+  const v = String(value || 'default').toLowerCase().trim();
+  return allowed.includes(v) ? v : 'default';
+}
+
+function applySeasonFromConfig() {
+  const c = cfg();
+  const season = normalizeSeason(c.activeTheme || c.theme || 'default');
+  document.body.dataset.season = season;
+  if (window.PortalHoliday && typeof window.PortalHoliday.setSeason === 'function') {
+    window.PortalHoliday.setSeason(season);
+  }
+}
+
+function applyConfig() {
+  const c = cfg();
+  applySeasonFromConfig();
+  $('navLabel').textContent = c.navLabel || c.siteName || 'My Peachtree Portal';
+  const eyebrow = $('heroEyebrow');
+  if (eyebrow) {
+    eyebrow.classList.remove('portal-eyebrow');
+    eyebrow.classList.add('portal-eyebrow');
+    eyebrow.textContent = c.eyebrow || 'Advisor tools, resources, support, and company updates';
+  }
+  const title = c.heroTitle || 'My Peachtree Portal';
+  $('heroTitle').classList.remove('portal-word');
+  $('heroTitle').classList.add('portal-title-text');
+  setHeroTitleText(title);
+  if ($('heroItalic')) {
+    $('heroItalic').textContent = '';
+    $('heroItalic').style.display = 'none';
+  }
+  $('heroDescription').textContent = c.heroDescription ||
+    'A refined home for advisor tools, company resources, support requests, and daily business access.';
+  document.title = 'Peachtree · ' + (c.siteName || 'My Peachtree Portal');
+  buildBanner();
+}
+
+function buildBanner() {
+  const c = cfg();
+  const bar = $('announceBanner');
+  if (!c.announcementActive || !c.announcementText || localStorage.getItem(LS_BANNER) === c
+    .announcementText) {
+    bar.classList.remove('show');
+    return;
+  }
+  $('announceMsg').textContent = c.announcementText;
+  bar.classList.add('show');
+}
+
+function dismissBanner() {
+  const c = cfg();
+  if (c.announcementText)
+    localStorage.setItem(LS_BANNER, c.announcementText);
+  $('announceBanner').classList.remove('show');
+}
+
+function notificationInWindow(n) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  function parseDate(v) {
+    if (!v)
+      return null;
+    const d = new Date(v + 'T00:00:00');
+    return isNaN(d) ? null : d;
+  }
+  const start = parseDate(n.startDate);
+  const end = parseDate(n.endDate || n.expires);
+  if (start && today < start)
+    return false;
+  if (end && today > end)
+    return false;
+  return true;
+}
+
+function activeNotifications() {
+  return dataArray('NOTIFICATIONS').filter(n => n && n.active !== false && notificationInWindow(n));
+}
+
+function renderNotifications() {
+  const grid = $('heroNotifications');
+  const count = $('heroNoticeCount');
+  const notes = activeNotifications();
+  grid.innerHTML = '';
+  if (count)
+    count.textContent = notes.length ? notes.length + (notes.length === 1 ? ' Update' : ' Updates') : 'No Updates';
+  if (!notes.length) {
+    grid.innerHTML =
+      '<div class="mini-notice"><div class="mini-title">All clear.</div><div class="mini-msg">No active notifications right now.</div></div>';
+    return;
+  }
+  notes.slice(0, 2).forEach(n => {
+    const has = !isPlaceholder(n.url);
+    const hasSecond = !isPlaceholder(n.secondaryUrl);
+    const details = [
+      n.date ? ['Date', n.date] : null,
+      n.time ? ['Time', n.time] : null,
+      n.location ? ['Location', n.location] : null
+    ].filter(Boolean).map(d =>
+      `<div class="mini-detail"><span>${safe(d[0])}</span><strong>${safe(d[1])}</strong></div>`
+    ).join('');
+    const card = document.createElement('article');
+    card.className = 'mini-notice ' + (n.priority || 'normal');
+    card.innerHTML =
+      `<div class="mini-meta">${safe(n.priority || 'notice')}</div><div class="mini-title">${safe(n.title || 'Notice')}</div><div class="mini-msg">${safe(n.message || '')}</div>${details ? `<div class="mini-details">${details}</div>` : ''}<div class="mini-actions">${has ? `<a class="mini-btn primary" href="${safe(n.url)}" target="_blank" rel="noopener">${safe(n.linkText || 'Online Link')} ↗</a>` : ''}${hasSecond ? `<a class="mini-btn" href="${safe(n.secondaryUrl)}" target="_blank" rel="noopener">${safe(n.secondaryLinkText || 'Directions')} ↗</a>` : ''}</div>`;
+    grid.appendChild(card);
+  });
+}
+
+function renderQuickLinks(items = dataArray('QUICK_LINKS')) {
+  const grid = $('quickLinksGrid');
+  grid.innerHTML = '';
+  visibleQuickLinks(items).slice().sort((a, b) => (b.featured === true) - (a.featured === true))
+    .forEach((r, i) => {
+      const disabled = !itemHasContent(r);
+      const folder = isFolder(r);
+      const login = isLoginAssist(r);
+      const key = linkStatusKey(r);
+      const treeStatus = treeLinkStatus(r);
+      const status = treeStatus;
+      const card = document.createElement('article');
+      card.className = 'tool-card' + (disabled ? ' disabled' : '') + (login ? ' login-ready' :
+        '') + (status && status.state === 'offline' ? ' status-offline' : '');
+      if (key)
+        card.dataset.statusKey = key;
+      const activateCard = () => !disabled && openItem(r);
+      card.onclick = activateCard;
+      makeKeyboardClickable(card, activateCard, disabled);
+      const footerLabel = disabled ? 'Needs link' : (r.action === 'advisorResources' ?
+        'View Files' : (folder ? (r.children.length + ' Options') : (login ?
+          'Chrome Autofill Ready' : safe(r.type || 'Open'))));
+      const statusHtml = renderStatusBadge(status);
+      const badge = '';
+      card.innerHTML =
+        `${badge}<div class="tool-icon">${safe(r.icon || '🔗')}</div><div class="tool-type">${safe(r.type || r.section || 'Link')}</div><div class="tool-title">${safe(r.label || 'Untitled')}</div><div class="tool-desc">${safe(r.desc || '')}</div><div class="tool-footer"><span class="tool-footer-left"><span>${footerLabel}</span>${statusHtml}</span><span class="arrow">${folder ? '→' : '↗'}</span></div>`;
+      grid.appendChild(card);
+    });
+  applyRenderedStatuses();
+}
+
+function flattenResources(items, path = '') {
+  let out = [];
+  (items || []).forEach(item => {
+    const p = path ? path + ' › ' + (item.label || 'Untitled') : (item.label || 'Untitled');
+    out.push({
+      item,
+      path
+    });
+    if (item.children)
+      out = out.concat(flattenResources(item.children, p));
+  });
+  return out;
+}
+
+function matches(r, q) {
+  q = q.toLowerCase();
+  return [r.label, r.desc, r.type, r.section, r.url].filter(Boolean).join(' ').toLowerCase()
+    .includes(q);
+}
+
+function matchesDeep(r, q) {
+  if (matches(r, q))
+    return true;
+  return (r.children || []).some(c => matchesDeep(c, q));
+}
+
+let portalSearchScrollTimer;
+
+function scrollToToolResults() {
+  const target = document.getElementById('toolsSection');
+  if (!target)
+    return;
+  clearTimeout(portalSearchScrollTimer);
+  portalSearchScrollTimer = setTimeout(() => {
+    const nav = document.querySelector('nav');
+    const navHeight = nav ? nav.offsetHeight : 0;
+    const extraSpace = 34;
+    const y = target.getBoundingClientRect().top + window.pageYOffset - navHeight - extraSpace;
+    window.scrollTo({
+      top: Math.max(0, y),
+      behavior: 'smooth'
+    });
+  }, 120);
+}
+
+function handleSearch(v) {
+  searchTerm = v.trim().toLowerCase();
+  $('clearSearch').classList.toggle('hidden', !searchTerm);
+  if (!searchTerm) {
+    $('searchCount').textContent = '';
+    renderQuickLinks();
+    return;
+  }
+  const found = visibleQuickLinks(dataArray('QUICK_LINKS')).filter(i => matchesDeep(i, searchTerm));
+  $('searchCount').textContent = found.length + ' result' + (found.length === 1 ? '' : 's');
+  renderQuickLinks(found);
+  scrollToToolResults();
+}
+
+function clearSearch() {
+  $('searchInput').value = '';
+  handleSearch('');
+}
+const LINK_STATUS = Object.create(null);
+
+function linkStatusKey() {
+  return '';
+}
+
+function renderStatusBadge() {
+  return '';
+}
+
+function directLinkStatus() {
+  return null;
+}
+
+function treeLinkStatus() {
+  return null;
+}
+
+function applyRenderedStatuses() {
+  // Automatic cross-origin link checking was intentionally removed because opaque
+  // no-cors responses cannot reliably distinguish working links from HTTP errors.
+}
+
+function runOneTimeLinkStatusCheck() {
+  // Link validation belongs in the admin/publishing workflow, not every visitor's browser.
+}
+
+function isLoginAssist(item) {
+  return item && item.loginAssist === true && !isPlaceholder(item.url);
+}
+let pendingLoginAssist = null;
+
+function isPeachtreePortalUrl(url) {
+  try {
+    const u = new URL(url);
+    return u.hostname.replace(/^www\./, '').toLowerCase() === 'mypeachtreeportal.com';
+  } catch (e) {
+    return false;
+  }
+}
+
+function buildPeachtreeRedirectUrl(url) {
+  try {
+    const u = new URL(url);
+    const path = (u.pathname || '/dashboard') + (u.search || '') + (u.hash || '');
+    if (u.pathname === '/login' && u.searchParams.has('redirect'))
+      return url;
+    /* Keep the normal dashboard link normal. Only rewrite true deeper Peachtree Portal links. */
+    if (path === '/' || path === '/dashboard')
+      return url;
+    return 'https://mypeachtreeportal.com/login?redirect=' + path;
+  } catch (e) {
+    return url;
+  }
+}
+
+function isPeachtreeDeepLink(url) {
+  try {
+    const u = new URL(url);
+    const path = (u.pathname || '/dashboard') + (u.search || '') + (u.hash || '');
+    return isPeachtreePortalUrl(url) && !(path === '/' || path === '/dashboard') && !(u.pathname ===
+      '/login' && u.searchParams.has('redirect'));
+  } catch (e) {
+    return false;
+  }
+}
+
+function openSmartUrl(url) {
+  const finalUrl = isPeachtreePortalUrl(url) ? buildPeachtreeRedirectUrl(url) : url;
+  if (finalUrl !== url)
+    showToast('Opening Peachtree Portal with saved redirect...');
+  setTimeout(() => window.open(finalUrl, '_blank', 'noopener'), finalUrl !== url ? 350 : 0);
+}
+
+function openItem(item) {
+  if (item && item.action === 'advisorResources') {
+    openAdvisorResources();
+    return;
+  }
+  if (String(item.label || '').toLowerCase() === 'support' || item.action === 'support') {
+    openSupportModal();
+    return;
+  }
+  if (isFolder(item)) {
+    openFolder(item);
+    return;
+  }
+  if (isPlaceholder(item.url)) {
+    showToast('This link still needs to be added.');
+    return;
+  }
+  if (isPeachtreePortalUrl(item.url)) {
+    openSmartUrl(item.url);
+    return;
+  }
+  if (isLoginAssist(item)) {
+    openLoginAssistModal(item);
+    return;
+  }
+  window.open(item.url, '_blank', 'noopener');
+}
+
+function openLoginAssistModal(item) {
+  pendingLoginAssist = item;
+  $('loginAssistTitle').textContent = 'Open ' + (item.label || 'Login');
+  $('loginAssistName').textContent = item.label || 'Login Assist';
+  $('loginAssistDesc').textContent = item.loginHint ||
+    'Open the login page, then use your approved account or Chrome Password Manager.';
+  $('loginAssistModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLoginAssistModal() {
+  $('loginAssistModal').classList.remove('open');
+  document.body.style.overflow = '';
+  pendingLoginAssist = null;
+}
+
+function launchLoginAssist(mode) {
+  if (!pendingLoginAssist || isPlaceholder(pendingLoginAssist.url))
+    return;
+  const url = isPeachtreePortalUrl(pendingLoginAssist.url) ? buildPeachtreeRedirectUrl(
+    pendingLoginAssist.url) : pendingLoginAssist.url;
+  if (mode === 'same') {
+    location.href = url;
+  } else {
+    window.open(url, '_blank', 'noopener');
+  }
+  closeLoginAssistModal();
+}
+
+function copyLoginAssistLink() {
+  if (!pendingLoginAssist)
+    return;
+  copyText(pendingLoginAssist.url);
+}
+
+
+function openFolder(folder) {
+  folderStack = [folder];
+  renderFolder(folder);
+  $('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function renderFolder(folder) {
+  $('modalKicker').textContent = (folderStack.length > 1 ? 'Subfolder' : 'Folder');
+  $('modalTitle').textContent = folder.label || 'Folder';
+  $('modalSub').textContent = folder.desc || 'Select a resource below.';
+  $('backRow').classList.toggle('show', folderStack.length > 1);
+  const grid = $('modalGrid');
+  grid.innerHTML = '';
+  (folder.children || []).forEach(child => {
+    const disabled = !itemHasContent(child);
+    const status = treeLinkStatus(child);
+    const key = linkStatusKey(child);
+    const el = document.createElement('div');
+    el.className = 'folder-item' + (disabled ? ' disabled' : '') + (status && status.state ===
+      'offline' ? ' status-offline' : '');
+    if (key)
+      el.dataset.statusKey = key;
+    const activateFolderItem = () => {
+      if (disabled)
+        return;
+      if (isFolder(child)) {
+        folderStack.push(child);
+        renderFolder(child);
+      } else
+        openItem(child);
+    };
+    el.onclick = activateFolderItem;
+    makeKeyboardClickable(el, activateFolderItem, disabled);
+    const statusHtml = renderStatusBadge(status);
+    el.innerHTML =
+      `<div class="folder-ico">${safe(child.icon || '📄')}</div>
+<div style="min-width:0">
+<div class="folder-label">${safe(child.label || 'Untitled')}</div>${child.desc ? `<div class="folder-desc">${safe(child.desc)}</div>` : ''}</div>
+<div class="folder-meta">${isFolder(child) ? child.children.length + ' items' : (isPlaceholder(child.url) ? 'Needs Link' : safe(child.type || 'Open'))}
+${statusHtml}</div>`;
+    grid.appendChild(el);
+  });
+  if (!(folder.children || []).length)
+    grid.innerHTML = '<div class="empty" style="grid-column:1/-1">This folder is empty.</div>';
+}
+
+function goFolderBack() {
+  if (folderStack.length > 1) {
+    folderStack.pop();
+    renderFolder(folderStack[folderStack.length - 1]);
+  }
+}
+
+function closeModal() {
+  $('modal').classList.remove('open');
+  document.body.style.overflow = '';
+  folderStack = [];
+}
+
+function copyText(txt) {
+  navigator.clipboard?.writeText(txt).then(() => showToast('Copied to clipboard')).catch(() =>
+    showToast('Copy failed'));
+}
+
+function showToast(msg) {
+  const t = $('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(window.__toast);
+  window.__toast = setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+function outlookWebComposeUrl(to, subject, body) {
+  return 'https://outlook.cloud.microsoft/mail/deeplink/compose?to=' + encodeURIComponent(to) +
+    '&subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+}
+
+function outlookAppComposeUrl(to, subject, body) {
+  return 'ms-outlook://compose?to=' + encodeURIComponent(to) + '&subject=' + encodeURIComponent(
+    subject) + '&body=' + encodeURIComponent(body);
+}
+
+function isMobileOutlookTarget() {
+  const ua = navigator.userAgent || '';
+  const isiPadOS = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+  return /iPhone|iPad|iPod|Android/i.test(ua) || isiPadOS;
+}
+
+function openOutlookCompose(to, subject, body) {
+  const webUrl = outlookWebComposeUrl(to, subject, body);
+  if (!isMobileOutlookTarget()) {
+    window.open(webUrl, '_blank', 'noopener');
+    return;
+  }
+  let appOpened = false;
+  let fallbackTimer = null;
+  const cancelFallback = () => {
+    appOpened = true;
+    if (fallbackTimer)
+      clearTimeout(fallbackTimer);
+  };
+  window.addEventListener('pagehide', cancelFallback, {
+    once: true
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden)
+      cancelFallback();
+  }, {
+    once: true
+  });
+  window.location.href = outlookAppComposeUrl(to, subject, body);
+  fallbackTimer = setTimeout(() => {
+    if (!appOpened && !document.hidden) {
+      showToast('Opening Outlook on the web...');
+      window.open(webUrl, '_blank', 'noopener');
+    }
+  }, 1600);
+}
+
+function bodyTemplate(name) {
+  return `Hi ${name},
+
+I need help with:
+
+Thank you,`;
+}
+
+function composeTo(contact) {
+  openOutlookCompose(contact.email, contact.subject, contact.body || bodyTemplate((contact.person ||
+    '').split(' ')[0] || 'there'));
+}
+
+function composeGeneralSupport() {
+  const c = supportContacts().find(x => x.key === 'general') || supportContacts()[0];
+  composeTo(c);
+}
+
+function composeRequest(label) {
+  const list = requestTypes();
+  const req = list.find(r => r.label === label) || list.find(r => r.subject === label) || list[0];
+  openOutlookCompose(req.to, req.subject, `Hi,
+
+I need help with ${req.label.replace('Request ', '').toLowerCase()}:
+
+Thank you,`);
+}
+
+function openSupport() {
+  openSupportModal();
+}
+
+function openSupportModal() {
+  $('supportModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSupportModal() {
+  $('supportModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function isInfoSupportCard(c) {
+  return c && c.action === 'info';
+}
+
+function openSupportInfoModal(card) {
+  $('supportInfoTitle').textContent = card.infoTitle || card.title ||
+    'How to Use Support Concierge';
+  $('supportInfoBody').textContent = card.infoBody || card.body || card.desc || '';
+  $('supportInfoModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSupportInfoModal() {
+  $('supportInfoModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleSupportCard(c) {
+  if (isInfoSupportCard(c)) {
+    openSupportInfoModal(c);
+    return;
+  }
+  composeTo(c);
+}
+
+function renderSupportCards() {
+  const grid = $('supportGrid');
+  const modal = $('supportModalGrid');
+  const req = $('requestGrid');
+  grid.innerHTML = '';
+  modal.innerHTML = '';
+  req.innerHTML = '';
+  supportContacts().forEach(c => {
+    const info = isInfoSupportCard(c);
+    const card = document.createElement('article');
+    card.className = 'support-card' + (info ? ' info-card' : '');
+    const activateSupportCard = () => handleSupportCard(c);
+    card.onclick = activateSupportCard;
+    makeKeyboardClickable(card, activateSupportCard);
+    card.innerHTML =
+      `<div class="support-ico">${c.icon}</div>
+<div class="support-name">${safe(c.title)}</div>
+<div class="support-desc">${safe(c.desc)}</div>
+<div class="support-email">${info ? 'Read guidance' : safe(c.person) + ' · ' + safe(c.email)}</div>`;
+    grid.appendChild(card);
+    const choice = document.createElement('article');
+    choice.className = 'support-choice' + (info ? ' info-card' : '');
+    const activateSupportChoice = () => handleSupportCard(c);
+    choice.onclick = activateSupportChoice;
+    makeKeyboardClickable(choice, activateSupportChoice);
+    choice.innerHTML =
+      `<div class="choice-ico">${c.icon}</div>
+<div>
+<div class="choice-person">${info ? 'Advisor Guidance' : safe(c.person)}</div>
+<div class="choice-title">${safe(c.title)}</div>
+<div class="choice-desc">${safe(c.desc)}</div>
+<div class="choice-email">${info ? 'Read guidance' : safe(c.email)}</div>
+</div>`;
+    modal.appendChild(choice);
+  });
+  requestTypes().forEach(r => {
+    const b = document.createElement('button');
+    b.className = 'request-btn';
+    b.onclick = () => composeRequest(r.label);
+    b.innerHTML = `<strong>${safe(r.label)}</strong>
+<span>${safe(r.hint)}</span>`;
+    req.appendChild(b);
+  });
+}
+let advisorResourceStack = [];
+let activeAdvisorResourceFilter = 'All';
+
+function advisorResources() {
+  return (typeof ADVISOR_RESOURCES !== 'undefined' && Array.isArray(ADVISOR_RESOURCES)) ?
+    ADVISOR_RESOURCES : [];
+}
+
+function advisorResourceCurrentItems() {
+  return advisorResourceStack.length ? ((advisorResourceStack[advisorResourceStack.length - 1]
+    .children) || []) : advisorResources();
+}
+
+function advisorResourceCategories() {
+  const set = new Set(['All']);
+
+  function walk(items) {
+    (items || []).forEach(i => {
+      if (i.section)
+        set.add(i.section);
+      if (i.type)
+        set.add(i.type);
+      if (i.children)
+        walk(i.children);
+    });
+  }
+  walk(advisorResources());
+  return [...set].filter(Boolean);
+}
+
+function openAdvisorResources() {
+  advisorResourceStack = [];
+  activeAdvisorResourceFilter = 'All';
+  if ($('advisorResourceSearch'))
+    $('advisorResourceSearch').value = '';
+  $('advisorResourceModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderAdvisorResources();
+  setTimeout(() => $('advisorResourceSearch')?.focus(), 120);
+}
+
+function closeAdvisorResources() {
+  $('advisorResourceModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function clearAdvisorResourceSearch() {
+  if ($('advisorResourceSearch'))
+    $('advisorResourceSearch').value = '';
+  activeAdvisorResourceFilter = 'All';
+  closeAdvisorResourcePreview();
+  renderAdvisorResources();
+}
+
+function setAdvisorResourceFilter(filter) {
+  activeAdvisorResourceFilter = filter;
+  closeAdvisorResourcePreview();
+  renderAdvisorResources();
+}
+
+function openAdvisorResourceFolder(item) {
+  advisorResourceStack.push(item);
+  if ($('advisorResourceSearch'))
+    $('advisorResourceSearch').value = '';
+  activeAdvisorResourceFilter = 'All';
+  closeAdvisorResourcePreview();
+  renderAdvisorResources();
+}
+
+function advisorResourceBack() {
+  advisorResourceStack.pop();
+  closeAdvisorResourcePreview();
+  renderAdvisorResources();
+}
+
+function flattenAdvisorResources(items = advisorResources(), out = []) {
+  (items || []).forEach(i => {
+    out.push(i);
+    if (i.children)
+      flattenAdvisorResources(i.children, out);
+  });
+  return out;
+}
+
+function advisorResourceMatches(item, q) {
+  if (!q)
+    return true;
+  const hay = [item.label, item.desc, item.type, item.section, item.url].join(' ').toLowerCase();
+  return hay.includes(q);
+}
+
+function advisorResourceHasUrl(item) {
+  return item && item.url && String(item.url).trim() && !isPlaceholder(item.url);
+}
+const advisorResourcePreviewCache = new Map();
+let currentAdvisorResourceItem = null;
+
+function warmAdvisorResourcePreview(item) {
+  return;
+}
+
+function warmVisibleAdvisorResources(items) {
+  return;
+}
+
+function advisorResourceEmbedUrl(url) {
+  const raw = String(url || '').trim();
+  if (!raw)
+    return '';
+  const clean = raw.replace(/&amp;/g, '&');
+  let id = '';
+  const fileMatch = clean.match(/\/file\/d\/([^/]+)/);
+  const folderMatch = clean.match(/\/folders\/([^/?#]+)/);
+  const idMatch = clean.match(/[?&]id=([^&#]+)/);
+  if (folderMatch)
+    return 'https://drive.google.com/embeddedfolderview?id=' + encodeURIComponent(folderMatch[1]) +
+      '#grid';
+  if (fileMatch)
+    id = fileMatch[1];
+  if (idMatch)
+    id = idMatch[1];
+  if (id)
+    return 'https://drive.google.com/file/d/' + encodeURIComponent(id) + '/preview';
+  // Native Google formats: Docs, Slides, Sheets, Forms, Drawings.
+  if (clean.includes('docs.google.com/document'))
+    return clean.replace(/\/edit.*$/, '/preview').replace(/\/view.*$/, '/preview');
+  if (clean.includes('docs.google.com/presentation'))
+    return clean.replace(/\/edit.*$/, '/preview').replace(/\/view.*$/, '/preview');
+  if (clean.includes('docs.google.com/spreadsheets'))
+    return clean.replace(/\/edit.*$/, '/preview').replace(/\/view.*$/, '/preview');
+  if (clean.includes('docs.google.com/forms'))
+    return clean.replace(/\/edit.*$/, '/viewform').replace(/\/view.*$/, '/viewform');
+  if (clean.includes('docs.google.com/drawings'))
+    return clean.replace(/\/edit.*$/, '/preview').replace(/\/view.*$/, '/preview');
+  return clean;
+}
+
+function advisorResourceKind(item) {
+  const text = [item.type, item.label, item.url].join(' ').toLowerCase();
+  if (item.children && item.children.length)
+    return 'Folder';
+  if (text.includes('presentation') || text.includes('slides') || text.includes('powerpoint') ||
+    text.includes('ppt'))
+    return 'Slides';
+  if (text.includes('pdf'))
+    return 'PDF';
+  if (text.includes('spreadsheet') || text.includes('sheet') || text.includes('excel') || text
+    .includes('xlsx'))
+    return 'Spreadsheet';
+  if (text.includes('document') || text.includes('doc') || text.includes('word'))
+    return 'Document';
+  if (text.includes('video') || text.includes('mp4') || text.includes('youtube'))
+    return 'Video';
+  return item.type || 'File';
+}
+
+function openAdvisorResourceFullScreen() {
+  const frame = document.querySelector('#advisorResourceViewer iframe');
+  if (frame && frame.requestFullscreen) {
+    frame.requestFullscreen().catch(() => {});
+    return;
+  }
+  const url = frame && frame.src ? frame.src : '';
+  if (url)
+    window.open(url, '_blank', 'noopener');
+}
+
+function advisorResourceExtractGoogleId(url) {
+  const clean = String(url || '').replace(/&amp;/g, '&');
+  const fileMatch = clean.match(/\/file\/d\/([^/]+)/);
+  const docMatch = clean.match(
+    /docs\.google\.com\/(document|presentation|spreadsheets|drawings)\/d\/([^/]+)/);
+  const idMatch = clean.match(/[?&]id=([^&#]+)/);
+  if (docMatch)
+    return {
+      type: docMatch[1],
+      id: docMatch[2]
+    };
+  if (fileMatch)
+    return {
+      type: 'file',
+      id: fileMatch[1]
+    };
+  if (idMatch)
+    return {
+      type: 'file',
+      id: idMatch[1]
+    };
+  return {
+    type: '',
+    id: ''
+  };
+}
+
+function advisorResourceDownloadUrl(url) {
+  const clean = String(url || '').replace(/&amp;/g, '&');
+  const info = advisorResourceExtractGoogleId(clean);
+  if (!info.id)
+    return clean;
+  if (info.type === 'document')
+    return 'https://docs.google.com/document/d/' + encodeURIComponent(info.id) +
+      '/export?format=pdf';
+  if (info.type === 'presentation')
+    return 'https://docs.google.com/presentation/d/' + encodeURIComponent(info.id) + '/export/pdf';
+  if (info.type === 'spreadsheets')
+    return 'https://docs.google.com/spreadsheets/d/' + encodeURIComponent(info.id) +
+      '/export?format=xlsx';
+  if (info.type === 'drawings')
+    return 'https://docs.google.com/drawings/d/' + encodeURIComponent(info.id) + '/export/png';
+  return 'https://drive.google.com/uc?export=download&id=' + encodeURIComponent(info.id);
+}
+
+function downloadAdvisorResourceFile() {
+  if (!currentAdvisorResourceItem || !advisorResourceHasUrl(currentAdvisorResourceItem)) {
+    showToast('No download available for this item.');
+    return;
+  }
+  window.open(advisorResourceDownloadUrl(currentAdvisorResourceItem.url), '_blank', 'noopener');
+}
+function advisorResourceGoogleDriveViewUrl(url) {
+  const clean = String(url || '').replace(/&amp;/g, '&');
+  const info = advisorResourceExtractGoogleId(clean);
+  if (!info.id)
+    return clean;
+  if (info.type === 'document')
+    return 'https://docs.google.com/document/d/' + encodeURIComponent(info.id) +
+      '/edit?usp=sharing';
+  if (info.type === 'presentation')
+    return 'https://docs.google.com/presentation/d/' + encodeURIComponent(info.id) +
+      '/edit?usp=sharing';
+  if (info.type === 'spreadsheets')
+    return 'https://docs.google.com/spreadsheets/d/' + encodeURIComponent(info.id) +
+      '/edit?usp=sharing';
+  if (info.type === 'drawings')
+    return 'https://docs.google.com/drawings/d/' + encodeURIComponent(info.id) +
+      '/edit?usp=sharing';
+  return 'https://drive.google.com/file/d/' + encodeURIComponent(info.id) + '/view?usp=sharing';
+}
+
+function advisorResourceLooksLikePdf(item) {
+  const text = [item && item.type, item && item.label, item && item.url].join(' ').toLowerCase();
+  return text.includes('pdf');
+}
+
+function advisorResourceInlinePdfUrl(url) {
+  const clean = String(url || '').replace(/&amp;/g, '&');
+  const info = advisorResourceExtractGoogleId(clean);
+  if (!info.id)
+    return clean;
+  // export=view is the closest Drive URL to an inline file view. If Drive forces preview or download,
+  // the fallback button in the print window opens the normal Drive page.
+  return 'https://drive.google.com/uc?export=view&id=' + encodeURIComponent(info.id);
+}
+
+function advisorResourceLocalPrintUrl(item) {
+  if (!item)
+    return '';
+  const explicit = String(item.printUrl || item.printURL || item.localPdf || item.localPDF || '')
+    .trim();
+  if (explicit)
+    return explicit;
+  const url = String(item.url || '').trim();
+  if (!url)
+    return '';
+  // Same-site/local PDFs can be printed directly. Google Drive URLs intentionally do not count here.
+  const lower = url.toLowerCase().split('?')[0].split('#')[0];
+  const isGoogle = lower.includes('drive.google.com') || lower.includes('docs.google.com');
+  if (!isGoogle && lower.endsWith('.pdf'))
+    return url;
+  return '';
+}
+
+function advisorResourcePrintHelperUrl(item) {
+  const local = advisorResourceLocalPrintUrl(item);
+  if (!local)
+    return '';
+  return 'print-file.html?file=' + encodeURIComponent(local) + '&title=' + encodeURIComponent(item
+    .label || 'Print File');
+}
+
+function advisorResourceOpenLocalPdfAndPrint(item) {
+  const local = advisorResourceLocalPrintUrl(item);
+  if (!local)
+    return false;
+  // Open the actual PDF file directly instead of printing a wrapper page.
+  // This is the most reliable option for non-technical users because, even if
+  // Chrome blocks the automatic print call, the user is already looking at the
+  // real PDF with Chrome's built-in print button visible.
+  const opened = window.open(local, '_blank');
+  if (!opened) {
+    showToast('Popup blocked. Allow popups, then try Print again.');
+    return true;
+  }
+  showToast('Opening PDF print window…');
+  const tryPrintAt = function(delay) {
+    setTimeout(function() {
+      try {
+        opened.focus();
+        opened.print();
+      } catch (error) {
+        // If Chrome blocks scripted printing, do nothing. The real PDF is still open.
+      }
+    }, delay);
+  };
+  // Give Chrome's PDF viewer time to finish loading. Multiple attempts help with
+  // larger PDFs without creating blank print-wrapper pages.
+  tryPrintAt(3500);
+  tryPrintAt(6500);
+  tryPrintAt(9500);
+  return true;
+}
+
+function printAdvisorResourceFile() {
+  if (!currentAdvisorResourceItem || !advisorResourceHasUrl(currentAdvisorResourceItem)) {
+    showToast('No print view available for this item.');
+    return;
+  }
+  if (advisorResourceOpenLocalPdfAndPrint(currentAdvisorResourceItem)) {
+    return;
+  }
+  // Google Drive/Docs/Slides/Sheets cannot be auto-printed by this static site.
+  // If there is no local PDF print copy, open the real Drive page instead of a blank wrapper.
+  const printUrl = advisorResourceGoogleDriveViewUrl(currentAdvisorResourceItem.url);
+  const opened = window.open(printUrl, '_blank', 'noopener');
+  if (opened) {
+    showToast('Opened in Google Drive. Click the print icon or press Ctrl + P.');
+  } else {
+    showToast('Popup blocked. Allow popups, then try Print again.');
+  }
+}
+
+function advisorResourceHelpEmail() {
+  const subject = encodeURIComponent('Advisor Resource Center Help');
+  const body = encodeURIComponent('Hello,\n\nI need help opening or finding this resource:\n\n');
+  window.location.href = 'mailto:tyler@peachtreetc.com?subject=' + subject + '&body=' + body;
+}
+
+function closeAdvisorResourcePreview() {
+  currentAdvisorResourceItem = null;
+  const viewer = $('advisorResourceViewer');
+  const grid = $('advisorResourceGrid');
+  if (viewer) {
+    viewer.classList.add('hidden');
+    viewer.innerHTML = '';
+  }
+  if (grid)
+    grid.classList.remove('hidden');
+}
+
+function openAdvisorResourceItem(item) {
+  if (item.children && item.children.length) {
+    openAdvisorResourceFolder(item);
+    return;
+  }
+  if (!advisorResourceHasUrl(item)) {
+    showToast('This file is not ready yet.');
+    return;
+  }
+  currentAdvisorResourceItem = item;
+  const viewer = $('advisorResourceViewer');
+  const grid = $('advisorResourceGrid');
+  if (!viewer || !grid) {
+    window.open(item.url, '_blank', 'noopener');
+    return;
+  }
+  const embed = advisorResourceEmbedUrl(item.url);
+  const kind = advisorResourceKind(item);
+  grid.classList.add('hidden');
+  viewer.classList.remove('hidden');
+  const simpleDesc = safe(item.desc || ('Click through, scroll, read, or review this ' + String(
+    kind).toLowerCase() + ' here.'));
+  const hasLocalPrint = !!advisorResourceLocalPrintUrl(item);
+  const printButtonLabel = hasLocalPrint ? 'Print' : 'Open in Drive to Print';
+  const printButtonTitle = hasLocalPrint ? 'Prints the local PDF copy from this portal.' :
+    'Opens the real Google Drive file page so the content is visible before printing.';
+  const printHelp = hasLocalPrint ?
+    'Use <strong>Print</strong> to open a print-ready PDF copy in Chrome. If Chrome blocks the print dialog, use the Print button in the print tab.' :
+    'To print, click <strong>Open in Drive to Print</strong>. The file will open in Google Drive with the content visible. Then press <strong>Ctrl + P</strong> or click the Google Drive print icon.';
+  viewer.innerHTML =
+    `<div class="advisor-resource-viewer-head">
+<div>
+<div class="advisor-resource-viewer-kicker">${safe(kind)}</div>
+<div class="advisor-resource-viewer-title">${safe(item.label || 'File')}</div>
+<div class="advisor-resource-viewer-desc">${simpleDesc}</div>
+</div>
+<div class="advisor-resource-viewer-actions">
+<button class="advisor-resource-action" onclick="closeAdvisorResourcePreview()">Back</button>
+<button class="advisor-resource-action primary" onclick="openAdvisorResourceFullScreen()">View Full Screen</button>
+<button class="advisor-resource-action" onclick="downloadAdvisorResourceFile()">Download</button>
+<button class="advisor-resource-action" onclick="printAdvisorResourceFile()" title="${safe(printButtonTitle)}">${safe(printButtonLabel)}</button>
+<button type="button" class="advisor-resource-action" data-advisor-viewer-action="drive">Open in Google Drive</button>
+</div>
+</div>
+<div class="advisor-resource-frame-wrap">
+<div class="advisor-resource-loading" id="advisorResourceLoading">Opening your file…</div>
+</div>
+<div class="advisor-resource-preview-note">The file should appear above. You can scroll PDFs, click through slides and PowerPoints, review Google Docs or Sheets, and play videos right here. Use <strong>Download</strong> to save a copy or <strong>View Full Screen</strong> for a larger preview. ${printHelp}</div>
+<div class="advisor-resource-help-strip">
+<div>
+<strong>Need help?</strong>
+<span>If you cannot open, download, print, or find what you need, send a quick help request.</span>
+</div>
+<button class="advisor-resource-action" onclick="advisorResourceHelpEmail()">Ask for Help</button>
+</div>`;
+  viewer.querySelector('[data-advisor-viewer-action="drive"]')?.addEventListener('click', () => {
+    window.open(item.url, '_blank', 'noopener');
+  });
+  const wrap = viewer.querySelector('.advisor-resource-frame-wrap');
+  const loading = $('advisorResourceLoading');
+  const frame = document.createElement('iframe');
+  frame.className = 'advisor-resource-frame';
+  frame.allow = 'autoplay; fullscreen; clipboard-read; clipboard-write';
+  frame.setAttribute('allowfullscreen', 'true');
+  frame.loading = 'eager';
+  frame.referrerPolicy = 'no-referrer-when-downgrade';
+  frame.onload = () => {
+    if (loading)
+      loading.remove();
+  };
+  frame.src = embed;
+  wrap.appendChild(frame);
+  setTimeout(() => {
+    if (loading) {
+      loading.textContent =
+        'Still opening… choose View Full Screen or Open in Google Drive if it does not appear.';
+    }
+  }, 3000);
+  viewer.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+}
+
+function renderAdvisorResourceBreadcrumb() {
+  const bc = $('advisorResourceBreadcrumb');
+  if (!bc)
+    return;
+  bc.innerHTML = '';
+  const home = document.createElement('button');
+  home.textContent = 'Resource Center';
+  home.onclick = () => {
+    advisorResourceStack = [];
+    renderAdvisorResources();
+  };
+  bc.appendChild(home);
+  advisorResourceStack.forEach((f, i) => {
+    const span = document.createElement('span');
+    span.textContent = '›';
+    bc.appendChild(span);
+    const b = document.createElement('button');
+    b.textContent = f.label || 'Folder';
+    b.onclick = () => {
+      advisorResourceStack = advisorResourceStack.slice(0, i + 1);
+      renderAdvisorResources();
+    };
+    bc.appendChild(b);
+  });
+}
+
+function renderAdvisorResources() {
+  closeAdvisorResourcePreview();
+  const filters = $('advisorResourceFilters');
+  const grid = $('advisorResourceGrid');
+  if (!filters || !grid)
+    return;
+  const q = ($('advisorResourceSearch')?.value || '').trim().toLowerCase();
+  const title = $('advisorResourceTitle');
+  if (title)
+    title.textContent = advisorResourceStack.length ? (advisorResourceStack[advisorResourceStack
+      .length - 1].label || 'Advisor Resource Center') : 'Advisor Resource Center';
+  filters.innerHTML = '';
+  advisorResourceCategories().forEach(cat => {
+    const b = document.createElement('button');
+    b.className = 'advisor-resource-chip' + (cat === activeAdvisorResourceFilter ? ' active' :
+      '');
+    b.textContent = cat;
+    b.onclick = () => setAdvisorResourceFilter(cat);
+    filters.appendChild(b);
+  });
+  renderAdvisorResourceBreadcrumb();
+  let items = q ? flattenAdvisorResources() : advisorResourceCurrentItems();
+  items = items.filter(i => (activeAdvisorResourceFilter === 'All' || i.section ===
+      activeAdvisorResourceFilter || i.type === activeAdvisorResourceFilter) &&
+    advisorResourceMatches(i, q));
+  grid.innerHTML = '';
+  if (!items.length) {
+    grid.innerHTML =
+      '<div class="advisor-resource-empty">No files found. Try a simpler search, like “buyer,” “listing,” “logo,” or “guide.”</div>';
+    return;
+  }
+  items.forEach(item => {
+    const folder = !!(item.children && item.children.length);
+    const status = treeLinkStatus(item);
+    const key = linkStatusKey(item);
+    const card = document.createElement('article');
+    card.className = 'advisor-resource-card' + (status && status.state === 'offline' ?
+      ' status-offline' : '');
+    if (key)
+      card.dataset.statusKey = key;
+    const activateAdvisorResource = () => openAdvisorResourceItem(item);
+    card.onclick = activateAdvisorResource;
+    makeKeyboardClickable(card, activateAdvisorResource);
+    card.onmouseenter = () => warmAdvisorResourcePreview(item);
+    card.ontouchstart = () => warmAdvisorResourcePreview(item);
+    card.onfocus = () => warmAdvisorResourcePreview(item);
+    const actionLabel = folder ? (item.children.length + ' Items') : (advisorResourceHasUrl(
+      item) ? 'Ready to View' : 'Not Ready');
+    const statusHtml = renderStatusBadge(status);
+    card.innerHTML =
+      `<div>
+<div class="advisor-resource-icon">${safe(item.icon || '📄')}</div>
+<div class="advisor-resource-type">${safe(item.type || item.section || 'Resource')}</div>
+<div class="advisor-resource-title">${safe(item.label || 'Untitled')}</div>
+<div class="advisor-resource-desc">${safe(item.desc || '')}</div>
+</div>
+<div class="advisor-resource-actions">
+<button type="button" class="advisor-resource-action primary" data-advisor-action="open">${folder ? 'Open Folder' : 'View File'}</button>${advisorResourceHasUrl(item) ? '<button type="button" class="advisor-resource-action" data-advisor-action="fullscreen">Full Screen</button>' : ''}<span class="advisor-resource-action">${safe(actionLabel)}</span>${statusHtml}</div>`;
+    card.querySelector('[data-advisor-action="open"]')?.addEventListener('click', event => {
+      event.stopPropagation();
+      openAdvisorResourceItem(item);
+    });
+    card.querySelector('[data-advisor-action="fullscreen"]')?.addEventListener('click', event => {
+      event.stopPropagation();
+      window.open(item.url, '_blank', 'noopener');
+    });
+    grid.appendChild(card);
+  });
+  warmVisibleAdvisorResources(items);
+}
+let activeDirectoryFilter = 'All';
+
+function directoryContacts() {
+  return (typeof DIRECTORY_CONTACTS !== 'undefined' && Array.isArray(DIRECTORY_CONTACTS)) ?
+    DIRECTORY_CONTACTS.filter(p => p && p.active !== false) : [];
+}
+
+function directoryCategories() {
+  const preferred = ['All', 'Leadership', 'Staff', 'Agents'];
+  const existing = new Set(directoryContacts().map(p => p.category || 'Agents'));
+  return preferred.filter(c => c === 'All' || existing.has(c));
+}
+
+function openDirectory() {
+  $('directoryModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderDirectory();
+  setTimeout(() => $('directorySearch')?.focus(), 120);
+}
+
+function closeDirectory() {
+  $('directoryModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function clearDirectorySearch() {
+  if ($('directorySearch'))
+    $('directorySearch').value = '';
+  activeDirectoryFilter = 'All';
+  renderDirectory();
+}
+
+function setDirectoryFilter(cat) {
+  activeDirectoryFilter = cat;
+  renderDirectory();
+}
+
+function directoryMatches(p, q) {
+  if (!q)
+    return true;
+  const hay = [p.name, p.role, p.email, p.phone, p.office, p.category, p.department, p.tags].join(
+    ' ').toLowerCase();
+  return hay.includes(q);
+}
+
+function emailDirectoryPerson(email, name) {
+  openOutlookCompose(email, 'Peachtree Directory Contact', `Hello ${name || ''},\n\n`);
+}
+
+function callDirectoryPerson(phone) {
+  if (!phone) {
+    showToast('No phone number listed');
+    return;
+  }
+  location.href = 'tel:' + phone.replace(/[^\d+]/g, '');
+}
+
+function renderDirectory() {
+  const filters = $('directoryFilters');
+  const grid = $('directoryGrid');
+  if (!filters || !grid)
+    return;
+  const q = ($('directorySearch')?.value || '').trim().toLowerCase();
+  filters.innerHTML = '';
+  directoryCategories().forEach(cat => {
+    const b = document.createElement('button');
+    b.className = 'directory-chip' + (cat === activeDirectoryFilter ? ' active' : '');
+    b.textContent = cat;
+    b.onclick = () => setDirectoryFilter(cat);
+    filters.appendChild(b);
+  });
+  const people = directoryContacts().filter(p => (activeDirectoryFilter === 'All' || (p.category ||
+    'Agents') === activeDirectoryFilter) && directoryMatches(p, q));
+  grid.innerHTML = '';
+  if (!people.length) {
+    grid.innerHTML = '<div class="directory-empty">No directory results found.</div>';
+    return;
+  }
+  people.forEach(p => {
+    const card = document.createElement('article');
+    card.className = 'directory-card';
+    const phone = p.phone ? `<div>Phone: ${safe(p.phone)}</div>` : '';
+    const office = p.office ? `<div>Office: ${safe(p.office)}</div>` : '';
+    const dept = p.department ? `<div>Department: ${safe(p.department)}</div>` : '';
+    card.innerHTML =
+      `<div>
+<div class="directory-type">${safe(p.category || 'Agents')}</div>
+<div class="directory-name">${safe(p.name)}</div>
+<div class="directory-role">${safe(p.role || '')}</div>
+</div>
+<div class="directory-meta">
+<div>${safe(p.email || '')}</div>${phone}
+${office}
+${dept}</div>
+<div class="directory-actions">
+<button type="button" class="directory-action primary" data-directory-action="email">Email</button>${p.phone ? '<button type="button" class="directory-action" data-directory-action="call">Call</button>' : ''}<button type="button" class="directory-action" data-directory-action="copy">Copy Email</button>
+</div>`;
+    card.querySelector('[data-directory-action="email"]')?.addEventListener('click', () => {
+      emailDirectoryPerson(p.email, p.name);
+    });
+    card.querySelector('[data-directory-action="call"]')?.addEventListener('click', () => {
+      callDirectoryPerson(p.phone);
+    });
+    card.querySelector('[data-directory-action="copy"]')?.addEventListener('click', () => {
+      copyText(p.email);
+    });
+    grid.appendChild(card);
+  });
+}
+
+function officeInfo() {
+  return (typeof OFFICE_INFO === 'object' && OFFICE_INFO) ? OFFICE_INFO : null;
+}
+
+function renderOfficeInfo() {
+  const info = officeInfo();
+  if (!info)
+    return;
+  if ($('officeSectionTitle'))
+    $('officeSectionTitle').textContent = info.sectionTitle || 'Peachtree Market Centers';
+  if ($('officeCopy'))
+    $('officeCopy').textContent = info.copy || 'Office hours and location details.';
+  if ($('officeHoursLabel'))
+    $('officeHoursLabel').textContent = info.hoursLabel || 'Office Hours';
+  if ($('officeHoursText'))
+    $('officeHoursText').textContent = info.hours || 'Monday–Friday · 9:00 AM–5:00 PM';
+  const list = $('officeList');
+  if (!list)
+    return;
+  list.innerHTML = '';
+  (info.locations || []).forEach(o => {
+    const a = document.createElement('a');
+    a.className = 'office-card';
+    a.href = o.mapsUrl || '#';
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.setAttribute('aria-label', 'Open ' + (o.name || 'office') + ' in maps');
+    const address = safe(o.address || '').replace(/\n/g, '<br>');
+    a.innerHTML =
+      `<div class="office-pin">${safe(o.icon || '📍')}</div>
+<div>
+<div class="office-eyebrow">${safe(o.eyebrow || 'Market Center')}</div>
+<div class="office-name">${safe(o.name || 'Office')}</div>
+<div class="office-address">${address}</div>
+</div>
+<div class="office-action">${safe(o.actionText || 'Open in Apple Maps')} ↗</div>`;
+    list.appendChild(a);
+  });
+}
+
+function renderWhatsNew() {
+  const section = $('whatsNewSection');
+  const grid = $('whatsNewGrid');
+  if (!section || !grid)
+    return;
+  const items = dataArray('WHATS_NEW').filter(x => x && x.active !== false).slice(0, 3);
+  if (!items.length) {
+    section.classList.add('hidden');
+    return;
+  }
+  section.classList.remove('hidden');
+  grid.innerHTML = '';
+  items.forEach(item => {
+    const card = document.createElement('article');
+    card.className = 'notice whats-new-card';
+    card.innerHTML =
+      `<div class="what-tag">${safe(item.tag || item.date || 'Update')}</div>
+<div class="notice-title">${safe(item.title || 'My Peachtree Portal Update')}</div>
+<div class="notice-msg">${safe(item.message || '')}</div>${item.date ? `<div class="notice-meta" style="margin-top:14px">${safe(item.date)}</div>` : ''}`;
+    grid.appendChild(card);
+  });
+}
+
+function quotePool() {
+  return (typeof INSPIRATION_QUOTES !== 'undefined' && Array.isArray(INSPIRATION_QUOTES) &&
+    INSPIRATION_QUOTES.length) ? INSPIRATION_QUOTES : [{
+    title: 'Inspiration of the Day',
+    quote: 'Excellence shows up in the details before anyone has to ask.',
+    author: 'Peachtree Town and Country'
+  }];
+}
+let inspirationIndex = -1;
+let inspirationTimer = null;
+let inspirationPaused = false;
+const INSPIRATION_INTERVAL = 20000;
+
+function buildInspirationSlide(q, active) {
+  const slide = document.createElement('div');
+  slide.className = 'quote-slide' + (active ? ' active' : '');
+  slide.innerHTML =
+    `<div class="aside-title" id="todayTitle">${safe(q.title || 'Inspiration of the Day')}</div>
+<div class="aside-copy" id="todayCopy">“${safe(q.quote || 'Excellence is built one detail at a time.')}”${q.author ? `<br>
+<span class="quote-author">— ${safe(q.author)}</span>` : ''}</div>`;
+  return slide;
+}
+
+function restartInspirationProgress() {
+  const bar = $('inspirationProgressBar');
+  if (!bar)
+    return;
+  bar.style.animation = 'none';
+  void bar.offsetWidth;
+  bar.style.animation = '';
+}
+
+function setInspirationQuote(idx, animate) {
+  const quotes = quotePool();
+  if (!quotes.length)
+    return;
+  inspirationIndex = ((idx % quotes.length) + quotes.length) % quotes.length;
+  sessionStorage.setItem('portal_last_quote_idx', String(inspirationIndex));
+  const q = quotes[inspirationIndex] || quotes[0];
+  const stage = $('inspirationStage');
+  const card = $('inspirationCard');
+  if (!stage) {
+    if ($('todayTitle'))
+      $('todayTitle').textContent = q.title || 'Inspiration of the Day';
+    if ($('todayCopy'))
+      $('todayCopy').innerHTML = '“' + safe(q.quote ||
+        'Excellence is built one detail at a time.') + '”' + (q.author ?
+        '<br><span class="quote-author">— ' + safe(q.author) + '</span>' : '');
+    return;
+  }
+  const oldSlide = stage.querySelector('.quote-slide.active');
+  const newSlide = buildInspirationSlide(q, true);
+  if (!animate || !oldSlide) {
+    stage.querySelectorAll('.quote-slide').forEach(el => el.remove());
+    stage.appendChild(newSlide);
+    restartInspirationProgress();
+    return;
+  }
+  oldSlide.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+  oldSlide.classList.remove('active');
+  oldSlide.classList.add('leave');
+  newSlide.classList.add('enter');
+  stage.appendChild(newSlide);
+  if (card) {
+    card.classList.remove('lion-follow');
+    void card.offsetWidth;
+    card.classList.add('lion-follow');
+    setTimeout(() => card.classList.remove('lion-follow'), 1400);
+  }
+  setTimeout(() => {
+    stage.querySelectorAll('.quote-slide.leave').forEach(el => el.remove());
+    newSlide.classList.remove('enter');
+  }, 980);
+  restartInspirationProgress();
+}
+
+function nextInspirationQuote(animate = true) {
+  const quotes = quotePool();
+  if (!quotes.length)
+    return;
+  setInspirationQuote(inspirationIndex + 1, animate);
+}
+
+function scheduleInspirationRotation() {
+  clearInterval(inspirationTimer);
+  inspirationTimer = setInterval(() => {
+    if (!inspirationPaused)
+      nextInspirationQuote(true);
+  }, INSPIRATION_INTERVAL);
+}
+
+function renderInspiration() {
+  const quotes = quotePool();
+  let idx = Math.floor(Math.random() * quotes.length);
+  const last = Number(sessionStorage.getItem('portal_last_quote_idx'));
+  if (quotes.length > 1 && idx === last) {
+    idx = (idx + 1 + Math.floor(Math.random() * (quotes.length - 1))) % quotes.length;
+  }
+  const card = $('inspirationCard');
+  if (card) {
+    card.addEventListener('mouseenter', () => {
+      inspirationPaused = true;
+    });
+    card.addEventListener('mouseleave', () => {
+      inspirationPaused = false;
+    });
+  }
+  setInspirationQuote(idx, false);
+  scheduleInspirationRotation();
+}
+
+function initLuxuryPointer() {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+    return;
+  let raf = 0,
+    lastX = window.innerWidth / 2,
+    lastY = window.innerHeight * .2;
+  const root = document.documentElement;
+
+  function paint() {
+    raf = 0;
+    root.style.setProperty('--pointer-x', lastX + 'px');
+    root.style.setProperty('--pointer-y', lastY + 'px');
+  }
+  window.addEventListener('pointermove', e => {
+    lastX = e.clientX;
+    lastY = e.clientY;
+    if (!raf)
+      raf = requestAnimationFrame(paint);
+  }, {
+    passive: true
+  });
+}
+
+function initCinematicMotion() {
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)')
+    .matches;
+  const selectors = ['.cinematic-hero', '.announce-banner', '.section', '.support-section',
+    '.office-section', 'footer', '.tool-card', '.notice', '.support-card', '.request-btn',
+    '.office-card'
+  ].join(',');
+  const targets = [...document.querySelectorAll(selectors)];
+  targets.forEach((el, i) => {
+    el.classList.add('reveal-target');
+    el.style.setProperty('--reveal-delay', Math.min((i % 9) * 58, 420) + 'ms');
+  });
+  document.body.classList.add('motion-ready');
+  if (reduced) {
+    targets.forEach(el => el.classList.add('revealed'));
+    return;
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: .12,
+    rootMargin: '0px 0px -8% 0px'
+  });
+  targets.forEach(el => io.observe(el));
+}
+
+function enhanceCardSpotlight() {
+  const hoverables =
+    '.tool-card,.notice,.support-card,.request-btn,.office-card,.resource-card,.advisor-resource-card,.directory-card';
+  document.addEventListener('pointermove', e => {
+    const card = e.target.closest && e.target.closest(hoverables);
+    if (!card)
+      return;
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--card-x', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+    card.style.setProperty('--card-y', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+  }, {
+    passive: true
+  });
+}
+
+function initScrollProgress() {
+  const bar = document.querySelector('#scrollProgress span');
+  if (!bar)
+    return;
+  let raf = 0;
+
+  function update() {
+    raf = 0;
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const pct = Math.min(100, Math.max(0, (window.scrollY / max) * 100));
+    document.documentElement.style.setProperty('--scroll-progress', pct.toFixed(2) + '%');
+  }
+  update();
+  window.addEventListener('scroll', () => {
+    if (!raf)
+      raf = requestAnimationFrame(update);
+  }, {
+    passive: true
+  });
+  window.addEventListener('resize', update, {
+    passive: true
+  });
+}
+
+function initMagneticControls() {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+    return;
+  const selector = '.btn,.mini-btn,.directory-top,.support-top,.chip,.filter-pill';
+  document.addEventListener('pointermove', e => {
+    const el = e.target.closest && e.target.closest(selector);
+    if (!el)
+      return;
+    const r = el.getBoundingClientRect();
+    const x = ((e.clientX - r.left) / r.width - .5) * 8;
+    const y = ((e.clientY - r.top) / r.height - .5) * 6;
+    el.style.setProperty('--magnet-x', x.toFixed(2) + 'px');
+    el.style.setProperty('--magnet-y', y.toFixed(2) + 'px');
+  }, {
+    passive: true
+  });
+  document.addEventListener('pointerout', e => {
+    const el = e.target.closest && e.target.closest(selector);
+    if (!el)
+      return;
+    el.style.setProperty('--magnet-x', '0px');
+    el.style.setProperty('--magnet-y', '0px');
+  }, {
+    passive: true
+  });
+}
+
+function initSoftCollectionMotion() {
+  const ids = ['quickLinksGrid', 'supportGrid', 'requestGrid', 'officeList', 'heroNotifications',
+    'modalGrid', 'advisorResourceGrid', 'advisorResourceFilters', 'advisorResourceBreadcrumb'
+  ];
+  const seen = new WeakMap();
+
+  function fresh(container) {
+    if (!container || seen.get(container))
+      return;
+    seen.set(container, true);
+    requestAnimationFrame(() => seen.delete(container));
+    [...container.children].forEach((child, i) => child.style.setProperty('--fresh-index', i));
+    container.classList.remove('soft-grid-fresh');
+    void container.offsetWidth;
+    container.classList.add('soft-grid-fresh');
+    setTimeout(() => container.classList.remove('soft-grid-fresh'), 900);
+  }
+  ids.forEach(id => {
+    const el = $(id);
+    if (!el)
+      return;
+    const mo = new MutationObserver(() => fresh(el));
+    mo.observe(el, {
+      childList: true,
+      subtree: false
+    });
+  });
+  setTimeout(() => document.body.classList.add('page-settled'), 1800);
+}
+
+function hideSplash(force) {
+  const s = $('splash');
+  if (!s)
+    return;
+  s.classList.add('hide');
+}
+
+function adminShortcut(e) {
+  const typing = ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName);
+  if (typing)
+    return;
+  if ((e.metaKey || e.ctrlKey) && e.altKey && e.code === 'KeyA') {
+    e.preventDefault();
+    location.href = 'admin.html';
+  }
+}
+
+function setupModalAccessibility() {
+  const focusableSelector = [
+    'a[href]',
+    'button:not([disabled])',
+    'input:not([disabled])',
+    'textarea:not([disabled])',
+    'select:not([disabled])',
+    '[tabindex]:not([tabindex="-1"])'
+  ].join(',');
+
+  document.querySelectorAll('.modal').forEach((modal, index) => {
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-hidden', modal.classList.contains('open') ? 'false' : 'true');
+    const panel = modal.querySelector('.modal-panel');
+    if (panel)
+      panel.setAttribute('tabindex', '-1');
+    if (!modal.getAttribute('aria-label') && !modal.getAttribute('aria-labelledby')) {
+      const title = modal.querySelector('.modal-title');
+      if (title) {
+        if (!title.id)
+          title.id = `modalTitleA11y${index + 1}`;
+        modal.setAttribute('aria-labelledby', title.id);
+      }
+    }
+
+    const observer = new MutationObserver(() => {
+      const open = modal.classList.contains('open');
+      modal.setAttribute('aria-hidden', open ? 'false' : 'true');
+      if (open) {
+        modal._returnFocus = document.activeElement;
+        requestAnimationFrame(() => {
+          const first = modal.querySelector(focusableSelector);
+          (first || panel)?.focus();
+        });
+      } else if (modal._returnFocus && typeof modal._returnFocus.focus === 'function') {
+        modal._returnFocus.focus();
+        modal._returnFocus = null;
+      }
+    });
+    observer.observe(modal, { attributes: true, attributeFilter: ['class'] });
+  });
+
+  document.addEventListener('keydown', event => {
+    const openModal = [...document.querySelectorAll('.modal.open')].pop();
+    if (!openModal)
+      return;
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      openModal.querySelector('.close')?.click();
+      return;
+    }
+    if (event.key !== 'Tab')
+      return;
+    const focusable = [...openModal.querySelectorAll(focusableSelector)].filter(element =>
+      !element.hasAttribute('hidden') && element.offsetParent !== null);
+    if (!focusable.length) {
+      event.preventDefault();
+      openModal.querySelector('.modal-panel')?.focus();
+      return;
+    }
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+}
+
+function init() {
+  initTheme();
+  initLuxuryPointer();
+  enhanceCardSpotlight();
+  initScrollProgress();
+  initMagneticControls();
+  initSoftCollectionMotion();
+  setupModalAccessibility();
+  applyConfig();
+  renderInspiration();
+  renderNotifications();
+  renderQuickLinks();
+  renderOfficeInfo();
+  renderSupportCards();
+  initCinematicMotion();
+  document.addEventListener('keydown', adminShortcut);
+  setTimeout(() => hideSplash(false), 1500);
+}
+init();
+</script>
     <script>
 (function() {
   const V3 = 'ptc-boutique-v3';
@@ -8313,27 +8033,14 @@ init();
     hub.className = 'today-hub soft-added-section';
     hub.innerHTML =
       `
-      <article class="today-card-v3"><div class="today-kicker">Today at Peachtree</div><div class="today-big" id="todayDateText"></div><div class="today-copy">Your quick daily snapshot before opening tools, resources, and support.</div><div class="today-pill-row"><span class="today-pill">Boutique Portal</span><span class="today-pill">Internal Use</span></div></article>
-      <article class="today-card-v3"><div class="today-kicker">Office Hours</div><div class="today-big" style="font-size:34px" id="todayHoursText"></div><div class="today-copy">Use the Office Details section for full addresses and map links.</div><button class="btn btn-soft" style="margin-top:14px" onclick="document.getElementById('officeInfo')?.scrollIntoView({behavior:'smooth'})">View Offices</button></article>
-      <article class="today-card-v3"><div class="today-kicker">Active Notices</div><div class="today-big" id="todayNoticeCount"></div><div class="today-mini-list" id="todayNoticeList"></div></article>`;
+      <article class="today-card-v3"><div class="today-kicker">Office Hours</div><div class="today-big" style="font-size:34px" id="todayHoursText"></div><div class="today-copy">Use the Office Details section for full addresses and map links.</div><button type="button" class="btn btn-soft" style="margin-top:14px" onclick="document.getElementById('officeInfo')?.scrollIntoView({behavior:'smooth'})">View Offices</button></article>`;
     target.insertAdjacentElement('afterend', hub);
     updateTodayHub();
   }
 
   function updateTodayHub() {
-    const n = notes();
-    if (byId('todayDateText'))
-      byId('todayDateText').textContent = fmtDate();
     if (byId('todayHoursText'))
       byId('todayHoursText').textContent = firstOfficeHours();
-    if (byId('todayNoticeCount'))
-      byId('todayNoticeCount').textContent = n.length ? `${n.length} Active` : 'All Clear';
-    const list = byId('todayNoticeList');
-    if (list) {
-      list.innerHTML = n.length ? n.slice(0, 3).map(x =>
-        `<div class="today-mini-notice"><div class="today-mini-title">${esc(x.title || 'Notice')}</div><div class="today-mini-msg">${esc(x.message || '')}</div></div>`
-      ).join('') : '<div class="today-copy">No active notifications right now.</div>';
-    }
   }
 
   function buildFeaturedSpotlight() {
@@ -8524,187 +8231,5 @@ init();
 </script>
     <div id="advisorResourceWarmCache" aria-hidden="true">
     </div>
-    <script>
-(function() {
-  const items = new Map();
-
-  function byId(id) {
-    return document.getElementById(id);
-  }
-
-  function esc(value) {
-    return String(value || '').replace(/[&<>'"]/g, char => ({
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      "'": '&#39;',
-      '"': '&quot;'
-    } [char]));
-  }
-
-  function allSupportContacts() {
-    if (typeof supportContacts === 'function')
-      return supportContacts();
-    if (Array.isArray(window.SUPPORT_CONTACTS))
-      return window.SUPPORT_CONTACTS;
-    return [];
-  }
-
-  function firstEmailByText(words) {
-    const list = allSupportContacts();
-    const match = list.find(contact => {
-      const haystack = [contact.key, contact.title, contact.person, contact.desc].join(' ')
-        .toLowerCase();
-      return words.some(word => haystack.includes(word));
-    });
-    return match && match.email ? match.email : '';
-  }
-
-  function officeLocations() {
-    const data = window.OFFICE_INFO || {};
-    return Array.isArray(data.locations) ? data.locations : [];
-  }
-
-  function officeHours() {
-    const data = window.OFFICE_INFO || {};
-    return data.hours || 'Monday–Friday · 9:00 AM–5:00 PM';
-  }
-
-  function portalUrl() {
-    return window.location.href.split('?')[0].split(String.fromCharCode(35))[0];
-  }
-
-  function collectCopyItems() {
-    items.clear();
-    const rows = [];
-    const hours = officeHours();
-    rows.push({
-      key: 'office-hours',
-      icon: '⌚',
-      label: 'Office Hours',
-      value: hours,
-      text: hours
-    });
-    officeLocations().forEach((office, index) => {
-      const key = 'office-' + index;
-      const label = office.name || 'Office Address';
-      const text = [office.name, office.address].filter(Boolean).join('\n');
-      rows.push({
-        key,
-        icon: '📍',
-        label,
-        value: String(office.address || '').replace(/\n/g, ' · '),
-        text
-      });
-    });
-    const tech = firstEmailByText(['technology', 'tech', 'tyler']);
-    const marketing = firstEmailByText(['marketing', 'brand']);
-    const route = firstEmailByText(['not sure', 'general', 'amy']) || firstEmailByText([
-      'operations', 'office', 'gina'
-    ]);
-    if (tech)
-      rows.push({
-        key: 'tech-email',
-        icon: '💻',
-        label: 'Technology Support',
-        value: tech,
-        text: tech
-      });
-    if (marketing)
-      rows.push({
-        key: 'marketing-email',
-        icon: '📣',
-        label: 'Marketing Support',
-        value: marketing,
-        text: marketing
-      });
-    if (route)
-      rows.push({
-        key: 'routing-email',
-        icon: '🧭',
-        label: 'General Routing',
-        value: route,
-        text: route
-      });
-    rows.push({
-      key: 'portal-link',
-      icon: '🔗',
-      label: 'Portal Link',
-      value: portalUrl(),
-      text: portalUrl()
-    });
-    rows.forEach(item => items.set(item.key, item));
-    return rows;
-  }
-
-  function copyWithFallback(text) {
-    if (navigator.clipboard && window.isSecureContext) {
-      return navigator.clipboard.writeText(text);
-    }
-    const box = document.createElement('textarea');
-    box.value = text;
-    box.setAttribute('readonly', '');
-    box.style.position = 'fixed';
-    box.style.left = '-9999px';
-    document.body.appendChild(box);
-    box.select();
-    document.execCommand('copy');
-    box.remove();
-    return Promise.resolve();
-  }
-
-  function renderCopyCenter() {
-    if (byId('quickCopyCenter'))
-      return;
-    const office = byId('officeInfo');
-    const main = document.querySelector('main');
-    if (!office || !main)
-      return;
-    const section = document.createElement('section');
-    section.id = 'quickCopyCenter';
-    section.className = 'copy-center soft-added-section';
-    section.innerHTML =
-      '<div class="copy-head"><div><div class="section-kicker">Quick Copy</div><h2 class="copy-title">Common details in one click.</h2><p class="copy-copy">Copy office details, support emails, and the portal link without digging through the site.</p></div><button class="btn btn-soft" type="button" onclick="PTCQuickCopy.refresh()">Refresh</button></div><div class="copy-grid" id="quickCopyGrid"></div>';
-    office.insertAdjacentElement('afterend', section);
-    refreshCopyGrid();
-  }
-
-  function refreshCopyGrid() {
-    const grid = byId('quickCopyGrid');
-    if (!grid)
-      return;
-    grid.innerHTML = collectCopyItems().map(item => `
-      <button class="copy-card" type="button" onclick="PTCQuickCopy.copy('${item.key}')">
-        <span class="copy-icon">${esc(item.icon)}</span>
-        <span><span class="copy-label">${esc(item.label)}</span><span class="copy-value">${esc(item.value)}</span></span>
-        <span class="copy-action">⧉</span>
-      </button>
-    `).join('');
-  }
-  window.PTCQuickCopy = {
-    refresh: refreshCopyGrid,
-    copy(key) {
-      const item = items.get(key) || collectCopyItems().find(row => row.key === key);
-      if (!item || !item.text) {
-        if (typeof showToast === 'function')
-          showToast('Nothing to copy yet');
-        return;
-      }
-      copyWithFallback(item.text).then(() => {
-        if (typeof showToast === 'function')
-          showToast(item.label + ' copied');
-      }).catch(() => {
-        if (typeof showToast === 'function')
-          showToast('Clipboard was blocked');
-      });
-    }
-  };
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', renderCopyCenter);
-  } else {
-    renderCopyCenter();
-  }
-})();
-</script>
-  </body>
+</body>
 </html>
