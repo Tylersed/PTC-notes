@@ -7,7 +7,7 @@
     <title>Peachtree · My Peachtree Portal Admin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Geist:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap"
       rel="stylesheet">
     <link rel="stylesheet" href="holiday-themes.css">
     <style>
@@ -1079,6 +1079,23 @@ body[data-season="fall"] .showroom-stage {
     transform: none !important;
   }
 }
+
+
+/* June 2026 — match the live portal's one-line hero title in Admin previews. */
+.mock-hero-title {
+  white-space: nowrap !important;
+  width: max-content;
+  max-width: 100%;
+  font-size: clamp(30px, 4.35vw, 58px) !important;
+  line-height: .94 !important;
+  letter-spacing: -.04em !important;
+}
+
+.admin-preview-device.mobile .mock-hero-title {
+  font-size: clamp(22px, 7vw, 32px) !important;
+  white-space: nowrap !important;
+}
+
 </style>
     <style>
 #previewPageBtn {
@@ -1661,6 +1678,58 @@ body[data-season="fall"] .showroom-stage {
   }
 }
 </style>
+  
+    <!-- Company typography override: use the Peachtree serif throughout Admin Center. -->
+    <style id="peachtree-admin-company-font">
+      html,
+      body,
+      body *,
+      button,
+      input,
+      textarea,
+      select,
+      option {
+        font-family: 'Cormorant Garamond', Georgia, serif !important;
+      }
+
+      body {
+        font-size: 16px;
+      }
+
+      button,
+      input,
+      textarea,
+      select,
+      option,
+      .btn,
+      .tab,
+      .field label,
+      .section-label,
+      .row-title,
+      .row-sub,
+      .panel-sub,
+      .notice,
+      .publish-note,
+      .validation-item,
+      .status-item {
+        letter-spacing: .015em;
+      }
+
+      input,
+      textarea,
+      select {
+        font-size: 16px;
+      }
+
+      .btn,
+      .tab,
+      .field label,
+      .section-label,
+      .dash-file,
+      .unsaved-pill {
+        font-weight: 600;
+      }
+    </style>
   </head>
   <body data-season="default">
     <nav>
@@ -1817,7 +1886,7 @@ window.addEventListener('error', function(e) {
     console.error('My Peachtree Portal Admin error:', e.message, e.error);
   } catch (_) {}
 });
-const ADMIN_PASSWORD = '';
+const ADMIN_PASSWORD = 'peachtree2026';
 const LS_THEME = 'ptc_theme_v2';
 const TABS = [
   ['home', 'Admin Home'],
@@ -2326,7 +2395,7 @@ function renderSite() {
     'Change theme, banner, and homepage copy. Export only resources.js when finished.';
   const c = DATA.SITE_CONFIG;
   $('editor').innerHTML =
-    `<div class="grid2">${inputField('cSiteName', 'Site Name', c.siteName || 'My Peachtree Portal')}${inputField('cNavLabel', 'Nav Label', c.navLabel || 'My Peachtree Portal')}</div>${selectField('cActiveTheme', 'Active Theme', c.activeTheme || 'default', [['default', 'Normal Portal'], ['christmas', 'Christmas Luxury'], ['halloween', 'Halloween Luxury'], ['fall', 'Fall Luxury']])}<div class="toolbar"><button class="btn btn-soft" onclick="previewTheme('default')">Preview Normal</button><button class="btn btn-soft" onclick="previewTheme('christmas')">Preview Christmas</button><button class="btn btn-soft" onclick="previewTheme('halloween')">Preview Halloween</button><button class="btn btn-soft" onclick="previewTheme('fall')">Preview Fall</button></div><div class="theme-card">Preview changes only affect this Admin screen until you export and upload the files.</div>${inputField('cEyebrow', 'Hero Eyebrow', c.eyebrow || 'Advisor tools, resources, support, and company updates')}<div class="grid2">${inputField('cHeroTitle', 'Hero Title First Line', c.heroTitle || 'My Peachtree Portal')}${inputField('cHeroItalic', 'Hero Title Italic Line', c.heroItalic || '')}</div>${areaField('cHeroDescription', 'Hero Description', c.heroDescription || '')}${areaField('cAnnouncementText', 'Slim Banner Text', c.announcementText || '')}<div class="field"><label>Slim Banner Active</label><div class="switch-row"><input id="cAnnouncementActive" type="checkbox" ${c.announcementActive ? 'checked' : ''}> <span>Show slim banner above notifications</span></div></div>${areaField('cVersionNote', 'Version Note / Change Summary', c.versionNote || '')}<div class="toolbar"><button class="btn btn-primary" onclick="commitSite();showToast('Site settings saved in editor')">Save Site Settings</button><button class="btn btn-soft" onclick="exportCurrentFile()">Export Homepage + Theme</button></div>${githubInstructions('resources.js')}`;
+    `<div class="grid2">${inputField('cSiteName', 'Site Name', c.siteName || 'My Peachtree Portal')}${inputField('cNavLabel', 'Nav Label', c.navLabel || 'My Peachtree Portal')}</div>${selectField('cActiveTheme', 'Active Theme', c.activeTheme || 'default', [['default', 'Normal Portal'], ['christmas', 'Christmas Luxury'], ['halloween', 'Halloween Luxury'], ['fall', 'Fall Luxury']])}<div class="toolbar"><button class="btn btn-soft" onclick="previewTheme('default')">Preview Normal</button><button class="btn btn-soft" onclick="previewTheme('christmas')">Preview Christmas</button><button class="btn btn-soft" onclick="previewTheme('halloween')">Preview Halloween</button><button class="btn btn-soft" onclick="previewTheme('fall')">Preview Fall</button></div><div class="theme-card">Preview changes only affect this Admin screen until you export and upload the files.</div>${inputField('cEyebrow', 'Hero Eyebrow', c.eyebrow || 'Advisor tools, resources, support, and company updates')}<div class="grid2">${inputField('cHeroTitle', 'Hero Title (kept on one line)', c.heroTitle || 'My Peachtree Portal')}${inputField('cHeroItalic', 'Legacy Italic Line (not displayed)', c.heroItalic || '')}</div>${areaField('cHeroDescription', 'Hero Description', c.heroDescription || '')}${areaField('cAnnouncementText', 'Slim Banner Text', c.announcementText || '')}<div class="field"><label>Slim Banner Active</label><div class="switch-row"><input id="cAnnouncementActive" type="checkbox" ${c.announcementActive ? 'checked' : ''}> <span>Show slim banner above notifications</span></div></div>${areaField('cVersionNote', 'Version Note / Change Summary', c.versionNote || '')}<div class="toolbar"><button class="btn btn-primary" onclick="commitSite();showToast('Site settings saved in editor')">Save Site Settings</button><button class="btn btn-soft" onclick="exportCurrentFile()">Export Homepage + Theme</button></div>${githubInstructions('resources.js')}`;
 }
 
 function previewTheme(theme) {
