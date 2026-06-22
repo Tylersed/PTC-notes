@@ -1,0 +1,12 @@
+Place the three original company font files in this folder using these exact names:
+
+IvyOra-Display-Regular.ttf
+Sweet-Sans-Pro-Regular.otf
+Proxima-Nova-Regular.ttf
+
+Rename mapping from the files provided to ChatGPT:
+IvyOra-Display-Regular (2).ttf -> IvyOra-Display-Regular.ttf
+Sweet-Sans-Pro-Regular (2).otf -> Sweet-Sans-Pro-Regular.otf
+ProximaNova-Sans-Regular (3).ttf -> Proxima-Nova-Regular.ttf
+
+Do not change the capitalization or spelling because index.html and admin.html use these paths.
