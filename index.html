@@ -13,11 +13,7 @@
     <link rel="preconnect" href="https://docs.google.com">
     <link rel="preconnect" href="https://accounts.google.com">
     <link rel="preconnect" href="https://lh3.googleusercontent.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Geist:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet">
-    <style>
+<style>
 *,
 *::before,
 *::after {
@@ -81,7 +77,7 @@ html {
 }
 
 body {
-  font-family: Geist, system-ui, sans-serif;
+  font-family: var(--ptc-font-body);
   background: radial-gradient(circle at 12% 4%, rgba(162, 124, 61, .12), transparent 28%), var(--bg);
   color: var(--text);
   min-height: 100svh;
@@ -150,7 +146,7 @@ nav {
 
 .fallback {
   display: none;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 20px;
   letter-spacing: .04em;
 }
@@ -243,7 +239,7 @@ main {
 }
 
 .hero h1 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: clamp(54px, 6vw, 94px);
   font-weight: 400;
   line-height: .98;
@@ -299,7 +295,7 @@ main {
 }
 
 .aside-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 30px;
   line-height: 1.08;
   margin-bottom: 10px;
@@ -447,7 +443,7 @@ main {
 }
 
 .notice-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 25px;
   line-height: 1.15;
   margin-bottom: 8px;
@@ -552,7 +548,7 @@ main {
 }
 
 .tool-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 25px;
   line-height: 1.1;
   margin-bottom: 8px;
@@ -732,7 +728,7 @@ main {
 }
 
 .office-name {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 29px;
   line-height: 1.05;
   margin-bottom: 6px;
@@ -823,7 +819,7 @@ main {
   border: none;
   outline: none;
   color: var(--text);
-  font-family: Geist, system-ui, sans-serif;
+  font-family: var(--ptc-font-body);
   font-size: 14px;
 }
 
@@ -926,7 +922,7 @@ main {
 }
 
 .spine-num {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 13px;
   opacity: .66;
   writing-mode: vertical-rl;
@@ -958,7 +954,7 @@ main {
 }
 
 .res-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 26px;
   line-height: 1.15;
   margin-bottom: 7px;
@@ -1035,7 +1031,7 @@ footer {
 }
 
 .footer-brand {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 20px;
   color: var(--text);
 }
@@ -1137,7 +1133,7 @@ footer {
 }
 
 .modal-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 34px;
   line-height: 1.1;
 }
@@ -1205,7 +1201,7 @@ footer {
 }
 
 .folder-label {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 22px;
   line-height: 1.08;
 }
@@ -1395,7 +1391,7 @@ footer {
 }
 
 .splash-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: clamp(34px, 5vw, 62px);
   font-weight: 400;
   letter-spacing: .01em;
@@ -1569,7 +1565,7 @@ footer {
 }
 
 .mini-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 22px;
   line-height: 1.08;
   margin-bottom: 6px;
@@ -1646,7 +1642,7 @@ footer {
 }
 
 .support-intro h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 38px;
   font-weight: 400;
   line-height: 1.05;
@@ -1739,7 +1735,7 @@ footer {
 }
 
 .support-name {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 23px;
   line-height: 1.08;
   margin-bottom: 7px;
@@ -1778,7 +1774,7 @@ footer {
   text-align: left;
   cursor: pointer;
   transition: .2s var(--ease);
-  font-family: Geist, system-ui, sans-serif;
+  font-family: var(--ptc-font-body);
 }
 
 .request-btn:hover {
@@ -1816,7 +1812,7 @@ footer {
 }
 
 .library-hero h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 42px;
   font-weight: 400;
   line-height: 1.05;
@@ -1864,7 +1860,7 @@ footer {
 }
 
 .choice-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 25px;
   line-height: 1.05;
   margin-bottom: 6px;
@@ -1917,7 +1913,7 @@ footer {
 }
 
 .login-assist-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 31px;
   line-height: 1.05;
 }
@@ -3280,13 +3276,13 @@ footer {
   max-width: 620px;
   margin: -10px 0 18px;
   color: var(--muted);
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: clamp(21px, 2vw, 31px);
   line-height: 1.18;
 }
 
 .hero-service-quote span {
-  font-family: Geist, system-ui, sans-serif;
+  font-family: var(--ptc-font-body);
   font-size: 10px;
   font-weight: 900;
   letter-spacing: .14em;
@@ -3654,7 +3650,7 @@ footer {
 }
 
 .credential-value {
-  font-family: Geist, system-ui, sans-serif;
+  font-family: var(--ptc-font-body);
   font-size: 14px;
   font-weight: 750;
   color: var(--text);
@@ -3814,7 +3810,7 @@ footer {
 }
 
 .directory-name {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 27px;
   line-height: 1.04;
   margin-top: 5px;
@@ -4002,7 +3998,7 @@ footer {
 }
 
 .advisor-resource-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 28px;
   line-height: 1.04;
   margin-top: 5px;
@@ -4126,7 +4122,7 @@ footer {
 }
 
 .advisor-resource-viewer-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 30px;
   line-height: 1.05;
   margin-top: 4px;
@@ -5136,7 +5132,7 @@ body.page-settled .cinematic-stage::before{animation-duration:42s;}
 }
 
 .today-big {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: clamp(32px, 3vw, 46px);
   line-height: 1.0;
   letter-spacing: -.02em;
@@ -5244,7 +5240,7 @@ body.page-settled .cinematic-stage::before{animation-duration:42s;}
 }
 
 .spotlight-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: clamp(42px, 5vw, 74px);
   line-height: .92;
   letter-spacing: -.035em;
@@ -5281,7 +5277,7 @@ body.page-settled .cinematic-stage::before{animation-duration:42s;}
 }
 
 .spotlight-resource-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 32px;
   line-height: 1.05;
 }
@@ -5365,7 +5361,7 @@ body.page-settled .cinematic-stage::before{animation-duration:42s;}
 }
 
 .wizard-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--ptc-font-display);
   font-size: 34px;
   line-height: 1.05;
 }
@@ -5509,7 +5505,7 @@ body.page-settled .cinematic-stage::before{animation-duration:42s;}
   display: grid;
   gap: 4px;
   place-items: center;
-  font-family: Geist, system-ui, sans-serif;
+  font-family: var(--ptc-font-body);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: .02em;
@@ -5908,118 +5904,244 @@ body.page-settled .cinematic-stage::before{animation-duration:42s;}
   }
 }
 
-/* Final footer marquee visibility fix — keep this after all other portal styles. */
-footer[aria-label="Site footer"] {
-  display: block !important;
-  position: relative !important;
-  z-index: 20 !important;
-  width: 100% !important;
-  min-height: 76px !important;
-  margin-top: 46px !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-  filter: none !important;
-  color: var(--text) !important;
-  border-top: 1px solid var(--border-2) !important;
-  background: linear-gradient(90deg, var(--card-2), var(--card), var(--card-2)) !important;
-}
-
-footer[aria-label="Site footer"].reveal-target,
-footer[aria-label="Site footer"].reveal-target.revealed,
-.motion-ready footer[aria-label="Site footer"].reveal-target {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-  filter: none !important;
-  transition: none !important;
-}
-
-footer[aria-label="Site footer"] .footer-marquee-shell {
-  display: block !important;
-  width: 100% !important;
-  min-height: 76px !important;
-  padding: 23px 0 !important;
-  overflow: hidden !important;
-  white-space: nowrap !important;
-  mask-image: none !important;
-  -webkit-mask-image: none !important;
-  background: transparent !important;
-  border: 0 !important;
-}
-
-footer[aria-label="Site footer"] .footer-marquee-track {
-  display: flex !important;
-  align-items: center !important;
-  width: max-content !important;
-  min-width: max-content !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-  animation: footerMarqueeVisible 26s linear infinite !important;
-}
-
-footer[aria-label="Site footer"] .footer-marquee-group {
-  display: flex !important;
-  align-items: center !important;
-  flex: 0 0 auto !important;
-  gap: 42px !important;
-  padding-right: 42px !important;
-}
-
-footer[aria-label="Site footer"] .footer-marquee-item {
-  display: inline-flex !important;
-  align-items: center !important;
-  flex: 0 0 auto !important;
-  white-space: nowrap !important;
-  color: var(--text) !important;
-  font-family: 'Cormorant Garamond', serif !important;
-  font-size: clamp(18px, 1.6vw, 24px) !important;
-  font-weight: 600 !important;
-  line-height: 1.2 !important;
-  letter-spacing: .09em !important;
-  text-transform: uppercase !important;
-  opacity: 1 !important;
-}
-
-footer[aria-label="Site footer"] .footer-marquee-item::after {
-  content: '✦';
-  margin-left: 42px;
-  color: var(--gold);
-  font-size: .72em;
-}
-
-@keyframes footerMarqueeVisible {
-  from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(-50%, 0, 0); }
-}
-
-@media (max-width: 760px) {
-  footer[aria-label="Site footer"] {
-    min-height: 68px !important;
-    margin-top: 34px !important;
-  }
-
-  footer[aria-label="Site footer"] .footer-marquee-shell {
-    min-height: 68px !important;
-    padding: 20px 0 !important;
-  }
-
-  footer[aria-label="Site footer"] .footer-marquee-track {
-    animation-duration: 20s !important;
-  }
-
-  footer[aria-label="Site footer"] .footer-marquee-item {
-    font-size: 17px !important;
-    letter-spacing: .075em !important;
-  }
-}
-
 </style>
-</head>
+<style id="ptc-self-hosted-brand-fonts-2026">
+/*
+  OFFICIAL PEACHTREE TOWN & COUNTRY TYPOGRAPHY
+  Files live in: assets/fonts/
+  - IvyOra Display: headlines and titles
+  - Sweet Sans Pro: all-caps labels, buttons, and tracked subheads
+  - Proxima Nova: body copy, forms, and descriptions
+*/
+@font-face {
+  font-family: "IvyOra Display";
+  src: url("assets/fonts/IvyOra-Display-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sweet Sans Pro";
+  src: url("assets/fonts/Sweet-Sans-Pro-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("assets/fonts/Proxima-Nova-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ptc-font-display: "IvyOra Display", "Cormorant Garamond", Garamond, serif;
+  --ptc-font-subhead: "Sweet Sans Pro", Arial, Helvetica, sans-serif;
+  --ptc-font-body: "Proxima Nova", Arial, Helvetica, sans-serif;
+}
+
+/* Body copy and form content */
+html,
+body,
+input,
+textarea,
+select,
+option,
+table,
+th,
+td {
+  font-family: var(--ptc-font-body);
+}
+
+/* Official display face for titles */
+h1,
+h2,
+h3,
+h4,
+.fallback,
+.aside-title,
+.notice-title,
+.tool-title,
+.office-name,
+.res-title,
+.footer-brand,
+.modal-title,
+.folder-label,
+.mini-title,
+.portal-title-text,
+.quote-text,
+.directory-name,
+.advisor-resource-title,
+.advisor-resource-viewer-title,
+.today-big,
+.spotlight-title,
+.spotlight-resource-title,
+.wizard-title {
+  font-family: var(--ptc-font-display);
+  font-weight: 400;
+}
+
+/* Official tracked sans face for labels, buttons, and navigation */
+button,
+.btn,
+.nav-label,
+.admin-link,
+.support-top,
+.directory-top,
+.eyebrow,
+.aside-kicker,
+.announce-banner button,
+.section-kicker,
+.notice-meta,
+.tool-type,
+.new-badge,
+.hours-pill span,
+.office-eyebrow,
+.office-action,
+.chip,
+.res-type,
+.res-badge,
+.modal-kicker,
+.folder-meta,
+.splash-sub,
+.hero-notice-title,
+.hero-notice-count,
+.mini-meta,
+.mini-btn,
+.choice-person,
+.login-badge,
+.link-status,
+.portal-acronym span,
+.quote-author,
+.mini-detail span,
+.portal-eyebrow span,
+.what-tag,
+.featured-badge,
+.hero-service-quote span,
+.credential-label,
+.directory-chip,
+.directory-type,
+.directory-action,
+.advisor-resource-chip,
+.advisor-resource-breadcrumb button,
+.advisor-resource-type,
+.advisor-resource-action,
+.advisor-resource-viewer-kicker,
+.advisor-resource-loading,
+.section-note,
+.support-email,
+.today-kicker,
+.today-pill,
+.spotlight-kicker,
+.spotlight-label,
+.wizard-step-pill,
+.wizard-mini,
+.mobile-app-nav button,
+.footer-marquee-item {
+  font-family: var(--ptc-font-subhead);
+}
+</style>
+
+    <style id="ptcLivePreviewStyles">
+      body.ptc-live-preview-mode {
+        padding-top: 54px;
+      }
+
+      body.ptc-live-preview-mode nav {
+        top: 54px;
+      }
+
+      .ptc-live-preview-bar {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 10050;
+        height: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        padding: 8px 20px;
+        background: #222422;
+        color: #F5F4EF;
+        border-bottom: 1px solid rgba(245, 244, 239, .18);
+        box-shadow: 0 10px 32px rgba(0, 0, 0, .22);
+        font-family: "Proxima Nova", Arial, Helvetica, sans-serif;
+      }
+
+      .ptc-live-preview-message {
+        min-width: 0;
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .ptc-live-preview-message strong {
+        font-family: "Sweet Sans Pro", Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        font-weight: 400;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        margin-right: 8px;
+      }
+
+      .ptc-live-preview-return {
+        flex: 0 0 auto;
+        min-height: 36px;
+        border: 1px solid rgba(245, 244, 239, .38);
+        border-radius: 999px;
+        padding: 8px 14px;
+        background: #F5F4EF;
+        color: #222422;
+        font-family: "Sweet Sans Pro", Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        font-weight: 400;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .ptc-live-preview-return:hover {
+        background: #FFFFFF;
+        transform: translateY(-1px);
+      }
+
+      @media (max-width: 640px) {
+        body.ptc-live-preview-mode {
+          padding-top: 62px;
+        }
+
+        body.ptc-live-preview-mode nav {
+          top: 62px;
+        }
+
+        .ptc-live-preview-bar {
+          height: 62px;
+          justify-content: space-between;
+          gap: 10px;
+          padding: 8px 12px;
+        }
+
+        .ptc-live-preview-message {
+          font-size: 11px;
+        }
+
+        .ptc-live-preview-message strong {
+          display: block;
+          margin: 0 0 2px;
+          font-size: 9px;
+        }
+
+        .ptc-live-preview-return {
+          min-height: 38px;
+          padding: 7px 11px;
+          font-size: 9px;
+        }
+      }
+    </style>
+
+  </head>
   <body data-season="default">
     <div class="scroll-progress" id="scrollProgress" aria-hidden="true">
       <span>
@@ -6145,7 +6267,7 @@ footer[aria-label="Site footer"] .footer-marquee-item::after {
             <h2 class="support-title-luxury" aria-label="Support Concierge">
               <span class="support-title-main">Support Concierge</span>
             </h2>
-            <p>Choose the best support path. On mobile, My Peachtree Portal will try to open the Outlook app with a pre-filled email. On desktop, it will open Outlook on the web.</p>
+            <p>Choose the best support path. On a phone, My Peachtree Portal opens the Outlook app with a pre-filled email. On a laptop or desktop, it opens Outlook on the web in a new browser tab.</p>
           </div>
           <button class="btn btn-primary" onclick="openSupportModal()">Open Support Concierge ↗</button>
         </div>
@@ -6313,7 +6435,7 @@ footer[aria-label="Site footer"] .footer-marquee-item::after {
             <div class="modal-kicker">Support Concierge</div>
             <div class="modal-title">How can we help?</div>
             <div
-              class="modal-sub">Choose the best contact below. On mobile, My Peachtree Portal will try to open the Outlook app with a pre-filled email. On desktop, it will open Outlook on the web.</div>
+              class="modal-sub">Choose the best contact below. On a phone, My Peachtree Portal opens the Outlook app with a pre-filled email. On a laptop or desktop, it opens Outlook on the web in a new browser tab.</div>
             <div class="modal-sub-actions">
               <button class="btn btn-primary" onclick="composeGeneralSupport()">General Support Request</button>
               <button class="btn btn-soft" onclick="composeRequest('Report a Website Issue')">Report Website Issue</button>
@@ -6400,6 +6522,117 @@ footer[aria-label="Site footer"] .footer-marquee-item::after {
     <script src="support.js"></script>
     <script src="directory.js"></script>
     <script src="holiday-effects.js" defer></script>
+    <script>
+/*
+  Full live-website preview bootstrap
+  -----------------------------------
+  The Admin Center places temporary edits in sessionStorage, then opens this
+  exact portal page. The data below is replaced only for the current preview
+  session and is never published by this code.
+*/
+const PTC_LIVE_PREVIEW_STORAGE_KEY = 'ptc_admin_live_preview_v2';
+const PTC_LIVE_PREVIEW_ACTIVE =
+  new URLSearchParams(window.location.search).get('ptcPreview') === '1';
+
+let PTC_LIVE_PREVIEW_DATA = null;
+
+if (PTC_LIVE_PREVIEW_ACTIVE) {
+  try {
+    const storedPreview = JSON.parse(
+      sessionStorage.getItem(PTC_LIVE_PREVIEW_STORAGE_KEY) || 'null'
+    );
+
+    if (
+      storedPreview &&
+      storedPreview.data &&
+      Date.now() - Number(storedPreview.createdAt || 0) < 4 * 60 * 60 * 1000
+    ) {
+      PTC_LIVE_PREVIEW_DATA = storedPreview.data;
+
+      if (typeof SITE_CONFIG !== 'undefined' && PTC_LIVE_PREVIEW_DATA.SITE_CONFIG)
+        SITE_CONFIG = structuredClone(PTC_LIVE_PREVIEW_DATA.SITE_CONFIG);
+
+      if (typeof NOTIFICATIONS !== 'undefined' && Array.isArray(PTC_LIVE_PREVIEW_DATA.NOTIFICATIONS))
+        NOTIFICATIONS = structuredClone(PTC_LIVE_PREVIEW_DATA.NOTIFICATIONS);
+
+      if (typeof QUICK_LINKS !== 'undefined' && Array.isArray(PTC_LIVE_PREVIEW_DATA.QUICK_LINKS))
+        QUICK_LINKS = structuredClone(PTC_LIVE_PREVIEW_DATA.QUICK_LINKS);
+
+      if (typeof RESOURCES !== 'undefined' && Array.isArray(PTC_LIVE_PREVIEW_DATA.RESOURCES))
+        RESOURCES = structuredClone(PTC_LIVE_PREVIEW_DATA.RESOURCES);
+
+      if (
+        typeof INSPIRATION_QUOTES !== 'undefined' &&
+        Array.isArray(PTC_LIVE_PREVIEW_DATA.INSPIRATION_QUOTES)
+      )
+        INSPIRATION_QUOTES = structuredClone(PTC_LIVE_PREVIEW_DATA.INSPIRATION_QUOTES);
+
+      if (typeof WHATS_NEW !== 'undefined' && Array.isArray(PTC_LIVE_PREVIEW_DATA.WHATS_NEW))
+        WHATS_NEW = structuredClone(PTC_LIVE_PREVIEW_DATA.WHATS_NEW);
+
+      if (typeof OFFICE_INFO !== 'undefined' && PTC_LIVE_PREVIEW_DATA.OFFICE_INFO)
+        OFFICE_INFO = structuredClone(PTC_LIVE_PREVIEW_DATA.OFFICE_INFO);
+
+      if (
+        typeof SUPPORT_CONTACTS !== 'undefined' &&
+        Array.isArray(PTC_LIVE_PREVIEW_DATA.SUPPORT_CONTACTS)
+      )
+        SUPPORT_CONTACTS = structuredClone(PTC_LIVE_PREVIEW_DATA.SUPPORT_CONTACTS);
+
+      if (
+        typeof REQUEST_TYPES !== 'undefined' &&
+        Array.isArray(PTC_LIVE_PREVIEW_DATA.REQUEST_TYPES)
+      )
+        REQUEST_TYPES = structuredClone(PTC_LIVE_PREVIEW_DATA.REQUEST_TYPES);
+
+      if (
+        typeof DIRECTORY_CONTACTS !== 'undefined' &&
+        Array.isArray(PTC_LIVE_PREVIEW_DATA.DIRECTORY_CONTACTS)
+      )
+        DIRECTORY_CONTACTS = structuredClone(PTC_LIVE_PREVIEW_DATA.DIRECTORY_CONTACTS);
+
+      if (
+        typeof ADVISOR_RESOURCES !== 'undefined' &&
+        Array.isArray(PTC_LIVE_PREVIEW_DATA.ADVISOR_RESOURCES)
+      )
+        ADVISOR_RESOURCES = structuredClone(PTC_LIVE_PREVIEW_DATA.ADVISOR_RESOURCES);
+    }
+  } catch (error) {
+    console.error('Could not load the temporary Admin preview:', error);
+  }
+}
+
+function installPtcLivePreviewBar() {
+  if (!PTC_LIVE_PREVIEW_ACTIVE || !PTC_LIVE_PREVIEW_DATA)
+    return;
+
+  document.body.classList.add('ptc-live-preview-mode');
+
+  const previewBar = document.createElement('div');
+  previewBar.className = 'ptc-live-preview-bar';
+  previewBar.setAttribute('role', 'status');
+  previewBar.innerHTML =
+    '<div class="ptc-live-preview-message">' +
+      '<strong>Preview Mode</strong>' +
+      '<span>Temporary Admin changes are shown on the real portal. Nothing is published yet.</span>' +
+    '</div>' +
+    '<button type="button" class="ptc-live-preview-return">Return to Admin</button>';
+
+  previewBar.querySelector('button').addEventListener('click', () => {
+    const adminUrl = new URL('admin.html', window.location.href);
+    adminUrl.searchParams.set('ptcPreviewReturn', '1');
+    window.location.assign(adminUrl.href);
+  });
+
+  document.body.prepend(previewBar);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', installPtcLivePreviewBar, { once: true });
+} else {
+  installPtcLivePreviewBar();
+}
+</script>
     <script>
 const LS_THEME = 'ptc_theme_v2';
 const LS_BANNER = 'ptc_banner_dismissed_v2';
@@ -7047,51 +7280,56 @@ function showToast(msg) {
   window.__toast = setTimeout(() => t.classList.remove('show'), 2600);
 }
 
-function outlookWebComposeUrl(to, subject, body) {
-  return 'https://outlook.cloud.microsoft/mail/deeplink/compose?to=' + encodeURIComponent(to) +
-    '&subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-}
-
 function outlookAppComposeUrl(to, subject, body) {
-  return 'ms-outlook://compose?to=' + encodeURIComponent(to) + '&subject=' + encodeURIComponent(
-    subject) + '&body=' + encodeURIComponent(body);
+  return 'ms-outlook://compose?to=' + encodeURIComponent(to) +
+    '&subject=' + encodeURIComponent(subject) +
+    '&body=' + encodeURIComponent(body);
 }
 
-function isMobileOutlookTarget() {
-  const ua = navigator.userAgent || '';
-  const isiPadOS = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
-  return /iPhone|iPad|iPod|Android/i.test(ua) || isiPadOS;
+function outlookWebComposeUrl(to, subject, body) {
+  return 'https://outlook.office.com/mail/deeplink/compose?to=' + encodeURIComponent(to) +
+    '&subject=' + encodeURIComponent(subject) +
+    '&body=' + encodeURIComponent(body);
+}
+
+function isPhoneDevice() {
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera || '';
+
+  // iPhone/iPod and Android phones use the Outlook app.
+  // Tablets, laptops, and desktop computers use Outlook on the web.
+  return /iPhone|iPod|Android.*Mobile|Windows Phone|webOS|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
 }
 
 function openOutlookCompose(to, subject, body) {
-  const webUrl = outlookWebComposeUrl(to, subject, body);
-  if (!isMobileOutlookTarget()) {
-    window.open(webUrl, '_blank', 'noopener');
+  if (isPhoneDevice()) {
+    showToast('Opening the Outlook app…');
+    window.location.href = outlookAppComposeUrl(to, subject, body);
+
+    // Never send a phone to Outlook on the web or another email app.
+    window.setTimeout(() => {
+      if (!document.hidden) {
+        showToast('Outlook did not open. Make sure the Outlook app is installed, then try again.');
+      }
+    }, 2200);
+
     return;
   }
-  let appOpened = false;
-  let fallbackTimer = null;
-  const cancelFallback = () => {
-    appOpened = true;
-    if (fallbackTimer)
-      clearTimeout(fallbackTimer);
-  };
-  window.addEventListener('pagehide', cancelFallback, {
-    once: true
-  });
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden)
-      cancelFallback();
-  }, {
-    once: true
-  });
-  window.location.href = outlookAppComposeUrl(to, subject, body);
-  fallbackTimer = setTimeout(() => {
-    if (!appOpened && !document.hidden) {
-      showToast('Opening Outlook on the web...');
-      window.open(webUrl, '_blank', 'noopener');
+
+  // Laptop and desktop users always compose in Outlook on the web
+  // in a separate browser tab.
+  const outlookTab = window.open(outlookWebComposeUrl(to, subject, body), '_blank');
+
+  if (outlookTab) {
+    try {
+      outlookTab.opener = null;
+    } catch (error) {
+      // The compose tab is already open; no additional action is required.
     }
-  }, 1600);
+
+    showToast('Outlook opened in a new browser tab.');
+  } else {
+    showToast('Your browser blocked the Outlook tab. Please allow pop-ups and try again.');
+  }
 }
 
 function bodyTemplate(name) {
@@ -7539,9 +7777,11 @@ function printAdvisorResourceFile() {
 }
 
 function advisorResourceHelpEmail() {
-  const subject = encodeURIComponent('Advisor Resource Center Help');
-  const body = encodeURIComponent('Hello,\n\nI need help opening or finding this resource:\n\n');
-  window.location.href = 'mailto:tyler@peachtreetc.com?subject=' + subject + '&body=' + body;
+  openOutlookCompose(
+    'tyler@peachtreetc.com',
+    'Advisor Resource Center Help',
+    'Hello,\n\nI need help opening or finding this resource:\n\n'
+  );
 }
 
 function closeAdvisorResourcePreview() {
@@ -8061,7 +8301,7 @@ function initCinematicMotion() {
   const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)')
     .matches;
   const selectors = ['.cinematic-hero', '.announce-banner', '.section', '.support-section',
-    '.office-section', '.tool-card', '.notice', '.support-card', '.request-btn',
+    '.office-section', 'footer', '.tool-card', '.notice', '.support-card', '.request-btn',
     '.office-card'
   ].join(',');
   const targets = [...document.querySelectorAll(selectors)];
