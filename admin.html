@@ -1809,7 +1809,7 @@ li,
             <div
               class="eyebrow"
               style="font-size:9px;font-weight:900;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:14px"
-              Admin>
+            >Admin</div>
             <h1>Admin Center</h1>
             <div class="gate-divider" aria-hidden="true">
             </div>
@@ -1885,8 +1885,7 @@ li,
                       class="btn btn-primary export-main-btn"
                       id="exportPageBtn"
                       onclick="exportCurrentFile()"
-                      This
-                      Page>
+                    >Export This Page</button>
                     <button class="btn btn-soft" onclick="renderCurrent()">Refresh</button>
                   </div>
                 </div>
@@ -1940,13 +1939,23 @@ function previewGateTheme(theme) {
 window.addEventListener('error', function(e) {
   try {
     const gateErr = document.getElementById('gateErr');
-    if (gateErr && document.getElementById('app')?.style.display === 'none') {
-      gateErr.textContent = 'Admin script error: ' + (e.message || 'Unknown error');
+    const app = document.getElementById('app');
+
+    if (gateErr && app?.style.display === 'none') {
+      const failedFile = e.target && e.target.tagName === 'SCRIPT'
+        ? e.target.getAttribute('src')
+        : '';
+
+      gateErr.textContent = failedFile
+        ? 'Admin could not load ' + failedFile + '. Confirm that file is at the GitHub repository root.'
+        : 'Admin script error: ' + (e.message || 'Unknown error');
+
       gateErr.classList.remove('hidden');
     }
+
     console.error('My Peachtree Portal Admin error:', e.message, e.error);
   } catch (_) {}
-});
+}, true);
 const ADMIN_PASSWORD = 'peachtree2026';
 const LS_THEME = 'ptc_theme_v2';
 const TABS = [
@@ -1964,26 +1973,73 @@ const TABS = [
   ['status', 'Test Links'],
   ['export', 'Export / Publish']
 ];
+function cloneAdminData(value) {
+  if (typeof structuredClone === 'function')
+    return structuredClone(value);
+
+  return JSON.parse(JSON.stringify(value));
+}
+
 let DATA = {
-  SITE_CONFIG: structuredClone(typeof SITE_CONFIG === 'object' ? SITE_CONFIG : {}),
-  NOTIFICATIONS: structuredClone(Array.isArray(NOTIFICATIONS) ? NOTIFICATIONS : []),
-  QUICK_LINKS: structuredClone(Array.isArray(QUICK_LINKS) ? QUICK_LINKS : []),
-  RESOURCES: structuredClone(Array.isArray(RESOURCES) ? RESOURCES : []),
-  INSPIRATION_QUOTES: structuredClone(typeof INSPIRATION_QUOTES !== 'undefined' && Array.isArray(
-    INSPIRATION_QUOTES) ? INSPIRATION_QUOTES : []),
-  WHATS_NEW: structuredClone(typeof WHATS_NEW !== 'undefined' && Array.isArray(WHATS_NEW) ?
-    WHATS_NEW : []),
-  OFFICE_INFO: structuredClone(typeof OFFICE_INFO === 'object' ? OFFICE_INFO : {
-    locations: []
-  }),
-  SUPPORT_CONTACTS: structuredClone(typeof SUPPORT_CONTACTS !== 'undefined' && Array.isArray(
-    SUPPORT_CONTACTS) ? SUPPORT_CONTACTS : []),
-  REQUEST_TYPES: structuredClone(typeof REQUEST_TYPES !== 'undefined' && Array.isArray(
-    REQUEST_TYPES) ? REQUEST_TYPES : []),
-  DIRECTORY_CONTACTS: structuredClone(typeof DIRECTORY_CONTACTS !== 'undefined' && Array.isArray(
-    DIRECTORY_CONTACTS) ? DIRECTORY_CONTACTS : []),
-  ADVISOR_RESOURCES: structuredClone(typeof ADVISOR_RESOURCES !== 'undefined' && Array.isArray(
-    ADVISOR_RESOURCES) ? ADVISOR_RESOURCES : [])
+  SITE_CONFIG: cloneAdminData(
+    typeof SITE_CONFIG !== 'undefined' &&
+    SITE_CONFIG &&
+    typeof SITE_CONFIG === 'object'
+      ? SITE_CONFIG
+      : {}
+  ),
+  NOTIFICATIONS: cloneAdminData(
+    typeof NOTIFICATIONS !== 'undefined' && Array.isArray(NOTIFICATIONS)
+      ? NOTIFICATIONS
+      : []
+  ),
+  QUICK_LINKS: cloneAdminData(
+    typeof QUICK_LINKS !== 'undefined' && Array.isArray(QUICK_LINKS)
+      ? QUICK_LINKS
+      : []
+  ),
+  RESOURCES: cloneAdminData(
+    typeof RESOURCES !== 'undefined' && Array.isArray(RESOURCES)
+      ? RESOURCES
+      : []
+  ),
+  INSPIRATION_QUOTES: cloneAdminData(
+    typeof INSPIRATION_QUOTES !== 'undefined' && Array.isArray(INSPIRATION_QUOTES)
+      ? INSPIRATION_QUOTES
+      : []
+  ),
+  WHATS_NEW: cloneAdminData(
+    typeof WHATS_NEW !== 'undefined' && Array.isArray(WHATS_NEW)
+      ? WHATS_NEW
+      : []
+  ),
+  OFFICE_INFO: cloneAdminData(
+    typeof OFFICE_INFO !== 'undefined' &&
+    OFFICE_INFO &&
+    typeof OFFICE_INFO === 'object'
+      ? OFFICE_INFO
+      : { locations: [] }
+  ),
+  SUPPORT_CONTACTS: cloneAdminData(
+    typeof SUPPORT_CONTACTS !== 'undefined' && Array.isArray(SUPPORT_CONTACTS)
+      ? SUPPORT_CONTACTS
+      : []
+  ),
+  REQUEST_TYPES: cloneAdminData(
+    typeof REQUEST_TYPES !== 'undefined' && Array.isArray(REQUEST_TYPES)
+      ? REQUEST_TYPES
+      : []
+  ),
+  DIRECTORY_CONTACTS: cloneAdminData(
+    typeof DIRECTORY_CONTACTS !== 'undefined' && Array.isArray(DIRECTORY_CONTACTS)
+      ? DIRECTORY_CONTACTS
+      : []
+  ),
+  ADVISOR_RESOURCES: cloneAdminData(
+    typeof ADVISOR_RESOURCES !== 'undefined' && Array.isArray(ADVISOR_RESOURCES)
+      ? ADVISOR_RESOURCES
+      : []
+  )
 };
 
 /*
@@ -2009,7 +2065,7 @@ try {
     Date.now() - Number(storedPreview.createdAt || 0) < 4 * 60 * 60 * 1000
   ) {
     PTC_LIVE_PREVIEW_STATE = storedPreview;
-    DATA = structuredClone(storedPreview.data);
+    DATA = cloneAdminData(storedPreview.data);
   }
 } catch (error) {
   console.warn('Could not restore the live preview session:', error);
@@ -3867,7 +3923,7 @@ setTimeout(() => $('password').focus(), 200);
       file: file || currentExportFile(),
       tab,
       selected,
-      data: structuredClone(DATA)
+      data: cloneAdminData(DATA)
     };
 
     try {
