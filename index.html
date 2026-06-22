@@ -5908,6 +5908,116 @@ body.page-settled .cinematic-stage::before{animation-duration:42s;}
   }
 }
 
+/* Final footer marquee visibility fix — keep this after all other portal styles. */
+footer[aria-label="Site footer"] {
+  display: block !important;
+  position: relative !important;
+  z-index: 20 !important;
+  width: 100% !important;
+  min-height: 76px !important;
+  margin-top: 46px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  filter: none !important;
+  color: var(--text) !important;
+  border-top: 1px solid var(--border-2) !important;
+  background: linear-gradient(90deg, var(--card-2), var(--card), var(--card-2)) !important;
+}
+
+footer[aria-label="Site footer"].reveal-target,
+footer[aria-label="Site footer"].reveal-target.revealed,
+.motion-ready footer[aria-label="Site footer"].reveal-target {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  filter: none !important;
+  transition: none !important;
+}
+
+footer[aria-label="Site footer"] .footer-marquee-shell {
+  display: block !important;
+  width: 100% !important;
+  min-height: 76px !important;
+  padding: 23px 0 !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+footer[aria-label="Site footer"] .footer-marquee-track {
+  display: flex !important;
+  align-items: center !important;
+  width: max-content !important;
+  min-width: max-content !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  animation: footerMarqueeVisible 26s linear infinite !important;
+}
+
+footer[aria-label="Site footer"] .footer-marquee-group {
+  display: flex !important;
+  align-items: center !important;
+  flex: 0 0 auto !important;
+  gap: 42px !important;
+  padding-right: 42px !important;
+}
+
+footer[aria-label="Site footer"] .footer-marquee-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+  color: var(--text) !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(18px, 1.6vw, 24px) !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: .09em !important;
+  text-transform: uppercase !important;
+  opacity: 1 !important;
+}
+
+footer[aria-label="Site footer"] .footer-marquee-item::after {
+  content: '✦';
+  margin-left: 42px;
+  color: var(--gold);
+  font-size: .72em;
+}
+
+@keyframes footerMarqueeVisible {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (max-width: 760px) {
+  footer[aria-label="Site footer"] {
+    min-height: 68px !important;
+    margin-top: 34px !important;
+  }
+
+  footer[aria-label="Site footer"] .footer-marquee-shell {
+    min-height: 68px !important;
+    padding: 20px 0 !important;
+  }
+
+  footer[aria-label="Site footer"] .footer-marquee-track {
+    animation-duration: 20s !important;
+  }
+
+  footer[aria-label="Site footer"] .footer-marquee-item {
+    font-size: 17px !important;
+    letter-spacing: .075em !important;
+  }
+}
+
 </style>
 </head>
   <body data-season="default">
@@ -7951,7 +8061,7 @@ function initCinematicMotion() {
   const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)')
     .matches;
   const selectors = ['.cinematic-hero', '.announce-banner', '.section', '.support-section',
-    '.office-section', 'footer', '.tool-card', '.notice', '.support-card', '.request-btn',
+    '.office-section', '.tool-card', '.notice', '.support-card', '.request-btn',
     '.office-card'
   ].join(',');
   const targets = [...document.querySelectorAll(selectors)];
