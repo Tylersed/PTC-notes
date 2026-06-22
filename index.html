@@ -5671,6 +5671,243 @@ body.page-settled .cinematic-stage::before{animation-duration:42s;}
     height: min(210px, 58vw) !important;
   }
 }
+
+
+/* =========================================================
+   June 2026 — one-line portal title + focused ARC file viewer
+   ========================================================= */
+
+/* Keep the complete portal name on one line at every supported size. */
+.hero-title-stage,
+.hero-heading {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  white-space: nowrap !important;
+}
+
+.hero h1 {
+  font-size: clamp(50px, 5.35vw, 86px) !important;
+  line-height: .92 !important;
+  letter-spacing: -.045em !important;
+  max-width: none !important;
+  white-space: nowrap !important;
+}
+
+.portal-title-text {
+  display: inline-flex !important;
+  flex-wrap: nowrap !important;
+  width: max-content !important;
+  max-width: none !important;
+  white-space: nowrap !important;
+  gap: 0 !important;
+}
+
+.hero-title-word {
+  flex: 0 0 auto;
+  white-space: nowrap !important;
+}
+
+@media (min-width: 1101px) {
+  .hero.cinematic-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(350px, 390px) !important;
+    gap: clamp(24px, 3vw, 42px) !important;
+  }
+}
+
+@media (max-width: 1100px) {
+  .hero h1 {
+    font-size: clamp(46px, 7.2vw, 78px) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero h1 {
+    font-size: clamp(30px, 8.7vw, 44px) !important;
+    line-height: .96 !important;
+    letter-spacing: -.048em !important;
+  }
+
+  .hero-title-stage,
+  .portal-title-text {
+    width: max-content !important;
+    max-width: none !important;
+    flex-wrap: nowrap !important;
+  }
+}
+
+/* Once a resource is selected, turn the modal into a focused file workspace. */
+.advisor-resource-modal.preview-open .modal-panel {
+  width: min(1440px, calc(100% - 16px)) !important;
+  max-width: none !important;
+  max-height: calc(100svh - 16px) !important;
+  margin: 8px auto !important;
+  border-radius: 24px !important;
+}
+
+.advisor-resource-modal.preview-open .modal-head {
+  padding: 13px 18px !important;
+}
+
+.advisor-resource-modal.preview-open .modal-head .modal-kicker,
+.advisor-resource-modal.preview-open .modal-head .modal-sub {
+  display: none !important;
+}
+
+.advisor-resource-modal.preview-open .modal-head .modal-title {
+  font-size: clamp(25px, 2.2vw, 34px) !important;
+}
+
+.advisor-resource-modal.preview-open .modal-body {
+  padding: 12px !important;
+  scroll-behavior: smooth;
+}
+
+.advisor-resource-modal.preview-open .advisor-resource-controls,
+.advisor-resource-modal.preview-open .advisor-resource-filters,
+.advisor-resource-modal.preview-open .advisor-resource-breadcrumb,
+.advisor-resource-modal.preview-open .advisor-resource-grid {
+  display: none !important;
+}
+
+.advisor-resource-viewer {
+  position: relative;
+  margin-top: 0 !important;
+  border: 1px solid color-mix(in srgb, var(--gold) 34%, var(--border)) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, .16), 0 0 0 1px rgba(162, 124, 61, .06) inset !important;
+  scroll-margin-top: 10px;
+}
+
+.advisor-resource-viewer::before {
+  content: 'Selected resource';
+  position: absolute;
+  top: 14px;
+  left: 18px;
+  z-index: 4;
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: var(--reverse-bg);
+  color: var(--reverse);
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .13em;
+  line-height: 1;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.advisor-resource-viewer-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  padding: 48px 20px 18px !important;
+  background: linear-gradient(145deg, var(--card), var(--card-2)) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .06);
+}
+
+.advisor-resource-viewer-title {
+  font-size: clamp(32px, 3vw, 48px) !important;
+  line-height: 1 !important;
+}
+
+.advisor-resource-viewer-desc {
+  max-width: 760px;
+  font-size: 13px !important;
+}
+
+.advisor-resource-viewer-actions {
+  align-items: center;
+  justify-content: flex-end !important;
+}
+
+.advisor-resource-viewer-actions .advisor-resource-action {
+  min-height: 38px;
+  padding: 9px 12px;
+}
+
+.advisor-resource-frame-wrap,
+.advisor-resource-frame {
+  min-height: 560px !important;
+  height: clamp(560px, calc(100svh - 260px), 920px) !important;
+}
+
+.advisor-resource-preview-note,
+.advisor-resource-help-strip {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 760px) {
+  .advisor-resource-modal.preview-open .modal-panel {
+    width: calc(100% - 8px) !important;
+    max-height: calc(100svh - 8px) !important;
+    margin: 4px auto !important;
+    border-radius: 18px !important;
+  }
+
+  .advisor-resource-modal.preview-open .modal-head {
+    padding: 10px 12px !important;
+    align-items: center !important;
+  }
+
+  .advisor-resource-modal.preview-open .modal-head .modal-title {
+    font-size: 24px !important;
+  }
+
+  .advisor-resource-modal.preview-open .modal-body {
+    padding: 6px !important;
+  }
+
+  .advisor-resource-viewer {
+    border-radius: 16px !important;
+  }
+
+  .advisor-resource-viewer::before {
+    top: 12px;
+    left: 14px;
+  }
+
+  .advisor-resource-viewer-head {
+    padding: 44px 14px 14px !important;
+  }
+
+  .advisor-resource-viewer-title {
+    font-size: clamp(29px, 9vw, 40px) !important;
+  }
+
+  .advisor-resource-viewer-actions {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px !important;
+    width: 100%;
+    margin-top: 14px !important;
+  }
+
+  .advisor-resource-viewer-actions .advisor-resource-action {
+    width: 100%;
+    min-height: 42px;
+    text-align: center;
+  }
+
+  .advisor-resource-frame-wrap,
+  .advisor-resource-frame {
+    min-height: 440px !important;
+    height: 68svh !important;
+  }
+
+  .advisor-resource-preview-note {
+    padding: 14px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .advisor-resource-viewer-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 </head>
   <body data-season="default">
@@ -5837,30 +6074,30 @@ body.page-settled .cinematic-stage::before{animation-duration:42s;}
         <div class="footer-marquee-track">
           <div class="footer-marquee-group" aria-hidden="false">
             <span class="footer-marquee-item">
-              <span>Peachtree Town &amp; Country LLC · 2026</span>
+              <span>PEACHTREE TOWN &amp; COUNTRY · 2026 · INTERNAL USE ONLY</span>
             </span>
             <span class="footer-marquee-item">
-              <span>Peachtree Town &amp; Country LLC · 2026</span>
+              <span>PEACHTREE TOWN &amp; COUNTRY · 2026 · INTERNAL USE ONLY</span>
             </span>
             <span class="footer-marquee-item">
-              <span>Peachtree Town &amp; Country LLC · 2026</span>
+              <span>PEACHTREE TOWN &amp; COUNTRY · 2026 · INTERNAL USE ONLY</span>
             </span>
             <span class="footer-marquee-item">
-              <span>Peachtree Town &amp; Country LLC · 2026</span>
+              <span>PEACHTREE TOWN &amp; COUNTRY · 2026 · INTERNAL USE ONLY</span>
             </span>
           </div>
           <div class="footer-marquee-group" aria-hidden="true">
             <span class="footer-marquee-item">
-              <span>Peachtree Town &amp; Country LLC · 2026</span>
+              <span>PEACHTREE TOWN &amp; COUNTRY · 2026 · INTERNAL USE ONLY</span>
             </span>
             <span class="footer-marquee-item">
-              <span>Peachtree Town &amp; Country LLC · 2026</span>
+              <span>PEACHTREE TOWN &amp; COUNTRY · 2026 · INTERNAL USE ONLY</span>
             </span>
             <span class="footer-marquee-item">
-              <span>Peachtree Town &amp; Country LLC · 2026</span>
+              <span>PEACHTREE TOWN &amp; COUNTRY · 2026 · INTERNAL USE ONLY</span>
             </span>
             <span class="footer-marquee-item">
-              <span>Peachtree Town &amp; Country LLC · 2026</span>
+              <span>PEACHTREE TOWN &amp; COUNTRY · 2026 · INTERNAL USE ONLY</span>
             </span>
           </div>
         </div>
@@ -6891,6 +7128,7 @@ function advisorResourceCategories() {
 function openAdvisorResources() {
   advisorResourceStack = [];
   activeAdvisorResourceFilter = 'All';
+  $('advisorResourceModal')?.classList.remove('preview-open');
   if ($('advisorResourceSearch'))
     $('advisorResourceSearch').value = '';
   $('advisorResourceModal').classList.add('open');
@@ -6900,7 +7138,8 @@ function openAdvisorResources() {
 }
 
 function closeAdvisorResources() {
-  $('advisorResourceModal').classList.remove('open');
+  closeAdvisorResourcePreview();
+  $('advisorResourceModal').classList.remove('open', 'preview-open');
   document.body.style.overflow = '';
 }
 
@@ -7197,6 +7436,7 @@ function advisorResourceHelpEmail() {
 
 function closeAdvisorResourcePreview() {
   currentAdvisorResourceItem = null;
+  $('advisorResourceModal')?.classList.remove('preview-open');
   const viewer = $('advisorResourceViewer');
   const grid = $('advisorResourceGrid');
   if (viewer) {
@@ -7227,6 +7467,7 @@ function openAdvisorResourceItem(item) {
   const kind = advisorResourceKind(item);
   grid.classList.add('hidden');
   viewer.classList.remove('hidden');
+  $('advisorResourceModal')?.classList.add('preview-open');
   const simpleDesc = safe(item.desc || ('Click through, scroll, read, or review this ' + String(
     kind).toLowerCase() + ' here.'));
   const hasLocalPrint = !!advisorResourceLocalPrintUrl(item);
@@ -7285,9 +7526,21 @@ function openAdvisorResourceItem(item) {
         'Still opening… choose View Full Screen or Open in Google Drive if it does not appear.';
     }
   }, 3000);
-  viewer.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start'
+  requestAnimationFrame(() => {
+    const modalBody = viewer.closest('.modal-body');
+    if (modalBody) {
+      const viewerTop = viewer.getBoundingClientRect().top - modalBody.getBoundingClientRect().top +
+        modalBody.scrollTop;
+      modalBody.scrollTo({
+        top: Math.max(0, viewerTop - 6),
+        behavior: 'smooth'
+      });
+    } else {
+      viewer.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   });
 }
 
